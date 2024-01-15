@@ -1,0 +1,31 @@
+import React from 'react';
+
+import { usePageSettings } from '@/hooks/usePageSettings';
+import { updatePageSettings } from '@/store/pageSettingsSlice';
+import { useAppDispatch } from '@/store/useAppDispatch';
+import { PageSettings } from 'types';
+import { CustomColors } from './CustomColors';
+
+export function PageSettingsCustomColors() {
+  const dispatch = useAppDispatch();
+  const pageSettings = usePageSettings();
+  const colors: string[] = pageSettings.colors || [];
+
+  const onChange = ({ color, customColors }: { color?: string, customColors?: string [] }) => {
+    const nextPageSettings: Partial<PageSettings> = {};
+    if (color !== undefined) nextPageSettings.backgroundColor = color;
+    if (customColors) nextPageSettings.colors = customColors;
+
+    dispatch(updatePageSettings({
+      pageSettings: nextPageSettings,
+    }));
+  };
+
+  return (
+    <CustomColors
+      colors={colors}
+      onChange={onChange}
+      value={pageSettings.backgroundColor}
+    />
+  );
+}

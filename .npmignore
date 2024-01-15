@@ -1,0 +1,11 @@
+/build
+/docs
+/src
+.eslintrc
+.github
+.ladle
+pnpm-lock.yaml
+test.setup.js
+tsconfig.eslint.json
+tsconfig.json
+vite.config.js

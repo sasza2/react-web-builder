@@ -1,0 +1,67 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { WebBuilderElement, WebBuilderElements, ElementsInBreakpoints } from 'types';
+
+const initialState: ElementsInBreakpoints = {};
+
+type ActionAdd = PayloadAction<{ element: WebBuilderElement, breakpointId: string }>;
+
+type ActionAddMultiple = PayloadAction<{ elements: WebBuilderElement[], breakpointId: string }>;
+
+type ActionRemove = PayloadAction<{ elementId: string | number, breakpointId: string }>;
+
+type ActionRemoveAllByBreakpoint = PayloadAction<{ breakpointId: string }>;
+
+type ActionSet = PayloadAction<{ elements: WebBuilderElements, breakpointId: string }>;
+
+type ActionReplace = PayloadAction<{ elementsInBreakpoints: ElementsInBreakpoints }>;
+
+export const elementsInBreakpointsSlice = createSlice({
+  name: 'elementsInBreakpoints',
+  initialState,
+  reducers: {
+    addElementToBreakpoint: (state, { payload: { element, breakpointId } }: ActionAdd) => {
+      if (!state[breakpointId]) state[breakpointId] = [];
+      state[breakpointId].push(element);
+    },
+    addElementsToBreakpoint: (state, { payload: { elements, breakpointId } }: ActionAddMultiple) => {
+      if (!state[breakpointId]) state[breakpointId] = [];
+      state[breakpointId].push(...elements);
+    },
+    setElementsInBreakpoint: (state, { payload: { elements, breakpointId } }: ActionSet) => {
+      state[breakpointId] = elements;
+    },
+    setElementsInBreakpointProgrammatic: (state, { payload: { elements, breakpointId } }: ActionSet) => {
+      state[breakpointId] = elements;
+    },
+    removeElementFromBreakpoint: (
+      state,
+      { payload: { elementId, breakpointId } }: ActionRemove,
+    ) => {
+      if (!state[breakpointId]) return state;
+      state[breakpointId] = state[breakpointId].filter((element) => element.id !== elementId);
+    },
+    removeAllByBreakpoint: (
+      state,
+      { payload: { breakpointId } }: ActionRemoveAllByBreakpoint,
+    ) => {
+      delete state[breakpointId];
+    },
+    replaceElementsInBreakpoint: (
+      state,
+      { payload: { elementsInBreakpoints } }: ActionReplace,
+    ) => elementsInBreakpoints,
+  },
+});
+
+export const {
+  addElementToBreakpoint,
+  addElementsToBreakpoint,
+  setElementsInBreakpoint,
+  setElementsInBreakpointProgrammatic,
+  removeElementFromBreakpoint,
+  removeAllByBreakpoint,
+  replaceElementsInBreakpoint,
+} = elementsInBreakpointsSlice.actions;
+
+export default elementsInBreakpointsSlice.reducer;
