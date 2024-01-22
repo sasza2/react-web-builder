@@ -13,6 +13,8 @@ export const IconContainer = styled.div`
   color: ${({ theme }) => theme.colors.gray};
 
   svg {
+    position: relative;
+    left: -2px;
     height: 20px;
   }
 `;
