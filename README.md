@@ -13,4 +13,4 @@ See <a href="https://react-web-builder.100bit.pl">live example</a>
 
 ## Documentation
 
-See <a href="https://github.com/sasza2/rainboard-web/tree/master/docs/00-INTRODUCTION.md">documentation</a>
+See <a href="https://github.com/sasza2/react-web-builder/tree/master/docs/00-INTRODUCTION.md">documentation</a>
