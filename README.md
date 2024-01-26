@@ -5,7 +5,7 @@ React library for building pages with the ability to use own declared components
 npm install react-web-builder
 ```
 
-<img src="./docs/assets/intro-builder.gif" />
+<img src="https://raw.githubusercontent.com/sasza2/react-web-builder/master/docs/assets/intro-builder.gif" />
 
 ## Live
 

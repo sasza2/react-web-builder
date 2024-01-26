@@ -276,10 +276,10 @@ export type WebBuilderProps = {
   onAutoSave?: (page: Page) => void,
   onChange?: (page: Page) => void,
   onAboutClick?: (about: WebBuilderComponentPropertyAbout['button']) => void,
-  onExit?: () => Promise<unknown>,
-  onPublish: (page: Page) => Promise<unknown>,
-  onSaveAsDraft?: (page: Page) => Promise<unknown>,
-  onPagePreview?: (page: Page) => Promise<unknown>,
+  onExit?: () => Promise<void>,
+  onPublish?: (page: Page) => Promise<any>,
+  onSaveAsDraft?: (page: Page) => Promise<any>,
+  onPagePreview?: (page: Page) => Promise<any>,
 } & BuilderCommonProps
 
 export type Configuration = {

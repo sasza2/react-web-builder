@@ -72,11 +72,14 @@
   "scripts": {
     "build:lib": "tsc && vite build --config vite.lib.config.ts",
     "build:demo": "ladle build",
+    "changeset": "changeset",
     "dev": "ladle dev",
     "e2e": "playwright test",
     "lint": "eslint src tests --fix --cache",
     "test": "vitest run --coverage ./src --config vite.lib.config.ts",
-    "prepack": "pnpm build:lib"
+    "prepack": "pnpm build:lib",
+    "publish:package": "changeset publish",
+    "version:package": "changeset version"
   },
   "repository": {
     "type": "git",
@@ -112,6 +115,7 @@
     "@vitejs/plugin-react": "4.0.4",
     "@vitest/coverage-istanbul": "0.34.6",
     "babel-plugin-styled-components": "2.1.4",
+    "changeset": "0.2.6",
     "eslint": "8.50.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-typescript": "17.1.0",
