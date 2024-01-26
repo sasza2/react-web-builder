@@ -81,14 +81,17 @@
     "publish:package": "changeset publish",
     "version:package": "changeset version"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sasza2/react-panzoom.git"
+    "url": "git+https://github.com/sasza2/react-web-builder.git"
   },
   "author": "sasza",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sasza2/react-panzoom/issues"
+    "url": "https://github.com/sasza2/react-web-builder/issues"
   },
   "browser": {
     "[module-name]": false
