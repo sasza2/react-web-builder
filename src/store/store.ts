@@ -29,5 +29,6 @@ export type StateInitialChanges = Partial<{
   breakpoints: Breakpoint[],
   elementsInBreakpoints: ElementsInBreakpoints,
   selectedBreakpoint: string | null,
+  selectedElements: Array<string | number>,
   pageSettings: PageSettings,
 }>;

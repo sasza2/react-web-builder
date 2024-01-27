@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { PopupItem } from '@/components/Navbar/PublishButton/PublishButton.styled';
 import { useCopyElements } from '@/hooks/useCopyElements';
+import { useSelectedElements } from '@/hooks/useSelectedElements';
 
 type CopyElementProps = {
   elementId: string | number,
@@ -12,6 +13,12 @@ type CopyElementProps = {
 export function CopyElement({ elementId, onClose }: CopyElementProps) {
   const { t } = useTranslation();
   const { copyElement } = useCopyElements();
+  const { selectedElements } = useSelectedElements();
+  const isSelected = selectedElements.includes(elementId);
+
+  const label = isSelected && selectedElements.length > 1
+    ? t('element.copySelected')
+    : t('element.copy');
 
   const onCopyElement = () => {
     copyElement(elementId);
@@ -20,7 +27,7 @@ export function CopyElement({ elementId, onClose }: CopyElementProps) {
 
   return (
     <PopupItem onClick={onCopyElement}>
-      {t('element.copy')}
+      {label}
     </PopupItem>
   );
 }

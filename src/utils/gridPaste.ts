@@ -1,4 +1,6 @@
-import { Breakpoint, Tree, WebBuilderElement } from 'types';
+import {
+  Breakpoint, Tree, WebBuilderElement, WebBuilderElements,
+} from 'types';
 import { createUniqueId } from './createUniqueId';
 
 type PasteElement = (props: {
@@ -80,6 +82,8 @@ type PasteElements = (props: {
   y: number,
 }) => WebBuilderElement[];
 
+const getYMinOfElements = (elements: WebBuilderElements) => Math.min(...elements.map(({ y }) => y));
+
 export const pasteElements: PasteElements = ({
   elements,
   breakpoint,
@@ -88,10 +92,11 @@ export const pasteElements: PasteElements = ({
   y,
 }) => {
   if (clipboardBreakpoint.cols === breakpoint.cols) {
+    const yMinOfElements = getYMinOfElements(elements);
     return elements.map((element) => ({
       ...element,
       id: createUniqueId(),
-      y: element.y + y,
+      y: element.y + y - yMinOfElements,
       x: element.x,
     }));
   }

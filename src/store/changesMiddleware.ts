@@ -10,6 +10,7 @@ import { replaceSelectedElement } from './selectedElementSlice';
 import { replaceSidebar } from './sidebarSlice';
 import { RootState, Store } from './store';
 import reducer from './reducer';
+import { replaceSelectedElements } from './selectedElementsSlice';
 
 function updateStore(store: Store) {
   const temporaryReducer = {
@@ -45,6 +46,9 @@ function updateStore(store: Store) {
   }));
   store.dispatch(replaceSidebar(nextState.sidebar));
   store.dispatch(replacePageSettings(nextState.pageSettings));
+  store.dispatch(replaceSelectedElements({
+    elementsIds: nextState.selectedElements,
+  }));
 }
 
 type ActionName = typeof actions[number]

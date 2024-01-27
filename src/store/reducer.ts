@@ -4,6 +4,7 @@ import elementsInBreakpointsReducer from './elementsInBreakpointsSlice';
 import pageSettingsReducer from './pageSettingsSlice';
 import selectedBreakpointReducer from './selectedBreakpointSlice';
 import selectedElementReducer from './selectedElementSlice';
+import selectedElementsReducer from './selectedElementsSlice';
 import sidebarReducer from './sidebarSlice';
 
 const reducer = {
@@ -13,6 +14,7 @@ const reducer = {
   pageSettings: pageSettingsReducer,
   selectedBreakpoint: selectedBreakpointReducer,
   selectedElement: selectedElementReducer,
+  selectedElements: selectedElementsReducer,
   sidebar: sidebarReducer,
 };
 
