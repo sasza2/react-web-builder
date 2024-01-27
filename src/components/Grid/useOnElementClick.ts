@@ -1,3 +1,5 @@
+import { GridProps } from 'react-grid-panzoom';
+
 import { useSelectedElementId } from '@/hooks/useSelectedElementId';
 import { useSelectedElements } from '@/hooks/useSelectedElements';
 import { useConfiguration } from '../ConfigurationProvider';
@@ -7,10 +9,16 @@ const useOnElementClick = () => {
   const [selectedElementId, setSelectedElementId] = useSelectedElementId();
   const isDoubleClickOnElement = useIsDoubleClickOnElement();
   const configuration = useConfiguration();
-  const { selectedElements, setSelectedElements } = useSelectedElements();
+  const { selectedElements, setSelectedElements, toggleSelectedElement } = useSelectedElements();
 
-  const onElementClick = ({ id }: { id?: string | number }) => {
+  const onElementClick: GridProps['onElementClick'] = ({ id }, { e, stop }) => {
     if (!id) return;
+
+    if (e.shiftKey) {
+      toggleSelectedElement(id);
+      stop();
+      return;
+    }
 
     if (!selectedElements.includes(id)) {
       setSelectedElements([]);

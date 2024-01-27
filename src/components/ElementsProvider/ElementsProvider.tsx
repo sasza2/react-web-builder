@@ -1,5 +1,5 @@
 import React, {
-  createContext, useMemo, useRef, useState,
+  createContext, useMemo, useRef,
 } from 'react';
 
 import {
@@ -14,8 +14,6 @@ type IElementsContext = {
   elements: WebBuilderElements,
   elementsCache: React.MutableRefObject<Map<ElementId, ElementRenderFunc>>,
   elementsExtras: React.MutableRefObject<BreakpointsExtras>,
-  selectedElements: (string | number)[],
-  setSelectedElements: React.Dispatch<React.SetStateAction<(string | number)[]>>,
 };
 
 const EMPTY_ELEMENTS: WebBuilderElements = [];
@@ -26,7 +24,6 @@ export function ElementsProvider({ children }: React.PropsWithChildren) {
   const { page } = useWebBuilderProperties();
   const elementsInBreakpoints = useAppSelector((state) => state.elementsInBreakpoints);
   const breakpoint = useBreakpoint();
-  const [selectedElements, setSelectedElements] = useState<string[]>([]);
 
   const elementsCache = useRef<Map<ElementId, ElementRenderFunc>>();
   if (!elementsCache.current) {
@@ -41,8 +38,8 @@ export function ElementsProvider({ children }: React.PropsWithChildren) {
   const elements = elementsInBreakpoints[breakpoint?.id] || EMPTY_ELEMENTS;
 
   const value = useMemo(() => ({
-    elements, elementsCache, elementsExtras, selectedElements, setSelectedElements,
-  }), [elements, elementsCache, elementsExtras, selectedElements, setSelectedElements]);
+    elements, elementsCache, elementsExtras,
+  }), [elements, elementsCache, elementsExtras]);
 
   return (
     <ElementsContext.Provider value={value}>

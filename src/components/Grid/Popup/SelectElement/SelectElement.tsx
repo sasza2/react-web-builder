@@ -11,17 +11,11 @@ type SelectElementProps = {
 
 export function SelectElement({ elementId, onClose }: SelectElementProps) {
   const { t } = useTranslation();
-  const { selectedElements, setSelectedElements } = useSelectedElements();
+  const { selectedElements, toggleSelectedElement } = useSelectedElements();
   const selected = selectedElements.includes(elementId);
 
   const onClick = () => {
-    setSelectedElements((currentSelectedElements) => {
-      if (selected) {
-        return currentSelectedElements.filter((id) => id !== elementId);
-      }
-      return [...currentSelectedElements, elementId];
-    });
-
+    toggleSelectedElement(elementId);
     onClose();
   };
 

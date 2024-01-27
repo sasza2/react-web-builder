@@ -1,15 +1,32 @@
-import { ElementsContext } from '@/components/ElementsProvider';
-import { useContext } from 'react';
+import { setSelectedElements, toggleSelectedElement } from '@/store/selectedElementsSlice';
+import { useAppDispatch } from '@/store/useAppDispatch';
+import { useAppSelector } from '@/store/useAppSelector';
 
 type UseSelectedElements = () => {
   selectedElements: Array<string | number>,
-  setSelectedElements: React.Dispatch<React.SetStateAction<Array<string | number>>>,
+  setSelectedElements: (selectedElements: Array<string | number>) => void,
+  toggleSelectedElement: (elementId: string | number) => void,
 };
 
 export const useSelectedElements: UseSelectedElements = () => {
-  const { selectedElements, setSelectedElements } = useContext(ElementsContext);
+  const selectedElements = useAppSelector((state) => state.selectedElements);
+  const dispatch = useAppDispatch();
+
+  const setSelectedElementsDispatch = (nextSelectedElements: Array<string | number>) => {
+    dispatch(setSelectedElements({
+      elementsIds: nextSelectedElements,
+    }));
+  };
+
+  const toggleSelectedElementDispatch = (elementId: string | number) => {
+    dispatch(toggleSelectedElement({
+      elementId,
+    }));
+  };
+
   return {
     selectedElements,
-    setSelectedElements,
+    setSelectedElements: setSelectedElementsDispatch,
+    toggleSelectedElement: toggleSelectedElementDispatch,
   };
 };

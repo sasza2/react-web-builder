@@ -88,6 +88,7 @@ export default {
     content: 'Content',
     copy: 'Copy element',
     copyAll: 'Copy all elements',
+    copySelected: 'Copy elements',
     customButton: 'Custom button',
     customColor: 'Custom color',
     dashes: {
@@ -95,6 +96,7 @@ export default {
       width: 'Dashes width',
     },
     delete: 'Delete element',
+    deleteSelected: 'Delete elements',
     deselect: 'Deselect',
     height: 'Height',
     iframe: {

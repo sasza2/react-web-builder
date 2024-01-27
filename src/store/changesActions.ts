@@ -4,12 +4,14 @@ import {
   addElementsToBreakpoint,
   setElementsInBreakpoint,
   removeElementFromBreakpoint,
+  removeElementsFromBreakpoint,
   removeAllByBreakpoint,
   setElementsInBreakpointProgrammatic,
 } from './elementsInBreakpointsSlice';
 import { updatePageSettings } from './pageSettingsSlice';
 import { setSelectedBreakpoint } from './selectedBreakpointSlice';
 import { setSelectedElement } from './selectedElementSlice';
+import { setSelectedElements, toggleSelectedElement } from './selectedElementsSlice';
 import { setSidebarView, setSidebar } from './sidebarSlice';
 
 const actionsImportant = [
@@ -20,8 +22,11 @@ const actionsImportant = [
   addElementToBreakpoint,
   addElementsToBreakpoint,
   setElementsInBreakpoint,
+  setSelectedElements,
   removeElementFromBreakpoint,
+  removeElementsFromBreakpoint,
   removeAllByBreakpoint,
+  toggleSelectedElement,
 ].map((action) => action().type);
 
 export const actionsToOmit = [
