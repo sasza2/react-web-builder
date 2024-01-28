@@ -224,6 +224,16 @@ same as richtext, but `text` is static (can't be changed)
 | defaultValue.textAlign | string | CSS <a href="https://www.w3schools.com/cssref/pr_text_text-align.php">text-align</a> |
 | defaultValue.size | number | font size in pixels (number) |
 
+### img
+image upload
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| defaultValue.location | string | image url location |
+| defaultValue.upload | unknown | details about upload |
+
+See <a href="./09-IMAGE-UPLOAD.md">image upload</a>
+
 ### url
 input field for setting url
 

@@ -107,6 +107,12 @@ export default {
     image: 'Image',
     imageUrl: 'Image source',
     imageLink: 'Link destination',
+    imageUpload: {
+      change: 'Change image',
+      pending: 'Uploading image',
+      success: 'Image uploaded',
+      upload: 'Upload image',
+    },
     line: {
       name: 'Line',
       dashed: 'Dashed',

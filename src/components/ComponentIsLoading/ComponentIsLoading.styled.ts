@@ -9,11 +9,3 @@ export const Container = styled.div`
 export const Label = styled.div`
   color: ${({ theme }) => theme.colors.black};
 `;
-
-export const Loader = styled.div`
-  svg {
-    width: 15px;
-    fill: ${({ theme }) => theme.colors.darkBlue};
-    animation: rotate 2s infinite linear;
-  }
-`;

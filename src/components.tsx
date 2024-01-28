@@ -123,7 +123,7 @@ export const useInternalComponents = ({
         {
           id: 'url',
           label: <Trans i18nKey="element.imageUrl" />,
-          type: 'url',
+          type: 'img',
           defaultValue: { location: defaultImageSrc || DEFAULT_IMAGE_SRC },
         },
         {

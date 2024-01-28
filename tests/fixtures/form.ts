@@ -129,6 +129,7 @@ export const editField = async (container: Locator, label: string, value: unknow
     case 'border':
       await editBorder(formProperty, value as EditBorderValue);
       break;
+    case 'img':
     case 'url':
       await editUrl(formProperty, value as string);
       break;
