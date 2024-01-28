@@ -31,6 +31,7 @@ export function AutoFocus({ autoFocus = false, editor }: AutoFocusProps): JSX.El
 
       if (!autoFocusRichTextInEditProperties || !autoFocus) {
         textbox.blur();
+        clearInterval(timer);
         return;
       }
 
