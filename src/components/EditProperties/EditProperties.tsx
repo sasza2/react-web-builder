@@ -22,6 +22,7 @@ import { Actions } from './EditProperties.styled';
 import { FormProvider, useFormCreator } from '../FormProvider/FormProvider';
 import { FormContainerDiv } from '../forms/FormContainerDiv';
 import { FormProperty } from '../FormProperty';
+import { useWebBuilderProperties } from '../PropertiesProvider';
 
 type EditPropertiesProps = {
   components: Array<WebBuilderComponent>,
@@ -55,6 +56,7 @@ export function EditPropertiesIn({
   const undoKey = useAppSelector((state) => state.changes.undoKey);
   const updateElementsTimeout = useTimeout();
   const organizerElementsTimeout = useTimeout();
+  const { onImageUpload } = useWebBuilderProperties();
 
   const formCreator = useFormCreator(() => {
     const element = getElement(selectedElementId, elements);
@@ -156,6 +158,7 @@ export function EditPropertiesIn({
             formCreatorId={formCreator.id}
             prop={prop}
             name={elementProp.propId}
+            onImageUpload={onImageUpload}
           />
         );
       });

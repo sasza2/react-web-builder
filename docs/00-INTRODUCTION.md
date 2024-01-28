@@ -84,7 +84,8 @@ Builder has default components to be used like Text, Image, Video, Line, Separat
 | onAutoSave | function | Callback with `page` on each change in builder. Works only if option "Auto save" in configuration (top right edge) is ON |
 | onChange | function | Callback with `page` on every change |
 | onAboutClick | function | Callback on click on <a href="./01-COMPONENTS.md#about">about</a> component |
-| onExit | function | Callback on click "Exit" in "Save / Publish" options"
+| onExit | function | Callback on click "Exit" in "Save / Publish" options" |
+| onImageUpload | function | More about <a href="./09-IMAGE-UPLOAD.md">Image upload</a> |
 | onPublish | function | Callback on click "Publish" page (<a href="#example">Example</a>) |
 | onSaveAsDraft | function | Callback with `page` on click "Save as draft" |
 | onPagePreview | function | Callback with `page` on click icon "Preview" |

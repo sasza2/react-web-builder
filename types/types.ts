@@ -79,6 +79,12 @@ export type ElementURL = {
   openInNewTab?: boolean,
 }
 
+export type ImageURL = {
+  location?: string,
+  locationUpload?: string,
+  upload?: unknown,
+}
+
 export type WebBuilderComponentProperty = ({
   type: 'toggle',
   label: JSX.Element | string,
@@ -125,6 +131,10 @@ export type WebBuilderComponentProperty = ({
   type: 'fontOptions',
   label: JSX.Element | string,
   defaultValue?: PropertyDefaultValue<FontOptions>,
+} | {
+  type: 'img',
+  label: JSX.Element | string,
+  defaultValue?: PropertyDefaultValue<ImageURL>,
 } | {
   type: 'url',
   label: JSX.Element | string,
@@ -267,6 +277,8 @@ export type HelperArrowItem = {
   title: string,
 };
 
+export type OnImageUpload = (file: any) => Promise<ImageURL>
+
 export type WebBuilderProps = {
   builderHints?: HelperArrowItem[],
   navbarIcons?: Array<WebBuilderNavbarIcon>,
@@ -277,6 +289,7 @@ export type WebBuilderProps = {
   onChange?: (page: Page) => void,
   onAboutClick?: (about: WebBuilderComponentPropertyAbout['button']) => void,
   onExit?: () => Promise<void>,
+  onImageUpload?: OnImageUpload,
   onPublish?: (page: Page) => Promise<any>,
   onSaveAsDraft?: (page: Page) => Promise<any>,
   onPagePreview?: (page: Page) => Promise<any>,

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { WebBuilderComponentProperty } from 'types';
+import { OnImageUpload, WebBuilderComponentProperty } from 'types';
 import { assignTestProp } from '@/utils/tests';
 import { ColorPicker } from '../forms/ColorPicker';
 import { Input } from '../forms/Input';
@@ -16,11 +16,13 @@ import { ListOrder } from '../forms/ListOrder';
 import { FontOptions } from '../forms/FontOptions';
 import { InputHTML } from '../forms/InputHTML';
 import { URLInput } from '../forms/URLInput';
+import { ImageUpload } from '../forms/ImageUpload';
 
 type FormPropertyProps = {
   autoFocus?: boolean,
   defaultValue?: unknown,
   formCreatorId: string,
+  onImageUpload?: OnImageUpload,
   prop: WebBuilderComponentProperty,
   testId?: string,
   name: string,
@@ -30,6 +32,7 @@ export function FormProperty({
   autoFocus,
   defaultValue,
   formCreatorId,
+  onImageUpload,
   prop,
   testId = 'formProperty',
   name,
@@ -184,6 +187,21 @@ export function FormProperty({
           button={prop.button}
           description={prop.description}
         />
+      </FormGroup>
+    );
+  }
+  if (prop.type === 'img') {
+    return (
+      <FormGroup {...assignTestProp(testId, null, prop.type)}>
+        <FormHeader>
+          {prop.label}
+        </FormHeader>
+        { onImageUpload && (
+          <ImageUpload
+            name={name}
+            onImageUpload={onImageUpload}
+          />
+        ) }
       </FormGroup>
     );
   }
