@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { Breakpoint } from 'types';
 
+const initialState: Breakpoint[] = [];
+
 type ActionAdd = PayloadAction<{ breakpoint: Breakpoint }>;
 
 type ActionRemove = PayloadAction<{ breakpoint: Breakpoint }>;
@@ -12,7 +14,7 @@ type ActionReplaceAll = PayloadAction<{ breakpoints: Breakpoint[] }>;
 
 export const breakpointsSlice = createSlice({
   name: 'breakpoints',
-  initialState: [] as Breakpoint[],
+  initialState,
   reducers: {
     addBreakpoint: (state, { payload: { breakpoint } }: ActionAdd) => [...state, breakpoint],
     removeBreakpoint: (state, { payload: { breakpoint } }: ActionRemove) => state.filter((currentBreakpoint) => currentBreakpoint.id !== breakpoint.id),
