@@ -101,7 +101,7 @@ export default {
     height: 'Height',
     iframe: {
       height: 'Iframe height',
-      name: 'HTML iframe',
+      name: 'HTML Iframe',
       src: 'Iframe source',
     },
     image: 'Image',
