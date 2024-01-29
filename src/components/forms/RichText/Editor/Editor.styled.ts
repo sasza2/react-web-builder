@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 
+import { RESIZABLE_PROP_NAME } from '@/components/Resizable';
+
 export const SLATE_HIGHLIGHTED = 'react-web-builder-editor-higlighted';
 
 export const EditableWrapper = styled.div`
-  height: 160px;
-  max-height: 160px;
+  height: ${() => `calc(var(${RESIZABLE_PROP_NAME}, 160px) - 10px)`};
+  max-height: ${() => `calc(var(${RESIZABLE_PROP_NAME}, 160px) - 10px)`};
 
   div[role="textbox"] {
     min-height: 140px;
+    height: calc(100% - 20px);
     outline: none;
   }
 
@@ -18,6 +21,7 @@ export const EditableWrapper = styled.div`
 
 export const EditableIn = styled.div`
   margin: 5px;
+  height: calc(100% - 10px);
 `;
 
 export const EditableMargin = styled.div`
