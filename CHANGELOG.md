@@ -1,5 +1,17 @@
 # react-web-builder
 
+## 0.3.0
+
+### Minor Changes
+
+- dc5ce1c: add resizable vertical to richtext editor
+- e33ed6f: remember accordion state in select new component when changing to other sidebar view
+
+### Patch Changes
+
+- 6c42368: separator tooltip - shorten first scene and 'this is separtor element' scene
+- b8552ec: change locale en from 'HTML iframe' to 'HTML Iframe'
+
 ## 0.2.0
 
 ### Minor Changes
