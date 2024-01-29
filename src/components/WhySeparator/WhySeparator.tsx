@@ -42,7 +42,7 @@ type AnimationState = {
 const createAnimations = (t: TFunction): AnimationState[] => [
   {
     id: AnimationType.ExtendWithoutSeparator,
-    speed: 5000,
+    speed: 3000,
     to: MIN_WIDTH,
     hasSeparator: false,
     arrow: {
@@ -78,7 +78,7 @@ const createAnimations = (t: TFunction): AnimationState[] => [
   {
     id: AnimationType.None,
     animationSeparator: AnimationSeparator.Show,
-    speed: 5000,
+    speed: 3000,
     to: MIN_WIDTH,
     hasSeparator: true,
     arrow: {
