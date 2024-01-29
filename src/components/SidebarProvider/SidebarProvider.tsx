@@ -1,3 +1,4 @@
+import { AccordionState, useAccordion } from '@/hooks/useAccordion';
 import React, {
   createContext, PropsWithChildren, useContext, useMemo, useRef,
 } from 'react';
@@ -15,9 +16,15 @@ export enum SidebarView {
 type SidebarContext = {
   modalRef: React.MutableRefObject<HTMLDivElement>;
   sidebarRef: React.MutableRefObject<HTMLDivElement>;
+  selectNewElementAccordion: AccordionState,
 };
 
 const Sidebar = createContext<SidebarContext>({} as SidebarContext);
+
+export const useSelectNewElementAccordion = (): AccordionState => {
+  const { selectNewElementAccordion } = useContext(Sidebar);
+  return selectNewElementAccordion;
+};
 
 export const useSidebarRef = (): React.MutableRefObject<HTMLDivElement> => {
   const { sidebarRef } = useContext(Sidebar);
@@ -32,11 +39,13 @@ export const useSidebarModalRef = (): React.MutableRefObject<HTMLDivElement> => 
 export function SidebarProvider({ children }: PropsWithChildren) {
   const modalRef = useRef<HTMLDivElement>();
   const sidebarRef = useRef<HTMLDivElement>();
+  const selectNewElementAccordion = useAccordion();
 
   const value = useMemo(() => ({
+    selectNewElementAccordion,
     modalRef,
     sidebarRef,
-  }), [sidebarRef]);
+  }), [selectNewElementAccordion, sidebarRef]);
 
   return (
     <Sidebar.Provider value={value}>
