@@ -20,6 +20,7 @@ import { Icon } from '../icons/Icon';
 import { SidebarScrollbar } from '../SidebarScrollbar';
 import { PickComponent } from './PickComponent';
 import { Container, Grid, GridItem } from './SelectNewElement.styled';
+import { useSelectNewElementAccordion } from '../SidebarProvider';
 
 const componentName = 'SelectNewElement';
 
@@ -64,6 +65,7 @@ function SelectNewElementIn({
   const { t } = useTranslation();
   const [dragElement, setDragElement] = useState<DragElementDetails>(null);
   const gridTop = useGridPositionTop();
+  const accordion = useSelectNewElementAccordion();
 
   const groups = useMemo(() => sortGroups(Object.values(components.reduce((map, component) => {
     getGroupsFromComponent(component, t).forEach((group) => {
@@ -134,9 +136,12 @@ function SelectNewElementIn({
           {t('selectNewElement.title')}
         </SidebarHeader>
         <SidebarScrollbar>
-          <Accordion allowMultipleExpanded allowZeroExpanded>
+          <Accordion allowMultipleExpanded allowZeroExpanded {...accordion}>
             {groups.map((groupWithComponents) => (
-              <AccordionItem key={groupWithComponents.group.id}>
+              <AccordionItem
+                key={groupWithComponents.group.id}
+                uuid={groupWithComponents.group.id}
+              >
                 <AccordionItemHeading>
                   <AccordionItemButton
                     data-id="accordionItemButton"
