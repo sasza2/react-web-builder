@@ -5,10 +5,10 @@ export const Title = styled.div<{ $animating: boolean }>`
   align-items: center;
   flex-direction: column;
   position: fixed;
-  top: 80%;
+  top: auto;
   right: 0;
   left: 0;
-  bottom: 0;
+  bottom: 5%;
   z-index: ${({ theme }) => theme.zIndex.max};
   pointer-events: none;
   opacity: ${({ $animating }) => ($animating ? '0' : '1')};
