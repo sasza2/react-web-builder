@@ -12,8 +12,8 @@ dependencies:
     specifier: 1.9.5
     version: 1.9.5(react-redux@7.2.9)(react@18.2.0)
   '@sasza/react-panzoom':
-    specifier: 1.12.0
-    version: 1.12.0(react@18.2.0)
+    specifier: 1.13.0
+    version: 1.13.0(react@18.2.0)
   arrows-svg:
     specifier: 1.5.6
     version: 1.5.6
@@ -33,8 +33,8 @@ dependencies:
     specifier: 5.2.6
     version: 5.2.6(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
   react-grid-panzoom:
-    specifier: 1.4.1
-    version: 1.4.1(react-dom@18.2.0)(react@18.2.0)
+    specifier: 1.4.2
+    version: 1.4.2(react-dom@18.2.0)(react@18.2.0)
   react-i18next:
     specifier: 13.2.2
     version: 13.2.2(i18next@23.5.1)(react-dom@18.2.0)(react@18.2.0)
@@ -1626,12 +1626,12 @@ packages:
     dev: true
     optional: true
 
-  /@sasza/react-panzoom@1.12.0(react@18.2.0):
-    resolution: {integrity: sha512-57BX8LAfBfdXnUFoDVokOy+iVV3VjReVp7x+v55WW1ByasMK4zx2r32NQJcSX4zbq23Qa2F4XJhAstZjNSap4w==}
+  /@sasza/react-panzoom@1.13.0(react@18.2.0):
+    resolution: {integrity: sha512-c+C9Ox2i9QU85R0LMuTYKTr6VcFlvqxx/qpHC4jXhxszHnfGkDyxhtVYtPPVtmpBjMYG65QDQI+yTnfcZDJrrw==}
     peerDependencies:
       react: '>=16.14.0'
     dependencies:
-      panzoom-core: 1.4.4
+      panzoom-core: 1.5.0
       react: 18.2.0
     dev: false
 
@@ -6294,8 +6294,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /panzoom-core@1.4.4:
-    resolution: {integrity: sha512-OAtBCN4/duQXTtsGDaNgKSNYUp0RRSzcP3zpJMG9WVRgf1uJvlgIO/lY+fclfqODAmiKwxZFa40OlG3WN7n7Vg==}
+  /panzoom-core@1.5.0:
+    resolution: {integrity: sha512-X0Eh9LbZfk4Nq5HMQf++ItnmEQ+7N980OqD9nrXwi5d615Gyfvyzh92YOOraXshM0M7apKTEUBH4fau8Q8NNiw==}
     dev: false
 
   /parent-module@1.0.1:
@@ -6593,13 +6593,13 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-grid-panzoom@1.4.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-VIOrj4NBzYRWQxFmLU3CBvAOg1ZqOTWrIGrtthYzh7F/KYt4H/ZX6Dw1vtsgHas3tfNC9XYgG0JwH5327++0GA==}
+  /react-grid-panzoom@1.4.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-f7G+n9TLVQ1oTf1DIQJrlis7/l6jZ89xXCMQrLD8gfSq1TAFsbISe7KA+GKq2UN2whMhGwm0qc+VtFVjfX5wQg==}
     peerDependencies:
       react: '>=16.14.0'
       react-dom: '>=16.14.0'
     dependencies:
-      '@sasza/react-panzoom': 1.12.0(react@18.2.0)
+      '@sasza/react-panzoom': 1.13.0(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
