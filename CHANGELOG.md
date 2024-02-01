@@ -1,5 +1,13 @@
 # react-web-builder
 
+## 0.3.1
+
+### Patch Changes
+
+- d1e5d14: fixes in english translations
+- 3d6f9ca: fix hint button visibility on "smaller" resolutions like 1366 x 768
+- d69615b: fix unnecessary mutual highlight of grid components and items in form list component in sidebar. now only one component is highlighting elements inside
+
 ## 0.3.0
 
 ### Minor Changes
