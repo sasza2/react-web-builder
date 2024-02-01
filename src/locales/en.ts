@@ -74,7 +74,7 @@ export default {
     },
     preventCloseEditOnClick: {
       title: 'Close edit on click',
-      description: 'Prevent closing editing properties of element when on click outside of it',
+      description: 'Prevent closing editing properties of element on click outside of it',
     },
   },
   element: {
@@ -198,7 +198,7 @@ export default {
   whySeparator: {
     close: 'Click anywhere to close',
     moveVerticaly: 'Look how this element will move vertically.',
-    sticksHorizontally: 'Look how element sticks horizontally. it won\'t get above separator.',
+    sticksHorizontally: 'Look how element sticks horizontally. It won\'t get above separator.',
     tooltip: 'Click to see why it is important to use separators',
   },
 };
