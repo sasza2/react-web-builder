@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.3.2
+
+### Patch Changes
+
+- 7988782: change breakpoint hint text
+
 ## 0.3.1
 
 ### Patch Changes
