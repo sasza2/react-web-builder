@@ -152,7 +152,7 @@ export default {
   },
   hints: {
     addNewElement: 'Use sections to view elements. Drag and drop chosen elements to add them to your page',
-    changeBreakpoint: 'Use this dropdown to switch between breakpoints (mobile or desktop)',
+    changeBreakpoint: 'Use this dropdown to switch between breakpoints for different devices like mobile, tablet, desktop',
     configuration: 'Use this icon to manage your settings',
     confirm: 'ok',
     preview: 'Use this icon to preview your page',
