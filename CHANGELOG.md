@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.4.0
+
+### Minor Changes
+
+- 40b6123: add configuration setting grid zoom position
+
 ## 0.3.2
 
 ### Patch Changes
