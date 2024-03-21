@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.5.0
+
+### Minor Changes
+
+- 25164ef: add possibility to change link color in box component
+
 ## 0.4.0
 
 ### Minor Changes
