@@ -22,7 +22,7 @@ export function Leaf({
   let leafClassName = (className || '') as string;
 
   if (hyperlinkAvailable !== false && leaf.link) {
-    children = <a href={leaf.link}>{children}</a>;
+    children = <a style={{ color: leaf.color }} href={leaf.link}>{children}</a>;
   }
 
   if (leaf.bold) {
