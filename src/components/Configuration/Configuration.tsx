@@ -67,6 +67,20 @@ export function Configuration() {
           }
           <FormGroup>
             <FormHeader>
+              {t('configuration.gridZooming.title')}
+            </FormHeader>
+            <FormProvider
+              getFormValues={getFormValues}
+              setForm={setConfiguration}
+            >
+              <Toggle
+                name="gridZoomingInCenter"
+                label={t('configuration.gridZooming.description')}
+              />
+            </FormProvider>
+          </FormGroup>
+          <FormGroup>
+            <FormHeader>
               {t('configuration.autoSave.title')}
             </FormHeader>
             <FormProvider

@@ -13,6 +13,7 @@ const defaultValues: Configuration = {
   autoFocusRichTextInEditProperties: true,
   autoSave: false,
   bringElementsAbove: true,
+  gridZoomingInCenter: false,
   helpLines: true,
   panZoomScroll: false,
   builderHintsId: 0,
