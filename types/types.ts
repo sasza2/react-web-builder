@@ -299,6 +299,7 @@ export type Configuration = {
   autoFocusRichTextInEditProperties: boolean,
   autoSave: boolean,
   bringElementsAbove: boolean,
+  gridZoomingInCenter: boolean,
   helpLines: boolean,
   panZoomScroll: boolean,
   builderHintsId: number,

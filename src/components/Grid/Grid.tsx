@@ -32,6 +32,8 @@ import { getBreakpointKey } from './utils';
 import { GridDiv } from './Grid.styled';
 import { Popup } from './Popup';
 
+const ZOOM_CENTER_POSITION = { x: 'center' } as const;
+
 function GridIn() {
   const gridAPIRef = useGridAPI();
   const breakpoint = useBreakpoint();
@@ -79,6 +81,7 @@ function GridIn() {
       {...movement}
       ref={gridAPIRef}
       scrollSpeed={(configuration.scrollSpeed + 1) * 10}
+      zoomPosition={configuration.gridZoomingInCenter ? ZOOM_CENTER_POSITION : null}
     >
       <Background />
     </ReactGrid>

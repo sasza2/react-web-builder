@@ -44,6 +44,10 @@ export default {
       title: 'Autofocus editor',
       description: 'Activate cursor (focus) in text editor when opening edit properties of element',
     },
+    gridZooming: {
+      title: 'Grid zooming',
+      description: 'Always zoom in center of the grid',
+    },
     mouseWheel: {
       title: 'Mouse wheel',
       description: 'Scroll breakpoint area with mouse wheel. When checked scroll vertical (mouse wheel), horizontal (shift + mouse wheel) and zoom (ctrl + mouse wheel) are available',
