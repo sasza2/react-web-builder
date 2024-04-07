@@ -1,5 +1,12 @@
 # react-web-builder
 
+## 0.6.0
+
+### Minor Changes
+
+- eb0760c: element lock/unlock
+- a878a8c: grid vertical helper lines
+
 ## 0.5.0
 
 ### Minor Changes
