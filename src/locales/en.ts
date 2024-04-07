@@ -127,6 +127,8 @@ export default {
       openInNewTab: 'Open in new tab',
       url: 'url',
     },
+    lock: 'Lock',
+    lockInfo: 'This element is locked',
     loading: 'Component is loading',
     removeEmptySpaceBelow: 'Remove empty space below',
     select: 'Select',
@@ -139,6 +141,7 @@ export default {
     paste: 'Paste',
     text: 'Text',
     type: 'Type',
+    unlock: 'Unlock',
     video: 'Video',
   },
   errors: {

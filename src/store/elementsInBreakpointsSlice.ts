@@ -8,6 +8,8 @@ type ActionAdd = PayloadAction<{ element: WebBuilderElement, breakpointId: strin
 
 type ActionAddMultiple = PayloadAction<{ elements: WebBuilderElement[], breakpointId: string }>;
 
+type ActionChangeElementInBreakpoint = PayloadAction<{ element: Partial<WebBuilderElement>, breakpointId: string }>;
+
 type ActionRemove = PayloadAction<{ elementId: string | number, breakpointId: string }>;
 
 type ActionRemoveMultiple = PayloadAction<{ elementsIds: Array<string | number>, breakpointId: string }>;
@@ -29,6 +31,17 @@ export const elementsInBreakpointsSlice = createSlice({
     addElementsToBreakpoint: (state, { payload: { elements, breakpointId } }: ActionAddMultiple) => {
       if (!state[breakpointId]) state[breakpointId] = [];
       state[breakpointId].push(...elements);
+    },
+    changeElementInBreakpoint: (state, { payload: { element, breakpointId }}: ActionChangeElementInBreakpoint) => {
+      const currentElementIndex = state[breakpointId].findIndex(item => item.id === element.id)
+      if (currentElementIndex < 0) return
+
+      const currentElement = state[breakpointId][currentElementIndex]
+
+      state[breakpointId][currentElementIndex] = {
+        ...currentElement,
+        ...element,
+      }
     },
     setElementsInBreakpoint: (state, { payload: { elements, breakpointId } }: ActionSet) => {
       state[breakpointId] = elements;
@@ -66,6 +79,7 @@ export const elementsInBreakpointsSlice = createSlice({
 export const {
   addElementToBreakpoint,
   addElementsToBreakpoint,
+  changeElementInBreakpoint,
   setElementsInBreakpoint,
   setElementsInBreakpointProgrammatic,
   removeElementFromBreakpoint,

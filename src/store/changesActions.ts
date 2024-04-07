@@ -2,6 +2,7 @@ import { addBreakpoint, removeBreakpoint, updateBreakpoint } from './breakpoints
 import {
   addElementToBreakpoint,
   addElementsToBreakpoint,
+  changeElementInBreakpoint,
   setElementsInBreakpoint,
   removeElementFromBreakpoint,
   removeElementsFromBreakpoint,
@@ -21,6 +22,7 @@ const actionsImportant = [
   updatePageSettings,
   addElementToBreakpoint,
   addElementsToBreakpoint,
+  changeElementInBreakpoint,
   setElementsInBreakpoint,
   setSelectedElements,
   removeElementFromBreakpoint,

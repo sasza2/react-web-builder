@@ -15,6 +15,7 @@ import { Paste } from './Paste';
 import { RemoveEmptySpaceBelow } from './RemoveEmptySpaceBelow';
 import { SelectElement } from './SelectElement';
 import { SelectMultipleElements } from './SelectMultipleElements';
+import { LockElement } from './LockElement';
 
 type PopupProps = {
   gridPaste: (x: number, y: number) => void,
@@ -78,6 +79,7 @@ export function Popup({ gridPaste, onClose, menu }: PopupProps) {
       list.push(
         <SelectElement key="select" elementId={menu.elementId} onClose={onClose} />,
         <CopyElement key="copy" elementId={menu.elementId} onClose={onClose} />,
+        <LockElement key="lock" elementId={menu.elementId} onClose={onClose} />,
         <RemoveElement key="remove" elementId={menu.elementId} onClose={onClose} />,
       );
     } else {
