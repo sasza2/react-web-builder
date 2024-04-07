@@ -97,7 +97,7 @@
     }
   },
   "devDependencies": {
-    "@babel/core": "7.22.10",
+    "@babel/core": "7.24.3",
     "@changesets/cli": "2.27.1",
     "@ladle/react": "4.0.2",
     "@playwright/test": "1.39.0",
@@ -129,7 +129,7 @@
     "react-dom": "18.2.0",
     "style-to-object": "1.0.5",
     "typescript": "5.3.3",
-    "vite": "4.3.5",
+    "vite": "5.2.7",
     "vitest": "0.34.6"
   },
   "peerDependencies": {
@@ -138,14 +138,14 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "1.9.5",
-    "@sasza/react-panzoom": "1.14.0",
+    "@sasza/react-panzoom": "1.16.0",
     "arrows-svg": "1.5.6",
     "copy-to-clipboard": "3.3.3",
     "i18next": "23.5.1",
     "react-accessible-accordion": "5.0.0",
     "react-color": "2.19.3",
     "react-frame-component": "5.2.6",
-    "react-grid-panzoom": "1.5.0",
+    "react-grid-panzoom": "1.6.0",
     "react-i18next": "13.2.2",
     "react-player": "2.13.0",
     "react-range": "1.8.14",

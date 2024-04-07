@@ -20,6 +20,7 @@ export type WebBuilderElement = {
   id: ElementId,
   breakpointId?: string,
   componentName: string,
+  disabledMove?: boolean,
   props: WebBuilderElementProperty[],
 }
 
