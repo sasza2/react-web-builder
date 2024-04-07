@@ -33,8 +33,8 @@ dependencies:
     specifier: 5.2.6
     version: 5.2.6(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
   react-grid-panzoom:
-    specifier: 1.6.0
-    version: 1.6.0(react-dom@18.2.0)(react@18.2.0)
+    specifier: 1.7.0
+    version: 1.7.0(react-dom@18.2.0)(react@18.2.0)
   react-i18next:
     specifier: 13.2.2
     version: 13.2.2(i18next@23.5.1)(react-dom@18.2.0)(react@18.2.0)
@@ -1413,15 +1413,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /@sasza/react-panzoom@1.15.0(react@18.2.0):
-    resolution: {integrity: sha512-CFb2Z1zywke616omrE+oBeEzn4W9u/tlofADpsEKhoL5KvRvsRnkHCf8fvT7R2A2LnR0UKPlmAFKA1wsz8oBQA==}
-    peerDependencies:
-      react: '>=16.14.0'
-    dependencies:
-      panzoom-core: 1.7.0
-      react: 18.2.0
-    dev: false
 
   /@sasza/react-panzoom@1.16.0(react@18.2.0):
     resolution: {integrity: sha512-6lZ3jar32chBx3QCLqbjXbyeXAsf063cch4RgXvfkko2LnIKyBrEQhRaA2t+tBTE/mDkf/sPFrisbx8X2ISYeQ==}
@@ -6374,13 +6365,13 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-grid-panzoom@1.6.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-D6tYS/64+egA0ylWiLtzTDl+FoVq3FBlHIuIUNI+aT3zGY7kg+CkwVy1GFLVaOnRdv5Qycr3zE+AeHllsMpWag==}
+  /react-grid-panzoom@1.7.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-xUrwWefZFrhOrvEzuoUxDdXAjUm6o6WRoZOmBZ4kb4dP8G2G1+r2eLTzVr3oFTprhByahjrwX2N4TPE43WOf1g==}
     peerDependencies:
       react: '>=16.14.0'
       react-dom: '>=16.14.0'
     dependencies:
-      '@sasza/react-panzoom': 1.15.0(react@18.2.0)
+      '@sasza/react-panzoom': 1.16.0(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
