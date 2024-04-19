@@ -30,6 +30,7 @@ export const pasteElement: PasteElement = ({
 
   return {
     ...element,
+   disabledMove: false,
     id,
     w,
     h: 'auto',
@@ -45,6 +46,7 @@ export const treeToElements = (tree: Tree, columns: number, currentY: number): [
       [
         {
           ...tree.element,
+          disabledMove: false,
           id: createUniqueId(),
           x: 0,
           w: columns,
@@ -95,6 +97,7 @@ export const pasteElements: PasteElements = ({
     const yMinOfElements = getYMinOfElements(elements);
     return elements.map((element) => ({
       ...element,
+      disabledMove: false,
       id: createUniqueId(),
       y: element.y + y - yMinOfElements,
       x: element.x,
