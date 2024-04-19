@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.6.1
+
+### Patch Changes
+
+- e2dd7bc: remove lock when pasting elements
+
 ## 0.6.0
 
 ### Minor Changes
