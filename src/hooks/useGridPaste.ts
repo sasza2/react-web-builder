@@ -1,5 +1,9 @@
+import { OrganizeElementsOptions } from 'react-grid-panzoom';
+
 import { Tree, WebBuilderElement } from 'types';
+import { MARGIN_BOTTOM_ON_PASTED_ELEMENT } from '@/consts';
 import { paste as clipboardPaste } from '@/utils/clipboard';
+import { delay } from '@/utils/delay';
 import { useAddElement } from '@/hooks/useAddElement';
 import { useIsMounted } from '@/hooks/useIsMounted';
 import { pasteElement, pasteElements } from '@/utils/gridPaste';
@@ -31,15 +35,38 @@ export const useGridPaste = () => {
   const gridAPIRef = useGridAPI();
   const isMounted = useIsMounted();
 
-  const organizeElements = () => {
-    if (!isMounted.current) return;
+  const organizeElements = (options?: OrganizeElementsOptions) => {
+    if (!isMounted.current) return null;
 
-    gridAPIRef.current.organizeElements();
+    return gridAPIRef.current.organizeElements([], options);
   };
 
-  const organizeElementsDelay = () => {
-    setTimeout(organizeElements, 100);
-    setTimeout(organizeElements, 2000);
+  const organizeElementsDelay = async ({
+    addGap,
+    pastedElements,
+  }: {
+    addGap?: number,
+    pastedElements: WebBuilderElement[],
+  }) => {
+    await delay(100);
+    if (!isMounted.current) return;
+
+    organizeElements();
+    await delay(2000);
+
+    if (!isMounted.current) return;
+
+    const marginBottomAtElements: Record<string | number, number> = {};
+
+    if (addGap) {
+      pastedElements.forEach((element) => {
+        marginBottomAtElements[element.id] = addGap;
+      });
+    }
+
+    organizeElements({
+      marginBottomAtElements,
+    });
   };
 
   const paste = (x: number, y: number) => {
@@ -53,15 +80,19 @@ export const useGridPaste = () => {
           element,
         } = obj as WebBuilderElementClipboard;
 
-        addElement(pasteElement({
+        const pastedElement = pasteElement({
           breakpoint,
           clipboardBreakpoint,
           element,
           x,
           y,
-        }));
+        });
 
-        organizeElementsDelay();
+        addElement(pastedElement);
+
+        organizeElementsDelay({
+          pastedElements: [pastedElement],
+        });
         break;
       }
       case 'tree': {
@@ -71,15 +102,20 @@ export const useGridPaste = () => {
           tree,
         } = obj as TreeClipboard;
 
-        addElements(pasteElements({
+        const pastedElements = pasteElements({
           breakpoint,
           clipboardBreakpoint,
           elements,
           tree,
           y,
-        }));
+        });
 
-        organizeElementsDelay();
+        addElements(pastedElements);
+
+        organizeElementsDelay({
+          addGap: clipboardBreakpoint.cols === breakpoint.cols ? 0 : MARGIN_BOTTOM_ON_PASTED_ELEMENT,
+          pastedElements,
+        });
         break;
       }
       default:

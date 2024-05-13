@@ -52,3 +52,5 @@ export const DEFAULT_FONT_IMPORT: FontImport = {
   label: 'sans-serif',
   value: 'sans-serif',
 };
+
+export const MARGIN_BOTTOM_ON_PASTED_ELEMENT = 3; // rows
