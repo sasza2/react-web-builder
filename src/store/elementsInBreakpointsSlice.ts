@@ -32,16 +32,16 @@ export const elementsInBreakpointsSlice = createSlice({
       if (!state[breakpointId]) state[breakpointId] = [];
       state[breakpointId].push(...elements);
     },
-    changeElementInBreakpoint: (state, { payload: { element, breakpointId }}: ActionChangeElementInBreakpoint) => {
-      const currentElementIndex = state[breakpointId].findIndex(item => item.id === element.id)
-      if (currentElementIndex < 0) return
+    changeElementInBreakpoint: (state, { payload: { element, breakpointId } }: ActionChangeElementInBreakpoint) => {
+      const currentElementIndex = state[breakpointId].findIndex((item) => item.id === element.id);
+      if (currentElementIndex < 0) return;
 
-      const currentElement = state[breakpointId][currentElementIndex]
+      const currentElement = state[breakpointId][currentElementIndex];
 
       state[breakpointId][currentElementIndex] = {
         ...currentElement,
         ...element,
-      }
+      };
     },
     setElementsInBreakpoint: (state, { payload: { elements, breakpointId } }: ActionSet) => {
       state[breakpointId] = elements;

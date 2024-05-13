@@ -30,7 +30,7 @@ export const pasteElement: PasteElement = ({
 
   return {
     ...element,
-   disabledMove: false,
+    disabledMove: false,
     id,
     w,
     h: 'auto',
@@ -39,7 +39,7 @@ export const pasteElement: PasteElement = ({
   };
 };
 
-export const treeToElements = (tree: Tree, columns: number, currentY: number): [WebBuilderElement[], number] => {
+const treeToElements = (tree: Tree, columns: number, currentY: number): [WebBuilderElement[], number] => {
   if (tree.element) {
     const nextY = tree.marginTop + currentY;
     return [
