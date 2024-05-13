@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.7.0
+
+### Minor Changes
+
+- 803cb2e: add margin to pasted elements
+
 ## 0.6.1
 
 ### Patch Changes
