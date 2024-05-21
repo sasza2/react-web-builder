@@ -33,8 +33,8 @@ dependencies:
     specifier: 5.2.6
     version: 5.2.6(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
   react-grid-panzoom:
-    specifier: 1.8.1
-    version: 1.8.1(react-dom@18.2.0)(react@18.2.0)
+    specifier: 1.9.0
+    version: 1.9.0(react-dom@18.2.0)(react@18.2.0)
   react-i18next:
     specifier: 13.2.2
     version: 13.2.2(i18next@23.5.1)(react-dom@18.2.0)(react@18.2.0)
@@ -1423,12 +1423,12 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@sasza/react-panzoom@1.17.0(react@18.2.0):
-    resolution: {integrity: sha512-w05CPx9Cn/KrUs1oDOJEt+qka/SJ+CbC1Qsm4UFiSb1iRj3zT0yW0ZUcQy9RIneExa1RMvrH53Q2cYBnb8T9cQ==}
+  /@sasza/react-panzoom@1.18.0(react@18.2.0):
+    resolution: {integrity: sha512-ENe2ZN7pegUNT4yu7wxfDWt4RT232RfSwSRod7GPyZi7EDbxQUN9uTsmlgFj/ZT7djJ6gDa6+J8Ufbvry7+DGg==}
     peerDependencies:
       react: '>=16.14.0'
     dependencies:
-      panzoom-core: 1.7.0
+      panzoom-core: 1.8.0
       react: 18.2.0
     dev: false
 
@@ -6074,6 +6074,10 @@ packages:
     resolution: {integrity: sha512-02KSxFpYeSPoTFQkovy+3oErsHbiUKMWZ6WlxG+DqZ2f+a8GQ/0f9uFp1WLLrHqnULcrYE8jZ/fwoTFr2Rw35A==}
     dev: false
 
+  /panzoom-core@1.8.0:
+    resolution: {integrity: sha512-SWXhHIJGJdHliVzUDEkch9bdXx9K1yvMNyVuUd9u7fFEP3+RKFr2gHD2Blx0nVWPr+0RHvU8yJtw6x5As7doqw==}
+    dev: false
+
   /parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
     engines: {node: '>=6'}
@@ -6374,13 +6378,13 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-grid-panzoom@1.8.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-B0T4neYPshDfP3QNEjEvblJMt0cScympVelz3i34azTtDZ5JCK5T1/VgVP/MDKRVr4jtgQ6RfTlhw/L7m/13MA==}
+  /react-grid-panzoom@1.9.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-WNTFfUTAmMWvztq43/cCkLxFp3bFhOlDd7HHDldTu9dTr6K76NmtZ11Np4Q3W7GyWSY5GeKeF3qsXryOrQGcng==}
     peerDependencies:
       react: '>=16.14.0'
       react-dom: '>=16.14.0'
     dependencies:
-      '@sasza/react-panzoom': 1.17.0(react@18.2.0)
+      '@sasza/react-panzoom': 1.18.0(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
