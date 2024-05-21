@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.7.1
+
+### Patch Changes
+
+- abbbfde: go back to grid boundary when removing element that is at the bottom of grid
+
 ## 0.7.0
 
 ### Minor Changes
