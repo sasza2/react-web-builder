@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ButtonContainer = styled.button`
+export const ButtonContainer = styled.button<{ $disabled?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,7 +40,7 @@ export const RemoveButtonContainer = styled(ButtonContainer)`
 
 export const RemoveGhostButtonContainer = styled(ButtonContainer)`
   background-color: ${({ theme }) => theme.colors.white};
-  border: 1px solid ${({ theme }) => theme.colors.strongRed};
-  color: ${({ theme }) => theme.colors.strongRed};
+  border: 1px solid ${({ $disabled, theme }) => ($disabled ? theme.colors.lightGray : theme.colors.strongRed)};
+  color: ${({ $disabled, theme }) => ($disabled ? theme.colors.lightGray : theme.colors.strongRed)};
   ${({ theme }) => theme.typography.Title0B};
 `;

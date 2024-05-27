@@ -11,7 +11,7 @@ export const useRemoveElement = () => {
 
   return async (elementId: string | number) => {
     dispatch(removeElementFromBreakpoint({ elementId, breakpointId: breakpoint.id }));
-    await delay(200)
-    gridAPIRef.current.getPanZoom().goBackToBoundary()
+    await delay(200);
+    gridAPIRef.current.getPanZoom().goBackToBoundary();
   };
 };

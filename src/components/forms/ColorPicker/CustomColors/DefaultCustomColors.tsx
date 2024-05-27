@@ -6,11 +6,13 @@ import { useAppDispatch } from '@/store/useAppDispatch';
 import { CustomColors } from './CustomColors';
 
 type DefaultCustomColorsProps = {
+  allowGradient?: boolean,
   setValue: (value: string) => void,
   value: string,
 };
 
 export function DefaultCustomColors({
+  allowGradient,
   setValue,
   value,
 }: DefaultCustomColorsProps) {
@@ -33,6 +35,7 @@ export function DefaultCustomColors({
 
   return (
     <CustomColors
+      allowGradient={allowGradient}
       colors={colors}
       onChange={onChange}
       value={value}

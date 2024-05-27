@@ -4,31 +4,43 @@ import { useTranslation } from 'react-i18next';
 import { FieldProvider, useField } from '@/components/FormProvider';
 import {
   getColorForSketch, getColorForInput,
+  ColorType,
 } from '@/utils/colors';
 import { usePresetColors } from '@/hooks/usePresetColors';
+import { getColorType } from '@/utils/colors/common';
 import { IFormControl } from '../types';
 import { FormControl } from '../FormControl';
 import { Label } from '../FormControl.styled';
-import { ColorPickerSketch } from '../ColorPickerSketch';
+import { ColorPickerModal } from './ColorPickerModal';
 import {
   ColorsContainer, InputContainer,
 } from './ColorPicker.styled';
 import { Input } from '../Input';
 import { Color } from './Color';
-import { DefaultCustomColors } from './DefaultCustomColors';
+import { DefaultCustomColors } from './CustomColors/DefaultCustomColors';
 
 type ColorPickerProps = {
+  allowGradient?: boolean,
+  closeOnlyOnClickOutsideSidebarModal?: boolean,
   customColors?: React.ReactNode,
   onBlur?: (value: string) => void,
   defaultValue?: string,
+  showCustomColors?: boolean,
+  showDefaultColor?: boolean,
+  showPresetColors?: boolean,
   sketchLabel?: JSX.Element | string,
 } & IFormControl;
 
 export function ColorPicker({
+  allowGradient,
+  closeOnlyOnClickOutsideSidebarModal,
   customColors,
   defaultValue,
   errors,
   label,
+  showCustomColors = true,
+  showDefaultColor = true,
+  showPresetColors = true,
   sketchLabel,
   onBlur,
   name,
@@ -76,6 +88,16 @@ export function ColorPicker({
     onSketchSetValue(nextValue);
   };
 
+  const mainColor = () => {
+    const colorType = getColorType(value);
+    switch (colorType) {
+      case ColorType.Gradient:
+        return value;
+      default:
+        return getColorForSketch(value, defaultValue);
+    }
+  };
+
   return (
     <FormControl
       name={name}
@@ -85,71 +107,90 @@ export function ColorPicker({
     >
       <InputContainer onClick={onSketchOpen} ref={inputContainerRef}>
         <Color
-          color={getColorForSketch(value, defaultValue)}
+          color={mainColor()}
           active
           size="lg"
         />
+        {getColorType(value) === ColorType.Hex && (
+          <FieldProvider
+            name="color"
+            setValue={onSelectClick}
+            value={getColorForInput(value, defaultValue)}
+          >
+            <Input
+              name="color"
+              testId="color"
+              errors={errors}
+              onBlur={onBlur}
+              leftNode="#"
+            />
+          </FieldProvider>
+        )}
+      </InputContainer>
+      {showDefaultColor && (
+        <>
+          <Label>
+            {t('color.default')}
+          </Label>
+          <Color
+            color={getColorForSketch(defaultValue)}
+            active={value === null}
+            onClick={() => onSelectClick('default')}
+          />
+        </>
+      )}
+      {showPresetColors && (
+        <>
+          <Label>
+            {t('color.preset')}
+          </Label>
+          <ColorsContainer>
+            <Color
+              color="transparent"
+              onClick={() => onSelectClick('transparent')}
+              active={value === 'transparent'}
+            />
+            {presetColors.map((color, index) => (
+              <Color
+                key={`${color}-${index}`} // eslint-disable-line react/no-array-index-key
+                color={color}
+                onClick={() => onSelectClick(color)}
+                active={color === value}
+              />
+            ))}
+          </ColorsContainer>
+        </>
+      )}
+      { showCustomColors && (
+        <>
+          <Label>{t('color.custom')}</Label>
+          { customColors || (
+            <DefaultCustomColors
+              allowGradient={allowGradient}
+              setValue={onSketchSetValue}
+              value={value}
+            />
+          ) }
+        </>
+      )}
+      {isSketchOpen && (
         <FieldProvider
           name="color"
-          setValue={onSelectClick}
-          value={getColorForInput(value, defaultValue)}
-        >
-          <Input
-            name="color"
-            testId="color"
-            errors={errors}
-            onBlur={onBlur}
-            leftNode="#"
-          />
-        </FieldProvider>
-      </InputContainer>
-      <Label>
-        {t('color.default')}
-      </Label>
-      <Color
-        color={getColorForSketch(defaultValue)}
-        active={value === null}
-        onClick={() => onSelectClick('default')}
-      />
-      <Label>
-        {t('color.preset')}
-      </Label>
-      <ColorsContainer>
-        <Color
-          color="transparent"
-          onClick={() => onSelectClick('transparent')}
-          active={value === 'transparent'}
-        />
-        {presetColors.map((color, index) => (
-          <Color
-            key={`${color}-${index}`} // eslint-disable-line react/no-array-index-key
-            color={color}
-            onClick={() => onSelectClick(color)}
-            active={color === value}
-          />
-        ))}
-      </ColorsContainer>
-      <Label>{t('color.custom')}</Label>
-      { customColors || (
-        <DefaultCustomColors
           setValue={onSketchSetValue}
           value={value}
-        />
-      ) }
-      <FieldProvider
-        name="color"
-        setValue={onSketchSetValue}
-        value={getColorForSketch(value, defaultValue)}
-      >
-        <ColorPickerSketch
-          name="color"
-          isOpen={isSketchOpen}
-          opener={inputContainerRef}
-          onClose={onSketchClose}
-          defaultValue={defaultValue}
-          label={sketchLabel}
-        />
-      </FieldProvider>
+        >
+          <ColorPickerModal
+            allowGradient={allowGradient}
+            closeOnlyOnClickOutsideSidebarModal={closeOnlyOnClickOutsideSidebarModal}
+            name="color"
+            isOpen
+            opener={inputContainerRef}
+            onClose={onSketchClose}
+            defaultValue={defaultValue}
+            label={sketchLabel}
+          />
+        </FieldProvider>
+      )}
     </FormControl>
   );
 }

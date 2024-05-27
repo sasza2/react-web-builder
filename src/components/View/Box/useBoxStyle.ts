@@ -24,7 +24,7 @@ export const useBoxStyle = (props: UseBoxStyleProps): React.CSSProperties => {
     padding = {},
   } = props || {};
   return {
-    backgroundColor,
+    background: backgroundColor,
     borderTop: parseBorderValue(border.top, border.color),
     borderRight: parseBorderValue(border.right, border.color),
     borderBottom: parseBorderValue(border.bottom, border.color),

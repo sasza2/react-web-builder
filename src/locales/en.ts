@@ -27,12 +27,24 @@ export default {
     tooltip: 'Select breakpoint or add a new one',
   },
   color: {
+    color: 'Color',
     custom: 'Custom colors',
     default: 'Default color',
     font: 'Font color',
+    gradient: {
+      add: '+ Add',
+      angle: 'Angle',
+      itemNr: 'Color {{nr}}',
+      remove: '- Remove',
+      types: {
+        linear: 'Linear',
+        radial: 'Radial',
+      },
+    },
     preset: 'Preset colors',
     remove: 'Click icon <icon /> to remove this color',
     transparentInfo: 'Current color is transparent. Change (A) value to make it visible',
+    type: 'Type',
   },
   common: {
     pixels: 'px',
