@@ -17,6 +17,7 @@ import { FontOptions } from '../forms/FontOptions';
 import { InputHTML } from '../forms/InputHTML';
 import { URLInput } from '../forms/URLInput';
 import { ImageUpload } from '../forms/ImageUpload';
+import { BoxShadow } from '../forms/BoxShadow';
 
 type FormPropertyProps = {
   autoFocus?: boolean,
@@ -73,6 +74,14 @@ export function FormProperty({
   if (prop.type === 'border') {
     return (
       <Border
+        name={name}
+        testId={testId}
+      />
+    );
+  }
+  if (prop.type === 'boxShadow') {
+    return (
+      <BoxShadow
         name={name}
         testId={testId}
       />

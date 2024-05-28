@@ -9,14 +9,17 @@ import { useBoxStyle } from './useBoxStyle';
 function BoxComponent({
   backgroundColor,
   border = {},
+  boxShadow,
   content,
   padding = {},
 }: BoxProps) {
   const style = useBoxStyle({
     backgroundColor,
     border,
+    boxShadow,
     padding,
   });
+
   const renderContent = () => {
     if (typeof content === 'string') return content;
 

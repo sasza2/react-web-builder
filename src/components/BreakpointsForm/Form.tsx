@@ -91,6 +91,7 @@ export function Form({
           {t('breakpoint.background')}
         </FormHeader>
         <ColorPicker
+          allowGradient
           name="backgroundColor"
           label={(
             <Trans

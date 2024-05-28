@@ -19,6 +19,7 @@ export const useBoxStyle = (props: UseBoxStyleProps): React.CSSProperties => {
   const {
     backgroundColor,
     border = {},
+    boxShadow,
     color,
     fontOptions = {},
     padding = {},
@@ -30,6 +31,7 @@ export const useBoxStyle = (props: UseBoxStyleProps): React.CSSProperties => {
     borderBottom: parseBorderValue(border.bottom, border.color),
     borderLeft: parseBorderValue(border.left, border.color),
     borderRadius: parseNumberValue(border.radius),
+    boxShadow: boxShadow || undefined,
     color,
     fontWeight: fontOptions.bold ? '600' : 'normal',
     fontSize: fontOptions.size || 12,

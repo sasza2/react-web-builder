@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Range, getTrackBackground } from 'react-range';
 import { useTheme } from 'styled-components';
 
@@ -28,14 +28,18 @@ export function RangeSlider({
   const { setValue, value } = useField<number>(name);
   const inputSize = `${max}`.length;
 
+  const setValueRef = useRef<typeof setValue>();
+  setValueRef.current = setValue;
+
   const [inputValue, setInputValue] = useState(`${value}`);
+
   const onInputSetValue = (nextInputValue: string) => {
     let valueInt = parseInt(nextInputValue, 10) || 0;
     if (valueInt < 0) valueInt = 0;
     else if (valueInt > max) valueInt = max;
 
     if (min !== undefined && valueInt < min) valueInt = min;
-    setValue(valueInt);
+    setValueRef.current(valueInt);
     setInputValue(nextInputValue);
   };
 
@@ -52,7 +56,7 @@ export function RangeSlider({
             min={min}
             max={max}
             onChange={(valueNext: number[]) => {
-              setValue(valueNext[0]);
+              setValueRef.current(valueNext[0]);
             }}
             values={[value]}
             renderTrack={({ props, children }) => (
@@ -75,7 +79,7 @@ export function RangeSlider({
                     background: getTrackBackground({
                       values: [value],
                       colors: [theme.colors.darkBlue, theme.colors.lightGray],
-                      min: 0,
+                      min,
                       max,
                     }),
                     alignSelf: 'center',

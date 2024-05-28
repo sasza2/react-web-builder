@@ -6,7 +6,13 @@ import { useAppDispatch } from '@/store/useAppDispatch';
 import { PageSettings } from 'types';
 import { CustomColors } from './CustomColors';
 
-export function PageSettingsCustomColors() {
+type PageSettingsCustomColorsProps = {
+  allowGradient?: boolean,
+};
+
+export function PageSettingsCustomColors({
+  allowGradient,
+}: PageSettingsCustomColorsProps) {
   const dispatch = useAppDispatch();
   const pageSettings = usePageSettings();
   const colors: string[] = pageSettings.colors || [];
@@ -23,6 +29,7 @@ export function PageSettingsCustomColors() {
 
   return (
     <CustomColors
+      allowGradient={allowGradient}
       colors={colors}
       onChange={onChange}
       value={pageSettings.backgroundColor}
