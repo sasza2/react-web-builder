@@ -7,6 +7,7 @@ import { Container, Empty } from './IFrame.styled';
 export function IFrame({
   backgroundColor,
   border = {},
+  boxShadow,
   element,
   height,
   padding = {},
@@ -14,6 +15,7 @@ export function IFrame({
 }: IFrameComponentProps) {
   const style = useBoxStyle({
     backgroundColor,
+    boxShadow,
     border,
     padding,
   });

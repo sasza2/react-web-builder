@@ -15,6 +15,7 @@ type IElement = {
 type BoxProps = {
   backgroundColor: string,
   border: Partial<Border>,
+  boxShadow?: string,
   color: string,
   content: IElement[],
   padding: Partial<Padding>,
@@ -24,6 +25,7 @@ type BoxProps = {
 function CustomButtonComponent({
   backgroundColor,
   border = {},
+  boxShadow,
   color,
   content,
   padding = {},
@@ -56,6 +58,7 @@ function CustomButtonComponent({
       <Box
         backgroundColor={backgroundColor}
         border={border}
+        boxShadow={boxShadow}
         content={contentWithColor}
         padding={padding}
       />

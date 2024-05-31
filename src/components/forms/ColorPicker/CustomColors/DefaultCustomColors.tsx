@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { usePageSettings } from '@/hooks/usePageSettings';
 import { updatePageSettings } from '@/store/pageSettingsSlice';
 import { useAppDispatch } from '@/store/useAppDispatch';
+import { isValidColor } from '@/utils/colors';
 import { CustomColors } from './CustomColors';
 
 type DefaultCustomColorsProps = {
@@ -18,7 +19,12 @@ export function DefaultCustomColors({
 }: DefaultCustomColorsProps) {
   const dispatch = useAppDispatch();
   const pageSettings = usePageSettings();
-  const colors: string[] = pageSettings.colors || [];
+  const colors: string[] = useMemo(() => {
+    if (!pageSettings.colors) return [];
+    if (allowGradient) return pageSettings.colors;
+
+    return pageSettings.colors.filter(isValidColor);
+  }, [allowGradient, pageSettings.colors]);
 
   const setColors = (nextColors: string[]) => {
     dispatch(updatePageSettings({

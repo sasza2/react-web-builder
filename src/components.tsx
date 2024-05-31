@@ -32,6 +32,7 @@ import { BasicGroup, ButtonsGroup } from './groups';
 import {
   createBackgroundColorProperty,
   createBorderProperty,
+  createBoxShadowProperty,
   createColorProperty,
   createContentProperty,
   createPaddingProperty,
@@ -44,7 +45,7 @@ export { IFrame } from '@/components/IFrame';
 export { Line } from './components/Line';
 
 export function Image({
-  href, url,
+  boxShadow, href, url,
 }: ImageComponentProps) {
   if (!url || !url.location) return null;
 
@@ -68,7 +69,7 @@ export function Image({
   };
 
   return (
-    <div>
+    <div style={{ boxShadow }}>
       {renderImage()}
     </div>
   );
@@ -110,6 +111,7 @@ export const useInternalComponents = ({
         createBackgroundColorProperty('transparent'),
         createPaddingProperty(),
         createBorderProperty(),
+        createBoxShadowProperty(),
       ],
       order: -500,
     },
@@ -133,6 +135,7 @@ export const useInternalComponents = ({
           defaultValue: { location: '', openInNewTab: true },
           canOpenInNewTab: true,
         },
+        createBoxShadowProperty(),
       ],
       order: -400,
     },
@@ -174,6 +177,7 @@ export const useInternalComponents = ({
         createBorderProperty({
           radius: 4,
         }),
+        createBoxShadowProperty(),
       ],
       order: -100,
     });
@@ -270,6 +274,7 @@ export const useInternalComponents = ({
       createBackgroundColorProperty('transparent'),
       createPaddingProperty(),
       createBorderProperty(),
+      createBoxShadowProperty(),
     ],
     order: -50,
   });

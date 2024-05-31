@@ -71,10 +71,11 @@ export function PageSettings() {
                 {t('page.background')}
               </FormHeader>
               <ColorPicker
+                allowGradient
                 name="backgroundColor"
                 errors={undefined}
                 sketchLabel={t('page.background')}
-                customColors={<PageSettingsCustomColors />}
+                customColors={<PageSettingsCustomColors allowGradient />}
               />
             </FormGroup>
             {

@@ -60,6 +60,13 @@ export const createBorderProperty = (defaultValue?: Partial<Border>): WebBuilder
   },
 });
 
+export const createBoxShadowProperty = (defaultValue?: Partial<string>): WebBuilderComponentProperty => ({
+  id: 'boxShadow',
+  label: <Trans i18nKey="element.boxShadow.name" />,
+  type: 'boxShadow',
+  defaultValue,
+});
+
 export const createSourceProperty = (
   defaultValue: string = '',
   openInNewTab?: boolean,

@@ -148,6 +148,10 @@ export type WebBuilderComponentProperty = ({
   label: JSX.Element | string,
   defaultValue?: PropertyDefaultValue<string>,
 } | {
+  type: 'boxShadow',
+  label: JSX.Element | string,
+  defaultValue?: PropertyDefaultValue<string>,
+} | {
   type: 'hidden',
 }) & {
   id: string,
@@ -331,6 +335,7 @@ export type TextElement = {
 export type BoxProps = {
   backgroundColor?: string,
   border?: Partial<Border>,
+  boxShadow?: string,
   content?: TextElement[],
   padding?: Partial<Padding>,
 };
@@ -338,6 +343,7 @@ export type BoxProps = {
 export type UseBoxStyleProps = {
   backgroundColor?: string,
   border?: Partial<Border>,
+  boxShadow?: string,
   color?: string,
   fontOptions?: FontOptions,
   padding?: Partial<Padding>,
@@ -359,6 +365,7 @@ export type LineComponentProps = {
 };
 
 export type ImageComponentProps = {
+  boxShadow?: string;
   href: ElementURL;
   url: ElementURL;
 };
@@ -366,6 +373,7 @@ export type ImageComponentProps = {
 export type IFrameComponentProps = {
   backgroundColor?: string,
   border?: Partial<Border>,
+  boxShadow?: string,
   element: WebBuilderElement,
   height: number,
   src?: ElementURL,
