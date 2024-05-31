@@ -18,7 +18,7 @@ import { FormContainerDiv } from '../forms/FormContainerDiv';
 import { useWebBuilderProperties } from '../PropertiesProvider';
 import { FormProperty } from '../FormProperty';
 import { SidebarView } from '../SidebarProvider';
-import { PageSettingsCustomColors } from '../forms/ColorPicker/PageSettingsCustomColors';
+import { PageSettingsCustomColors } from '../forms/ColorPicker/CustomColors/PageSettingsCustomColors';
 
 const componentName = 'PageSettings';
 

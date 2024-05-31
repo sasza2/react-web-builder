@@ -4,6 +4,8 @@ import { Tooltip } from 'react-tooltip';
 import { IconWrapperProps } from './types';
 import { AddBreakpoint } from './AddBreakpoint';
 import { ArrowLeft } from './ArrowLeft';
+import { ColorBasic } from './ColorBasic';
+import { ColorGradient } from './ColorGradient';
 import { Configuration } from './Configuration';
 import { Cross } from './Cross';
 import { Desktop } from './Desktop';
@@ -74,6 +76,8 @@ export function Icon({
 Icon.AddBreakpoint = AddBreakpoint;
 Icon.ArrowLeft = ArrowLeft;
 Icon.Configuration = Configuration;
+Icon.ColorBasic = ColorBasic;
+Icon.ColorGradient = ColorGradient;
 Icon.Cross = Cross;
 Icon.Desktop = Desktop;
 Icon.Hamburger = Hamburger;

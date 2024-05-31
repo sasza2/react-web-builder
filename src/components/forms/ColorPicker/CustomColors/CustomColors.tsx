@@ -3,19 +3,21 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import { Icon } from '@/components/icons/Icon';
 import { FieldProvider } from '@/components/FormProvider';
-import { ColorPickerSketch } from '../ColorPickerSketch';
-import { Button } from '../RichText/buttons';
-import { Label } from '../ColorPickerSketch/ColorPickerSketch.styled';
-import { AddIcon, ColorsContainer } from './ColorPicker.styled';
-import { Color } from './Color';
+import { ColorPickerModal } from '../ColorPickerModal';
+import { Button } from '../../RichText/buttons';
+import { Label } from '../ColorPickerModal/ColorPickerModal.styled';
+import { AddIcon, ColorsContainer } from '../ColorPicker.styled';
+import { Color } from '../Color';
 
 type CustomColorsProps = {
+  allowGradient?: boolean,
   colors: string[],
   onChange: (payload: { color?: string, customColors?: string[] }) => void,
   value: string,
 };
 
 export function CustomColors({
+  allowGradient,
   colors,
   onChange,
   value,
@@ -81,7 +83,9 @@ export function CustomColors({
           setValue={onSketchSetValue}
           value={colors[editIndex]}
         >
-          <ColorPickerSketch
+          <ColorPickerModal
+            allowGradient={allowGradient}
+            closeOnlyOnClickOutsideSidebarModal
             name="color"
             isOpen
             opener={colorContainerRef}
@@ -105,7 +109,7 @@ export function CustomColors({
                 }}
               />
             </Label>
-          </ColorPickerSketch>
+          </ColorPickerModal>
         </FieldProvider>
       ) }
     </ColorsContainer>

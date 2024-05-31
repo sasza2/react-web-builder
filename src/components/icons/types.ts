@@ -9,6 +9,8 @@ type RenderIcon = React.FC<IconWrapperProps>;
 export type AllIcons = {
   AddBreakpoint: RenderIcon,
   ArrowLeft: RenderIcon,
+  ColorBasic: RenderIcon,
+  ColorGradient: RenderIcon,
   Configuration: RenderIcon,
   Cross: RenderIcon,
   Desktop: RenderIcon,

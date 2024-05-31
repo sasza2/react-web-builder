@@ -1,4 +1,7 @@
 import { ColorResult } from 'react-color';
+import { splitGradientColor } from './gradient';
+import { getColorType } from './common';
+import { ColorType } from './types';
 
 const TRANSPARENT_HEX = '#ffffff00';
 
@@ -58,6 +61,12 @@ export const isLightColor = (color: string) => {
 };
 
 export const getColorForSketch = (color?: string, defaultValue?: string) => {
+  const colorType = getColorType(color);
+  if (colorType === ColorType.Gradient) {
+    const gradientColor = splitGradientColor(color);
+    if (gradientColor.colors.length > 0) return normalizeColor(gradientColor.colors[0].color);
+  }
+
   if (color === 'transparent') return TRANSPARENT_HEX;
   if (color) return normalizeColor(color);
   if (defaultValue === 'transparent') return TRANSPARENT_HEX;
@@ -77,6 +86,8 @@ export const getColorForTooltip = (color: string) => {
 };
 
 export const normalizeSketchColor = (colorResult: ColorResult) => {
+  if (colorResult.hex === 'transparent') return 'transparent';
+
   const getHexAlpha = (opacityPercentage: number) => `0${Math.round((255 / 100) * opacityPercentage).toString(16)}`.slice(-2).toLowerCase();
 
   const hexAlpha = getHexAlpha((colorResult.rgb.a ?? 1) * 100);

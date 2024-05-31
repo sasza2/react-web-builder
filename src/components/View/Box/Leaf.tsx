@@ -1,8 +1,23 @@
 import React from 'react';
 
 import { ILeaf } from 'types';
-import { isLightColor } from '@/utils/colors';
+import { ColorType, isLightColor } from '@/utils/colors';
 import { SLATE_HIGHLIGHTED } from '@/components/forms/RichText/Editor/Editor.styled';
+import { getColorType } from '@/utils/colors/common';
+
+const applyColor = (color: string, style: React.CSSProperties = {}): React.CSSProperties => {
+  const colorType = getColorType(color);
+
+  if (colorType === ColorType.Gradient) {
+    style.background = color;
+    style.WebkitBackgroundClip = 'text';
+    style.WebkitTextFillColor = 'transparent';
+  } else {
+    style.color = color;
+  }
+
+  return style;
+};
 
 export type LeafProps = {
   attributes: Record<string, unknown>,
@@ -22,7 +37,7 @@ export function Leaf({
   let leafClassName = (className || '') as string;
 
   if (hyperlinkAvailable !== false && leaf.link) {
-    children = <a style={{ color: leaf.color }} href={leaf.link}>{children}</a>;
+    children = <a style={applyColor(leaf.color)} href={leaf.link}>{children}</a>;
   }
 
   if (leaf.bold) {
@@ -46,7 +61,8 @@ export function Leaf({
   style.fontSize = leaf.fontSize || 12;
 
   if (colorAvailable !== false && leaf.color) {
-    style.color = leaf.color;
+    applyColor(leaf.color, style);
+
     if (isLightColor(leaf.color)) {
       if (leafClassName) leafClassName = `${leafClassName} .${SLATE_HIGHLIGHTED}`;
       else leafClassName = SLATE_HIGHLIGHTED;

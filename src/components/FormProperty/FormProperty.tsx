@@ -148,6 +148,8 @@ export function FormProperty({
           {prop.label}
         </FormHeader>
         <ColorPicker
+          allowGradient
+          closeOnlyOnClickOutsideSidebarModal
           name={name}
           defaultValue={defaultValue as string}
           sketchLabel={prop.label}

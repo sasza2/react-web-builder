@@ -26,7 +26,7 @@ type ButtonProps = React.PropsWithChildren<{
 
 type IButtonContainer = React.FC<
 React.ButtonHTMLAttributes<HTMLButtonElement>
-& { ref: ButtonRef['buttonRef'] }
+& { $disabled?: boolean, ref: ButtonRef['buttonRef'] }
 >;
 
 function Button({
@@ -44,6 +44,7 @@ function Button({
   return (
     <>
       <ButtonContainer
+        $disabled={disabled}
         data-button-id={buttonId}
         data-tooltip-id={`button-${buttonId}`}
         ref={buttonRef}

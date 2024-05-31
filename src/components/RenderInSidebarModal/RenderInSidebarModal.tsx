@@ -5,7 +5,7 @@ import { useSidebarModalRef } from '../SidebarProvider';
 import { Container } from './RenderInSidebarContainer.styled';
 
 type RenderInSidebarModalProps = React.PropsWithChildren<{
-  onClose: () => void,
+  onClose?: () => void,
   closeOnlyOnClickOutsideSidebarModal?: boolean,
   open: boolean,
   opener?: React.MutableRefObject<HTMLElement>,
@@ -41,7 +41,7 @@ export function RenderInSidebarModal({
         if (sidebarRef.current.contains(target)) return;
       } else if (containerRef.current.contains(target)) return;
 
-      onClose();
+      if (onClose) onClose();
     };
 
     window.addEventListener('pointerdown', onPointerDown);

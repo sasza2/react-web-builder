@@ -1,8 +1,9 @@
-import React, { useId } from 'react';
+import React, { useId, useMemo } from 'react';
 import { Tooltip } from 'react-tooltip';
 
 import { assignTestProp } from '@/utils/tests';
-import { getColorForTooltip } from '@/utils/colors';
+import { ColorType, getColorForTooltip } from '@/utils/colors';
+import { getColorType } from '@/utils/colors/common';
 import { ColorContainer, Color as ColorDiv } from './Color.styled';
 
 type ColorProps = {
@@ -18,18 +19,23 @@ export function Color({
   const id = useId();
   const colorSize = size === 'lg' ? 32 : 24;
   const tooltipId = `color-${id}`;
+  const colorType = useMemo(() => getColorType(color), [color]);
+  const isGradient = colorType === ColorType.Gradient;
+
   return (
     <ColorContainer
       $active={active}
       $size={colorSize}
       onClick={onClick}
       data-tooltip-id={tooltipId}
-      {...assignTestProp('color', null, getColorForTooltip(color))}
+      {...assignTestProp('color', null, isGradient ? null : getColorForTooltip(color))}
     >
       <ColorDiv $color={color} $size={colorSize} />
-      <Tooltip id={tooltipId}>
-        {getColorForTooltip(color)}
-      </Tooltip>
+      {!isGradient && (
+        <Tooltip id={tooltipId}>
+          {getColorForTooltip(color)}
+        </Tooltip>
+      )}
     </ColorContainer>
   );
 }

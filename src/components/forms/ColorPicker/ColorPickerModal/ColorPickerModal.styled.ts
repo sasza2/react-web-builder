@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ButtonWrapper } from '../RichText/buttons.styled';
+import { ButtonWrapper } from '../../RichText/buttons.styled';
 
 export const Container = styled.div`
   display: flex;

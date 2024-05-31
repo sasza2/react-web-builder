@@ -21,7 +21,7 @@ export function ColorSelect() {
   return (
     <Container>
       <Button
-        icon={<ColorIcon style={{ backgroundColor: color }} />}
+        icon={<ColorIcon style={{ background: color }} />}
         onClick={() => setOpen(true)}
         ref={buttonRef}
       />

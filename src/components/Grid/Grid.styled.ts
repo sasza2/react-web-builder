@@ -46,7 +46,7 @@ export const GridDiv = styled.div<GridDivProps>`
 
     .react-panzoom {
       .react-panzoom__in {
-        background-color: ${
+        background: ${
   ({ $breakpoint, $pageSettings }) => getBreakpointBackgroundColor($breakpoint, $pageSettings)
 };
         font-family: ${({ $fontImport }) => $fontImport?.fontFamily};
