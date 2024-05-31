@@ -8,7 +8,7 @@ it('gradient', () => {
 
   expect(gradient).toStrictEqual({
     type: 'radial-gradient',
-    degree: 'circle',
+    angle: 'circle',
     colors: [
       { color: '#ffaabb00', percent: 0 },
       { color: '#ccddee55', percent: 35 },
