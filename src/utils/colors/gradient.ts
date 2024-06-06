@@ -1,4 +1,6 @@
-import { isValidColor } from './hex';
+import { isValidColor, shadeColor } from './hex';
+
+const LIGHT_UP_PERCENT = 40;
 
 export enum GradientType {
   Linear = 'linear-gradient',
@@ -22,11 +24,11 @@ export const splitGradientColor = (gradientColor: string): Gradient => {
       colors: [
         {
           color: 'transparent',
-          percent: 50,
+          percent: 20,
         },
         {
           color: 'transparent',
-          percent: 50,
+          percent: 80,
         },
       ],
     };
@@ -42,8 +44,8 @@ export const splitGradientColor = (gradientColor: string): Gradient => {
           percent: 50,
         },
         {
-          color: gradientColor,
-          percent: 50,
+          color: shadeColor(gradientColor, LIGHT_UP_PERCENT),
+          percent: 80,
         },
       ],
     };
