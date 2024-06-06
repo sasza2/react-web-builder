@@ -12,10 +12,10 @@ export const splitBoxShadow = (value: string): BoxShadow => {
     return {
       inset: false,
       horizontalLength: 0,
-      verticalLength: 0,
-      blurRadius: 0,
+      verticalLength: 4,
+      blurRadius: 4,
       spreadRadius: 0,
-      color: '#000000',
+      color: '#5E5E5E',
     };
   }
 
