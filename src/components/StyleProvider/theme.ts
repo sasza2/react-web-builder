@@ -73,6 +73,7 @@ const colors = {
 
 const zIndex = {
   select: 3,
+  tooltip: 4,
   helperShadows: 2147483646,
   whySeparatorAnimation: 2147483646,
   max: 2147483647,

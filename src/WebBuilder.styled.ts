@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
   .react-tooltip {
     ${({ theme }) => theme.typography.Medium0R};
+    z-index: ${({ theme }) => theme.zIndex.tooltip};
   }
 
   .react-panzoom {

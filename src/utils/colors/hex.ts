@@ -94,3 +94,28 @@ export const normalizeSketchColor = (colorResult: ColorResult) => {
 
   return normalizeColor(`${colorResult.hex}${hexAlpha}`);
 };
+
+export const shadeColor = (color: string, percent: number): string => {
+  const colorRGB = splitColor(color);
+  const { a } = colorRGB;
+  let { r, g, b } = colorRGB;
+
+  r = Math.floor(r * (100 + percent) / 100);
+  g = Math.floor(g * (100 + percent) / 100);
+  b = Math.floor(b * (100 + percent) / 100);
+
+  r = (r < 255) ? r : 255;
+  g = (g < 255) ? g : 255;
+  b = (b < 255) ? b : 255;
+
+  r = Math.round(r);
+  g = Math.round(g);
+  b = Math.round(b);
+
+  const RR = ((g.toString(16).length === 1) ? `0${r.toString(16)}` : r.toString(16));
+  const GG = ((g.toString(16).length === 1) ? `0${g.toString(16)}` : g.toString(16));
+  const BB = ((b.toString(16).length === 1) ? `0${b.toString(16)}` : b.toString(16));
+  const AA = ((a.toString(16).length === 1) ? `0${a.toString(16)}` : a.toString(16));
+
+  return `#${RR}${GG}${BB}${AA}`;
+};

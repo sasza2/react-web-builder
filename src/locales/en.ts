@@ -45,6 +45,10 @@ export default {
     remove: 'Click icon <icon /> to remove this color',
     transparentInfo: 'Current color is transparent. Change (A) value to make it visible',
     type: 'Type',
+    types: {
+      gradient: 'Gradient',
+      hex: 'Solid',
+    },
   },
   common: {
     pixels: 'px',
