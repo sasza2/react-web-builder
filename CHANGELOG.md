@@ -1,5 +1,13 @@
 # react-web-builder
 
+## 0.8.0
+
+### Minor Changes
+
+- c1af9de: gradient colors
+- dbfdd84: add default box shadow values for elements
+- 3ad375b: default gradient color - light up second color
+
 ## 0.7.1
 
 ### Patch Changes
