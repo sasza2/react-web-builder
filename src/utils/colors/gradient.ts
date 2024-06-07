@@ -41,7 +41,7 @@ export const splitGradientColor = (gradientColor: string): Gradient => {
       colors: [
         {
           color: gradientColor,
-          percent: 50,
+          percent: 20,
         },
         {
           color: shadeColor(gradientColor, LIGHT_UP_PERCENT),
