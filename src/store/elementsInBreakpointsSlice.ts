@@ -1,6 +1,9 @@
+import { ElementsTreeInBreakpoint } from '@/utils/breakpoint';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { WebBuilderElement, WebBuilderElements, ElementsInBreakpoints } from 'types';
+import {
+  WebBuilderElement, WebBuilderElements, ElementsInBreakpoints, Breakpoint,
+} from 'types';
 
 const initialState: ElementsInBreakpoints = {};
 
@@ -19,6 +22,11 @@ type ActionRemoveAllByBreakpoint = PayloadAction<{ breakpointId: string }>;
 type ActionSet = PayloadAction<{ elements: WebBuilderElements, breakpointId: string }>;
 
 type ActionReplace = PayloadAction<{ elementsInBreakpoints: ElementsInBreakpoints }>;
+
+type ActionPaste = PayloadAction<{
+  elementsTree: ElementsTreeInBreakpoint[],
+  currentBreakpoint: Breakpoint,
+}>;
 
 export const elementsInBreakpointsSlice = createSlice({
   name: 'elementsInBreakpoints',
@@ -42,6 +50,21 @@ export const elementsInBreakpointsSlice = createSlice({
         ...currentElement,
         ...element,
       };
+    },
+    pasteElements: (state, { payload }: ActionPaste) => {
+      const addRecursive = (currentBreakpoint: Breakpoint, elementsTree: ElementsTreeInBreakpoint[]) => {
+        elementsTree.forEach((elementTree) => {
+          if (!state[currentBreakpoint.id]) state[currentBreakpoint.id] = [];
+
+          state[currentBreakpoint.id].push(elementTree.element);
+
+          if (elementTree.container) {
+            addRecursive(elementTree.container, elementTree.children);
+          }
+        });
+      };
+
+      addRecursive(payload.currentBreakpoint, payload.elementsTree);
     },
     setElementsInBreakpoint: (state, { payload: { elements, breakpointId } }: ActionSet) => {
       state[breakpointId] = elements;
@@ -80,6 +103,7 @@ export const {
   addElementToBreakpoint,
   addElementsToBreakpoint,
   changeElementInBreakpoint,
+  pasteElements,
   setElementsInBreakpoint,
   setElementsInBreakpointProgrammatic,
   removeElementFromBreakpoint,

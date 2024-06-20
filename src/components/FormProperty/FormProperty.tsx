@@ -18,6 +18,9 @@ import { InputHTML } from '../forms/InputHTML';
 import { URLInput } from '../forms/URLInput';
 import { ImageUpload } from '../forms/ImageUpload';
 import { BoxShadow } from '../forms/BoxShadow';
+import { OpenContainer } from '../forms/OpenContainer';
+import { EditBreakpointField } from '../forms/EditBreakpointField';
+import { BreakpointHeight } from '../forms/BreakpointHeight';
 
 type FormPropertyProps = {
   autoFocus?: boolean,
@@ -187,6 +190,15 @@ export function FormProperty({
         <Toggle name={name} />
       </FormGroup>
     );
+  }
+  if (prop.type === 'openContainer') {
+    return <OpenContainer {...prop} testId={testId} />;
+  }
+  if (prop.type === 'breakpointHeight') {
+    return <BreakpointHeight name={name} {...prop} testId={testId} />;
+  }
+  if (prop.type === 'editBreakpoint') {
+    return <EditBreakpointField {...prop} testId={testId} />;
   }
   if (prop.type === 'about') {
     return (

@@ -7,6 +7,7 @@ import {
   WebBuilderComponent,
   WebBuilderComponentProperty,
   WebBuilderElement,
+  WebBuilderElementProperty,
   WebBuilderElements,
 } from 'types';
 import { ComponentNotFound } from '@/components/ComponentNotFound';
@@ -108,7 +109,7 @@ export const produceRenderForElement = (
 
     return [
       () => (
-        <RenderWebComponent>
+        <RenderWebComponent display={componentOfElement.id === 'Container' ? 'flex' : undefined}>
           <ErrorBoundary>
             <WebBuilderComponentRender {...props} />
           </ErrorBoundary>
@@ -172,4 +173,16 @@ export const withAutoFocus = (): (prop: WebBuilderComponentProperty) => [WebBuil
   };
 
   return map;
+};
+
+export const getElementFromList = (selectedElementId: string, elements: WebBuilderElements) => {
+  if (!selectedElementId) return null;
+
+  const selectedElement = elements.find((element) => element.id === selectedElementId);
+  return selectedElement;
+};
+
+export const getElementContainerIdProp = (props: WebBuilderElementProperty[]): WebBuilderElementProperty => {
+  const containerIdProp = props.find((prop) => prop.propId === 'containerId');
+  return containerIdProp;
 };

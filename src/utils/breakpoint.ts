@@ -1,9 +1,13 @@
 import { GridAPI } from 'react-grid-panzoom';
 
 import {
-  Breakpoint, BreakpointsExtras, ElementExtra, ElementsExtras, Page, PageSettings,
+  Breakpoint, BreakpointId, BreakpointsExtras, ElementExtra, ElementsExtras, ElementsInBreakpoints, Page, PageSettings,
+  WebBuilderElement,
 } from 'types';
 import { get } from '@/utils/field';
+import { createUniqueId } from './createUniqueId';
+import { cloneDeep } from './clone';
+import { getElementContainerIdProp } from './element';
 
 export const getBreakpointBackgroundColor = (breakpoint: Breakpoint, page: PageSettings) => breakpoint.backgroundColor || page.backgroundColor;
 
@@ -25,12 +29,16 @@ export const getBreakpointPadding = (breakpoint: Breakpoint) => {
   };
 };
 
+export const isBreakpoint = (breakpoint: Breakpoint) => !breakpoint.parentId;
+
+export const isContainer = (breakpoint: Breakpoint) => !isBreakpoint(breakpoint);
+
 export const shouldLoadTemplateForBreakpoint = (
   page: Page,
   breakpoint: Breakpoint,
 ) => {
   if (!page) return false;
-  if (!breakpoint || !breakpoint.template) return false;
+  if (!breakpoint || !breakpoint.template || isContainer(breakpoint)) return false;
 
   const elementsExtrasIds = Object.keys(get(page, `elementsExtras.${breakpoint.id}`, {}));
 
@@ -82,3 +90,75 @@ export const initElementsExtrasFromBreakpoint = (
     elementsExtras.current[breakpoint.id] = page?.elementsExtras?.[breakpoint.id] || {};
   }
 };
+
+export type ElementsTreeInBreakpoint = {
+  children?: ElementsTreeInBreakpoint[],
+  container?: Breakpoint,
+  element: WebBuilderElement,
+};
+
+export const createTreeFromBreakpoint = ({
+  allBreakpoints,
+  elementsInBreakpoints,
+  selectedElements,
+  currentBreakpoint,
+  elementsExtras,
+}: {
+  allBreakpoints: Breakpoint[],
+  elementsInBreakpoints: ElementsInBreakpoints,
+  selectedElements: WebBuilderElement[],
+  currentBreakpoint: Breakpoint,
+  elementsExtras: ElementsExtras,
+}): ElementsTreeInBreakpoint[] => {
+  const treeList: ElementsTreeInBreakpoint[] = [];
+
+  selectedElements.forEach((element) => {
+    const copyElement = cloneDeep(element);
+
+    if (element.componentName === 'Container') {
+      const containerIdProp = getElementContainerIdProp(copyElement.props);
+      const container = allBreakpoints.find((item) => item.id === containerIdProp.value);
+      const copyContainerIdPropValue = createUniqueId();
+
+      elementsExtras[copyContainerIdPropValue] = {
+        ...elementsExtras[container.id],
+      };
+
+      const copyContainer = {
+        ...container,
+        id: copyContainerIdPropValue,
+        parentId: currentBreakpoint.id,
+      };
+
+      const children = createTreeFromBreakpoint({
+        allBreakpoints,
+        elementsInBreakpoints,
+        selectedElements: elementsInBreakpoints[containerIdProp.value as string],
+        currentBreakpoint: copyContainer,
+        elementsExtras,
+      });
+
+      copyElement.breakpointId = container.id;
+
+      treeList.push({
+        children,
+        container: copyContainer,
+        element: copyElement,
+      });
+
+      containerIdProp.value = copyContainerIdPropValue;
+
+      return;
+    }
+
+    copyElement.breakpointId = currentBreakpoint.id;
+
+    treeList.push({
+      element: copyElement,
+    });
+  });
+
+  return treeList;
+};
+
+export const byBreakpointId = (id: BreakpointId) => (breakpoint: Breakpoint) => breakpoint.id === id;

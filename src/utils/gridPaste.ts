@@ -2,6 +2,7 @@ import {
   Breakpoint, Tree, WebBuilderElement, WebBuilderElements,
 } from 'types';
 import { createUniqueId } from './createUniqueId';
+import { cloneDeep } from './clone';
 
 type PasteElement = (props: {
   element: WebBuilderElement,
@@ -30,6 +31,7 @@ export const pasteElement: PasteElement = ({
 
   return {
     ...element,
+    props: cloneDeep(element.props),
     disabledMove: false,
     id,
     w,
@@ -46,6 +48,7 @@ const treeToElements = (tree: Tree, columns: number, currentY: number): [WebBuil
       [
         {
           ...tree.element,
+          props: cloneDeep(tree.element.props),
           disabledMove: false,
           id: createUniqueId(),
           x: 0,
@@ -97,6 +100,7 @@ export const pasteElements: PasteElements = ({
     const yMinOfElements = getYMinOfElements(elements);
     return elements.map((element) => ({
       ...element,
+      props: cloneDeep(element.props),
       disabledMove: false,
       id: createUniqueId(),
       y: element.y + y - yMinOfElements,

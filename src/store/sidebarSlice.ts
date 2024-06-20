@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { BreakpointId } from 'types';
 import { SidebarView } from '@/components/SidebarProvider';
 import { AppDispatch, GetState } from './store';
 import { addBreakpoint } from './breakpointsSlice';
@@ -21,6 +22,13 @@ type ActionSetSidebar = PayloadAction<{ view: SidebarView | null }>;
 
 type ActionReplaceSidebar = ActionSetSidebar;
 
+const updateBreakpoint = (state: SidebarState, breakpoint: { id: BreakpointId, parentId?: BreakpointId }) => {
+  if (breakpoint && breakpoint.parentId) {
+    return state;
+  }
+  state.view = SidebarView.EditBreakpoint;
+};
+
 export const sidebarSlice = createSlice({
   name: 'sidebar',
   initialState,
@@ -37,11 +45,8 @@ export const sidebarSlice = createSlice({
       else state.view = SidebarView.AddElement;
     }).addCase(removeElementFromBreakpoint, (state) => {
       if (state.view === SidebarView.EditElement) state.view = SidebarView.AddElement;
-    }).addCase(setSelectedBreakpoint, (state) => {
-      state.view = SidebarView.EditBreakpoint;
-    }).addCase(addBreakpoint, (state) => {
-      state.view = SidebarView.EditBreakpoint;
-    });
+    }).addCase(setSelectedBreakpoint, (state, action) => updateBreakpoint(state, action.payload))
+      .addCase(addBreakpoint, (state, action) => updateBreakpoint(state, action.payload.breakpoint));
   },
 });
 

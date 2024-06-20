@@ -8,10 +8,11 @@ import { Position, WebBuilderElement, WebBuilderComponent } from 'types';
 import { useGridPositionTop } from '@/hooks/useGridPositionTop';
 import { createUniqueId } from '@/utils/createUniqueId';
 import {
-  getDefaultHeight, getDefaultWidth, getElementPropsWhenCreating, isResizable,
+  getDefaultHeight, getDefaultWidth, getElementContainerIdProp, getElementPropsWhenCreating, isResizable,
 } from '@/utils/element';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useAddElement } from '@/hooks/useAddElement';
+import { useAddBreakpointForContainer } from '@/hooks/container/useAddBreakpointForContainer';
 import { useGridAPI } from '../GridAPIProvider/GridAPIProvider';
 import { Container } from './DragElement.styled';
 
@@ -46,6 +47,7 @@ export const DragElement: React.FC<DragElementProps> = ({
   const onComponentElementChange = useRef<(position: Position) => void>();
   const hasAdded = useRef<boolean>(false);
   const gridTop = useGridPositionTop();
+  const addBreakpointForContainer = useAddBreakpointForContainer();
 
   useEffect(() => {
     if (!loaded) return;
@@ -87,6 +89,14 @@ export const DragElement: React.FC<DragElementProps> = ({
 
       const id = createUniqueId();
 
+      const nextProps = getElementPropsWhenCreating(component, breakpoint);
+      if (component.id === 'Container') {
+        const containerIdProp = getElementContainerIdProp(nextProps);
+        if (containerIdProp) {
+          containerIdProp.value = addBreakpointForContainer();
+        }
+      }
+
       addElement({
         id,
         w: getDefaultWidth(component, breakpoint),
@@ -95,7 +105,7 @@ export const DragElement: React.FC<DragElementProps> = ({
         y,
         resizable: isResizable(component),
         componentName: component.id,
-        props: getElementPropsWhenCreating(component, breakpoint),
+        props: nextProps,
       } as WebBuilderElement);
 
       onComponentElementChange.current = null;

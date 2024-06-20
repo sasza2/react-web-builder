@@ -4,6 +4,7 @@ import { RootState, StateInitialChanges } from '../store/store';
 import { initialState as changesInitialState } from '../store/changesSlice';
 import generateDefaultBreakpoints from './generateDefaultBreakpoints';
 import { getPageSettings } from './pageSettings';
+import { isBreakpoint } from './breakpoint';
 
 type GetInitialStateFromPage = (page?: Page) => StateInitialChanges & {
   changes?: RootState['changes'],
@@ -18,8 +19,10 @@ const wrapInitialStateWithChanges = (initialState: StateInitialChanges) => ({
 });
 
 const getLastBreakpointId = (breakpoints: Breakpoint[]) => {
-  if (!breakpoints.length) return null;
-  return breakpoints[breakpoints.length - 1].id;
+  const breakpointsWithoutContainers = breakpoints.filter(isBreakpoint);
+
+  if (!breakpointsWithoutContainers.length) return null;
+  return breakpointsWithoutContainers[breakpointsWithoutContainers.length - 1].id;
 };
 
 const getInitialStateFromPage: GetInitialStateFromPage = (page) => {

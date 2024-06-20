@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
 import { useChangesSetIsSaved } from './useChangesSetIsSaved';
-import { useBuildPage } from './useBuildPage';
+import { useBuildPage } from './page/useBuildPage';
 
 export const usePageSaveAsDraft = () => {
   const build = useBuildPage();

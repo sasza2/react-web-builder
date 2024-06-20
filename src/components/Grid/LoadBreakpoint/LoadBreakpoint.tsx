@@ -9,7 +9,7 @@ import { calculatePositionsOfElements, getElementsFromTree } from '@/utils/templ
 import getBreakpointWidth from '@/utils/getBreakpointWidth';
 import { useProperties } from '@/components/PropertiesProvider';
 import { produceRenderForElement } from '@/utils/element';
-import { assignAllToElementsExtras, initElementsExtrasFromBreakpoint } from '@/utils/breakpoint';
+import { assignAllToElementsExtras, byBreakpointId, initElementsExtrasFromBreakpoint } from '@/utils/breakpoint';
 import { ElementsContext } from '@/components/ElementsProvider';
 import { setElementsInBreakpoint } from '@/store/elementsInBreakpointsSlice';
 import { delay } from '@/utils/delay';
@@ -17,6 +17,7 @@ import { useAppSelector } from '@/store/useAppSelector';
 import { RenderInContainer } from '@/components/RenderInContainer';
 import { useFontImport } from '@/hooks/useFontImport';
 import { usePageSettings } from '@/hooks/usePageSettings';
+import { useComponentsProperty } from '@/components/ComponentsProvider';
 import { GridDiv } from '../Grid.styled';
 
 type LoadBreakpointProps = {
@@ -30,11 +31,12 @@ export function LoadBreakpoint({
   onFinishLoading,
   onStartLoading,
 }: LoadBreakpointProps) {
-  const { components, page, transformElementProperty } = useProperties();
+  const { page, transformElementProperty } = useProperties();
+  const components = useComponentsProperty();
   const gridTemplateAPIRef = useRef<GridAPI>();
   const { elementsExtras } = useContext(ElementsContext);
   const dispatch = useDispatch();
-  const breakpointFromStore = useAppSelector((state) => state.breakpoints.find((item) => item.id === breakpoint.id));
+  const breakpointFromStore = useAppSelector((state) => state.breakpoints.find(byBreakpointId(breakpoint.id)));
   const pageSettings = usePageSettings();
   const fontImport = useFontImport(pageSettings.fontFamily);
 

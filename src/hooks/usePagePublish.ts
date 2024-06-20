@@ -2,7 +2,7 @@ import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
-import { useBuildPageWithTree } from './useBuildPageWithTree';
+import { useBuildPageWithTree } from './page/useBuildPageWithTree';
 import { useChangesSetIsSaved } from './useChangesSetIsSaved';
 
 export const usePagePublish = () => {

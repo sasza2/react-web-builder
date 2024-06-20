@@ -4,12 +4,16 @@ import { Tree, WebBuilderElement } from 'types';
 import { MARGIN_BOTTOM_ON_PASTED_ELEMENT } from '@/consts';
 import { paste as clipboardPaste } from '@/utils/clipboard';
 import { delay } from '@/utils/delay';
-import { useAddElement } from '@/hooks/useAddElement';
 import { useIsMounted } from '@/hooks/useIsMounted';
-import { pasteElement, pasteElements } from '@/utils/gridPaste';
+import * as gridPaste from '@/utils/gridPaste';
 import { useGridAPI } from '@/components/GridAPIProvider';
+import { useAppSelector } from '@/store/useAppSelector';
+import { createTreeFromBreakpoint } from '@/utils/breakpoint';
+import { useAppDispatch } from '@/store/useAppDispatch';
+import { pasteElements } from '@/store/elementsInBreakpointsSlice';
+import { useBreakpoints } from './useBreakpoints';
 import { useBreakpoint } from './useBreakpoint';
-import { useAddElements } from './useAddElements';
+import { useElements } from './useElements';
 
 type WebBuilderElementClipboard = {
   type: 'element',
@@ -29,11 +33,13 @@ type TreeClipboard = {
 };
 
 export const useGridPaste = () => {
-  const addElement = useAddElement();
-  const addElements = useAddElements();
   const breakpoint = useBreakpoint();
   const gridAPIRef = useGridAPI();
   const isMounted = useIsMounted();
+  const breakpoints = useBreakpoints();
+  const elementsInBreakpoints = useAppSelector((state) => state.elementsInBreakpoints);
+  const dispatch = useAppDispatch();
+  const { elementsExtras } = useElements();
 
   const organizeElements = (options?: OrganizeElementsOptions) => {
     if (!isMounted.current) return null;
@@ -80,7 +86,7 @@ export const useGridPaste = () => {
           element,
         } = obj as WebBuilderElementClipboard;
 
-        const pastedElement = pasteElement({
+        const pastedElement = gridPaste.pasteElement({
           breakpoint,
           clipboardBreakpoint,
           element,
@@ -88,7 +94,15 @@ export const useGridPaste = () => {
           y,
         });
 
-        addElement(pastedElement);
+        const elementsTree = createTreeFromBreakpoint({
+          allBreakpoints: breakpoints,
+          elementsInBreakpoints,
+          selectedElements: [pastedElement],
+          currentBreakpoint: breakpoint,
+          elementsExtras: elementsExtras.current,
+        });
+
+        dispatch(pasteElements({ currentBreakpoint: breakpoint, elementsTree }));
 
         organizeElementsDelay({
           pastedElements: [pastedElement],
@@ -102,7 +116,7 @@ export const useGridPaste = () => {
           tree,
         } = obj as TreeClipboard;
 
-        const pastedElements = pasteElements({
+        const pastedElements = gridPaste.pasteElements({
           breakpoint,
           clipboardBreakpoint,
           elements,
@@ -110,7 +124,15 @@ export const useGridPaste = () => {
           y,
         });
 
-        addElements(pastedElements);
+        const elementsTree = createTreeFromBreakpoint({
+          allBreakpoints: breakpoints,
+          elementsInBreakpoints,
+          selectedElements: pastedElements,
+          currentBreakpoint: breakpoint,
+          elementsExtras: elementsExtras.current,
+        });
+
+        dispatch(pasteElements({ currentBreakpoint: breakpoint, elementsTree }));
 
         organizeElementsDelay({
           addGap: clipboardBreakpoint.cols === breakpoint.cols ? 0 : MARGIN_BOTTOM_ON_PASTED_ELEMENT,

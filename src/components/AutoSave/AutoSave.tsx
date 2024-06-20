@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { useBuildPage } from '@/hooks/useBuildPage';
+import { useBuildPage } from '@/hooks/page/useBuildPage';
 import { usePageOnChange } from '@/hooks/usePageOnChange';
 import { useChangesSetIsSaved } from '@/hooks/useChangesSetIsSaved';
 import { useAppSelector } from '@/store/useAppSelector';

@@ -1,25 +1,34 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { BreakpointId } from 'types';
+import { isContainer } from '@/utils/breakpoint';
 import { addBreakpoint, removeBreakpoint } from './breakpointsSlice';
+import { setSelectedElement } from './selectedElementSlice';
 
-const initialState: string | null = null;
+const initialState: BreakpointId | null = null;
 
-type ActionSet = PayloadAction<{ breakpointId: string | null }>;
+type ActionSet = PayloadAction<{ id: BreakpointId | null, parentId?: BreakpointId }>;
 
 type ActionReplace = ActionSet;
+
+type ActionSetSelectedElement = PayloadAction<{ breakpointId?: string | null }>;
 
 export const selectedBreakpointSlice = createSlice({
   name: 'selectedBreakpoint',
   initialState,
   reducers: {
-    setSelectedBreakpoint: (state, { payload: { breakpointId } }: ActionSet) => breakpointId,
-    replaceBreakpoint: (state, { payload: { breakpointId } }: ActionReplace) => breakpointId,
+    setSelectedBreakpoint: (state, { payload: { id } }: ActionSet) => id || null,
+    replaceBreakpoint: (state, { payload: { id } }: ActionReplace) => id || null,
   },
   extraReducers: (builder) => {
     builder
-      .addCase(addBreakpoint, (state, { payload: { breakpoint } }) => breakpoint.id)
+      .addCase(addBreakpoint, (state, { payload: { breakpoint } }) => (isContainer(breakpoint) ? state : breakpoint.id))
       .addCase(removeBreakpoint, (state, { payload: { breakpoint } }) => {
         if (state === breakpoint.id) return null;
+        return state;
+      })
+      .addCase(setSelectedElement, (state, { payload: { breakpointId } }: ActionSetSelectedElement) => {
+        if (breakpointId !== undefined) return breakpointId;
         return state;
       });
   },
