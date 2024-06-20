@@ -1,10 +1,8 @@
-import React, { createContext, useContext, useMemo } from 'react';
+import React, { createContext, useContext } from 'react';
 
 import {
-  BuilderCommonProps, WebBuilderProps, ViewProps, WebBuilderComponent,
+  BuilderCommonProps, WebBuilderProps, ViewProps,
 } from 'types';
-import { mergeArrays } from '@/utils/array';
-import { useInternalComponents } from '../../components';
 
 const PropertiesContext = createContext({} as BuilderCommonProps);
 
@@ -23,60 +21,13 @@ export const useWebBuilderProperties = (): WebBuilderProps => {
   return props;
 };
 
-const mergeItem = (a: WebBuilderComponent, b: WebBuilderComponent) => ({
-  ...a,
-  ...b,
-  props: mergeArrays([a.props, b.props]),
-});
-
-function PropertiesProvider({
+export function PropertiesProvider({
   children,
-  components,
-  page,
   ...props
 }: React.PropsWithChildren<BuilderCommonProps>) {
-  const internalComponents = useInternalComponents({
-    components,
-    page,
-    ...props,
-  });
-  const allComponents = useMemo(
-    () => mergeArrays([internalComponents, components], mergeItem),
-    [internalComponents, components],
-  );
-  const value = useMemo(() => ({
-    ...props,
-    page,
-    components: allComponents,
-  }), [page, allComponents]);
-
   return (
-    <PropertiesContext.Provider value={value}>
+    <PropertiesContext.Provider value={props}>
       {children}
     </PropertiesContext.Provider>
-  );
-}
-
-export function ViewPropertiesProvider({
-  children,
-  components,
-  ...props
-}: React.PropsWithChildren<ViewProps>) {
-  return (
-    <PropertiesProvider components={components} {...props}>
-      {children}
-    </PropertiesProvider>
-  );
-}
-
-export function WebBuilderPropertiesProvider({
-  children,
-  components,
-  ...props
-}: React.PropsWithChildren<WebBuilderProps>) {
-  return (
-    <PropertiesProvider components={components} {...props}>
-      {children}
-    </PropertiesProvider>
   );
 }

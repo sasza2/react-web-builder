@@ -39,18 +39,25 @@ import {
   createSourceProperty,
 } from './properties';
 import { IFrame } from './components/IFrame';
+import { Container } from './components/icons/Container';
+import { useBoxStyle } from './components/View/Box/useBoxStyle';
 
 export { Box } from '@/components/View/Box';
 export { IFrame } from '@/components/IFrame';
 export { Line } from './components/Line';
 
 export function Image({
-  boxShadow, href, url,
+  border, boxShadow, href, url,
 }: ImageComponentProps) {
+  const style = useBoxStyle({
+    border,
+    boxShadow,
+  });
+
   if (!url || !url.location) return null;
 
   const image = (
-    <img style={{ width: '100%' }} alt={url.location} src={url.location} />
+    <img style={{ width: '100%', ...style }} alt={url.location} src={url.location} />
   );
 
   const renderImage = () => {
@@ -90,6 +97,8 @@ function VideoIn({ url }: VideoComponentProps) {
 
 export const Video = memo(VideoIn, (a, b) => a.url === b.url);
 
+export type ElementContainer = React.FC;
+
 export const useInternalComponents = ({
   defaultBoxContent,
   defaultButtonBackgroundColor,
@@ -98,8 +107,48 @@ export const useInternalComponents = ({
   defaultButtonHref,
   defaultImageSrc,
   defaultVideoSrc,
-}: BuilderCommonProps) => {
+  elementContainer,
+}: BuilderCommonProps & { elementContainer: ElementContainer }) => {
   const components: Array<WebBuilderComponent> = [
+    {
+      id: 'Container',
+      icon: Container,
+      label: <Trans i18nKey="container.text" />,
+      component: elementContainer,
+      group: BasicGroup,
+      props: [
+        {
+          id: 'openContainer',
+          type: 'openContainer',
+        },
+        {
+          id: 'breakpointHeight',
+          type: 'breakpointHeight',
+        },
+        {
+          id: 'cols',
+          type: 'editBreakpoint',
+          field: 'cols',
+        },
+        {
+          id: 'backgroundColor',
+          type: 'editBreakpoint',
+          field: 'backgroundColor',
+        },
+        {
+          id: 'padding',
+          type: 'editBreakpoint',
+          field: 'padding',
+        },
+        {
+          id: 'containerId',
+          type: 'hidden',
+        },
+        createBorderProperty(),
+        createBoxShadowProperty(),
+      ],
+      order: -600,
+    },
     {
       id: 'Box',
       icon: TextIcon,
@@ -135,6 +184,7 @@ export const useInternalComponents = ({
           defaultValue: { location: '', openInNewTab: true },
           canOpenInNewTab: true,
         },
+        createBorderProperty(),
         createBoxShadowProperty(),
       ],
       order: -400,

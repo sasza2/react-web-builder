@@ -1,5 +1,5 @@
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
-import { useBuildPageWithTree } from './useBuildPageWithTree';
+import { useBuildPageWithTree } from './page/useBuildPageWithTree';
 
 export const usePagePreview = () => {
   const { onPagePreview } = useWebBuilderProperties();

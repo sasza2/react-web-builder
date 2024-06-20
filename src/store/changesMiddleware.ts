@@ -39,7 +39,7 @@ function updateStore(store: Store) {
     elementsInBreakpoints: nextState.elementsInBreakpoints,
   }));
   store.dispatch(replaceBreakpoint({
-    breakpointId: nextState.selectedBreakpoint,
+    id: nextState.selectedBreakpoint,
   }));
   store.dispatch(replaceSelectedElement({
     elementId: nextState.selectedElement,

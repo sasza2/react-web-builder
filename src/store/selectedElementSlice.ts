@@ -6,7 +6,7 @@ import { setSidebar, setSidebarView } from './sidebarSlice';
 
 const initialState: string | null = null;
 
-type ActionSet = PayloadAction<{ elementId: string | null }>;
+type ActionSet = PayloadAction<{ breakpointId?: string | null, elementId: string | null }>;
 
 type ActionReplace = ActionSet;
 

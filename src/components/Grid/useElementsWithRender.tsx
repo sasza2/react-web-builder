@@ -9,10 +9,12 @@ import { produceRenderForElement } from '@/utils/element';
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
 import { useElementsCache } from '@/hooks/useElementsCache';
 import { useSelectedElements } from '@/hooks/useSelectedElements';
+import { useComponentsProperty } from '../ComponentsProvider';
 
 const useElementsWithRender = () => {
   const breakpoint = useBreakpoint();
-  const { components, transformElementProperty } = useWebBuilderProperties();
+  const { transformElementProperty } = useWebBuilderProperties();
+  const components = useComponentsProperty();
   const { elements } = useElements();
   const cache = useElementsCache();
   const [selectedElementId] = useSelectedElementId();

@@ -1,7 +1,7 @@
 import { delay } from '@/utils/delay';
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
 import { useChangesSetIsSaved } from './useChangesSetIsSaved';
-import { useBuildPageWithTree } from './useBuildPageWithTree';
+import { useBuildPageWithTree } from './page/useBuildPageWithTree';
 import { useIsMounted } from './useIsMounted';
 
 export const usePageOnChange = () => {

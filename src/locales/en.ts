@@ -8,6 +8,9 @@ export default {
     clearConfirm: 'Are you sure you want to clear this breakpoint?',
     delete: 'Delete breakpoint',
     deleteConfirm: 'Are you sure you want to remove this breakpoint?',
+    disabled: {
+      isContainer: 'You can\'t change breakpoint when you are editing container',
+    },
     edit: 'Edit breakpoint',
     errors: {
       alreadyExists: 'Breakpoint with this value already exists',
@@ -18,6 +21,16 @@ export default {
       notNumber: 'Value is not a number',
       lowerThanMinimum: 'Lower than minimum {{value}}px',
       wontFitGrid: 'Some elements won\'t fit in new grid, please change their positions',
+    },
+    heightProp: {
+      enabled: 'Enabled',
+      height: 'Height',
+      overflow: {
+        hidden: 'Hidden',
+        label: 'Height overflow',
+        scroll: 'Scroll',
+        visible: 'Visible',
+      },
     },
     layout: 'Layout breakpoint',
     minWidth: 'Min width',
@@ -96,6 +109,12 @@ export default {
       title: 'Close edit on click',
       description: 'Prevent closing editing properties of element on click outside of it',
     },
+  },
+  container: {
+    button: 'Go to container space',
+    content: 'Content',
+    description: 'To edit content, go to container space using the button below.',
+    text: 'Container',
   },
   element: {
     backgroundColor: 'Background color',

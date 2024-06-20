@@ -11,7 +11,7 @@ export {
   TextElement,
   Tree,
   ViewProps,
-  WebBuilderComponent, 
+  WebBuilderComponent,
   WebBuilderComponentProperty,
   WebBuilderElement,
   WebBuilderElementProperty,

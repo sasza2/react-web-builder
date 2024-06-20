@@ -10,6 +10,7 @@ import { FormControl } from '../FormControl';
 import { Wrapped } from './Select.styled';
 
 type SelectProps<T > = {
+  disabled?: boolean,
   label?: JSX.Element | string,
   size: 'xs' | 'lg',
   menuTooltip?: string,
@@ -17,6 +18,7 @@ type SelectProps<T > = {
 } & IFormControl;
 
 export function Select<T>({
+  disabled,
   name,
   errors,
   label,
@@ -47,6 +49,7 @@ export function Select<T>({
         <ReactSelect
           className="react-select-container"
           classNamePrefix="react-select"
+          isDisabled={disabled}
           value={option}
           onChange={onChange}
           onMenuOpen={onMenuOpen}

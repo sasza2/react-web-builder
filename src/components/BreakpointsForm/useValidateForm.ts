@@ -7,6 +7,7 @@ import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useBreakpoints } from '@/hooks/useBreakpoints';
 import { useElements } from '@/hooks/useElements';
 import { useSidebarRef } from '@/components/SidebarProvider';
+import { isBreakpoint } from '@/utils/breakpoint';
 import { Errors, IForm } from './types';
 
 type UseValidateForm = () => [Errors, (form: IForm) => Errors];
@@ -25,7 +26,7 @@ const validateIfBreakpointExists = (
   breakpoints: Breakpoint[],
 ) => {
   const valueAsNum = parseInt(value);
-  return breakpoints.some((breakpoint) => {
+  return breakpoints.filter(isBreakpoint).some((breakpoint) => {
     if (currentBreakpoint && breakpoint.id === currentBreakpoint.id) return false;
     return valueAsNum === breakpoint.from;
   });

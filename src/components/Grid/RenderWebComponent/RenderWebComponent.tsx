@@ -8,7 +8,11 @@ import { ComponentIsLoading } from '../../ComponentIsLoading';
 import { ComponentNotFound } from '../../ComponentNotFound';
 import { ComponentContainer, StateContainer } from './RenderWebComponent.styled';
 
-function RenderWebComponentIn({ children }: React.PropsWithChildren) {
+type RenderWebComponentInProps = React.PropsWithChildren<{
+  display?: React.CSSProperties['flex'],
+}>;
+
+function RenderWebComponentIn({ children, display }: RenderWebComponentInProps) {
   const [loading, setLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const containerRef = useRef<HTMLDivElement>();
@@ -63,7 +67,7 @@ function RenderWebComponentIn({ children }: React.PropsWithChildren) {
           <ComponentNotFound />
         </StateContainer>
       ) }
-      <ComponentContainer ref={containerRef} {...assignTestProp('component')}>
+      <ComponentContainer $display={display} ref={containerRef} {...assignTestProp('component')}>
         {children}
       </ComponentContainer>
     </>

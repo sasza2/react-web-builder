@@ -68,7 +68,7 @@ function InputRef({
     setValue(nextValue);
 
     if (onBlur) onBlur(nextValue);
-  }, [onBlur, value]);
+  }, [onBlur, setValue, value]);
 
   const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = useCallback((e) => {
     if (e.code === 'Enter') {

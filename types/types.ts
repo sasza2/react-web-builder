@@ -86,6 +86,12 @@ export type ImageURL = {
   upload?: unknown,
 }
 
+export type BreakpointHeight = {
+  enabled?: boolean,
+  height?: number,
+  overflow: 'hidden' | 'scroll' | 'visible',
+}
+
 export type WebBuilderComponentProperty = ({
   type: 'toggle',
   label: JSX.Element | string,
@@ -152,6 +158,14 @@ export type WebBuilderComponentProperty = ({
   label: JSX.Element | string,
   defaultValue?: PropertyDefaultValue<string>,
 } | {
+  type: 'openContainer',
+} | {
+  type: 'editBreakpoint',
+  field: keyof Breakpoint,
+} | {
+  type: 'breakpointHeight',
+  defaultValue?: PropertyDefaultValue<BreakpointHeight>,
+} | {
   type: 'hidden',
 }) & {
   id: string,
@@ -202,6 +216,7 @@ export type Border = {
 
 export type Breakpoint = {
   id: BreakpointId,
+  parentId?: BreakpointId,
   from: number,
   to: number | null,
   rowHeight: number,
@@ -365,6 +380,7 @@ export type LineComponentProps = {
 };
 
 export type ImageComponentProps = {
+  border?: Partial<Border>,
   boxShadow?: string;
   href: ElementURL;
   url: ElementURL;

@@ -15,6 +15,7 @@ import { WebBuilderComponent, WebBuilderGroup } from 'types';
 import { assignTestProp } from '@/utils/tests';
 import { DragElement, DragElementDetails } from '@/components/DragElement';
 import { useGridPositionTop } from '@/hooks/useGridPositionTop';
+import { useSidebarContainerEditGoBack } from '@/hooks/useSidebarContainerEditGoBack';
 import { SidebarHeader } from '../SidebarHeader';
 import { Icon } from '../icons/Icon';
 import { SidebarScrollbar } from '../SidebarScrollbar';
@@ -66,6 +67,7 @@ function SelectNewElementIn({
   const [dragElement, setDragElement] = useState<DragElementDetails>(null);
   const gridTop = useGridPositionTop();
   const accordion = useSelectNewElementAccordion();
+  const goBack = useSidebarContainerEditGoBack();
 
   const groups = useMemo(() => sortGroups(Object.values(components.reduce((map, component) => {
     getGroupsFromComponent(component, t).forEach((group) => {
@@ -132,7 +134,7 @@ function SelectNewElementIn({
         </DragElement>
       ) }
       <Container {...assignTestProp(componentName)}>
-        <SidebarHeader {...assignTestProp(componentName, 'header')}>
+        <SidebarHeader {...assignTestProp(componentName, 'header')} onBack={goBack}>
           {t('selectNewElement.title')}
         </SidebarHeader>
         <SidebarScrollbar>

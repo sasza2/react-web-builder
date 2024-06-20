@@ -11,7 +11,7 @@ import { useSetElements } from '@/hooks/useSetElements';
 import { RemoveButton } from '@/components/Button';
 import { useElementsCache } from '@/hooks/useElementsCache';
 import { useAppSelector } from '@/store/useAppSelector';
-import { getDefaultValue, withAutoFocus } from '@/utils/element';
+import { getDefaultValue, getElementFromList, withAutoFocus } from '@/utils/element';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useTimeout } from '@/hooks/useTimeout';
 import { assignTestProp } from '@/utils/tests';
@@ -26,13 +26,6 @@ import { useWebBuilderProperties } from '../PropertiesProvider';
 
 type EditPropertiesProps = {
   components: Array<WebBuilderComponent>,
-};
-
-const getElement = (selectedElementId: string, elements: WebBuilderElements) => {
-  if (!selectedElementId) return null;
-
-  const selectedElement = elements.find((element) => element.id === selectedElementId);
-  return selectedElement;
 };
 
 const getComponent = (element: WebBuilderElement, components: WebBuilderComponent[]) => {
@@ -59,7 +52,7 @@ export function EditPropertiesIn({
   const { onImageUpload } = useWebBuilderProperties();
 
   const formCreator = useFormCreator(() => {
-    const element = getElement(selectedElementId, elements);
+    const element = getElementFromList(selectedElementId, elements);
     const component = getComponent(element, components);
     const values: Record<string, unknown> = {};
 
@@ -74,7 +67,7 @@ export function EditPropertiesIn({
   }, [undoKey]);
 
   const element = useMemo(
-    () => getElement(selectedElementId, elements),
+    () => getElementFromList(selectedElementId, elements),
     [elements, selectedElementId],
   );
 
@@ -83,7 +76,7 @@ export function EditPropertiesIn({
   const onChange = () => {
     updateElementsTimeout(() => {
       const form = formCreator.getFormValues();
-      const elementCurrent = getElement(selectedElementId, elementsRef.current);
+      const elementCurrent = getElementFromList(selectedElementId, elementsRef.current);
 
       setElements(elementsRef.current.map((currentElement) => {
         if (currentElement.id === elementCurrent.id) {

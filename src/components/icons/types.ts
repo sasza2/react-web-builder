@@ -13,6 +13,7 @@ export type AllIcons = {
   ColorGradient: RenderIcon,
   Configuration: RenderIcon,
   Cross: RenderIcon,
+  Container: RenderIcon,
   Desktop: RenderIcon,
   Hamburger: RenderIcon,
   IFrame: RenderIcon,

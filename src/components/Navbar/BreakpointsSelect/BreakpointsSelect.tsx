@@ -10,6 +10,7 @@ import { SidebarView } from '@/components/SidebarProvider';
 import { useSetSidebarView } from '@/hooks/useSetSidebarView';
 import { useSidebar } from '@/hooks/useSidebarView';
 import { FieldProvider } from '@/components/FormProvider';
+import { isBreakpoint, isContainer } from '@/utils/breakpoint';
 import { Container } from './BreakpointSelect.styled';
 import { BreakpointLabel } from './BreakpointLabel';
 
@@ -21,9 +22,12 @@ export function BreakpointsSelect() {
   const setSidebarView = useSetSidebarView();
   const sidebar = useSidebar();
   const blockChangeRef = useRef<boolean>(null);
+  const disabled = isContainer(breakpoint);
 
   const options = useMemo(() => {
-    const sortedBreakpoints = [...breakpoints].sort((a, b) => a.from - b.from);
+    const sortedBreakpoints = [...breakpoints]
+      .filter(isBreakpoint)
+      .sort((a, b) => a.from - b.from);
 
     const list = sortedBreakpoints.map((itemBreakpoint, index) => {
       const next = sortedBreakpoints[index + 1];
@@ -92,12 +96,31 @@ export function BreakpointsSelect() {
     }, 600);
   };
 
-  return (
-    <Container
-      data-id="breakpointsSelect"
-      onClick={onClick}
-      {...assignTestProp('breakpointSelect')}
-    >
+  const renderContent = () => {
+    if (disabled) {
+      return (
+        <FieldProvider
+          name="breakpoint"
+          setValue={setValue}
+          value="container"
+        >
+          <Select
+            name="breakpoint"
+            size="lg"
+            menuTooltip={t('breakpoint.disabled.isContainer')}
+            options={[
+              {
+                label: t('container.text'),
+                value: 'container',
+              },
+            ]}
+            disabled
+          />
+        </FieldProvider>
+      );
+    }
+
+    return (
       <FieldProvider
         name="breakpoint"
         setValue={setValue}
@@ -110,6 +133,17 @@ export function BreakpointsSelect() {
           options={options}
         />
       </FieldProvider>
+    );
+  };
+
+  return (
+    <Container
+      data-id="breakpointsSelect"
+      onClick={disabled ? undefined : onClick}
+      {...assignTestProp('breakpointSelect')}
+      $disabled={disabled}
+    >
+      {renderContent()}
     </Container>
   );
 }
