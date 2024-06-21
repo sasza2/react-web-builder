@@ -92,12 +92,16 @@ export function FormProperty({
   }
   if (prop.type === 'select') {
     return (
-      <Select
-        name={name}
-        label={prop.label}
-        size="lg"
-        options={prop.options}
-      />
+      <FormGroup {...assignTestProp(testId, null, prop.type)}>
+        <FormHeader>
+          {prop.label}
+        </FormHeader>
+        <Select
+          name={name}
+          size="lg"
+          options={prop.options}
+        />
+      </FormGroup>
     );
   }
   if (prop.type === 'richtext') {
