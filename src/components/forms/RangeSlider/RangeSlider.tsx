@@ -20,7 +20,7 @@ export function RangeSlider({
   errors,
   label,
   max,
-  min,
+  min = 0,
   rightNode,
   testId,
 }: RangeSliderProps) {
