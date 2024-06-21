@@ -172,13 +172,17 @@ export function FormProperty({
   }
   if (prop.type === 'number') {
     return (
-      <RangeSlider
-        name={name}
-        label={prop.label}
-        min={prop.min}
-        max={prop.max || 20}
-        rightNode="px"
-      />
+      <FormGroup {...assignTestProp(testId, null, prop.type)}>
+        <FormHeader>
+          {prop.label}
+        </FormHeader>
+        <RangeSlider
+          name={name}
+          min={prop.min}
+          max={prop.max || 20}
+          rightNode="px"
+        />
+      </FormGroup>
     );
   }
   if (prop.type === 'toggle') {
