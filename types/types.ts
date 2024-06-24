@@ -189,7 +189,7 @@ export type WebBuilderComponent = {
   label?: JSX.Element | string,
   icon?: React.FC,
   component: React.ReactNode | React.FC,
-  defaultWidth?: number,
+  defaultWidth?: number | ((props: { component: WebBuilderComponent, breakpoint: Breakpoint }) => number),
   expandToWindowWidth?: boolean,
   group?: WebBuilderGroup | WebBuilderGroup[],
   props?: Array<WebBuilderComponentProperty>,
