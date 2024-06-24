@@ -32,7 +32,7 @@ export function Configuration() {
       </SidebarHeader>
       <SidebarScrollbar>
         <ConfigurationContainer>
-        <FormGroup>
+          <FormGroup>
             <FormHeader>
               {t('configuration.autoSave.title')}
             </FormHeader>

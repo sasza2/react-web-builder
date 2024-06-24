@@ -13,6 +13,7 @@ import {
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useAddElement } from '@/hooks/useAddElement';
 import { useAddBreakpointForContainer } from '@/hooks/container/useAddBreakpointForContainer';
+import { SIDEBAR_WIDTH } from '@/consts';
 import { useGridAPI } from '../GridAPIProvider/GridAPIProvider';
 import { Container } from './DragElement.styled';
 
@@ -114,7 +115,7 @@ export const DragElement: React.FC<DragElementProps> = ({
       setTimeout(() => {
         if (disabled) return;
         gridAPIRef.current.grabElement(id, {
-          x: offset.x,
+          x: offset.x + SIDEBAR_WIDTH / panZoom.getZoom(),
           y: gridTop / panZoom.getZoom(),
         });
       }, 100); // TODO

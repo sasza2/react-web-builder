@@ -27,8 +27,18 @@ export const getDefaultHeight = (component: WebBuilderComponent) => {
 };
 
 export const getDefaultWidth = (component: WebBuilderComponent, breakpoint: Breakpoint) => {
+  let defaultWidth: number | null = null;
+
+  if (component.defaultWidth) {
+    if (typeof component.defaultWidth === 'function') {
+      defaultWidth = component.defaultWidth({ component, breakpoint });
+    } else {
+      defaultWidth = component.defaultWidth;
+    }
+  }
+
   let width = breakpoint.cols;
-  if (component.defaultWidth && width > component.defaultWidth) width = component.defaultWidth;
+  if (defaultWidth && width > defaultWidth) width = defaultWidth;
   return width;
 };
 
