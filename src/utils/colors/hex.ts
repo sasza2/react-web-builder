@@ -112,10 +112,12 @@ export const shadeColor = (color: string, percent: number): string => {
   g = Math.round(g);
   b = Math.round(b);
 
-  const RR = ((g.toString(16).length === 1) ? `0${r.toString(16)}` : r.toString(16));
-  const GG = ((g.toString(16).length === 1) ? `0${g.toString(16)}` : g.toString(16));
-  const BB = ((b.toString(16).length === 1) ? `0${b.toString(16)}` : b.toString(16));
-  const AA = ((a.toString(16).length === 1) ? `0${a.toString(16)}` : a.toString(16));
+  const formatPart = (part: number) => ((part.toString(16).length === 1) ? `0${part.toString(16)}` : part.toString(16));
+
+  const RR = formatPart(r);
+  const GG = formatPart(g);
+  const BB = formatPart(b);
+  const AA = formatPart(a);
 
   return `#${RR}${GG}${BB}${AA}`;
 };
