@@ -32,6 +32,20 @@ export function Configuration() {
       </SidebarHeader>
       <SidebarScrollbar>
         <ConfigurationContainer>
+        <FormGroup>
+            <FormHeader>
+              {t('configuration.autoSave.title')}
+            </FormHeader>
+            <FormProvider
+              getFormValues={getFormValues}
+              setForm={setConfiguration}
+            >
+              <Toggle
+                name="autoSave"
+                label={t('configuration.autoSave.description')}
+              />
+            </FormProvider>
+          </FormGroup>
           <FormGroup>
             <FormHeader>
               {t('configuration.mouseWheel.title')}
@@ -81,20 +95,6 @@ export function Configuration() {
           </FormGroup>
           <FormGroup>
             <FormHeader>
-              {t('configuration.autoSave.title')}
-            </FormHeader>
-            <FormProvider
-              getFormValues={getFormValues}
-              setForm={setConfiguration}
-            >
-              <Toggle
-                name="autoSave"
-                label={t('configuration.autoSave.description')}
-              />
-            </FormProvider>
-          </FormGroup>
-          <FormGroup>
-            <FormHeader>
               {t('configuration.helpLines.title')}
             </FormHeader>
             <FormProvider
@@ -104,6 +104,20 @@ export function Configuration() {
               <Toggle
                 name="helpLines"
                 label={t('configuration.helpLines.description')}
+              />
+            </FormProvider>
+          </FormGroup>
+          <FormGroup>
+            <FormHeader>
+              {t('configuration.bringElementsAbove.title')}
+            </FormHeader>
+            <FormProvider
+              getFormValues={getFormValues}
+              setForm={setConfiguration}
+            >
+              <Toggle
+                name="bringElementsAbove"
+                label={t('configuration.bringElementsAbove.description')}
               />
             </FormProvider>
           </FormGroup>
@@ -146,20 +160,6 @@ export function Configuration() {
               <Toggle
                 name="autoFocusRichTextInEditProperties"
                 label={t('configuration.autoFocusRichTextInEditProperties.description')}
-              />
-            </FormProvider>
-          </FormGroup>
-          <FormGroup>
-            <FormHeader>
-              {t('configuration.bringElementsAbove.title')}
-            </FormHeader>
-            <FormProvider
-              getFormValues={getFormValues}
-              setForm={setConfiguration}
-            >
-              <Toggle
-                name="bringElementsAbove"
-                label={t('configuration.bringElementsAbove.description')}
               />
             </FormProvider>
           </FormGroup>
