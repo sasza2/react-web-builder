@@ -6,9 +6,7 @@ import {
   addElementsToBreakpoint,
   changeElementInBreakpoint,
   setElementsInBreakpoint,
-  removeElementFromBreakpoint,
   removeElementsFromBreakpoint,
-  removeAllByBreakpoint,
   setElementsInBreakpointProgrammatic,
   pasteElements,
 } from './elementsInBreakpointsSlice';
@@ -29,9 +27,7 @@ const actionsImportant = [
   pasteElements,
   setElementsInBreakpoint,
   setSelectedElements,
-  removeElementFromBreakpoint,
   removeElementsFromBreakpoint,
-  removeAllByBreakpoint,
   toggleSelectedElement,
 ].map((action) => action().type);
 

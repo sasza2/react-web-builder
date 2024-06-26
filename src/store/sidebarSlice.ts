@@ -4,7 +4,7 @@ import { BreakpointId } from 'types';
 import { SidebarView } from '@/components/SidebarProvider';
 import { AppDispatch, GetState } from './store';
 import { addBreakpoint } from './breakpointsSlice';
-import { removeElementFromBreakpoint } from './elementsInBreakpointsSlice';
+import { removeElementsFromBreakpoint } from './elementsInBreakpointsSlice';
 import { setSelectedBreakpoint } from './selectedBreakpointSlice';
 import { setSelectedElement } from './selectedElementSlice';
 
@@ -43,7 +43,7 @@ export const sidebarSlice = createSlice({
     builder.addCase(setSelectedElement, (state, action) => {
       if (action.payload.elementId) state.view = SidebarView.EditElement;
       else state.view = SidebarView.AddElement;
-    }).addCase(removeElementFromBreakpoint, (state) => {
+    }).addCase(removeElementsFromBreakpoint, (state) => {
       if (state.view === SidebarView.EditElement) state.view = SidebarView.AddElement;
     }).addCase(setSelectedBreakpoint, (state, action) => updateBreakpoint(state, action.payload))
       .addCase(addBreakpoint, (state, action) => updateBreakpoint(state, action.payload.breakpoint));

@@ -185,7 +185,7 @@ export const withAutoFocus = (): (prop: WebBuilderComponentProperty) => [WebBuil
   return map;
 };
 
-export const getElementFromList = (selectedElementId: string, elements: WebBuilderElements) => {
+export const getElementFromList = (selectedElementId: string | number, elements: WebBuilderElements) => {
   if (!selectedElementId) return null;
 
   const selectedElement = elements.find((element) => element.id === selectedElementId);

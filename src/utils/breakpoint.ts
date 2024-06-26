@@ -103,12 +103,14 @@ export const createTreeFromBreakpoint = ({
   selectedElements,
   currentBreakpoint,
   elementsExtras,
+  rewriteContainersIds,
 }: {
   allBreakpoints: Breakpoint[],
   elementsInBreakpoints: ElementsInBreakpoints,
   selectedElements: WebBuilderElement[],
   currentBreakpoint: Breakpoint,
   elementsExtras: ElementsExtras,
+  rewriteContainersIds: boolean,
 }): ElementsTreeInBreakpoint[] => {
   const treeList: ElementsTreeInBreakpoint[] = [];
 
@@ -118,35 +120,40 @@ export const createTreeFromBreakpoint = ({
     if (element.componentName === 'Container') {
       const containerIdProp = getElementContainerIdProp(copyElement.props);
       const container = allBreakpoints.find((item) => item.id === containerIdProp.value);
-      const copyContainerIdPropValue = createUniqueId();
+      const copyContainerIdPropValue = rewriteContainersIds ? createUniqueId() : container.id;
 
-      elementsExtras[copyContainerIdPropValue] = {
-        ...elementsExtras[container.id],
-      };
+      if (rewriteContainersIds) {
+        elementsExtras[copyContainerIdPropValue] = {
+          ...elementsExtras[container.id],
+        };
+      }
 
-      const copyContainer = {
+      const nextContainer = rewriteContainersIds ? {
         ...container,
         id: copyContainerIdPropValue,
         parentId: currentBreakpoint.id,
-      };
+      } : container;
 
       const children = createTreeFromBreakpoint({
         allBreakpoints,
         elementsInBreakpoints,
         selectedElements: elementsInBreakpoints[containerIdProp.value as string],
-        currentBreakpoint: copyContainer,
+        currentBreakpoint: nextContainer,
         elementsExtras,
+        rewriteContainersIds,
       });
 
       copyElement.breakpointId = container.id;
 
       treeList.push({
         children,
-        container: copyContainer,
+        container: nextContainer,
         element: copyElement,
       });
 
-      containerIdProp.value = copyContainerIdPropValue;
+      if (rewriteContainersIds) {
+        containerIdProp.value = copyContainerIdPropValue;
+      }
 
       return;
     }

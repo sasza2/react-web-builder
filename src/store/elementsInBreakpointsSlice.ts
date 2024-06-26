@@ -13,11 +13,11 @@ type ActionAddMultiple = PayloadAction<{ elements: WebBuilderElement[], breakpoi
 
 type ActionChangeElementInBreakpoint = PayloadAction<{ element: Partial<WebBuilderElement>, breakpointId: string }>;
 
-type ActionRemove = PayloadAction<{ elementId: string | number, breakpointId: string }>;
-
-type ActionRemoveMultiple = PayloadAction<{ elementsIds: Array<string | number>, breakpointId: string }>;
-
-type ActionRemoveAllByBreakpoint = PayloadAction<{ breakpointId: string }>;
+type ActionRemoveMultiple = PayloadAction<{
+  elementsTree: ElementsTreeInBreakpoint[],
+  currentBreakpoint: Breakpoint,
+  removeBreakpoint?: boolean,
+}>;
 
 type ActionSet = PayloadAction<{ elements: WebBuilderElements, breakpointId: string }>;
 
@@ -72,25 +72,26 @@ export const elementsInBreakpointsSlice = createSlice({
     setElementsInBreakpointProgrammatic: (state, { payload: { elements, breakpointId } }: ActionSet) => {
       state[breakpointId] = elements;
     },
-    removeElementFromBreakpoint: (
-      state,
-      { payload: { elementId, breakpointId } }: ActionRemove,
-    ) => {
-      if (!state[breakpointId]) return state;
-      state[breakpointId] = state[breakpointId].filter((element) => element.id !== elementId);
-    },
     removeElementsFromBreakpoint: (
       state,
-      { payload: { elementsIds, breakpointId } }: ActionRemoveMultiple,
+      { payload }: ActionRemoveMultiple,
     ) => {
-      if (!state[breakpointId]) return state;
-      state[breakpointId] = state[breakpointId].filter((element) => !elementsIds.includes(element.id));
-    },
-    removeAllByBreakpoint: (
-      state,
-      { payload: { breakpointId } }: ActionRemoveAllByBreakpoint,
-    ) => {
-      delete state[breakpointId];
+      const removeRecursive = (breakpoint: Breakpoint, elementsTree: ElementsTreeInBreakpoint[]) => {
+        elementsTree.forEach((elementTree) => {
+          if (elementTree.container) {
+            delete state[elementTree.container.id];
+            removeRecursive(elementTree.container, elementTree.children);
+          }
+
+          if (state[breakpoint.id]) {
+            state[breakpoint.id] = state[breakpoint.id].filter((element) => element.id !== elementTree.element.id);
+          }
+        });
+      };
+
+      removeRecursive(payload.currentBreakpoint, payload.elementsTree);
+
+      if (payload.removeBreakpoint) delete state[payload.currentBreakpoint.id];
     },
     replaceElementsInBreakpoint: (
       state,
@@ -106,9 +107,7 @@ export const {
   pasteElements,
   setElementsInBreakpoint,
   setElementsInBreakpointProgrammatic,
-  removeElementFromBreakpoint,
   removeElementsFromBreakpoint,
-  removeAllByBreakpoint,
   replaceElementsInBreakpoint,
 } = elementsInBreakpointsSlice.actions;
 
