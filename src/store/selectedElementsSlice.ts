@@ -5,8 +5,6 @@ import { WebBuilderElements } from 'types';
 import { removeBreakpoint } from './breakpointsSlice';
 import { setSelectedBreakpoint } from './selectedBreakpointSlice';
 import {
-  removeAllByBreakpoint,
-  removeElementFromBreakpoint,
   removeElementsFromBreakpoint,
   setElementsInBreakpoint,
   setElementsInBreakpointProgrammatic,
@@ -60,12 +58,7 @@ export const selectedElementSlice = createSlice({
         setElementsInBreakpointProgrammatic,
         (state, { payload: { elements } }) => removeDeletedElements(state, elements),
       )
-      .addCase(
-        removeElementFromBreakpoint,
-        (state, { payload: { elementId } }) => removeByElementId(state, elementId),
-      )
-      .addCase(removeElementsFromBreakpoint, resetSelectedElements)
-      .addCase(removeAllByBreakpoint, resetSelectedElements);
+      .addCase(removeElementsFromBreakpoint, resetSelectedElements);
   },
 });
 

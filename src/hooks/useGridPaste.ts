@@ -100,6 +100,7 @@ export const useGridPaste = () => {
           selectedElements: [pastedElement],
           currentBreakpoint: breakpoint,
           elementsExtras: elementsExtras.current,
+          rewriteContainersIds: true,
         });
 
         dispatch(pasteElements({ currentBreakpoint: breakpoint, elementsTree }));
@@ -130,6 +131,7 @@ export const useGridPaste = () => {
           selectedElements: pastedElements,
           currentBreakpoint: breakpoint,
           elementsExtras: elementsExtras.current,
+          rewriteContainersIds: true,
         });
 
         dispatch(pasteElements({ currentBreakpoint: breakpoint, elementsTree }));

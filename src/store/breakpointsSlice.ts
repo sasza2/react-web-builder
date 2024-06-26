@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { Breakpoint } from 'types';
 import { byBreakpointId, ElementsTreeInBreakpoint } from '@/utils/breakpoint';
-import { pasteElements } from './elementsInBreakpointsSlice';
+import { pasteElements, removeElementsFromBreakpoint } from './elementsInBreakpointsSlice';
 
 const initialState: Breakpoint[] = [];
 
@@ -52,6 +52,23 @@ export const breakpointsSlice = createSlice({
       };
 
       recursiveAdd(payload.elementsTree);
+    }).addCase(removeElementsFromBreakpoint, (state, { payload }) => {
+      const idsContainersToRemove: string[] = [];
+
+      const recursiveRemove = (elementsTree: ElementsTreeInBreakpoint[]) => {
+        elementsTree.forEach((elementTree) => {
+          if (elementTree.container) {
+            idsContainersToRemove.push(elementTree.container.id);
+            recursiveRemove(elementTree.children);
+          }
+        });
+      };
+
+      recursiveRemove(payload.elementsTree);
+
+      if (!idsContainersToRemove.length) return state;
+
+      return state.filter((breakpoint) => !idsContainersToRemove.includes(breakpoint.id));
     });
   },
 });
