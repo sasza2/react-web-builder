@@ -1,5 +1,22 @@
 # react-web-builder
 
+## 0.9.0
+
+### Minor Changes
+
+- 0c317d5: change positon of form components in configuration
+- 5ea4684: remove container elements (clean unused data)
+- 5073487: container element
+- 9c28e4f: add function as type of defaultWidth of component
+
+### Patch Changes
+
+- 36d9e90: wrap property 'number' in sidebar to form group
+- dd7da2b: wrap property 'select' in sidebar to form group
+- f08eb52: fix shade of color
+- 8ec4592: change default color gradient percentage
+- 2875709: fix range slider component line
+
 ## 0.8.0
 
 ### Minor Changes
