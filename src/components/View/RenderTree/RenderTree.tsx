@@ -1,11 +1,12 @@
-import React, { useCallback, useMemo } from 'react';
+import React from 'react';
 
 import {
   Breakpoint, TransformElementProperty, Tree,
   WebBuilderComponent,
 } from 'types';
-import { getBreakpointPadding, isBreakpoint } from '@/utils/breakpoint';
 import Element from '../Element';
+import { getStyleForFixed } from './styles/fixed';
+import { getStyleForBreakpoint } from './styles/breakpoint';
 
 type RenderTreeProps = {
   breakpoint: Breakpoint,
@@ -22,40 +23,12 @@ export function RenderTree({
 }: RenderTreeProps) {
   if (!node) return null; // TODO
 
-  const padding = getBreakpointPadding(breakpoint);
+  const style = getStyleForBreakpoint(node, breakpoint);
 
-  const withoutPadding = useCallback((value: string): string => {
-    const paddingSum = padding.left + padding.right;
-    if (paddingSum) return `calc(${value} - ${paddingSum}px)`;
-    return value;
-  }, [padding.left, padding.right]);
-
-  const maxWidth = useMemo(
-    () => withoutPadding(breakpoint.to === null ? '100%' : `${breakpoint.to}px`),
-    [breakpoint.to, withoutPadding],
-  );
-
-  const width = useMemo(
-    () => withoutPadding(`${node.w / breakpoint.cols * 100}%`),
-    [node.w, breakpoint.cols, withoutPadding],
-  );
-
-  const offsetTop = breakpoint.rowHeight * node.marginTop;
-
-  const style = {
-    display: 'flex',
-    width,
-    marginTop: isBreakpoint(breakpoint) ? offsetTop : 0,
-    paddingTop: isBreakpoint(breakpoint) ? 0 : offsetTop,
-    marginBottom: breakpoint.rowHeight * node.marginBottom,
-    marginLeft: `${node.marginLeft / breakpoint.cols * 100}%`,
-    marginRight: `${node.marginRight / breakpoint.cols * 100}%`,
-    maxWidth,
-  };
   switch (node.type) {
     case 'row':
       return (
-        <div key={node.id} style={{ flexDirection: 'column', ...style }} className="row">
+        <div key={node.id} style={{ flexDirection: 'column', ...style }} className="react-web-builder-row">
           {node.children.map((tree) => (
             <RenderTree
               key={tree.id}
@@ -69,7 +42,7 @@ export function RenderTree({
       );
     case 'column':
       return (
-        <div key={node.id} style={{ flexDirection: 'row', ...style }} className="column">
+        <div key={node.id} style={{ flexDirection: 'row', ...style }} className="react-web-builder-column">
           {node.children.map((tree) => (
             <RenderTree
               key={tree.id}
@@ -101,18 +74,13 @@ export function RenderTree({
           style={{
             ...style,
             position: 'relative',
-            height: `${node.h * breakpoint.rowHeight}px`,
+            minHeight: `${node.h * breakpoint.rowHeight}px`,
           }}
         >
           {node.children.map((child) => (
             <div
               key={child.id}
-              style={{
-                position: 'absolute',
-                width: `${child.w / breakpoint.cols * 100}%`,
-                top: breakpoint.rowHeight * child.marginTop,
-                left: `${child.marginLeft / breakpoint.cols * 100}%`,
-              }}
+              style={getStyleForFixed(child, breakpoint)}
             >
               <Element
                 breakpoint={breakpoint}

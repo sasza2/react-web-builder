@@ -1,11 +1,11 @@
 import { removeElementsFromBreakpoint } from '@/store/elementsInBreakpointsSlice';
 import { useAppDispatch } from '@/store/useAppDispatch';
 import { useAppSelector } from '@/store/useAppSelector';
+import { delay } from '@/utils/delay';
+import { useGridAPI } from '@/components/GridAPIProvider';
 import { useSelectedElements } from './useSelectedElements';
 import { useBreakpoint } from './useBreakpoint';
 import { useCreateTreeFromBreakpoint } from './useCreateTreeFromBreakpoint';
-import { delay } from '@/utils/delay';
-import { useGridAPI } from '@/components/GridAPIProvider';
 
 type UseRemoveSelectedElements = () => () => void;
 
