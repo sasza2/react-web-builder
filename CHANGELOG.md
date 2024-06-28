@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.9.2
+
+### Patch Changes
+
+- e4232cc: fix passing default props to internal components
+
 ## 0.9.1
 
 ### Patch Changes
