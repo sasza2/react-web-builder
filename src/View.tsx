@@ -11,7 +11,7 @@ import { ComponentsProvider } from './components/ComponentsProvider';
 function View(props: ViewProps) {
   return (
     <PropertiesProvider {...props}>
-      <ComponentsProvider components={props.components} elementContainer={ViewElementContainer}>
+      <ComponentsProvider {...props} components={props.components} elementContainer={ViewElementContainer}>
         <StyleProvider>
           <I18nProvider>
             <ViewRenderPage />

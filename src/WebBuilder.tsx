@@ -26,7 +26,7 @@ import { BuilderElementContainer } from './components/ElementContainer/BuilderEl
 function WebBuilder(props: WebBuilderProps) {
   return (
     <PropertiesProvider {...props}>
-      <ComponentsProvider components={props.components} elementContainer={BuilderElementContainer}>
+      <ComponentsProvider {...props} components={props.components} elementContainer={BuilderElementContainer}>
         <StoreProvider>
           <ConfigurationProvider>
             <GridAPIProvider>
