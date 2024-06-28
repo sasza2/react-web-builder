@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.9.1
+
+### Patch Changes
+
+- 73e7137: fix rendering containers width
+
 ## 0.9.0
 
 ### Minor Changes
