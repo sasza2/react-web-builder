@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useLayoutEffect, useMemo, useRef } from 'react';
 
 import { Breakpoint } from 'types';
 import { getBreakpointPadding } from '@/utils/breakpoint';
@@ -19,6 +19,27 @@ export function RenderBreakpoint({
 }: RenderBreakpointProps) {
   const padding = getBreakpointPadding(breakpoint);
   const maxWidth = breakpoint.to === null ? undefined : breakpoint.to;
+  const breakpointRef = useRef<HTMLDivElement>();
+
+  useLayoutEffect(() => {
+    const ref = breakpointRef.current;
+
+    if (!ref) return;
+
+    const onUpdate = () => {
+      ref.style.setProperty('--breakpoint-width', `${ref.clientWidth - (padding.left + padding.right)}px`);
+    };
+
+    onUpdate();
+
+    const resizeObserver = new ResizeObserver(onUpdate);
+
+    resizeObserver.observe(ref);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, [breakpointRef, padding.left, padding.right]);
 
   const minWidth = useMemo(() => {
     if (!hasMinWidth) return;
@@ -43,6 +64,7 @@ export function RenderBreakpoint({
         width: '100%',
         '--margin-vertical': breakpoint.rowHeight,
       } as React.CSSProperties}
+      ref={breakpointRef}
     >
       {children}
     </div>
