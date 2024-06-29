@@ -5,7 +5,7 @@ import {
   WebBuilderComponent,
 } from 'types';
 import Element from '../Element';
-import { getStyleForFixed } from './styles/fixed';
+import { getStyleForFixedChild, getStyleForFixedParent } from './styles/fixed';
 import { getStyleForBreakpoint } from './styles/breakpoint';
 
 type RenderTreeProps = {
@@ -73,14 +73,13 @@ export function RenderTree({
           key={node.id}
           style={{
             ...style,
-            position: 'relative',
-            minHeight: `${node.h * breakpoint.rowHeight}px`,
+            ...getStyleForFixedParent(node, breakpoint),
           }}
         >
           {node.children.map((child) => (
             <div
               key={child.id}
-              style={getStyleForFixed(child, breakpoint)}
+              style={getStyleForFixedChild(child, breakpoint)}
             >
               <Element
                 breakpoint={breakpoint}

@@ -1,12 +1,22 @@
 import { CSSProperties } from 'react';
 import { Breakpoint, Tree } from 'types';
 import { round } from './common';
+import getBreakpointWidth from '@/utils/getBreakpointWidth';
 
-export const getStyleForFixed = (child: Tree, breakpoint: Breakpoint): CSSProperties => {
+export const getStyleForFixedParent = (node: Tree, breakpoint: Breakpoint): CSSProperties => {
+  const style: CSSProperties = {
+    position: 'relative',
+    minHeight: `calc(${node.h * breakpoint.rowHeight}px * var(--breakpoint-scale))`,
+  }
+
+  return style;
+};
+
+export const getStyleForFixedChild = (child: Tree, breakpoint: Breakpoint): CSSProperties => {
   const style: CSSProperties = {
     position: 'absolute',
     width: `calc(${round(child.w / breakpoint.cols)} * var(--breakpoint-width))`,
-    top: breakpoint.rowHeight * child.marginTop,
+    top: `calc(${breakpoint.rowHeight * child.marginTop}px * var(--breakpoint-scale))`,
     left: `calc(${round(child.marginLeft / breakpoint.cols)} * var(--breakpoint-width))`,
   };
 
