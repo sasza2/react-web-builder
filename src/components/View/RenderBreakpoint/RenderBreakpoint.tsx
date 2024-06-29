@@ -18,6 +18,7 @@ export function RenderBreakpoint({
   style = {},
 }: RenderBreakpointProps) {
   const padding = getBreakpointPadding(breakpoint);
+  const paddingWidth = padding.left + padding.right
   const maxWidth = breakpoint.to === null ? undefined : breakpoint.to;
   const breakpointRef = useRef<HTMLDivElement>();
 
@@ -27,7 +28,10 @@ export function RenderBreakpoint({
     if (!ref) return;
 
     const onUpdate = () => {
-      ref.style.setProperty('--breakpoint-width', `${ref.clientWidth - (padding.left + padding.right)}px`);
+      const currentBreakpointWidth = ref.clientWidth - (paddingWidth);
+
+      ref.style.setProperty('--breakpoint-width', `${currentBreakpointWidth}px`);
+      ref.style.setProperty('--breakpoint-scale', `${(breakpoint.from - paddingWidth) / currentBreakpointWidth}`)
     };
 
     onUpdate();
@@ -39,7 +43,7 @@ export function RenderBreakpoint({
     return () => {
       resizeObserver.disconnect();
     };
-  }, [breakpointRef, padding.left, padding.right]);
+  }, [breakpoint.from, breakpointRef, paddingWidth]);
 
   const minWidth = useMemo(() => {
     if (!hasMinWidth) return;
