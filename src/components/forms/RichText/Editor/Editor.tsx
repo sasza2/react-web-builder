@@ -95,6 +95,15 @@ export function Editor({
     >
       <Toolbar>
         <FontSizeSelect />
+        { colorAvailable !== false && <ColorSelect /> }
+        { hyperlinkAvailable !== false && <Hyperlink /> }
+        <BlockButton format="left" icon={<Icon icon={Icon.TextLeft} />} />
+        <BlockButton format="center" icon={<Icon icon={Icon.TextCenter} />} />
+        {
+          /* <BlockButton format="center" icon="format_align_center" /> */
+        }
+        <BlockButton format="right" icon={<Icon icon={Icon.TextRight} />} />
+        <BlockButton format="justify" icon={<Icon icon={Icon.TextJustify} />} />
         <MarkButton
           format="bold"
           icon={<Icon icon={Icon.TextBold} />}
@@ -110,18 +119,8 @@ export function Editor({
         <BlockButton format="numbered-list" icon="format_list_numbered" />
         <BlockButton format="bulleted-list" icon="format_list_bulleted" />
         */}
-        { colorAvailable !== false && <ColorSelect /> }
-
-        <BlockButton format="left" icon={<Icon icon={Icon.TextLeft} />} />
-        <BlockButton format="center" icon={<Icon icon={Icon.TextCenter} />} />
-        {
-          /* <BlockButton format="center" icon="format_align_center" /> */
-        }
-        <BlockButton format="right" icon={<Icon icon={Icon.TextRight} />} />
-        <BlockButton format="justify" icon={<Icon icon={Icon.TextJustify} />} />
         <LineHeightSelect />
         <LetterSpacingSelect />
-        { hyperlinkAvailable !== false && <Hyperlink /> }
       </Toolbar>
       <IFrameWrapper>
         <RenderInIFrame>
