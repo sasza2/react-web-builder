@@ -1,5 +1,15 @@
 # react-web-builder
 
+## 0.10.0
+
+### Minor Changes
+
+- 07bb87b: UI changes
+
+### Patch Changes
+
+- ed4c602: fix containers height in fixed mode
+
 ## 0.9.2
 
 ### Patch Changes
