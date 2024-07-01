@@ -23,8 +23,8 @@ ColorContainer.defaultProps = {
 };
 
 export const Color = styled.div<{ $color: string, $size: number }>`
-  width:  ${({ $size }) => `${$size - 4}px`};
-  height:  ${({ $size }) => `${$size - 4}px`};
+  width:  ${({ $size }) => `${$size - 6}px`};
+  height:  ${({ $size }) => `${$size - 6}px`};
   background: ${({ $color }) => $color};
   border-radius: 2px;
 `;

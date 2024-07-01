@@ -9,8 +9,8 @@ export const ButtonWrapper = styled.div<{
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   border: 1px solid ${({ theme }) => theme.colors.lightGray};
   border-radius: 4px;
   background-color: ${({ $active, theme }) => {
