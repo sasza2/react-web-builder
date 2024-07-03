@@ -57,7 +57,7 @@ export function RenderBreakpoint({
       style={{
         ...style,
         boxSizing: 'border-box',
-        backgroundColor: backgroundColor || style.backgroundColor,
+        background: backgroundColor || style.backgroundColor,
         paddingTop: padding.top,
         paddingRight: padding.right,
         paddingLeft: padding.left,
