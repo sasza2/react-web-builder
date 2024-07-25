@@ -92,6 +92,40 @@ export type BreakpointHeight = {
   overflow: 'hidden' | 'scroll' | 'visible',
 }
 
+type BackgroundImageUnit = 'px' | '%'
+
+export type BackgroundImage = {
+  position: {
+    type: 'numbers',
+    numbers: {
+      x: {
+        value: number,
+        unit: BackgroundImageUnit,
+      },
+      y: {
+        value: number,
+        unit: BackgroundImageUnit,
+      }
+    },
+  },
+  repeat: {
+    type: 'repeat' | 'no-repeat',
+  },
+  size: {
+    type: 'cover' | 'numbers',
+    numbers: {
+      width: {
+        value: number,
+        unit: BackgroundImageUnit,
+      },
+      height: {
+        value: number,
+        unit: BackgroundImageUnit,
+      }
+    },
+  },
+} & ImageURL
+
 export type WebBuilderComponentProperty = ({
   type: 'toggle',
   label: JSX.Element | string,
@@ -129,6 +163,9 @@ export type WebBuilderComponentProperty = ({
   type: 'border',
   label: JSX.Element | string,
   defaultValue?: PropertyDefaultValue<Border>,
+} | {
+  type: 'backgroundImage',
+  defaultValue?: PropertyDefaultValue<BackgroundImage>,
 } | {
   type: 'list',
   label: JSX.Element | string,

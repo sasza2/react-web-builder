@@ -136,6 +136,42 @@ export const useInternalComponents = ({
           field: 'backgroundColor',
         },
         {
+          id: 'backgroundImage',
+          type: 'backgroundImage',
+          defaultValue: {
+            position: {
+              type: 'numbers',
+              numbers: {
+                x: {
+                  value: 0,
+                  unit: 'px',
+                },
+                y: {
+                  value: 0,
+                  unit: 'px',
+                },
+              },
+            },
+            repeat: {
+              type: 'no-repeat',
+            },
+            size: {
+              type: 'cover',
+              numbers: {
+                width: {
+                  value: 100,
+                  unit: '%',
+                },
+                height: {
+                  value: 100,
+                  unit: '%',
+                },
+              },
+            },
+            location: '',
+          },
+        },
+        {
           id: 'padding',
           type: 'editBreakpoint',
           field: 'padding',

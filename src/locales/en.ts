@@ -118,6 +118,33 @@ export default {
   },
   element: {
     backgroundColor: 'Background color',
+    backgroundImage: {
+      name: 'Background image',
+      position: {
+        bottom: 'Bottom',
+        center: 'Center',
+        custom: 'Custom',
+        left: 'Left',
+        name: 'Position',
+        right: 'Right',
+        top: 'Top',
+        y: 'Y',
+        x: 'X',
+      },
+      repeat: {
+        name: 'Repeat',
+        noRepeat: 'No repeat',
+        repeat: 'Repeat',
+      },
+      size: {
+        contain: 'Contain',
+        cover: 'Cover',
+        custom: 'Custom',
+        height: 'Height',
+        name: 'Size',
+        width: 'Width',
+      },
+    },
     border: {
       name: 'Border',
       color: 'Border color',

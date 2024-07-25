@@ -4,7 +4,7 @@ import { useAppSelector } from '@/store/useAppSelector';
 import { useBreakpoints } from '@/hooks/useBreakpoints';
 import { useElements } from '@/hooks/useElements';
 import { useComponentsProperty } from '@/components/ComponentsProvider';
-import { Border, BreakpointHeight } from 'types';
+import { BackgroundImage, Border, BreakpointHeight } from 'types';
 import { RenderTree } from '../../View/RenderTree';
 import { useProperties } from '../../PropertiesProvider';
 import createTreeElements from '../../View/createTreeElements';
@@ -14,6 +14,7 @@ import { Empty } from './BuilderElementContainer.styled';
 import { useContainerStyle } from '../useContainerStyle';
 
 type BuilderElementContainerProps = {
+  backgroundImage?: BackgroundImage,
   border?: Border,
   breakpointHeight: BreakpointHeight,
   boxShadow?: string,
@@ -21,6 +22,7 @@ type BuilderElementContainerProps = {
 };
 
 export function BuilderElementContainer({
+  backgroundImage,
   border,
   breakpointHeight,
   boxShadow,
@@ -32,6 +34,7 @@ export function BuilderElementContainer({
   const elementsInBreakpoints = useAppSelector((state) => state.elementsInBreakpoints);
 
   const style = useContainerStyle({
+    backgroundImage,
     border,
     breakpointHeight,
     boxShadow,
