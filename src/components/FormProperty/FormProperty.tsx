@@ -21,6 +21,7 @@ import { BoxShadow } from '../forms/BoxShadow';
 import { OpenContainer } from '../forms/OpenContainer';
 import { EditBreakpointField } from '../forms/EditBreakpointField';
 import { BreakpointHeight } from '../forms/BreakpointHeight';
+import { BackgroundImage } from '../forms/BackgroundImage';
 
 type FormPropertyProps = {
   autoFocus?: boolean,
@@ -78,6 +79,15 @@ export function FormProperty({
     return (
       <Border
         name={name}
+        testId={testId}
+      />
+    );
+  }
+  if (prop.type === 'backgroundImage') {
+    return (
+      <BackgroundImage
+        name={name}
+        onImageUpload={onImageUpload}
         testId={testId}
       />
     );

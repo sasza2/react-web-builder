@@ -103,6 +103,7 @@ export function FileUpload({
       if (!isMounted.current) return;
 
       setValue({
+        ...value,
         ...upload,
         locationUpload: upload.location,
       });

@@ -6,10 +6,11 @@ import { RenderTree } from '@/components/View/RenderTree';
 import { useComponentsProperty } from '@/components/ComponentsProvider';
 import createTreeElements from '@/components/View/createTreeElements';
 import getBreakpointRowsByLastElement from '@/components/View/getBreakpointRowsByLastElement';
-import { Border, BreakpointHeight } from 'types';
+import { BackgroundImage, Border, BreakpointHeight } from 'types';
 import { useContainerStyle } from '../useContainerStyle';
 
 type ViewElementContainerProps = {
+  backgroundImage?: BackgroundImage,
   border?: Border,
   breakpointHeight: BreakpointHeight,
   boxShadow?: string,
@@ -17,6 +18,7 @@ type ViewElementContainerProps = {
 };
 
 export function ViewElementContainer({
+  backgroundImage,
   border,
   breakpointHeight,
   boxShadow,
@@ -27,6 +29,7 @@ export function ViewElementContainer({
   const components = useComponentsProperty();
 
   const style = useContainerStyle({
+    backgroundImage,
     border,
     breakpointHeight,
     boxShadow,
