@@ -1,5 +1,15 @@
 # react-web-builder
 
+## 0.11.0
+
+### Minor Changes
+
+- 1aa2dd3: background image
+
+### Patch Changes
+
+- 4a2f18c: fix display gradient background in container
+
 ## 0.10.0
 
 ### Minor Changes
