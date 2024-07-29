@@ -17,6 +17,9 @@ import { useWebBuilderSizeHeight } from '@/components/WebBuilderSize';
 import getBreakpointWidth from '@/utils/getBreakpointWidth';
 import { useSelectedElements } from '@/hooks/useSelectedElements';
 import { useElementOnStartResizing } from '@/hooks/useElementOnStartResizing';
+import { useContainerGridStyle } from '@/hooks/container/useContainerGridStyle';
+import { mergeStyles } from '@/utils/styles';
+import { getBreakpointBackgroundColor } from '@/utils/breakpoint';
 import { useConfiguration } from '../../ConfigurationProvider';
 import { useGridAPI } from '../../GridAPIProvider/GridAPIProvider';
 import { RenderInContainer } from '../../RenderInContainer';
@@ -58,6 +61,10 @@ export function BreakpointGrid() {
     ? organizeGridElementsWithBringUp
     : defaultOrganizeGridElements;
   const onElementStartResizing = useElementOnStartResizing();
+  const containerStyle = useContainerGridStyle();
+  const { background } = mergeStyles(containerStyle, {
+    background: getBreakpointBackgroundColor(breakpoint, pageSettings),
+  });
 
   const grid = (
     <ReactGrid
@@ -90,11 +97,11 @@ export function BreakpointGrid() {
 
   return (
     <GridDiv
+      $background={background}
       $breakpoint={breakpoint}
       $fontImport={fontImport}
       $height={webBuilderHeight}
       $isLoaded={isLoaded}
-      $pageSettings={pageSettings}
       $selectedElements={selectedElements}
       {...assignTestProp('grid')}
     >

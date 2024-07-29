@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 
+import { mergeStyles } from '@/utils/styles';
 import { useViewProperties } from '@/components/PropertiesProvider';
 import { RenderBreakpoint } from '@/components/View/RenderBreakpoint/RenderBreakpoint';
 import { RenderTree } from '@/components/View/RenderTree';
@@ -52,10 +53,14 @@ export function ViewElementContainer({
   if (!node) return null;
   return (
     <RenderBreakpoint
-      backgroundColor={container.backgroundColor}
       breakpoint={container}
       hasMinWidth={false}
-      style={style}
+      style={mergeStyles(
+        style,
+        {
+          background: container.backgroundColor,
+        },
+      )}
     >
       <RenderTree
         breakpoint={container}
