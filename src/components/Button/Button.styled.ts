@@ -4,9 +4,8 @@ export const ButtonContainer = styled.button<{ $disabled?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
   border-radius: 6px;
-  padding: 0px 16px;
+  padding: 8px 16px;
   cursor: pointer;
 `;
 
