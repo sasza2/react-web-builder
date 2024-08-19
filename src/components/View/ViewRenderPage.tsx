@@ -80,8 +80,10 @@ export function ViewRenderPage() {
       <RenderInContainer breakpoint={selectedBreakpoint}>
         <PageContainer $fontImport={fontImport}>
           <RenderBreakpoint
-            backgroundColor={getBreakpointBackgroundColor(selectedBreakpoint, page)}
             breakpoint={selectedBreakpoint}
+            style={{
+              background: getBreakpointBackgroundColor(selectedBreakpoint, page),
+            }}
           >
             <RenderTree
               breakpoint={selectedBreakpoint}

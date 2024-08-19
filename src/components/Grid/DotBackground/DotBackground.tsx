@@ -3,9 +3,9 @@ import { useTheme } from 'styled-components';
 
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import getBreakpointWidth from '@/utils/getBreakpointWidth';
-import { BackgroundDiv } from './Background.styled';
+import { BackgroundDiv } from './DotBackground.styled';
 
-function Background() {
+function DotBackgroundIn() {
   const theme = useTheme();
   const breakpoint = useBreakpoint();
   const onInit = useCallback((node: HTMLDivElement) => {
@@ -40,4 +40,4 @@ function Background() {
   );
 }
 
-export default memo(Background);
+export const DotBackground = memo(DotBackgroundIn);

@@ -130,7 +130,6 @@ export function LoadBreakpoint({
       $fontImport={fontImport}
       $height="100vh"
       $isLoaded
-      $pageSettings={pageSettings}
     >
       <RenderInContainer breakpoint={breakpointFromStore}>
         <ReactGrid
