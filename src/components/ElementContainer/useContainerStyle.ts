@@ -1,8 +1,9 @@
-import { useBoxStyle } from '@/components/View/Box/useBoxStyle';
 import { CSSProperties } from 'react';
+
+import { useBoxStyle } from '@/components/View/Box/useBoxStyle';
 import { BackgroundImage, Border, BreakpointHeight } from 'types';
 
-type ContainerStyleProps = {
+export type ContainerStyleProps = {
   backgroundImage?: BackgroundImage,
   border?: Border,
   breakpointHeight: BreakpointHeight,

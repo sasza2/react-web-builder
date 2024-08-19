@@ -5,6 +5,7 @@ import { useBreakpoints } from '@/hooks/useBreakpoints';
 import { useElements } from '@/hooks/useElements';
 import { useComponentsProperty } from '@/components/ComponentsProvider';
 import { BackgroundImage, Border, BreakpointHeight } from 'types';
+import { mergeStyles } from '@/utils/styles';
 import { RenderTree } from '../../View/RenderTree';
 import { useProperties } from '../../PropertiesProvider';
 import createTreeElements from '../../View/createTreeElements';
@@ -63,10 +64,14 @@ export function BuilderElementContainer({
 
   return (
     <RenderBreakpoint
-      backgroundColor={container.backgroundColor}
       breakpoint={container}
       hasMinWidth={false}
-      style={style}
+      style={mergeStyles(
+        style,
+        {
+          background: container.backgroundColor,
+        },
+      )}
     >
       {node ? (
         <RenderTree

@@ -20,7 +20,7 @@ import { useElementOnStartResizing } from '@/hooks/useElementOnStartResizing';
 import { useConfiguration } from '../../ConfigurationProvider';
 import { useGridAPI } from '../../GridAPIProvider/GridAPIProvider';
 import { RenderInContainer } from '../../RenderInContainer';
-import Background from '../Background';
+import { DotBackground } from '../DotBackground';
 import useOnElementClick from '../useOnElementClick';
 import useCenterGridOnInit from '../useCenterGridOnInit';
 import useElementsWithRender from '../useElementsWithRender';
@@ -30,7 +30,7 @@ import { useOnContextMenu } from '../useOnContextMenu';
 import { useScroll } from '../useScroll';
 import { GridDiv } from '../Grid.styled';
 import { Popup } from '../Popup';
-import { ContainerBottomLine } from '../ContainerBottomLine';
+import { ContainerBackground } from '../ContainerBackground';
 
 const ZOOM_CENTER_POSITION = { x: 'center' } as const;
 
@@ -83,8 +83,8 @@ export function BreakpointGrid() {
       scrollSpeed={(configuration.scrollSpeed + 1) * 10}
       zoomPosition={configuration.gridZoomingInCenter ? ZOOM_CENTER_POSITION : null}
     >
-      <Background />
-      <ContainerBottomLine breakpoint={breakpoint} />
+      {isLoaded && <ContainerBackground />}
+      <DotBackground />
     </ReactGrid>
   );
 
@@ -94,7 +94,6 @@ export function BreakpointGrid() {
       $fontImport={fontImport}
       $height={webBuilderHeight}
       $isLoaded={isLoaded}
-      $pageSettings={pageSettings}
       $selectedElements={selectedElements}
       {...assignTestProp('grid')}
     >
