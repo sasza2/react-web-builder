@@ -1,5 +1,15 @@
 # react-web-builder
 
+## 0.12.0
+
+### Minor Changes
+
+- 895bce7: display background in container mode
+
+### Patch Changes
+
+- b8d4c70: Button UI improvements
+
 ## 0.11.0
 
 ### Minor Changes
