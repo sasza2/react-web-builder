@@ -25,7 +25,7 @@ function ContainerBackgroundIn() {
   });
 
   const properties = useContainerElementProperties();
-  const breakpointHeight = properties.breakpointHeight as BreakpointHeight;
+  const breakpointHeight = properties?.breakpointHeight as BreakpointHeight;
   const height: number | null = (breakpointHeight && breakpointHeight.enabled) ? breakpointHeight.height : undefined;
 
   useEffect(() => {
