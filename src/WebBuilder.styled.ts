@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+export const PREVENT_ELEMENTS_TRANSITION_CLASS_NAME = 'react-web-builder-prevent-elements-transition'
+
 export const GlobalStyles = createGlobalStyle`
   .react-tooltip {
     ${({ theme }) => theme.typography.Medium0R};
@@ -33,6 +35,12 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => `${theme.colors.black}cc`};
     z-index: ${({ theme }) => theme.zIndex.helperShadows};
     transition: 0.3s background-color;
+  }
+
+  .react-web-builder-prevent-elements-transition {
+    .react-grid-panzoom .react-panzoom-element {
+      transition: none !important;
+    }
   }
 
   .react-web-builder-box-shadow-animating {
