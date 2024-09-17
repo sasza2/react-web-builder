@@ -1,5 +1,12 @@
 # react-web-builder
 
+## 0.12.1
+
+### Patch Changes
+
+- 309d15b: drag element, prevent transition
+- 5096eec: fix opening container for default height
+
 ## 0.12.0
 
 ### Minor Changes
