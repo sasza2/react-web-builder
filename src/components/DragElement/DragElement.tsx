@@ -14,6 +14,7 @@ import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useAddElement } from '@/hooks/useAddElement';
 import { useAddBreakpointForContainer } from '@/hooks/container/useAddBreakpointForContainer';
 import { SIDEBAR_WIDTH } from '@/consts';
+import { PREVENT_ELEMENTS_TRANSITION_CLASS_NAME } from '@/WebBuilder.styled';
 import { useGridAPI } from '../GridAPIProvider/GridAPIProvider';
 import { Container } from './DragElement.styled';
 
@@ -110,10 +111,16 @@ export const DragElement: React.FC<DragElementProps> = ({
       } as WebBuilderElement);
 
       onComponentElementChange.current = null;
+
       onSuccess();
 
+      document.body.classList.add(PREVENT_ELEMENTS_TRANSITION_CLASS_NAME)
+
       setTimeout(() => {
+        document.body.classList.remove(PREVENT_ELEMENTS_TRANSITION_CLASS_NAME)
+
         if (disabled) return;
+
         gridAPIRef.current.grabElement(id, {
           x: offset.x + SIDEBAR_WIDTH / panZoom.getZoom(),
           y: gridTop / panZoom.getZoom(),
