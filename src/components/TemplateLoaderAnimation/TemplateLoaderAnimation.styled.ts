@@ -7,6 +7,7 @@ export const Container = styled.div<{ $height: number }>`
   align-items: center;
   justify-content: center;
   position: absolute;
+  top: 0;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.white};
   height: ${({ $height }) => `${$height}px`};
