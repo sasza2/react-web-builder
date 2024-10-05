@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const PREVENT_ELEMENTS_TRANSITION_CLASS_NAME = 'react-web-builder-prevent-elements-transition'
+export const PREVENT_ELEMENTS_TRANSITION_CLASS_NAME = 'react-web-builder-prevent-elements-transition';
 
 export const GlobalStyles = createGlobalStyle`
   .react-tooltip {

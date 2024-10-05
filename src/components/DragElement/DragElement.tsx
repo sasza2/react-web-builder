@@ -114,10 +114,10 @@ export const DragElement: React.FC<DragElementProps> = ({
 
       onSuccess();
 
-      document.body.classList.add(PREVENT_ELEMENTS_TRANSITION_CLASS_NAME)
+      document.body.classList.add(PREVENT_ELEMENTS_TRANSITION_CLASS_NAME);
 
       setTimeout(() => {
-        document.body.classList.remove(PREVENT_ELEMENTS_TRANSITION_CLASS_NAME)
+        document.body.classList.remove(PREVENT_ELEMENTS_TRANSITION_CLASS_NAME);
 
         if (disabled) return;
 
