@@ -46,6 +46,7 @@ export const GridDiv = styled.div<GridDivProps>`
     .react-panzoom {
       .react-panzoom__in {
         font-family: ${({ $fontImport }) => $fontImport?.fontFamily};
+        background-color: ${({ $breakpoint }) => $breakpoint.backgroundColor};
         box-shadow: ${({ $breakpoint, theme }) => getBoxShadow($breakpoint, theme)};
 
         ${({ $selectedElementId }) => ($selectedElementId

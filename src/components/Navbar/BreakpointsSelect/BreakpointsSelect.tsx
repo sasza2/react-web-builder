@@ -22,7 +22,7 @@ export function BreakpointsSelect() {
   const setSidebarView = useSetSidebarView();
   const sidebar = useSidebar();
   const blockChangeRef = useRef<boolean>(null);
-  const disabled = isContainer(breakpoint);
+  const disabled = breakpoint && isContainer(breakpoint);
 
   const options = useMemo(() => {
     const sortedBreakpoints = [...breakpoints]
