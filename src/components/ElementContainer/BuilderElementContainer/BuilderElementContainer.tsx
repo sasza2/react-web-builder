@@ -6,6 +6,8 @@ import { useElements } from '@/hooks/useElements';
 import { useComponentsProperty } from '@/components/ComponentsProvider';
 import { BackgroundImage, Border, BreakpointHeight } from 'types';
 import { mergeStyles } from '@/utils/styles';
+import { byBreakpointId } from '@/utils/breakpoint';
+import { removePaddingFromLastTreeElement } from '@/components/View/removePaddingFromLastTreeElement';
 import { RenderTree } from '../../View/RenderTree';
 import { useProperties } from '../../PropertiesProvider';
 import createTreeElements from '../../View/createTreeElements';
@@ -44,7 +46,7 @@ export function BuilderElementContainer({
   const breakpoints = useBreakpoints();
 
   const container = useMemo(() => {
-    const breakpoint = breakpoints.find((item) => item.id === containerId);
+    const breakpoint = breakpoints.find(byBreakpointId(containerId));
     return breakpoint;
   }, [breakpoints, containerId]);
 
@@ -54,12 +56,16 @@ export function BuilderElementContainer({
     const elementsInContainer = elementsInBreakpoints[container.id] || [];
 
     if (!elementsInContainer.length) return null;
-    return createTreeElements(
+    const tree = createTreeElements(
       elementsInContainer,
       elementsExtras.current[container.id] || {},
       container.cols,
       getBreakpointRowsByLastElement(elementsInContainer, elementsExtras.current[container.id] || {}),
     );
+
+    removePaddingFromLastTreeElement(tree);
+
+    return tree;
   }, []);
 
   return (

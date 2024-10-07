@@ -9,6 +9,7 @@ import {
   removeElementsFromBreakpoint,
   setElementsInBreakpointProgrammatic,
   pasteElements,
+  openContainer,
 } from './elementsInBreakpointsSlice';
 import { updatePageSettings } from './pageSettingsSlice';
 import { setSelectedBreakpoint } from './selectedBreakpointSlice';
@@ -24,6 +25,7 @@ const actionsImportant = [
   addElementToBreakpoint,
   addElementsToBreakpoint,
   changeElementInBreakpoint,
+  openContainer,
   pasteElements,
   setElementsInBreakpoint,
   setSelectedElements,

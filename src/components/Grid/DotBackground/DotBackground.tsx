@@ -2,12 +2,14 @@ import React, { memo, useCallback } from 'react';
 import { useTheme } from 'styled-components';
 
 import { useBreakpoint } from '@/hooks/useBreakpoint';
-import getBreakpointWidth from '@/utils/getBreakpointWidth';
+import { useGetBreakpointWidth } from '@/hooks/useGetBreakpointWidth';
 import { BackgroundDiv } from './DotBackground.styled';
 
 function DotBackgroundIn() {
   const theme = useTheme();
   const breakpoint = useBreakpoint();
+  const getBreakpointWidth = useGetBreakpointWidth();
+
   const onInit = useCallback((node: HTMLDivElement) => {
     if (!node) return;
 

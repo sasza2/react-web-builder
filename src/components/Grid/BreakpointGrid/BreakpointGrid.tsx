@@ -9,12 +9,12 @@ import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useBlurSelectedElement } from '@/hooks/useBlurSelectedElement';
 import { useDeleteElementOnKey } from '@/hooks/useDeleteElementOnKey';
 import { useFontImport } from '@/hooks/useFontImport';
+import { useGetBreakpointWidth } from '@/hooks/useGetBreakpointWidth';
 import { useGridPaste } from '@/hooks/useGridPaste';
 import { useSetGridElements } from '@/hooks/useSetGridElements';
 import { useSetElementsHeight } from '@/hooks/useSetElementsHeight';
 import { usePageSettings } from '@/hooks/usePageSettings';
 import { useWebBuilderSizeHeight } from '@/components/WebBuilderSize';
-import getBreakpointWidth from '@/utils/getBreakpointWidth';
 import { useSelectedElements } from '@/hooks/useSelectedElements';
 import { useElementOnStartResizing } from '@/hooks/useElementOnStartResizing';
 import { useConfiguration } from '../../ConfigurationProvider';
@@ -58,6 +58,7 @@ export function BreakpointGrid() {
     ? organizeGridElementsWithBringUp
     : defaultOrganizeGridElements;
   const onElementStartResizing = useElementOnStartResizing();
+  const getBreakpointWidth = useGetBreakpointWidth();
 
   const grid = (
     <ReactGrid

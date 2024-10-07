@@ -76,7 +76,7 @@ export function Image({
   };
 
   return (
-    <div style={{ boxShadow }}>
+    <div style={{ display: 'flex', boxShadow }}>
       {renderImage()}
     </div>
   );

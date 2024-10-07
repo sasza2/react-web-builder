@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 
 import { Breakpoint, WebBuilderElement, WebBuilderElements } from 'types';
 import { calculatePositionsOfElements, getElementsFromTree } from '@/utils/templates';
-import getBreakpointWidth from '@/utils/getBreakpointWidth';
 import { useProperties } from '@/components/PropertiesProvider';
 import { produceRenderForElement } from '@/utils/element';
 import { assignAllToElementsExtras, byBreakpointId, initElementsExtrasFromBreakpoint } from '@/utils/breakpoint';
@@ -16,6 +15,7 @@ import { delay } from '@/utils/delay';
 import { useAppSelector } from '@/store/useAppSelector';
 import { RenderInContainer } from '@/components/RenderInContainer';
 import { useFontImport } from '@/hooks/useFontImport';
+import { useGetBreakpointWidth } from '@/hooks/useGetBreakpointWidth';
 import { usePageSettings } from '@/hooks/usePageSettings';
 import { useComponentsProperty } from '@/components/ComponentsProvider';
 import { GridDiv } from '../Grid.styled';
@@ -23,7 +23,7 @@ import { GridDiv } from '../Grid.styled';
 type LoadBreakpointProps = {
   breakpoint: Breakpoint,
   onFinishLoading: (breakpoint: Breakpoint) => void,
-  onStartLoading: (breakpoint: Breakpoint) => void,
+  onStartLoading?: (breakpoint: Breakpoint) => void,
 };
 
 export function LoadBreakpoint({
@@ -39,6 +39,7 @@ export function LoadBreakpoint({
   const breakpointFromStore = useAppSelector((state) => state.breakpoints.find(byBreakpointId(breakpoint.id)));
   const pageSettings = usePageSettings();
   const fontImport = useFontImport(pageSettings.fontFamily);
+  const getBreakpointWidth = useGetBreakpointWidth();
 
   const [elements, setElements] = useState<WebBuilderElements>(
     () => getElementsFromTree(breakpoint.template),
@@ -48,7 +49,7 @@ export function LoadBreakpoint({
     let mounted = true;
 
     const organizeElements = async () => {
-      onStartLoading(breakpoint);
+      if (onStartLoading) onStartLoading(breakpoint);
 
       await delay(2500); // TODO
 

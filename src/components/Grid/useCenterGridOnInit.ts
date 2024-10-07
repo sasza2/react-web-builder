@@ -5,12 +5,13 @@ import { useGridAPI } from '@/components/GridAPIProvider';
 import getGridCenterPositionX from '@/utils/getGridCenterPositionX';
 import { useWebBuilderSizeWidth } from '@/components/WebBuilderSize';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
-import getBreakpointWidth from '@/utils/getBreakpointWidth';
+import { useGetBreakpointWidth } from '@/hooks/useGetBreakpointWidth';
 
 const useCenterGridOnInit = (isLoaded: boolean) => {
   const gridAPIRef = useGridAPI();
   const breakpoint = useBreakpoint();
   const webBuilderWidth = useWebBuilderSizeWidth() - SIDEBAR_WIDTH - 60; // TODO
+  const getBreakpointWidth = useGetBreakpointWidth();
 
   useEffect(() => {
     if (!isLoaded) return;
@@ -24,7 +25,7 @@ const useCenterGridOnInit = (isLoaded: boolean) => {
     }
 
     panZoom.setPosition(
-      getGridCenterPositionX(breakpoint, webBuilderWidth, 1) + 15,
+      getGridCenterPositionX(breakpointWidth, webBuilderWidth, 1) + 15,
       0,
     ); // TODO
   }, [isLoaded, webBuilderWidth]);

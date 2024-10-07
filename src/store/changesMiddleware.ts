@@ -1,5 +1,6 @@
 import { Action, Middleware, configureStore } from '@reduxjs/toolkit';
 
+import { createUniqueId } from '@/utils/createUniqueId';
 import { actions } from './changesActions';
 import { pushChange } from './changesSlice';
 import { replaceBreakpoints } from './breakpointsSlice';
@@ -70,7 +71,7 @@ const changesMiddleware: Middleware = (store: Store) => (next) => (action: Actio
   next(action);
 
   if (actions.includes(action.type)) {
-    store.dispatch(pushChange({ action, time: new Date().getTime() }));
+    store.dispatch(pushChange({ key: createUniqueId(), action, time: new Date().getTime() }));
   }
 };
 
