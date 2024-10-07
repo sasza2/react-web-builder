@@ -22,6 +22,7 @@ import { BeforeUnload } from './components/BeforeUnload';
 import { LoadTemplate } from './components/Grid/LoadTemplate/LoadTemplate';
 import { ComponentsProvider } from './components/ComponentsProvider';
 import { BuilderElementContainer } from './components/ElementContainer/BuilderElementContainer';
+import { HistoryOfElementsExtras } from './components/HistoryOfElementsExtras';
 
 function WebBuilder(props: WebBuilderProps) {
   return (
@@ -37,6 +38,7 @@ function WebBuilder(props: WebBuilderProps) {
                       <AutoSave>
                         <StyleProvider>
                           <I18nProvider>
+                            <HistoryOfElementsExtras />
                             <LoadTemplate>
                               <BeforeUnload />
                               <Navbar />

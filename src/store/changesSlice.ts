@@ -4,7 +4,12 @@ import { createUniqueId } from '@/utils/createUniqueId';
 import { actionsToOmit } from './changesActions';
 import { StateInitialChanges } from './store';
 
-type Change = { action: Action<string>, time: number, elementsInBreakpoints?: boolean };
+type Change = {
+  action: Action<string>,
+  key: string,
+  time: number,
+  elementsInBreakpoints?: boolean,
+};
 
 type ActionPushChange = PayloadAction<Change>;
 
@@ -40,7 +45,7 @@ const findLastChangeIndex = (state: Changes, action: Action<string>): number => 
   return -1;
 };
 
-const pushChanges = (state: Changes, { payload: { action, time } }: ActionPushChange) => {
+const pushChanges = (state: Changes, { payload: { action, key, time } }: ActionPushChange) => {
   state.history.length = state.index;
 
   const lastElementInBreakpointsIndex = findLastChangeIndex(state, action);
@@ -50,6 +55,7 @@ const pushChanges = (state: Changes, { payload: { action, time } }: ActionPushCh
       0,
       {
         action,
+        key,
         time,
         elementsInBreakpoints: true,
       },
@@ -57,6 +63,7 @@ const pushChanges = (state: Changes, { payload: { action, time } }: ActionPushCh
   } else {
     state.history.push({
       action,
+      key,
       time,
       elementsInBreakpoints: action.type.startsWith('elementsInBreakpoints/'),
     });

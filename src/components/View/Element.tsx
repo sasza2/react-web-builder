@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 
 import {
   Breakpoint, WebBuilderElement, WebBuilderComponent, TransformElementProperty,
 } from 'types';
 import { getProperties } from '@/utils/element';
+import { addElementReference } from './elementsRefMap';
 
 type ElementProps = {
   breakpoint: Breakpoint,
@@ -26,6 +27,16 @@ function Element({
     return null;
   }
 
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const ref = elementRef.current;
+    if (!ref) return;
+
+    const removeElementReference = addElementReference(breakpoint, element, ref);
+    return removeElementReference;
+  }, [breakpoint.id, element.id]);
+
   const props = getProperties(component, breakpoint, element, transformElementProperty);
 
   const renderElement = () => {
@@ -39,6 +50,7 @@ function Element({
     <div
       key={element.id}
       data-id={element.id}
+      ref={elementRef}
       style={{ paddingBottom, width: '100%' }}
     >
       {renderElement()}

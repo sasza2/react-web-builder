@@ -21,6 +21,8 @@ type ActionRemoveMultiple = PayloadAction<{
 
 type ActionSet = PayloadAction<{ elements: WebBuilderElements, breakpointId: string }>;
 
+type ActionOpenContainer = ActionSet;
+
 type ActionReplace = PayloadAction<{ elementsInBreakpoints: ElementsInBreakpoints }>;
 
 type ActionPaste = PayloadAction<{
@@ -66,6 +68,9 @@ export const elementsInBreakpointsSlice = createSlice({
 
       addRecursive(payload.currentBreakpoint, payload.elementsTree);
     },
+    openContainer: (state, { payload: { elements, breakpointId } }: ActionOpenContainer) => {
+      state[breakpointId] = elements;
+    },
     setElementsInBreakpoint: (state, { payload: { elements, breakpointId } }: ActionSet) => {
       state[breakpointId] = elements;
     },
@@ -104,6 +109,7 @@ export const {
   addElementToBreakpoint,
   addElementsToBreakpoint,
   changeElementInBreakpoint,
+  openContainer,
   pasteElements,
   setElementsInBreakpoint,
   setElementsInBreakpointProgrammatic,

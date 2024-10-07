@@ -1,9 +1,5 @@
-import { Breakpoint } from 'types';
-
-import getBreakpointWidth from './getBreakpointWidth';
-
-const getGridCenterPositionX = (breakpoint: Breakpoint, webBuilderWidth: number, zoom: number) => {
-  const panZoomChildWidth = getBreakpointWidth(breakpoint) * zoom;
+const getGridCenterPositionX = (breakpointWidth: number, webBuilderWidth: number, zoom: number) => {
+  const panZoomChildWidth = breakpointWidth * zoom;
 
   if (panZoomChildWidth >= webBuilderWidth) return 0;
 
