@@ -5,6 +5,8 @@ import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useGetBreakpointWidth } from '@/hooks/useGetBreakpointWidth';
 import { BackgroundDiv } from './DotBackground.styled';
 
+const DOT_SIZE = 2; // px
+
 function DotBackgroundIn() {
   const theme = useTheme();
   const breakpoint = useBreakpoint();
@@ -13,8 +15,7 @@ function DotBackgroundIn() {
   const onInit = useCallback((node: HTMLDivElement) => {
     if (!node) return;
 
-    const rows = 10;
-    const height = breakpoint.rowHeight * rows;
+    const height = breakpoint.rowHeight;
     const width = getBreakpointWidth(breakpoint);
     const colWidth = width / breakpoint.cols;
 
@@ -24,17 +25,27 @@ function DotBackgroundIn() {
     const ctx = c.getContext('2d');
     if (ctx === null) return;
 
-    for (let x = 0; x < breakpoint.cols; x++) {
-      for (let y = 0; y < rows; y++) {
-        ctx.beginPath();
-        ctx.arc(colWidth * x, y * breakpoint.rowHeight, 1, 0, 2 * Math.PI);
-        ctx.strokeStyle = `${theme.colors.black}40`;
-        ctx.stroke();
+    for (let x = 0; x <= breakpoint.cols; x++) {
+      ctx.beginPath();
+      let offset = 0;
+
+      if (x === 0) {
+        offset = DOT_SIZE;
+      } else if (x === breakpoint.cols) {
+        offset = -DOT_SIZE * 2;
       }
+
+      const arcX = colWidth * x + DOT_SIZE + offset;
+      const arcY = DOT_SIZE;
+
+      ctx.arc(arcX, arcY, 1, 0, DOT_SIZE * Math.PI);
+      ctx.strokeStyle = `${theme.colors.black}40`;
+      ctx.stroke();
     }
 
     node.style.backgroundImage = `url(${c.toDataURL()})`;
     node.style.backgroundRepeat = 'repeat';
+    node.style.backgroundPosition = `-${DOT_SIZE}px -${DOT_SIZE}px`;
   }, [breakpoint.cols, breakpoint.rowHeight]);
 
   return (
