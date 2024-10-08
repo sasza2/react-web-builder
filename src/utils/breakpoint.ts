@@ -9,7 +9,7 @@ import { createUniqueId } from './createUniqueId';
 import { cloneDeep } from './clone';
 import { getElementContainerIdProp } from './element';
 
-export const getBreakpointBackgroundColor = (breakpoint: Breakpoint, page: PageSettings) => breakpoint.backgroundColor || page.backgroundColor;
+export const getBreakpointBackgroundColor = (breakpoint: Breakpoint, pageSettings: PageSettings) => breakpoint.backgroundColor || pageSettings.backgroundColor;
 
 export const getBreakpointPadding = (breakpoint: Breakpoint) => {
   if (!breakpoint.padding) {
