@@ -1,5 +1,17 @@
 # react-web-builder
 
+## 0.13.0
+
+### Minor Changes
+
+- 30413e3: open containers with same width as in breakpoint
+
+### Patch Changes
+
+- b98021e: fix in displaying containers background
+- 8f0fecd: fix displaying background in grid
+- ec8ce21: fix dot background in grid (last vertical line is not visible)
+
 ## 0.12.1
 
 ### Patch Changes
