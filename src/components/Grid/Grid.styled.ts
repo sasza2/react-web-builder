@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
-import { Breakpoint, FontImport } from 'types';
+import { Breakpoint, FontImport, PageSettings } from 'types';
 import { SIDEBAR_WIDTH } from '@/consts';
-import { getBreakpointPadding } from '@/utils/breakpoint';
+import { getBreakpointBackgroundColor, getBreakpointPadding } from '@/utils/breakpoint';
 import { Theme } from '../StyleProvider/styled';
 
 type GridDivProps = {
@@ -10,6 +10,7 @@ type GridDivProps = {
   $fontImport: FontImport | null;
   $height: string | number,
   $isLoaded: boolean,
+  $pageSettings: PageSettings,
   $selectedElementId?: string,
   $selectedElements?: (string | number)[],
 };
@@ -46,7 +47,7 @@ export const GridDiv = styled.div<GridDivProps>`
     .react-panzoom {
       .react-panzoom__in {
         font-family: ${({ $fontImport }) => $fontImport?.fontFamily};
-        background-color: ${({ $breakpoint }) => $breakpoint.backgroundColor};
+        background-color: ${({ $breakpoint, $pageSettings }) => getBreakpointBackgroundColor($breakpoint, $pageSettings)};
         box-shadow: ${({ $breakpoint, theme }) => getBoxShadow($breakpoint, theme)};
 
         ${({ $selectedElementId }) => ($selectedElementId

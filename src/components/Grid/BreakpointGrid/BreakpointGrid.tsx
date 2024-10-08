@@ -95,6 +95,7 @@ export function BreakpointGrid() {
       $fontImport={fontImport}
       $height={webBuilderHeight}
       $isLoaded={isLoaded}
+      $pageSettings={pageSettings}
       $selectedElements={selectedElements}
       {...assignTestProp('grid')}
     >
