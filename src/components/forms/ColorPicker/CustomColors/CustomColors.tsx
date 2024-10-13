@@ -1,13 +1,14 @@
 import React, { useRef, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import { Icon } from '@/components/icons/Icon';
 import { FieldProvider } from '@/components/FormProvider';
-import { ColorPickerModal } from '../ColorPickerModal';
+import { Icon } from '@/components/icons/Icon';
+
 import { Button } from '../../RichText/buttons';
-import { Label } from '../ColorPickerModal/ColorPickerModal.styled';
-import { AddIcon, ColorsContainer } from '../ColorPicker.styled';
 import { Color } from '../Color';
+import { AddIcon, ColorsContainer } from '../ColorPicker.styled';
+import { ColorPickerModal } from '../ColorPickerModal';
+import { Label } from '../ColorPickerModal/ColorPickerModal.styled';
 
 type CustomColorsProps = {
   allowGradient?: boolean,

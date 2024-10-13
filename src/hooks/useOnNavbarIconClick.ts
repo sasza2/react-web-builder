@@ -1,4 +1,5 @@
 import { WebBuilderNavbarIcon } from 'types';
+
 import { useBuildPageWithTree } from './page/useBuildPageWithTree';
 
 export const useOnNavbarIconClick = () => {

@@ -1,27 +1,28 @@
 import React from 'react';
-
 import { OnImageUpload, WebBuilderComponentProperty } from 'types';
+
 import { assignTestProp } from '@/utils/tests';
-import { ColorPicker } from '../forms/ColorPicker';
-import { Input } from '../forms/Input';
-import { RichText } from '../forms/RichText';
-import { RangeSlider } from '../forms/RangeSlider';
-import { Toggle } from '../forms/Toggle';
-import { Select } from '../forms/Select/Select';
-import { FormGroup, FormHeader } from '../forms/FormControl.styled';
+
 import { About } from '../forms/About';
-import { Padding } from '../forms/Padding';
-import { Border } from '../forms/Border';
-import { ListOrder } from '../forms/ListOrder';
-import { FontOptions } from '../forms/FontOptions';
-import { InputHTML } from '../forms/InputHTML';
-import { URLInput } from '../forms/URLInput';
-import { ImageUpload } from '../forms/ImageUpload';
-import { BoxShadow } from '../forms/BoxShadow';
-import { OpenContainer } from '../forms/OpenContainer';
-import { EditBreakpointField } from '../forms/EditBreakpointField';
-import { BreakpointHeight } from '../forms/BreakpointHeight';
 import { BackgroundImage } from '../forms/BackgroundImage';
+import { Border } from '../forms/Border';
+import { BoxShadow } from '../forms/BoxShadow';
+import { BreakpointHeight } from '../forms/BreakpointHeight';
+import { ColorPicker } from '../forms/ColorPicker';
+import { EditBreakpointField } from '../forms/EditBreakpointField';
+import { FontOptions } from '../forms/FontOptions';
+import { FormGroup, FormHeader } from '../forms/FormControl.styled';
+import { ImageUpload } from '../forms/ImageUpload';
+import { Input } from '../forms/Input';
+import { InputHTML } from '../forms/InputHTML';
+import { ListOrder } from '../forms/ListOrder';
+import { OpenContainer } from '../forms/OpenContainer';
+import { Padding } from '../forms/Padding';
+import { RangeSlider } from '../forms/RangeSlider';
+import { RichText } from '../forms/RichText';
+import { Select } from '../forms/Select/Select';
+import { Toggle } from '../forms/Toggle';
+import { URLInput } from '../forms/URLInput';
 
 type FormPropertyProps = {
   autoFocus?: boolean,

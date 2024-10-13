@@ -1,6 +1,8 @@
 import { Page } from 'types';
+
 import { useAppSelector } from '@/store/useAppSelector';
 import { getPageSettings } from '@/utils/pageSettings';
+
 import { useBreakpoints } from '../useBreakpoints';
 import { useElements } from '../useElements';
 import { usePageSettings } from '../usePageSettings';

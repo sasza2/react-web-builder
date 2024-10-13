@@ -1,12 +1,13 @@
 import React from 'react';
-
 import { ViewProps } from 'types';
+
 import { PropertiesProvider } from '@/components/PropertiesProvider';
 import { StyleProvider } from '@/components/StyleProvider';
+
+import { ComponentsProvider } from './components/ComponentsProvider';
+import { ViewElementContainer } from './components/ElementContainer/ViewElementContainer';
 import { I18nProvider } from './components/I18nProvider';
 import { ViewRenderPage } from './components/View';
-import { ViewElementContainer } from './components/ElementContainer/ViewElementContainer';
-import { ComponentsProvider } from './components/ComponentsProvider';
 
 function View(props: ViewProps) {
   return (

@@ -1,10 +1,10 @@
 import React, {
   createContext, useMemo, useRef,
 } from 'react';
-
 import {
   BreakpointsExtras, ElementId, ElementRenderFunc, WebBuilderElements,
 } from 'types';
+
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useAppSelector } from '@/store/useAppSelector';

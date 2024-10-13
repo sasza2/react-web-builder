@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { AllIcons } from '@/components/icons/types';
 import { Icon } from '@/components/icons/Icon';
+import { AllIcons } from '@/components/icons/types';
 import { StyleProvider } from '@/components/StyleProvider';
-import { IconContainer, IconsContainer, IconDiv } from './Icons.styled';
+
+import { IconContainer, IconDiv, IconsContainer } from './Icons.styled';
 
 export default { title: 'Icons' };
 

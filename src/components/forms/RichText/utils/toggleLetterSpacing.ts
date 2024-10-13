@@ -1,7 +1,7 @@
 import {
   Editor,
-  Transforms,
   Element as SlateElement,
+  Transforms,
 } from 'slate';
 
 export const toggleLetterSpacing = (editor: Editor, letterSpacing: string) => {

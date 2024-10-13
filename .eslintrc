@@ -24,10 +24,12 @@
     "react/destructuring-assignment": 0,
     "react/jsx-props-no-spreading": 0,
     "react/require-default-props": 0,
-    "react/state-in-constructor": 0
+    "react/state-in-constructor": 0,
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   },
   "root": true,
-  "plugins": ["@typescript-eslint", "react", "import"],
+  "plugins": ["@typescript-eslint", "react", "import", "simple-import-sort"],
   "extends": [
     "airbnb",
     "airbnb-typescript",

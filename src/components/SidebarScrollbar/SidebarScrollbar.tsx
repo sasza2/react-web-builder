@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Scrollbar } from '@/components/Scrollbar';
+
 import { useWebBuilderSizeHeight } from '../WebBuilderSize';
 import { Empty, Wrapper } from './SidebarScrollbar.styled';
 

@@ -1,4 +1,4 @@
-import { Page, expect } from '@playwright/test';
+import { expect, Page } from '@playwright/test';
 
 import en from '../../src/locales/en';
 import { sleep } from './sleep';

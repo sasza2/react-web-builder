@@ -1,19 +1,20 @@
 import React from 'react';
 
-import { assignTestProp } from '@/utils/tests';
-import { useWebBuilderSizeHeight } from '@/components/WebBuilderSize';
-import { useAppSelector } from '@/store/useAppSelector';
 import { AddBreakpoint, EditBreakpoint } from '@/components/BreakpointsForm';
 import { Configuration } from '@/components/Configuration';
+import { useWebBuilderSizeHeight } from '@/components/WebBuilderSize';
 import { useBreakpoints } from '@/hooks/useBreakpoints';
-import { PageSettings } from '../PageSettings';
+import { useAppSelector } from '@/store/useAppSelector';
+import { assignTestProp } from '@/utils/tests';
+
+import { useComponentsProperty } from '../ComponentsProvider';
 import { EditProperties } from '../EditProperties';
 import { ErrorBoundary } from '../ErrorBoundary';
+import { PageSettings } from '../PageSettings';
 import { SelectNewElement } from '../SelectNewElement';
 import { SidebarView, useSidebarRef } from '../SidebarProvider/SidebarProvider';
-import { Container } from './Sidebar.styled';
 import { Modal } from './Modal';
-import { useComponentsProperty } from '../ComponentsProvider';
+import { Container } from './Sidebar.styled';
 
 export function Sidebar() {
   const components = useComponentsProperty();

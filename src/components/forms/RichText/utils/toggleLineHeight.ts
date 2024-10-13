@@ -1,7 +1,7 @@
 import {
   Editor,
-  Transforms,
   Element as SlateElement,
+  Transforms,
 } from 'slate';
 
 export const toggleLineHeight = (editor: Editor, lineHeight: string) => {

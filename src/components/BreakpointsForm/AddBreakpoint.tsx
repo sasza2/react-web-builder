@@ -1,19 +1,20 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { useTheme } from 'styled-components';
+
 import { ConfirmButton } from '@/components/Button';
 import { useAddBreakpoint } from '@/hooks/useAddBreakpoint';
 import { usePageSettings } from '@/hooks/usePageSettings';
+
+import { FormProvider, useFormCreator } from '../FormProvider/FormProvider';
+import { FormContainerDiv } from '../forms/FormContainerDiv';
 import { SidebarHeader } from '../SidebarHeader';
 import { SidebarScrollbar } from '../SidebarScrollbar';
-import { FormContainerDiv } from '../forms/FormContainerDiv';
-import { FormProvider, useFormCreator } from '../FormProvider/FormProvider';
-import { formToBreakpoint } from './utils';
 import { Buttons } from './Breakpoint.styled';
 import { Form } from './Form';
-import { useValidateForm } from './useValidateForm';
 import { IForm } from './types';
+import { useValidateForm } from './useValidateForm';
+import { formToBreakpoint } from './utils';
 
 export function AddBreakpoint() {
   const theme = useTheme();

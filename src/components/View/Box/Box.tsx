@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
-
 import { BoxProps } from 'types';
+
 import { Empty } from './Box.styled';
 import { Element, ElementProps } from './Element';
 import { Leaf } from './Leaf';

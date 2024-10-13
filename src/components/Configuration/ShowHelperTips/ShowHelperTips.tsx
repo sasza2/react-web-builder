@@ -1,16 +1,17 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { SidebarView } from '@/components/SidebarProvider';
 import { clearHintsFromLocalStorage } from '@/components/Hints/clearHintsFromLocalStorage';
 import { useBuilderHintsList } from '@/components/Hints/useBuilderHintsList';
-import { useSetSidebarView } from '@/hooks/useSetSidebarView';
+import { SidebarView } from '@/components/SidebarProvider';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
+import { useSetSidebarView } from '@/hooks/useSetSidebarView';
 import { delay } from '@/utils/delay';
-import { useConfiguration, useSetConfiguration } from '../../ConfigurationProvider';
+
 import { LinkGhostButton } from '../../Button';
-import { FormGroup, FormHeader } from '../../forms/FormControl.styled';
+import { useConfiguration, useSetConfiguration } from '../../ConfigurationProvider';
 import { FormControl } from '../../forms/FormControl';
+import { FormGroup, FormHeader } from '../../forms/FormControl.styled';
 
 export function ShowHelperTips() {
   const { t } = useTranslation();

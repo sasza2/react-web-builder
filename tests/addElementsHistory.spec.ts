@@ -1,10 +1,10 @@
 import { expect, test } from '@playwright/test';
 
+import { getBreakpointDetails } from './fixtures/breakpoint/getBreakpointDetails';
 import { createElement } from './fixtures/elements/createElement';
 import { getElements } from './fixtures/elements/elements';
 import { goThroughHints } from './fixtures/goThroughHints';
 import { sleep } from './fixtures/sleep';
-import { getBreakpointDetails } from './fixtures/breakpoint/getBreakpointDetails';
 
 test('add elements history (undo/redo)', async ({ page }) => {
   await page.goto('/?mode=preview&story=webbuilder--web-builder-story');

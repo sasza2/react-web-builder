@@ -1,17 +1,18 @@
+// eslint-disable-next-line
+// @ts-ignore
+import arrowCreate from 'arrows-svg';
 import React, {
   useCallback, useEffect, useRef, useState,
 } from 'react';
 import ReactDOM from 'react-dom';
 import { useTranslation } from 'react-i18next';
-// eslint-disable-next-line
-// @ts-ignore
-import arrowCreate from 'arrows-svg';
-
 import { HelperArrowItem } from 'types';
+
 import { ConfirmButton } from '@/components/Button';
 import { assignTestProp } from '@/utils/tests';
-import shadows from './shadows';
+
 import { ButtonContainer, Title } from './HelperArrow.styled';
+import shadows from './shadows';
 
 type HelperArrowProps = {
   onClose?: () => void,

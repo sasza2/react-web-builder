@@ -1,13 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { Padding as PaddingIcon } from '@/components/icons/Padding';
 import { normalizeInt } from '@/utils/field';
 import { assignTestProp } from '@/utils/tests';
-import { Padding as PaddingIcon } from '@/components/icons/Padding';
+
 import { FormGroup, FormHeader } from '../FormControl.styled';
 import { Input } from '../Input';
-import { PaddingContainer } from './Padding.styled';
 import { IFormControl } from '../types';
+import { PaddingContainer } from './Padding.styled';
 
 type PaddingProps = {
   onBlur?: (value: string) => void,

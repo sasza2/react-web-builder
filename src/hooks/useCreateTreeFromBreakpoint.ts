@@ -1,9 +1,11 @@
 import { WebBuilderElement } from 'types';
+
 import { useAppSelector } from '@/store/useAppSelector';
 import { createTreeFromBreakpoint } from '@/utils/breakpoint';
+
+import { useBreakpoint } from './useBreakpoint';
 import { useBreakpoints } from './useBreakpoints';
 import { useElements } from './useElements';
-import { useBreakpoint } from './useBreakpoint';
 
 export const useCreateTreeFromBreakpoint = () => {
   const breakpoint = useBreakpoint();

@@ -1,9 +1,10 @@
 import React from 'react';
+import { PageSettings } from 'types';
 
 import { usePageSettings } from '@/hooks/usePageSettings';
 import { updatePageSettings } from '@/store/pageSettingsSlice';
 import { useAppDispatch } from '@/store/useAppDispatch';
-import { PageSettings } from 'types';
+
 import { CustomColors } from './CustomColors';
 
 type PageSettingsCustomColorsProps = {

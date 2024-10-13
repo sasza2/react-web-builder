@@ -1,9 +1,11 @@
 import React, { useLayoutEffect, useRef } from 'react';
-
 import {
-  Breakpoint, WebBuilderElement, WebBuilderComponent, TransformElementProperty,
+  Breakpoint, TransformElementProperty,
+  WebBuilderComponent, WebBuilderElement,
 } from 'types';
+
 import { getProperties } from '@/utils/element';
+
 import { addElementReference } from './elementsRefMap';
 
 type ElementProps = {

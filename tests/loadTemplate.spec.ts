@@ -1,10 +1,10 @@
 import { expect, test } from '@playwright/test';
 
-import { goThroughHints } from './fixtures/goThroughHints';
-import { sleep } from './fixtures/sleep';
+import { template } from './consts';
 import { checkBreakpointElements } from './fixtures/breakpoint/checkBreakpointElements';
 import { selectBreakpoint } from './fixtures/breakpoint/selectBreakpoint';
-import { template } from './consts';
+import { goThroughHints } from './fixtures/goThroughHints';
+import { sleep } from './fixtures/sleep';
 
 test('load template', async ({ page }) => {
   await page.goto('/?mode=preview&story=webbuilder--templates-story');

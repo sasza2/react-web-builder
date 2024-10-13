@@ -1,3 +1,4 @@
 export {
-  WebBuilderSizeProvider, useWebBuilderSize, useWebBuilderSizeHeight, useWebBuilderSizeWidth,
+  useWebBuilderSize, useWebBuilderSizeHeight, useWebBuilderSizeWidth,
+  WebBuilderSizeProvider,
 } from './WebBuilderSize';

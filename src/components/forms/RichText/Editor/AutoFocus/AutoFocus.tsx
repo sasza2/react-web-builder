@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
+import { useFrame } from 'react-frame-component';
 import { BaseEditor } from 'slate';
 import { ReactEditor } from 'slate-react';
-import { useFrame } from 'react-frame-component';
 
 import { useConfiguration } from '@/components/ConfigurationProvider';
 

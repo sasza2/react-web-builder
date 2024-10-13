@@ -1,15 +1,16 @@
+import 'react-tooltip/dist/react-tooltip.css';
+
 import React, { forwardRef, useId } from 'react';
 import { Tooltip } from 'react-tooltip';
 
-import 'react-tooltip/dist/react-tooltip.css';
-
 import { assignTestProp } from '@/utils/tests';
+
 import {
   ConfirmButtonContainer,
-  RemoveButtonContainer,
-  RemoveGhostButtonContainer,
   LinkButtonContainer,
   LinkGhostButtonContainer,
+  RemoveButtonContainer,
+  RemoveGhostButtonContainer,
 } from './Button.styled';
 
 type ButtonRef = {

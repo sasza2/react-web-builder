@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import { useSelectedElementId } from './useSelectedElementId';
+
 import { useRemoveElement } from './useRemoveElement';
+import { useSelectedElementId } from './useSelectedElementId';
 
 export const useDeleteElementOnKey = () => {
   const [selectedElementId] = useSelectedElementId();

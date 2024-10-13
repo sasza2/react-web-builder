@@ -1,8 +1,9 @@
 import { Breakpoint } from 'types';
+
+import { useGridAPI } from '@/components/GridAPIProvider';
 import { removeElementsFromBreakpoint } from '@/store/elementsInBreakpointsSlice';
 import { useAppDispatch } from '@/store/useAppDispatch';
 import { delay } from '@/utils/delay';
-import { useGridAPI } from '@/components/GridAPIProvider';
 
 type UseRemoveElementsByBreakpoint = () => (breakpoint: Breakpoint) => void;
 

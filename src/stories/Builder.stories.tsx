@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { OnImageUpload, Page } from 'types';
+
 import WebBuilder from '../WebBuilder';
 import { fonts } from './consts';
 

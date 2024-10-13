@@ -1,14 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { Padding as PaddingIcon } from '@/components/icons/Padding';
 import { normalizeInt } from '@/utils/field';
 import { assignTestProp } from '@/utils/tests';
-import { Padding as PaddingIcon } from '@/components/icons/Padding';
+
+import { ColorPicker } from '../ColorPicker';
 import { FormGroup, FormHeader } from '../FormControl.styled';
 import { Input } from '../Input';
 import { PaddingContainer } from '../Padding/Padding.styled';
 import { RangeSlider } from '../RangeSlider';
-import { ColorPicker } from '../ColorPicker';
 import { IFormControl } from '../types';
 
 type BorderProps = {

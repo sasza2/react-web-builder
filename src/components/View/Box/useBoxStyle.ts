@@ -1,6 +1,7 @@
 import { UseBoxStyleProps } from 'types';
-import { isValidColor } from '@/utils/colors';
+
 import { DEFAULT_LETTER_SPACING, DEFAULT_LINE_HEIGHT } from '@/consts';
+import { isValidColor } from '@/utils/colors';
 
 const parseNumberValue = (padding?: number) => {
   if (!padding || padding < 0) return 0;

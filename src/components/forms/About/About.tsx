@@ -1,8 +1,9 @@
 import React, { useCallback } from 'react';
-
 import { WebBuilderComponentPropertyAbout } from 'types';
+
 import { LinkButton } from '@/components/Button';
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
+
 import { ButtonContainer, Container, Description } from './About.styled';
 
 type AboutProps = Pick<WebBuilderComponentPropertyAbout, 'button' | 'description'>;

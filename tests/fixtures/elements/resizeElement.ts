@@ -1,9 +1,9 @@
 import { Page } from '@playwright/test';
 
-import { BreakpointDetails } from '../breakpoint/types';
-import { getElementById, getElementDetails } from './elements';
-import { sleep } from '../sleep';
 import { getBreakpointZoom } from '../breakpoint/getBreakpointZoom';
+import { BreakpointDetails } from '../breakpoint/types';
+import { sleep } from '../sleep';
+import { getElementById, getElementDetails } from './elements';
 
 export const resizeElement = async (
   page: Page,

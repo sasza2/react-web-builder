@@ -1,6 +1,6 @@
+import { WebBuilderElement, WebBuilderElements } from 'types';
 import { expect, it } from 'vitest';
 
-import { WebBuilderElement, WebBuilderElements } from 'types';
 import splitBoardBySeparators from './splitBoardBySeparators';
 
 // TODO - to helpers

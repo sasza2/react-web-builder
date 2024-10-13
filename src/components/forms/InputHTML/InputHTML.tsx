@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
 import { useField } from '@/components/FormProvider';
-import { IFormControl } from '../types';
+
 import { FormControl } from '../FormControl';
 import { InputGroup } from '../Input/Input.styled';
+import { IFormControl } from '../types';
 
 type InputHTMLProps = {
   disabled?: boolean,

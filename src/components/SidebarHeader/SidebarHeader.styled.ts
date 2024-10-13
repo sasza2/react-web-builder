@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import { NAVBAR_HEIGHT } from '@/consts';
 import { Container as ButtonIcon } from '@/components/ButtonIcon/ButtonIcon.styled';
+import { NAVBAR_HEIGHT } from '@/consts';
 
 // textMdBold
 export const Center = styled.div`

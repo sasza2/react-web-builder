@@ -1,12 +1,13 @@
 import {
   Editor,
-  Transforms,
   Element as SlateElement,
+  Transforms,
 } from 'slate';
 import { ReactEditor } from 'slate-react';
 
 import theme from '@/components/StyleProvider/theme';
 import { CustomElement } from '@/slate.d';
+
 import { isBlockActive } from './isBlockActive';
 
 const LIST_TYPES = ['numbered-list', 'bulleted-list'];

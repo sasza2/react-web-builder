@@ -1,4 +1,5 @@
-import { WebBuilderElements, Tree } from 'types';
+import { Tree, WebBuilderElements } from 'types';
+
 import { groupElementsById } from './element';
 
 export const getElementsFromTree = (tree: Tree): WebBuilderElements => {

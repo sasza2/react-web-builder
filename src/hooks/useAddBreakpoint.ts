@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-
 import { Breakpoint } from 'types';
+
 import { addBreakpoint, addBreakpointSilent } from '@/store/breakpointsSlice';
 import { createUniqueId } from '@/utils/createUniqueId';
 

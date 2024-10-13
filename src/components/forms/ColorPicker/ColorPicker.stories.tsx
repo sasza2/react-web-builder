@@ -3,13 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { FieldProvider, FormProvider, useFormCreator } from '@/components/FormProvider';
 import { I18nProvider } from '@/components/I18nProvider';
 import { SidebarProvider, useSidebarModalRef } from '@/components/SidebarProvider';
-import { StoreProvider } from '@/store/StoreProvider';
 import { StyleProvider } from '@/components/StyleProvider';
 import { DEFAULT_PRESET_COLORS } from '@/consts';
-import { ColorPicker } from './ColorPicker';
+import { StoreProvider } from '@/store/StoreProvider';
+
 import { Color } from './Color';
-import { CustomColors } from './CustomColors/CustomColors';
+import { ColorPicker } from './ColorPicker';
 import { ColorPickerModal } from './ColorPickerModal';
+import { CustomColors } from './CustomColors/CustomColors';
 
 export default { title: 'forms/Color' };
 

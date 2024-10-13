@@ -1,9 +1,10 @@
-import { ElementsTreeInBreakpoint } from '@/utils/breakpoint';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
 import {
-  WebBuilderElement, WebBuilderElements, ElementsInBreakpoints, Breakpoint,
+  Breakpoint,
+  ElementsInBreakpoints, WebBuilderElement, WebBuilderElements,
 } from 'types';
+
+import { ElementsTreeInBreakpoint } from '@/utils/breakpoint';
 
 const initialState: ElementsInBreakpoints = {};
 

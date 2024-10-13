@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
 import { TFunction } from 'i18next';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { HelperArrow } from '../Hints/HelperArrow/HelperArrow';
 import { AnimationWidth } from './AnimationWidth';
 import { AnimationSeparator, Boxes } from './Boxes';
+import { Box4, SeparatorDiv } from './Boxes/Boxes.styled';
 import { Monitor } from './Monitor';
 import { ScaleAnimation } from './ScaleAnimation';
 import { Container } from './WhySeparator.styled';
-import { Box4, SeparatorDiv } from './Boxes/Boxes.styled';
 
 const MIN_WIDTH = 420; // px
 const MAX_WIDTH = 900; // px

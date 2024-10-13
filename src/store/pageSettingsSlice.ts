@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
 import { PageSettings } from 'types';
 
 type ActionUpdate = PayloadAction<{ pageSettings: PageSettings }>;

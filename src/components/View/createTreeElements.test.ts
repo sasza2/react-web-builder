@@ -1,6 +1,6 @@
+import { Tree, WebBuilderElements } from 'types';
 import { expect, it, vi } from 'vitest';
 
-import { Tree, WebBuilderElements } from 'types';
 import createTreeElements from './createTreeElements';
 
 const MOCK_ID = 'none';

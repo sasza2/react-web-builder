@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { LineComponentProps } from 'types';
+
 import { Container } from './Line.styled';
 
 export function Line({

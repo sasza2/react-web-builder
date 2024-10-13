@@ -1,14 +1,15 @@
+import { t } from 'i18next';
 import React, { useRef, useState } from 'react';
 import { useSlate } from 'slate-react';
-import { t } from 'i18next';
 
 import { FieldProvider } from '@/components/FormProvider';
 import { RenderInSidebarModal } from '@/components/RenderInSidebarModal';
-import { toggleColor, getColorActive } from '../utils';
-import { Button } from '../buttons';
-import { Container, ColorIcon } from './ColorSelect.styled';
+
 import { ColorPicker } from '../../ColorPicker';
 import { FormHeader } from '../../FormControl.styled';
+import { Button } from '../buttons';
+import { getColorActive, toggleColor } from '../utils';
+import { ColorIcon, Container } from './ColorSelect.styled';
 
 export function ColorSelect() {
   const editor = useSlate();

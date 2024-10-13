@@ -4,6 +4,7 @@ import { usePageSettings } from '@/hooks/usePageSettings';
 import { updatePageSettings } from '@/store/pageSettingsSlice';
 import { useAppDispatch } from '@/store/useAppDispatch';
 import { isValidColor } from '@/utils/colors';
+
 import { CustomColors } from './CustomColors';
 
 type DefaultCustomColorsProps = {

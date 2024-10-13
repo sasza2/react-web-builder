@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { I18nProvider } from '@/components/I18nProvider';
-import { StoreProvider } from '@/store/StoreProvider';
-import { StyleProvider } from '@/components/StyleProvider';
 import { FormProvider, useFormCreator } from '@/components/FormProvider';
+import { I18nProvider } from '@/components/I18nProvider';
+import { StyleProvider } from '@/components/StyleProvider';
+import { StoreProvider } from '@/store/StoreProvider';
+
 import { Radio } from './Radio';
 
 export default { title: 'forms/MultipleChoice' };

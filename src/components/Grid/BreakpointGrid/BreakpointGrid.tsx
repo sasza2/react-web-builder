@@ -3,34 +3,35 @@ import ReactGrid, {
   defaultOrganizeGridElements, organizeGridElementsWithBringUp,
 } from 'react-grid-panzoom';
 
+import { useWebBuilderSizeHeight } from '@/components/WebBuilderSize';
 import { NAVBAR_HEIGHT } from '@/consts';
-import { assignTestProp } from '@/utils/tests';
-import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useBlurSelectedElement } from '@/hooks/useBlurSelectedElement';
+import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useDeleteElementOnKey } from '@/hooks/useDeleteElementOnKey';
+import { useElementOnStartResizing } from '@/hooks/useElementOnStartResizing';
 import { useFontImport } from '@/hooks/useFontImport';
 import { useGetBreakpointWidth } from '@/hooks/useGetBreakpointWidth';
 import { useGridPaste } from '@/hooks/useGridPaste';
-import { useSetGridElements } from '@/hooks/useSetGridElements';
-import { useSetElementsHeight } from '@/hooks/useSetElementsHeight';
 import { usePageSettings } from '@/hooks/usePageSettings';
-import { useWebBuilderSizeHeight } from '@/components/WebBuilderSize';
 import { useSelectedElements } from '@/hooks/useSelectedElements';
-import { useElementOnStartResizing } from '@/hooks/useElementOnStartResizing';
+import { useSetElementsHeight } from '@/hooks/useSetElementsHeight';
+import { useSetGridElements } from '@/hooks/useSetGridElements';
+import { assignTestProp } from '@/utils/tests';
+
 import { useConfiguration } from '../../ConfigurationProvider';
 import { useGridAPI } from '../../GridAPIProvider/GridAPIProvider';
 import { RenderInContainer } from '../../RenderInContainer';
+import { ContainerBackground } from '../ContainerBackground';
 import { DotBackground } from '../DotBackground';
-import useOnElementClick from '../useOnElementClick';
+import { GridDiv } from '../Grid.styled';
+import { Popup } from '../Popup';
 import useCenterGridOnInit from '../useCenterGridOnInit';
 import useElementsWithRender from '../useElementsWithRender';
 import useGridMovement from '../useGridMovement';
 import useIsGridLoaded from '../useIsGridLoaded';
 import { useOnContextMenu } from '../useOnContextMenu';
+import useOnElementClick from '../useOnElementClick';
 import { useScroll } from '../useScroll';
-import { GridDiv } from '../Grid.styled';
-import { Popup } from '../Popup';
-import { ContainerBackground } from '../ContainerBackground';
 
 const ZOOM_CENTER_POSITION = { x: 'center' } as const;
 

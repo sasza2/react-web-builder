@@ -3,6 +3,7 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import { usePageSettings } from '@/hooks/usePageSettings';
 import { useSetSidebarView } from '@/hooks/useSetSidebarView';
+
 import { RemoveGhostButton } from '../Button';
 import { ColorPicker } from '../forms/ColorPicker';
 import { FormGroup, FormHeader } from '../forms/FormControl.styled';
@@ -10,8 +11,8 @@ import { Input } from '../forms/Input';
 import { Padding } from '../forms/Padding';
 import { Toggle } from '../forms/Toggle';
 import { SidebarView } from '../SidebarProvider';
-import { Errors } from './types';
 import { Clickable } from './Form.styled';
+import { Errors } from './types';
 
 type FormProps = {
   errors: Errors,

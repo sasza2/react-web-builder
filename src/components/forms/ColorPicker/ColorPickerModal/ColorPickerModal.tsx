@@ -3,18 +3,19 @@ import { useTranslation } from 'react-i18next';
 import { Tooltip } from 'react-tooltip';
 
 import { useField } from '@/components/FormProvider';
+import { ColorBasic } from '@/components/icons/ColorBasic';
+import { ColorGradient } from '@/components/icons/ColorGradient';
 import { RenderInSidebarModal } from '@/components/RenderInSidebarModal';
+import { FlexHorizontal } from '@/components/styles/common';
 import {
   ColorType, getColorForSketch, gradientToValue, splitGradientColor,
 } from '@/utils/colors';
-import { ColorBasic } from '@/components/icons/ColorBasic';
-import { ColorGradient } from '@/components/icons/ColorGradient';
 import { getColorType } from '@/utils/colors/common';
-import { FlexHorizontal } from '@/components/styles/common';
+
 import { FormHeader, Label } from '../../FormControl.styled';
+import { ColorContainer } from '../Color';
 import { Container } from './ColorPickerModal.styled';
 import { GradientColorPicker } from './GradientColorPicker';
-import { ColorContainer } from '../Color';
 import { HexColorPicker } from './HexColorPicker';
 
 type ColorPickerModalProps = {

@@ -1,10 +1,11 @@
 import React, { useMemo } from 'react';
 
 import { assignTestProp } from '@/utils/tests';
-import { IFormControl } from './types';
+
 import {
   Description, FormControlDiv, Label, ListErrors,
 } from './FormControl.styled';
+import { IFormControl } from './types';
 
 export function FormControl({
   children,

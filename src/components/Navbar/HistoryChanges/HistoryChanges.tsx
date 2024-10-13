@@ -1,11 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { ButtonIcon } from '@/components/ButtonIcon';
+import { Icon } from '@/components/icons/Icon';
 import { redoChanges, undoChanges } from '@/store/changesSlice';
 import { useAppDispatch } from '@/store/useAppDispatch';
 import { useAppSelector } from '@/store/useAppSelector';
-import { Icon } from '@/components/icons/Icon';
-import { ButtonIcon } from '@/components/ButtonIcon';
+
 import { Container } from './HistoryChanged.styled';
 
 export function HistoryChanges() {

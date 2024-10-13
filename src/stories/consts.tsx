@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { FontImport } from 'types';
 
 export const fonts: FontImport[] = [

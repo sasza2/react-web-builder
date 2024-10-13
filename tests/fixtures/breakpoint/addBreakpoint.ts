@@ -1,6 +1,7 @@
 import { Page } from '@playwright/test';
-import { selectBreakpoint } from './selectBreakpoint';
+
 import { sleep } from '../sleep';
+import { selectBreakpoint } from './selectBreakpoint';
 
 type Options = {
   from: number,

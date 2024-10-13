@@ -1,18 +1,19 @@
 import { OrganizeElementsOptions } from 'react-grid-panzoom';
-
 import { Tree, WebBuilderElement } from 'types';
-import { MARGIN_BOTTOM_ON_PASTED_ELEMENT } from '@/consts';
-import { paste as clipboardPaste } from '@/utils/clipboard';
-import { delay } from '@/utils/delay';
-import { useIsMounted } from '@/hooks/useIsMounted';
-import * as gridPaste from '@/utils/gridPaste';
+
 import { useGridAPI } from '@/components/GridAPIProvider';
+import { MARGIN_BOTTOM_ON_PASTED_ELEMENT } from '@/consts';
+import { useIsMounted } from '@/hooks/useIsMounted';
+import { pasteElements } from '@/store/elementsInBreakpointsSlice';
+import { useAppDispatch } from '@/store/useAppDispatch';
 import { useAppSelector } from '@/store/useAppSelector';
 import { createTreeFromBreakpoint } from '@/utils/breakpoint';
-import { useAppDispatch } from '@/store/useAppDispatch';
-import { pasteElements } from '@/store/elementsInBreakpointsSlice';
-import { useBreakpoints } from './useBreakpoints';
+import { paste as clipboardPaste } from '@/utils/clipboard';
+import { delay } from '@/utils/delay';
+import * as gridPaste from '@/utils/gridPaste';
+
 import { useBreakpoint } from './useBreakpoint';
+import { useBreakpoints } from './useBreakpoints';
 import { useElements } from './useElements';
 
 type WebBuilderElementClipboard = {

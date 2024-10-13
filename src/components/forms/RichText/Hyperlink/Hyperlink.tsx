@@ -1,13 +1,14 @@
 import React from 'react';
-import { useSlate } from 'slate-react';
 import { useTranslation } from 'react-i18next';
+import { useSlate } from 'slate-react';
 
 import { FieldProvider } from '@/components/FormProvider';
 import { Icon } from '@/components/icons/Icon';
+
 import { Input } from '../../Input';
-import { FieldPopup, usePopup } from '../FieldPopup';
 import { Button } from '../buttons';
-import { isHyperlinkActive, getLinkActive, setLink } from '../utils/hyperlink';
+import { FieldPopup, usePopup } from '../FieldPopup';
+import { getLinkActive, isHyperlinkActive, setLink } from '../utils/hyperlink';
 import { Container } from './Hyperlink.styled';
 
 export function Hyperlink() {

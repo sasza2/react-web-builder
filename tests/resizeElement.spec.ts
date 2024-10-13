@@ -1,11 +1,11 @@
 import { expect, test } from '@playwright/test';
 
+import { getBreakpointDetails } from './fixtures/breakpoint/getBreakpointDetails';
 import { createElement } from './fixtures/elements/createElement';
+import { getElementById, getElementDetails } from './fixtures/elements/elements';
+import { resizeElementFromLeft, resizeElementFromRight } from './fixtures/elements/resizeElement';
 import { goThroughHints } from './fixtures/goThroughHints';
 import { sleep } from './fixtures/sleep';
-import { getBreakpointDetails } from './fixtures/breakpoint/getBreakpointDetails';
-import { resizeElementFromLeft, resizeElementFromRight } from './fixtures/elements/resizeElement';
-import { getElementById, getElementDetails } from './fixtures/elements/elements';
 
 test('resize element', async ({ page }) => {
   await page.goto('/?mode=preview&story=webbuilder--web-builder-story');

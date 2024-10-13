@@ -1,4 +1,5 @@
 import { Breakpoint } from 'types';
+
 import { IForm } from './types';
 
 export const formToBreakpoint = (form: IForm): Omit<Breakpoint, 'id'> => ({

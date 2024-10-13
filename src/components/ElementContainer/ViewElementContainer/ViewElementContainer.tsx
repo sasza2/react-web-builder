@@ -1,13 +1,14 @@
 import React, { useMemo } from 'react';
+import { BackgroundImage, Border, BreakpointHeight } from 'types';
 
-import { mergeStyles } from '@/utils/styles';
-import { useViewProperties } from '@/components/PropertiesProvider';
-import { RenderBreakpoint } from '@/components/View/RenderBreakpoint/RenderBreakpoint';
-import { RenderTree } from '@/components/View/RenderTree';
 import { useComponentsProperty } from '@/components/ComponentsProvider';
+import { useViewProperties } from '@/components/PropertiesProvider';
 import createTreeElements from '@/components/View/createTreeElements';
 import getBreakpointRowsByLastElement from '@/components/View/getBreakpointRowsByLastElement';
-import { BackgroundImage, Border, BreakpointHeight } from 'types';
+import { RenderBreakpoint } from '@/components/View/RenderBreakpoint/RenderBreakpoint';
+import { RenderTree } from '@/components/View/RenderTree';
+import { mergeStyles } from '@/utils/styles';
+
 import { useContainerStyle } from '../useContainerStyle';
 
 type ViewElementContainerProps = {

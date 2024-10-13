@@ -1,12 +1,13 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import ReactSelect from 'react-select';
 import { Tooltip } from 'react-tooltip';
-
 import { Option } from 'types';
-import { assignTestProp } from '@/utils/tests';
+
 import { useField } from '@/components/FormProvider';
-import { IFormControl } from '../types';
+import { assignTestProp } from '@/utils/tests';
+
 import { FormControl } from '../FormControl';
+import { IFormControl } from '../types';
 import { Wrapped } from './Select.styled';
 
 type SelectProps<T > = {

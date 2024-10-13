@@ -1,11 +1,12 @@
 import { useMemo } from 'react';
-
 import { WebBuilderElement } from 'types';
+
+import { useComponentsProperty } from '@/components/ComponentsProvider';
+import { useProperties } from '@/components/PropertiesProvider';
+import { useAppSelector } from '@/store/useAppSelector';
 import { byBreakpointId } from '@/utils/breakpoint';
 import { getElementContainerIdProp, getProperties } from '@/utils/element';
-import { useProperties } from '@/components/PropertiesProvider';
-import { useComponentsProperty } from '@/components/ComponentsProvider';
-import { useAppSelector } from '@/store/useAppSelector';
+
 import { useBreakpoint } from '../useBreakpoint';
 import { useBreakpoints } from '../useBreakpoints';
 

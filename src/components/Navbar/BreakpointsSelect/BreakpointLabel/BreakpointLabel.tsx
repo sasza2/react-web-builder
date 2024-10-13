@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { assignTestProp } from '@/utils/tests';
 import { Icon } from '@/components/icons/Icon';
+import { assignTestProp } from '@/utils/tests';
+
 import { Container, IconContainer } from './BreakpointLabel.styled';
 
 type BreakpointLabelProps = {

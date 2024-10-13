@@ -2,13 +2,14 @@ import { useMemo, useRef } from 'react';
 import { GridElement } from 'react-grid-panzoom';
 import { ElementId, ElementRenderFunc } from 'types';
 
+import { useWebBuilderProperties } from '@/components/PropertiesProvider';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useElements } from '@/hooks/useElements';
-import { useSelectedElementId } from '@/hooks/useSelectedElementId';
-import { produceRenderForElement } from '@/utils/element';
-import { useWebBuilderProperties } from '@/components/PropertiesProvider';
 import { useElementsCache } from '@/hooks/useElementsCache';
+import { useSelectedElementId } from '@/hooks/useSelectedElementId';
 import { useSelectedElements } from '@/hooks/useSelectedElements';
+import { produceRenderForElement } from '@/utils/element';
+
 import { useComponentsProperty } from '../ComponentsProvider';
 
 const useElementsWithRender = () => {

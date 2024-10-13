@@ -1,26 +1,30 @@
 import React, { memo } from 'react';
-import ReactPlayer from 'react-player';
 import { Trans } from 'react-i18next';
-
+import ReactPlayer from 'react-player';
 import {
   BuilderCommonProps,
   ImageComponentProps,
   VideoComponentProps,
   WebBuilderComponent,
 } from 'types';
+
 import { Box } from '@/components/View/Box';
 import { CustomButton } from '@/components/View/CustomButton';
-import theme from './components/StyleProvider/theme';
-import { CustomButton as CustomButtonIcon } from './components/icons/CustomButton';
-import { Line } from './components/Line';
-import { IFrame as IFrameIcon } from './components/icons/IFrame';
-import { Line as LineIcon } from './components/icons/Line';
-import { Image as ImageIcon } from './components/icons/Image';
-import { Video as VideoIcon } from './components/icons/Video';
-import { Text as TextIcon } from './components/icons/Text';
-import { Row as RowIcon } from './components/icons/Row';
-import { Separator } from './components/Separator';
+
 import { VideoWrapper } from './components.styled';
+import { Container } from './components/icons/Container';
+import { CustomButton as CustomButtonIcon } from './components/icons/CustomButton';
+import { IFrame as IFrameIcon } from './components/icons/IFrame';
+import { Image as ImageIcon } from './components/icons/Image';
+import { Line as LineIcon } from './components/icons/Line';
+import { Row as RowIcon } from './components/icons/Row';
+import { Text as TextIcon } from './components/icons/Text';
+import { Video as VideoIcon } from './components/icons/Video';
+import { IFrame } from './components/IFrame';
+import { Line } from './components/Line';
+import { Separator } from './components/Separator';
+import theme from './components/StyleProvider/theme';
+import { useBoxStyle } from './components/View/Box/useBoxStyle';
 import {
   DEFAULT_BOX_CONTENT,
   DEFAULT_BUTTON_CONTENT,
@@ -38,13 +42,10 @@ import {
   createPaddingProperty,
   createSourceProperty,
 } from './properties';
-import { IFrame } from './components/IFrame';
-import { Container } from './components/icons/Container';
-import { useBoxStyle } from './components/View/Box/useBoxStyle';
 
-export { Box } from '@/components/View/Box';
-export { IFrame } from '@/components/IFrame';
 export { Line } from './components/Line';
+export { IFrame } from '@/components/IFrame';
+export { Box } from '@/components/View/Box';
 
 export function Image({
   border, boxShadow, href, url,

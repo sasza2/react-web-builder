@@ -1,9 +1,10 @@
 import { useGridAPI } from '@/components/GridAPIProvider';
 import { removeElementsFromBreakpoint } from '@/store/elementsInBreakpointsSlice';
 import { useAppDispatch } from '@/store/useAppDispatch';
+import { useAppSelector } from '@/store/useAppSelector';
 import { delay } from '@/utils/delay';
 import { getElementFromList } from '@/utils/element';
-import { useAppSelector } from '@/store/useAppSelector';
+
 import { useBreakpoint } from './useBreakpoint';
 import { useCreateTreeFromBreakpoint } from './useCreateTreeFromBreakpoint';
 

@@ -1,11 +1,11 @@
 import { expect, test } from '@playwright/test';
 
-import { createElement } from './fixtures/elements/createElement';
-import { goThroughHints } from './fixtures/goThroughHints';
-import { sleep } from './fixtures/sleep';
 import { getBreakpointDetails } from './fixtures/breakpoint/getBreakpointDetails';
+import { createElement } from './fixtures/elements/createElement';
 import { getElementById } from './fixtures/elements/elements';
 import { editField } from './fixtures/form';
+import { goThroughHints } from './fixtures/goThroughHints';
+import { sleep } from './fixtures/sleep';
 import { toSnapshot } from './fixtures/snapshot';
 
 const IMG_SRC = 'https://raw.githubusercontent.com/sasza2/react-grid-panzoom/master/docs/preview.gif';

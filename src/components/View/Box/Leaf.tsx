@@ -1,8 +1,8 @@
 import React from 'react';
-
 import { ILeaf } from 'types';
-import { ColorType, isLightColor } from '@/utils/colors';
+
 import { SLATE_HIGHLIGHTED } from '@/components/forms/RichText/Editor/Editor.styled';
+import { ColorType, isLightColor } from '@/utils/colors';
 import { getColorType } from '@/utils/colors/common';
 
 const applyColor = (color: string, style: React.CSSProperties = {}): React.CSSProperties => {

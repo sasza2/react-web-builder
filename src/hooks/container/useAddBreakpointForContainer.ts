@@ -1,11 +1,12 @@
 import { useTranslation } from 'react-i18next';
-
-import { useAppDispatch } from '@/store/useAppDispatch';
-import { setElementsInBreakpointProgrammatic } from '@/store/elementsInBreakpointsSlice';
-import { createElementsForContainer, getDefaultContainer } from '@/utils/container';
 import { ElementsExtras } from 'types';
-import { useBreakpoint } from '../useBreakpoint';
+
+import { setElementsInBreakpointProgrammatic } from '@/store/elementsInBreakpointsSlice';
+import { useAppDispatch } from '@/store/useAppDispatch';
+import { createElementsForContainer, getDefaultContainer } from '@/utils/container';
+
 import { useAddBreakpoint } from '../useAddBreakpoint';
+import { useBreakpoint } from '../useBreakpoint';
 import { useElements } from '../useElements';
 
 export const useAddBreakpointForContainer = () => {

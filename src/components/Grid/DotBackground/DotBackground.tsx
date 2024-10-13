@@ -3,6 +3,7 @@ import { useTheme } from 'styled-components';
 
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useGetBreakpointWidth } from '@/hooks/useGetBreakpointWidth';
+
 import { BackgroundDiv } from './DotBackground.styled';
 
 const DOT_SIZE = 2; // px

@@ -1,10 +1,10 @@
 import { Breakpoint, Page } from 'types';
 
-import { RootState, StateInitialChanges } from '../store/store';
 import { initialState as changesInitialState } from '../store/changesSlice';
+import { RootState, StateInitialChanges } from '../store/store';
+import { isBreakpoint } from './breakpoint';
 import generateDefaultBreakpoints from './generateDefaultBreakpoints';
 import { getPageSettings } from './pageSettings';
-import { isBreakpoint } from './breakpoint';
 
 type GetInitialStateFromPage = (page?: Page) => StateInitialChanges & {
   changes?: RootState['changes'],

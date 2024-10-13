@@ -1,13 +1,14 @@
 import { TFunction } from 'i18next';
-
 import {
   Breakpoint, ElementsExtras, Tree, WebBuilderElements,
 } from 'types';
+
+import { cloneTree } from '@/components/View/cloneTree';
 import { getElementPaddingFromStyle, getElementsReference } from '@/components/View/elementsRefMap';
 import { DEFAULT_CONTAINER_ID } from '@/consts';
-import { cloneTree } from '@/components/View/cloneTree';
-import { calculatePositionsOfElements } from './templates';
+
 import { createUniqueId } from './createUniqueId';
+import { calculatePositionsOfElements } from './templates';
 
 export const getContainerExtras = (container: Breakpoint, zoom: number): ElementsExtras => {
   const containerExtras: ElementsExtras = {};

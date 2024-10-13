@@ -3,21 +3,22 @@ import React, {
 } from 'react';
 import ReactGrid, { GridAPI, GridElement } from 'react-grid-panzoom';
 import { useDispatch } from 'react-redux';
-
 import { Breakpoint, WebBuilderElement, WebBuilderElements } from 'types';
-import { calculatePositionsOfElements, getElementsFromTree } from '@/utils/templates';
-import { useProperties } from '@/components/PropertiesProvider';
-import { produceRenderForElement } from '@/utils/element';
-import { assignAllToElementsExtras, byBreakpointId, initElementsExtrasFromBreakpoint } from '@/utils/breakpoint';
+
+import { useComponentsProperty } from '@/components/ComponentsProvider';
 import { ElementsContext } from '@/components/ElementsProvider';
-import { setElementsInBreakpoint } from '@/store/elementsInBreakpointsSlice';
-import { delay } from '@/utils/delay';
-import { useAppSelector } from '@/store/useAppSelector';
+import { useProperties } from '@/components/PropertiesProvider';
 import { RenderInContainer } from '@/components/RenderInContainer';
 import { useFontImport } from '@/hooks/useFontImport';
 import { useGetBreakpointWidth } from '@/hooks/useGetBreakpointWidth';
 import { usePageSettings } from '@/hooks/usePageSettings';
-import { useComponentsProperty } from '@/components/ComponentsProvider';
+import { setElementsInBreakpoint } from '@/store/elementsInBreakpointsSlice';
+import { useAppSelector } from '@/store/useAppSelector';
+import { assignAllToElementsExtras, byBreakpointId, initElementsExtrasFromBreakpoint } from '@/utils/breakpoint';
+import { delay } from '@/utils/delay';
+import { produceRenderForElement } from '@/utils/element';
+import { calculatePositionsOfElements, getElementsFromTree } from '@/utils/templates';
+
 import { GridDiv } from '../Grid.styled';
 
 type LoadBreakpointProps = {

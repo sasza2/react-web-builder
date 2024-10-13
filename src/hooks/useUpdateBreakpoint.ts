@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
-
 import { Breakpoint } from 'types';
+
 import { updateBreakpoint } from '@/store/breakpointsSlice';
 import { useAppDispatch } from '@/store/useAppDispatch';
 

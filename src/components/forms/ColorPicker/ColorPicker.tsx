@@ -2,21 +2,23 @@ import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { FieldProvider, useField } from '@/components/FormProvider';
-import {
-  getColorForSketch, getColorForInput,
-  ColorType,
-} from '@/utils/colors';
 import { usePresetColors } from '@/hooks/usePresetColors';
+import {
+  ColorType,
+  getColorForInput,
+  getColorForSketch,
+} from '@/utils/colors';
 import { getColorType } from '@/utils/colors/common';
-import { IFormControl } from '../types';
+
 import { FormControl } from '../FormControl';
 import { Label } from '../FormControl.styled';
-import { ColorPickerModal } from './ColorPickerModal';
+import { Input } from '../Input';
+import { IFormControl } from '../types';
+import { Color } from './Color';
 import {
   ColorsContainer, InputContainer,
 } from './ColorPicker.styled';
-import { Input } from '../Input';
-import { Color } from './Color';
+import { ColorPickerModal } from './ColorPickerModal';
 import { DefaultCustomColors } from './CustomColors/DefaultCustomColors';
 
 type ColorPickerProps = {

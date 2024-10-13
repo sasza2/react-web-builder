@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { GridProps } from 'react-grid-panzoom';
-
 import { Position } from 'types';
+
 import { useGridAPI } from '../GridAPIProvider';
 
 type Menu = {

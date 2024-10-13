@@ -1,20 +1,22 @@
+import PanZoom, { API, Element as PanZoomElement } from '@sasza/react-panzoom';
 import React, {
-  useCallback, useEffect, useRef, useState, useLayoutEffect,
+  useCallback, useEffect, useLayoutEffect,
+  useRef, useState,
 } from 'react';
 import ReactDOM from 'react-dom';
-import PanZoom, { API, Element as PanZoomElement } from '@sasza/react-panzoom';
+import { Position, WebBuilderComponent, WebBuilderElement } from 'types';
 
-import { Position, WebBuilderElement, WebBuilderComponent } from 'types';
+import { SIDEBAR_WIDTH } from '@/consts';
+import { useAddBreakpointForContainer } from '@/hooks/container/useAddBreakpointForContainer';
+import { useAddElement } from '@/hooks/useAddElement';
+import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useGridPositionTop } from '@/hooks/useGridPositionTop';
 import { createUniqueId } from '@/utils/createUniqueId';
 import {
   getDefaultHeight, getDefaultWidth, getElementContainerIdProp, getElementPropsWhenCreating, isResizable,
 } from '@/utils/element';
-import { useBreakpoint } from '@/hooks/useBreakpoint';
-import { useAddElement } from '@/hooks/useAddElement';
-import { useAddBreakpointForContainer } from '@/hooks/container/useAddBreakpointForContainer';
-import { SIDEBAR_WIDTH } from '@/consts';
 import { PREVENT_ELEMENTS_TRANSITION_CLASS_NAME } from '@/WebBuilder.styled';
+
 import { useGridAPI } from '../GridAPIProvider/GridAPIProvider';
 import { Container } from './DragElement.styled';
 

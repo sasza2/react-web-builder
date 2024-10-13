@@ -1,8 +1,9 @@
 import {
   Breakpoint, Tree, WebBuilderElement, WebBuilderElements,
 } from 'types';
-import { createUniqueId } from './createUniqueId';
+
 import { cloneDeep } from './clone';
+import { createUniqueId } from './createUniqueId';
 
 type PasteElement = (props: {
   element: WebBuilderElement,

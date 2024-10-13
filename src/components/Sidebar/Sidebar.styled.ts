@@ -1,5 +1,6 @@
-import { SIDEBAR_WIDTH } from '@/consts';
 import styled from 'styled-components';
+
+import { SIDEBAR_WIDTH } from '@/consts';
 
 export const Container = styled.div<{ $height: number }>`
   border-right: 1px solid ${({ theme }) => theme.colors.lightGray};

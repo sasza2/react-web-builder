@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-
 import { BreakpointsExtras, ElementsInBreakpoints, WebBuilderElements } from 'types';
-import { useAppSelector } from '@/store/useAppSelector';
+
 import { ElementsContext } from '@/components/ElementsProvider';
+import { useAppSelector } from '@/store/useAppSelector';
 
 type UseElements = {
   elements: WebBuilderElements,

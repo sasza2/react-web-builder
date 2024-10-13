@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
-
 import { Breakpoint, FontImport, PageSettings } from 'types';
+
 import { SIDEBAR_WIDTH } from '@/consts';
 import { getBreakpointBackgroundColor, getBreakpointPadding } from '@/utils/breakpoint';
+
 import { Theme } from '../StyleProvider/styled';
 
 type GridDivProps = {

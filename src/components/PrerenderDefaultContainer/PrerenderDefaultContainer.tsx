@@ -1,16 +1,17 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { Breakpoint, Tree } from 'types';
+
 import { useBreakpoint } from '@/hooks/useBreakpoint';
-import { createTreeForContainer, getDefaultContainer } from '@/utils/container';
-import { usePageSettings } from '@/hooks/usePageSettings';
 import { useFontImport } from '@/hooks/useFontImport';
-import { RenderBreakpoint } from '../View/RenderBreakpoint';
-import { Hidden } from './PrerenderDefaultContainer.styled';
-import { RenderTree } from '../View/RenderTree';
+import { usePageSettings } from '@/hooks/usePageSettings';
+import { createTreeForContainer, getDefaultContainer } from '@/utils/container';
+
 import { useComponentsProperty } from '../ComponentsProvider';
 import { useWebBuilderProperties } from '../PropertiesProvider';
+import { RenderBreakpoint } from '../View/RenderBreakpoint';
+import { RenderTree } from '../View/RenderTree';
+import { Hidden } from './PrerenderDefaultContainer.styled';
 
 export function PrerenderDefaultContainer() {
   const breakpoint = useBreakpoint();

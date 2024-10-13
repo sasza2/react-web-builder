@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { Breakpoint } from 'types';
+
 import { StyleProvider } from '../StyleProvider';
 import { Wrapper } from './Separator.styled';
 

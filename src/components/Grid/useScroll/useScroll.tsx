@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 
-import { NAVBAR_HEIGHT } from '@/consts';
-import { useWebBuilderSizeHeight, useWebBuilderSizeWidth } from '@/components/WebBuilderSize';
 import { useGridAPI } from '@/components/GridAPIProvider';
+import { useWebBuilderSizeHeight, useWebBuilderSizeWidth } from '@/components/WebBuilderSize';
+import { NAVBAR_HEIGHT } from '@/consts';
+
 import {
   ScrollHorizontal, ScrollHorizontalIn, ScrollVertical, ScrollVerticalIn,
 } from './Scroll.styled';
