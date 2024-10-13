@@ -98,7 +98,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.24.3",
-    "@changesets/cli": "2.27.1",
+    "@changesets/cli": "2.27.9",
     "@ladle/react": "4.0.2",
     "@playwright/test": "1.39.0",
     "@testing-library/jest-dom": "6.1.3",
