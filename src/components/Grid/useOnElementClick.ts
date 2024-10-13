@@ -1,10 +1,11 @@
 import { GridProps } from 'react-grid-panzoom';
-import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 
+import { useElements } from '@/hooks/useElements';
 import { useSelectedElementId } from '@/hooks/useSelectedElementId';
 import { useSelectedElements } from '@/hooks/useSelectedElements';
-import { useElements } from '@/hooks/useElements';
+
 import { useConfiguration } from '../ConfigurationProvider';
 import { useIsDoubleClickOnElement } from './useIsDoubleClickOnElement';
 

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useBreakpoint } from '@/hooks/useBreakpoint';
+
 import { BreakpointGrid } from './BreakpointGrid';
 import { getBreakpointKey } from './utils';
 

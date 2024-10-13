@@ -1,6 +1,7 @@
 import { ColorResult } from 'react-color';
-import { splitGradientColor } from './gradient';
+
 import { getColorType } from './common';
+import { splitGradientColor } from './gradient';
 import { ColorType } from './types';
 
 const TRANSPARENT_HEX = '#ffffff00';

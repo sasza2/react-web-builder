@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { OnImageUpload } from 'types';
+
 import { Input } from '../Input';
 import { FileUpload } from './FileUpload';
 

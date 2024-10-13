@@ -1,12 +1,13 @@
 import {
   useContext, useEffect, useMemo, useRef,
 } from 'react';
-
 import { ElementId, ElementRenderFunc } from 'types';
+
 import { ElementsContext } from '@/components/ElementsProvider';
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
-import { useElements } from './useElements';
+
 import { useBreakpoint } from './useBreakpoint';
+import { useElements } from './useElements';
 
 type CacheRecord = {
   remove: (id: ElementId) => void,

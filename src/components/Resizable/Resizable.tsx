@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 
-import { Anchor, Container } from './Resizable.styled';
 import { RESIZABLE_PROP_NAME } from './consts';
+import { Anchor, Container } from './Resizable.styled';
 
 type ResizableProps = React.PropsWithChildren<{
   defaultHeight: number,

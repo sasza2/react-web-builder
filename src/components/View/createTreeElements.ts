@@ -1,12 +1,13 @@
 import { ElementsExtras, Tree, WebBuilderElements } from 'types';
 
 import { createUniqueId } from '@/utils/createUniqueId';
+
 import createBoardFromElements from './createBoardFromElements';
 import cutBoard from './cutBoard';
 import getElementsFromBoard from './getElementsFromBoard';
 import splitBoard from './splitBoard';
-import substractMarginFromElements from './substractMarginFromElements';
 import splitBoardBySeparators from './splitBoardBySeparators';
+import substractMarginFromElements from './substractMarginFromElements';
 
 const calcMargin = (elements: Array<WebBuilderElements>): number => {
   for (let i = 0; i < elements.length; i++) {

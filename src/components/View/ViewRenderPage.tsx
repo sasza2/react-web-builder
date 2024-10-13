@@ -1,18 +1,20 @@
 import React, {
-  useCallback, useEffect, useMemo, useState, useRef,
+  useCallback, useEffect, useMemo, useRef,
+  useState,
 } from 'react';
-
 import {
   Breakpoint,
 } from 'types';
-import { getBreakpointBackgroundColor, isBreakpoint } from '@/utils/breakpoint';
+
 import { useFontImport } from '@/hooks/useFontImport';
+import { getBreakpointBackgroundColor, isBreakpoint } from '@/utils/breakpoint';
+
+import { useComponentsProperty } from '../ComponentsProvider';
 import { useViewProperties } from '../PropertiesProvider';
 import { RenderInContainer } from '../RenderInContainer';
-import { PageContainer } from './ViewRenderPage.styled';
-import { RenderTree } from './RenderTree';
 import { RenderBreakpoint } from './RenderBreakpoint/RenderBreakpoint';
-import { useComponentsProperty } from '../ComponentsProvider';
+import { RenderTree } from './RenderTree';
+import { PageContainer } from './ViewRenderPage.styled';
 
 export function ViewRenderPage() {
   const { page, transformElementProperty } = useViewProperties();

@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 import { PopupItem } from '@/components/Navbar/PublishButton/PublishButton.styled';
 import { useElements } from '@/hooks/useElements';
+import { useSelectedElements } from '@/hooks/useSelectedElements';
 import {
   getElementsAboveRow,
   getElementsBelowRow,
 } from '@/utils/element';
-import { useSelectedElements } from '@/hooks/useSelectedElements';
 
 type MoveElementsBelowHereProps = {
   onClose: () => void,

@@ -1,4 +1,4 @@
-import { boxShadowClassName, boxShadowAnimatingIdClassName } from './HelperArrow.styled';
+import { boxShadowAnimatingIdClassName, boxShadowClassName } from './HelperArrow.styled';
 
 let removeTimer: ReturnType<typeof setTimeout> = null;
 let refreshTimer: ReturnType<typeof setInterval> = null;

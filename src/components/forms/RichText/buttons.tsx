@@ -2,11 +2,13 @@ import React from 'react';
 import { useSlate } from 'slate-react';
 
 import { assignTestProp } from '@/utils/tests';
-import { isBlockActive } from './utils/isBlockActive';
-import {
-  isMarkActive, toggleBlock, toggleMark, TEXT_ALIGN_TYPES,
-} from './utils';
+
 import { ButtonWrapper } from './buttons.styled';
+import {
+  isMarkActive, TEXT_ALIGN_TYPES,
+  toggleBlock, toggleMark,
+} from './utils';
+import { isBlockActive } from './utils/isBlockActive';
 
 interface BaseProps {
   className: string

@@ -1,15 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { WebBuilderElements } from 'types';
 
 import { groupElementsById } from '@/utils/element';
-import { WebBuilderElements } from 'types';
+
 import { removeBreakpoint } from './breakpointsSlice';
-import { setSelectedBreakpoint } from './selectedBreakpointSlice';
 import {
   openContainer,
   removeElementsFromBreakpoint,
   setElementsInBreakpoint,
   setElementsInBreakpointProgrammatic,
 } from './elementsInBreakpointsSlice';
+import { setSelectedBreakpoint } from './selectedBreakpointSlice';
 
 const initialState: Array<string | number> = [];
 

@@ -1,28 +1,30 @@
 import React, { useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import {
-  WebBuilderElement, WebBuilderElements, WebBuilderComponent, WebBuilderElementProperty,
+  WebBuilderComponent, WebBuilderElement, WebBuilderElementProperty,
+  WebBuilderElements,
 } from 'types';
+
+import { RemoveButton } from '@/components/Button';
+import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useElements } from '@/hooks/useElements';
+import { useElementsCache } from '@/hooks/useElementsCache';
 import { useRemoveElement } from '@/hooks/useRemoveElement';
 import { useSelectedElementId } from '@/hooks/useSelectedElementId';
 import { useSetElements } from '@/hooks/useSetElements';
-import { RemoveButton } from '@/components/Button';
-import { useElementsCache } from '@/hooks/useElementsCache';
+import { useTimeout } from '@/hooks/useTimeout';
 import { useAppSelector } from '@/store/useAppSelector';
 import { getDefaultValue, getElementFromList, withAutoFocus } from '@/utils/element';
-import { useBreakpoint } from '@/hooks/useBreakpoint';
-import { useTimeout } from '@/hooks/useTimeout';
 import { assignTestProp } from '@/utils/tests';
+
+import { FormProperty } from '../FormProperty';
+import { FormProvider, useFormCreator } from '../FormProvider/FormProvider';
+import { FormContainerDiv } from '../forms/FormContainerDiv';
 import { useGridAPI } from '../GridAPIProvider/GridAPIProvider';
+import { useWebBuilderProperties } from '../PropertiesProvider';
 import { SidebarHeader } from '../SidebarHeader';
 import { SidebarScrollbar } from '../SidebarScrollbar';
 import { Actions } from './EditProperties.styled';
-import { FormProvider, useFormCreator } from '../FormProvider/FormProvider';
-import { FormContainerDiv } from '../forms/FormContainerDiv';
-import { FormProperty } from '../FormProperty';
-import { useWebBuilderProperties } from '../PropertiesProvider';
 
 type EditPropertiesProps = {
   components: Array<WebBuilderComponent>,

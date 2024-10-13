@@ -1,6 +1,8 @@
-import { isBreakpoint } from '@/utils/breakpoint';
 import { CSSProperties } from 'react';
 import { Breakpoint, Tree } from 'types';
+
+import { isBreakpoint } from '@/utils/breakpoint';
+
 import { round } from './common';
 
 export const getStyleForBreakpoint = (node: Tree, breakpoint: Breakpoint): CSSProperties => {

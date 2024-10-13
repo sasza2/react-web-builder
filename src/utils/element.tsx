@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   Breakpoint,
   ElementRenderFunc,
@@ -10,9 +9,10 @@ import {
   WebBuilderElementProperty,
   WebBuilderElements,
 } from 'types';
+
 import { ComponentNotFound } from '@/components/ComponentNotFound';
-import { RenderWebComponent } from '@/components/Grid/RenderWebComponent';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { RenderWebComponent } from '@/components/Grid/RenderWebComponent';
 
 export const isSeparator = (component: WebBuilderComponent) => component.id === 'Separator'; // TODO
 

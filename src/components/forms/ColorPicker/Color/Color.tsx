@@ -1,10 +1,11 @@
 import React, { useId, useMemo } from 'react';
 import { Tooltip } from 'react-tooltip';
 
-import { assignTestProp } from '@/utils/tests';
 import { ColorType, getColorForTooltip } from '@/utils/colors';
 import { getColorType } from '@/utils/colors/common';
-import { ColorContainer, Color as ColorDiv } from './Color.styled';
+import { assignTestProp } from '@/utils/tests';
+
+import { Color as ColorDiv, ColorContainer } from './Color.styled';
 
 type ColorProps = {
   active?: boolean,

@@ -2,8 +2,9 @@ import React from 'react';
 import { useSlate } from 'slate-react';
 
 import { FieldProvider } from '@/components/FormProvider';
+
 import { Select } from '../../Select';
-import { toggleFontSize, getFontSizeActive } from '../utils/font';
+import { getFontSizeActive, toggleFontSize } from '../utils/font';
 import { Container } from './FontSizeSelect.styled';
 
 export const FONT_SIZES = [

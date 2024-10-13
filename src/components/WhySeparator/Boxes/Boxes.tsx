@@ -1,8 +1,9 @@
 import React, {
-  useCallback, memo, useState,
+  memo, useCallback, useState,
 } from 'react';
 
 import { Separator } from '@/components/Separator';
+
 import {
   Box1, Box2, Box3, Box4, ContainerSeparator, ContainerWithout, Left, Right, SeparatorDiv,
 } from './Boxes.styled';

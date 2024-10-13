@@ -1,6 +1,7 @@
 import { CSSProperties } from 'react';
 
-import { useContainerStyle, ContainerStyleProps } from '@/components/ElementContainer/useContainerStyle';
+import { ContainerStyleProps, useContainerStyle } from '@/components/ElementContainer/useContainerStyle';
+
 import { useContainerElementProperties } from './useContainerElementProperties';
 
 export const useContainerGridStyle = (): CSSProperties => {

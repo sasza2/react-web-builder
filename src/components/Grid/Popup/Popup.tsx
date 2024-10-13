@@ -2,20 +2,21 @@ import React, {
   useCallback, useEffect, useRef, useState,
 } from 'react';
 import ReactDOM from 'react-dom';
-
 import { Position } from 'types';
-import { useWebBuilderSize } from '@/components/WebBuilderSize';
+
 import { Popup as PopupContainer } from '@/components/Navbar/PublishButton/PublishButton.styled';
+import { useWebBuilderSize } from '@/components/WebBuilderSize';
 import { hasClipboard } from '@/utils/clipboard';
+
+import { CopyAllElements } from './CopyAllElements';
+import { CopyElement } from './CopyElement';
+import { LockElement } from './LockElement';
+import { Paste } from './Paste';
 import { Container, WIDTH } from './Popup.styled';
 import { RemoveElement } from './RemoveElement';
-import { CopyElement } from './CopyElement';
-import { CopyAllElements } from './CopyAllElements';
-import { Paste } from './Paste';
 import { RemoveEmptySpaceBelow } from './RemoveEmptySpaceBelow';
 import { SelectElement } from './SelectElement';
 import { SelectMultipleElements } from './SelectMultipleElements';
-import { LockElement } from './LockElement';
 
 type PopupProps = {
   gridPaste: (x: number, y: number) => void,

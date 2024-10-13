@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Range, getTrackBackground } from 'react-range';
+import { getTrackBackground, Range } from 'react-range';
 import { useTheme } from 'styled-components';
 
-import { normalizeInt } from '@/utils/field';
 import { FieldProvider, useField } from '@/components/FormProvider';
-import { IFormControl } from '../types';
+import { normalizeInt } from '@/utils/field';
+
 import { FormControl } from '../FormControl';
 import { Input } from '../Input';
+import { IFormControl } from '../types';
 import { InputContainer, RangeContainer, RangeSliderWithInput } from './RangerSlider.styled';
 
 type RangeSliderProps = {

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import { FontImport } from 'types';
 
 export const PageContainer = styled.div<{ $fontImport: FontImport | null }>`

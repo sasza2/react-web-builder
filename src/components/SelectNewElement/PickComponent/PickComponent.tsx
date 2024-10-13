@@ -1,8 +1,9 @@
 import React from 'react';
-
 import { WebBuilderComponent } from 'types';
+
 import { Icon } from '@/components/icons/Icon';
 import { isSeparator } from '@/utils/element';
+
 import { WhySeparatorTooltip } from '../../WhySeparatorTooltip';
 import { Container, IconContainer, TooltipContainer } from './PickComponent.styled';
 

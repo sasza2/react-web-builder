@@ -1,19 +1,20 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useSidebar } from '@/hooks/useSidebarView';
-import { useSetSidebarView } from '@/hooks/useSetSidebarView';
-import { SidebarView } from '@/components/SidebarProvider';
 import { Icon } from '@/components/icons/Icon';
-import { usePagePreview } from '@/hooks/usePagePreview';
+import { SidebarView } from '@/components/SidebarProvider';
 import { useOnNavbarIconClick } from '@/hooks/useOnNavbarIconClick';
+import { usePagePreview } from '@/hooks/usePagePreview';
+import { useSetSidebarView } from '@/hooks/useSetSidebarView';
+import { useSidebar } from '@/hooks/useSidebarView';
 import { assignTestProp } from '@/utils/tests';
-import { BreakpointsSelect } from './BreakpointsSelect';
-import { HistoryChanges } from './HistoryChanges';
-import { PublishButton } from './PublishButton';
+
 import { ButtonIcon } from '../ButtonIcon';
 import { useWebBuilderProperties } from '../PropertiesProvider';
+import { BreakpointsSelect } from './BreakpointsSelect';
+import { HistoryChanges } from './HistoryChanges';
 import { Options, Wrapper } from './Navbar.styled';
+import { PublishButton } from './PublishButton';
 
 export function Navbar() {
   const { t } = useTranslation();

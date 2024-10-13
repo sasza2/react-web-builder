@@ -1,15 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Toggle } from '@/components/forms/Toggle';
 import { useConfiguration, useSetConfiguration } from '@/components/ConfigurationProvider';
+import { Toggle } from '@/components/forms/Toggle';
 import { useSetSidebarView } from '@/hooks/useSetSidebarView';
-import { SidebarHeader } from '../SidebarHeader';
-import { SidebarView } from '../SidebarProvider/SidebarProvider';
+
+import { FormProvider } from '../FormProvider/FormProvider';
 import { FormGroup, FormHeader } from '../forms/FormControl.styled';
 import { RangeSlider } from '../forms/RangeSlider';
+import { SidebarHeader } from '../SidebarHeader';
+import { SidebarView } from '../SidebarProvider/SidebarProvider';
 import { SidebarScrollbar } from '../SidebarScrollbar';
-import { FormProvider } from '../FormProvider/FormProvider';
 import { ConfigurationContainer } from './Configuration.styled';
 import { ShowHelperTips } from './ShowHelperTips';
 

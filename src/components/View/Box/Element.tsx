@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { DEFAULT_LETTER_SPACING, DEFAULT_LINE_HEIGHT } from '@/consts';
+
 import { Paragraph } from './Element.styled';
 
 export type ElementProps = {

@@ -4,8 +4,9 @@ import React, {
 
 import { useField } from '@/components/FormProvider';
 import { assignTestProp } from '@/utils/tests';
-import { IFormControl } from '../types';
+
 import { FormControl } from '../FormControl';
+import { IFormControl } from '../types';
 import { ExtraNode, InputGroup } from './Input.styled';
 
 type InputProps = {

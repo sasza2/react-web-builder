@@ -1,4 +1,5 @@
 import { Breakpoint } from 'types';
+
 import { createUniqueId } from '@/utils/createUniqueId';
 
 const generateDefaultBreakpoints = () => [

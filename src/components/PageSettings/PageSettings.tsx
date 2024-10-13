@@ -1,24 +1,25 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { PageSettings as IPageSettings } from 'types';
+
 import { Select } from '@/components/forms/Select';
 import { usePageSettings } from '@/hooks/usePageSettings';
 import { useSetSidebarView } from '@/hooks/useSetSidebarView';
-import { assignTestProp } from '@/utils/tests';
-import { useAppSelector } from '@/store/useAppSelector';
-import { useAppDispatch } from '@/store/useAppDispatch';
 import { updatePageSettings } from '@/store/pageSettingsSlice';
-import { SidebarHeader } from '../SidebarHeader';
-import { SidebarScrollbar } from '../SidebarScrollbar';
-import { FormProvider } from '../FormProvider';
-import { FormGroup, FormHeader } from '../forms/FormControl.styled';
-import { ColorPicker } from '../forms/ColorPicker';
-import { FormContainerDiv } from '../forms/FormContainerDiv';
-import { useWebBuilderProperties } from '../PropertiesProvider';
+import { useAppDispatch } from '@/store/useAppDispatch';
+import { useAppSelector } from '@/store/useAppSelector';
+import { assignTestProp } from '@/utils/tests';
+
 import { FormProperty } from '../FormProperty';
-import { SidebarView } from '../SidebarProvider';
+import { FormProvider } from '../FormProvider';
+import { ColorPicker } from '../forms/ColorPicker';
 import { PageSettingsCustomColors } from '../forms/ColorPicker/CustomColors/PageSettingsCustomColors';
+import { FormContainerDiv } from '../forms/FormContainerDiv';
+import { FormGroup, FormHeader } from '../forms/FormControl.styled';
+import { useWebBuilderProperties } from '../PropertiesProvider';
+import { SidebarHeader } from '../SidebarHeader';
+import { SidebarView } from '../SidebarProvider';
+import { SidebarScrollbar } from '../SidebarScrollbar';
 
 const componentName = 'PageSettings';
 

@@ -1,7 +1,8 @@
 import React, { useCallback, useState } from 'react';
-
 import { HelperArrowItem } from 'types';
+
 import { useIsMounted } from '@/hooks/useIsMounted';
+
 import { HelperArrow } from './HelperArrow';
 
 type HintsProps = {

@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
 import { Breakpoint } from 'types';
+
 import { byBreakpointId, ElementsTreeInBreakpoint } from '@/utils/breakpoint';
+
 import { pasteElements, removeElementsFromBreakpoint } from './elementsInBreakpointsSlice';
 
 const initialState: Breakpoint[] = [];

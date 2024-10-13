@@ -1,11 +1,11 @@
 import { Page } from '@playwright/test';
 
-import { sleep } from '../sleep';
-import { openGroup } from '../openGroup';
-import { getElementsIds } from './elements';
-import { gridReset } from '../grid';
-import { BreakpointDetails } from '../breakpoint/types';
 import { getBreakpointZoom } from '../breakpoint/getBreakpointZoom';
+import { BreakpointDetails } from '../breakpoint/types';
+import { gridReset } from '../grid';
+import { openGroup } from '../openGroup';
+import { sleep } from '../sleep';
+import { getElementsIds } from './elements';
 
 export const createElement = async (
   page: Page,

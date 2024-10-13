@@ -1,18 +1,19 @@
 import React, { useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { assignTestProp } from '@/utils/tests';
+import { FieldProvider } from '@/components/FormProvider';
 import { Select } from '@/components/forms/Select';
+import { SidebarView } from '@/components/SidebarProvider';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useBreakpoints } from '@/hooks/useBreakpoints';
 import { useSelectBreakpoint } from '@/hooks/useSelectBreakpoint';
-import { SidebarView } from '@/components/SidebarProvider';
 import { useSetSidebarView } from '@/hooks/useSetSidebarView';
 import { useSidebar } from '@/hooks/useSidebarView';
-import { FieldProvider } from '@/components/FormProvider';
 import { isBreakpoint, isContainer } from '@/utils/breakpoint';
-import { Container } from './BreakpointSelect.styled';
+import { assignTestProp } from '@/utils/tests';
+
 import { BreakpointLabel } from './BreakpointLabel';
+import { Container } from './BreakpointSelect.styled';
 
 export function BreakpointsSelect() {
   const { t } = useTranslation();

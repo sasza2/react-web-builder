@@ -1,7 +1,9 @@
 import { Breakpoint } from 'types';
+
 import createTreeElements from '@/components/View/createTreeElements';
 import getBreakpointRowsByLastElement from '@/components/View/getBreakpointRowsByLastElement';
 import { useAppSelector } from '@/store/useAppSelector';
+
 import { useElements } from '../useElements';
 
 export const useBuildBreakpointWithTree = () => {

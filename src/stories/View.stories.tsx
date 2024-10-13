@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { Page } from 'types';
+
 import View from '../View';
 
 export default { title: 'View' };

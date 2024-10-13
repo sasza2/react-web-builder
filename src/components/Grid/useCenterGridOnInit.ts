@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 
-import { SIDEBAR_WIDTH } from '@/consts';
 import { useGridAPI } from '@/components/GridAPIProvider';
-import getGridCenterPositionX from '@/utils/getGridCenterPositionX';
 import { useWebBuilderSizeWidth } from '@/components/WebBuilderSize';
+import { SIDEBAR_WIDTH } from '@/consts';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useGetBreakpointWidth } from '@/hooks/useGetBreakpointWidth';
+import getGridCenterPositionX from '@/utils/getGridCenterPositionX';
 
 const useCenterGridOnInit = (isLoaded: boolean) => {
   const gridAPIRef = useGridAPI();

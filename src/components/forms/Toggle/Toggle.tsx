@@ -1,12 +1,13 @@
+import 'react-toggle/style.css';
+
 import React from 'react';
 import ReactToggle from 'react-toggle';
 
 import { useField } from '@/components/FormProvider';
-import { IFormControl } from '../types';
-import { FormControl } from '../FormControl';
-import { Container } from './Toggle.style';
 
-import 'react-toggle/style.css';
+import { FormControl } from '../FormControl';
+import { IFormControl } from '../types';
+import { Container } from './Toggle.style';
 
 type ToggleProps = {
   onBlur?: (value: boolean) => void,

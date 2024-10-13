@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-
 import { FontImport } from 'types';
 
 export const Hidden = styled.div<{ $fontImport: FontImport | null }>`

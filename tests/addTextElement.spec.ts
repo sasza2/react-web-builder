@@ -1,12 +1,12 @@
 import { expect, test } from '@playwright/test';
 
-import { createElement } from './fixtures/elements/createElement';
-import { goThroughHints } from './fixtures/goThroughHints';
-import { sleep } from './fixtures/sleep';
 import { getBreakpointDetails } from './fixtures/breakpoint/getBreakpointDetails';
+import { createElement } from './fixtures/elements/createElement';
 import { getElementById } from './fixtures/elements/elements';
 import { editField } from './fixtures/form';
 import { getStyle } from './fixtures/getStyle';
+import { goThroughHints } from './fixtures/goThroughHints';
+import { sleep } from './fixtures/sleep';
 import { toSnapshot } from './fixtures/snapshot';
 
 test('add text element', async ({ page }) => {

@@ -1,3 +1,4 @@
+import { TFunction } from 'i18next';
 import React, {
   memo, useCallback, useMemo, useState,
 } from 'react';
@@ -8,20 +9,20 @@ import {
   AccordionItemHeading,
   AccordionItemPanel,
 } from 'react-accessible-accordion';
-import { TFunction } from 'i18next';
 import { useTranslation } from 'react-i18next';
-
 import { WebBuilderComponent, WebBuilderGroup } from 'types';
-import { assignTestProp } from '@/utils/tests';
+
 import { DragElement, DragElementDetails } from '@/components/DragElement';
 import { useGridPositionTop } from '@/hooks/useGridPositionTop';
 import { useSidebarContainerEditGoBack } from '@/hooks/useSidebarContainerEditGoBack';
-import { SidebarHeader } from '../SidebarHeader';
+import { assignTestProp } from '@/utils/tests';
+
 import { Icon } from '../icons/Icon';
+import { SidebarHeader } from '../SidebarHeader';
+import { useSelectNewElementAccordion } from '../SidebarProvider';
 import { SidebarScrollbar } from '../SidebarScrollbar';
 import { PickComponent } from './PickComponent';
 import { Container, Grid, GridItem } from './SelectNewElement.styled';
-import { useSelectNewElementAccordion } from '../SidebarProvider';
 
 const componentName = 'SelectNewElement';
 

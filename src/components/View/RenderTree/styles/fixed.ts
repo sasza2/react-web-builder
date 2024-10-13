@@ -1,5 +1,6 @@
 import { CSSProperties } from 'react';
 import { Breakpoint, Tree } from 'types';
+
 import { round } from './common';
 
 export const getStyleForFixedParent = (node: Tree, breakpoint: Breakpoint): CSSProperties => {

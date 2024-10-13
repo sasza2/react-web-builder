@@ -1,7 +1,6 @@
 import React from 'react';
 import { Tooltip } from 'react-tooltip';
 
-import { IconWrapperProps } from './types';
 import { AddBreakpoint } from './AddBreakpoint';
 import { ArrowLeft } from './ArrowLeft';
 import { ColorBasic } from './ColorBasic';
@@ -19,10 +18,10 @@ import { LineHeight } from './LineHeight';
 import { Link } from './Link';
 import { Loader } from './Loader';
 import { Mobile } from './Mobile';
-import { QuestionMark } from './QuestionMark';
 import { Padding } from './Padding';
 import { PageSettings } from './PageSettings';
 import { Palette } from './Palette';
+import { QuestionMark } from './QuestionMark';
 import { Redo } from './Redo';
 import { Row } from './Row';
 import { Square } from './Square';
@@ -36,6 +35,7 @@ import { TextLeft } from './TextLeft';
 import { TextRight } from './TextRight';
 import { TextUnderline } from './TextUnderline';
 import { Trash } from './Trash';
+import { IconWrapperProps } from './types';
 import { Undo } from './Undo';
 import { Video } from './Video';
 import { View } from './View';

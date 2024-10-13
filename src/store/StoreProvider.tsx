@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
 import getInitialStateFromPage from '@/utils/getInitialStateFromPage';
+
 import { createStore, Store } from './store';
 
 export function StoreProvider({ children }: React.PropsWithChildren) {

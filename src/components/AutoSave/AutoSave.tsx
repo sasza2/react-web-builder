@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 
 import { useBuildPage } from '@/hooks/page/useBuildPage';
-import { usePageOnChange } from '@/hooks/usePageOnChange';
 import { useChangesSetIsSaved } from '@/hooks/useChangesSetIsSaved';
+import { usePageOnChange } from '@/hooks/usePageOnChange';
 import { useAppSelector } from '@/store/useAppSelector';
-import { useWebBuilderProperties } from '../PropertiesProvider';
+
 import { useConfiguration } from '../ConfigurationProvider';
+import { useWebBuilderProperties } from '../PropertiesProvider';
 
 export function AutoSave({ children }: React.PropsWithChildren) {
   const build = useBuildPage();

@@ -1,9 +1,10 @@
 import { useCallback } from 'react';
+import { Breakpoint, WebBuilderElement } from 'types';
 
 import { useAppSelector } from '@/store/useAppSelector';
-import { Breakpoint, WebBuilderElement } from 'types';
 import { byBreakpointId, getBreakpointPadding, isContainer } from '@/utils/breakpoint';
 import { getElementContainerIdProp } from '@/utils/element';
+
 import { useBreakpoints } from './useBreakpoints';
 
 export const useGetBreakpointWidth = () => {

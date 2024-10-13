@@ -1,30 +1,32 @@
 import React, {
   useCallback, useMemo, useState,
 } from 'react';
-import { Descendant, createEditor } from 'slate';
+import { createEditor, Descendant } from 'slate';
 import {
-  Slate, Editable, withReact, RenderElementProps, RenderLeafProps,
+  Editable, RenderElementProps, RenderLeafProps,
+  Slate, withReact,
 } from 'slate-react';
-
 import { TextElement } from 'types';
-import { Scrollbar } from '@/components/Scrollbar';
+
 import { Icon } from '@/components/icons/Icon';
+import { RenderInIFrame } from '@/components/RenderInIFrame';
+import { Scrollbar } from '@/components/Scrollbar';
 import {
   Element, ElementProps, Leaf, LeafProps,
 } from '@/components/View/Box';
-import { RenderInIFrame } from '@/components/RenderInIFrame';
 import { useAppSelector } from '@/store/useAppSelector';
-import { Toolbar } from '../Toolbar';
+
 import { BlockButton, MarkButton } from '../buttons';
-import { FontSizeSelect } from '../FontSizeSelect/FontSizeSelect';
 import { ColorSelect } from '../ColorSelect';
+import { FontSizeSelect } from '../FontSizeSelect/FontSizeSelect';
+import { Hyperlink } from '../Hyperlink';
 import { LetterSpacingSelect } from '../LetterSpacing/LetterSpacing';
 import { LineHeightSelect } from '../LineHeight/LineHeight';
+import { Toolbar } from '../Toolbar';
+import { AutoFocus } from './AutoFocus';
 import {
   EditableIn, EditableMargin, EditableWrapper, IFrameWrapper,
 } from './Editor.styled';
-import { Hyperlink } from '../Hyperlink';
-import { AutoFocus } from './AutoFocus';
 
 type EditorProps = {
   autoFocus?: boolean,

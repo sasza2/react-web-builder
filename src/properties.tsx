@@ -1,8 +1,7 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
-
 import {
-  Border, TextElement, Padding, WebBuilderComponentProperty,
+  Border, Padding, TextElement, WebBuilderComponentProperty,
 } from 'types';
 
 export const createContentProperty = (

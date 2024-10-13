@@ -1,14 +1,14 @@
 import React, { useRef, useState } from 'react';
-import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 import { useTheme } from 'styled-components';
-
 import { ImageURL, OnImageUpload } from 'types';
-import { delay } from '@/utils/delay';
-import { useField } from '@/components/FormProvider';
+
 import { LinkButton } from '@/components/Button';
+import { useField } from '@/components/FormProvider';
 import { LoaderSpinner } from '@/components/LoaderSpinner';
 import { useIsMounted } from '@/hooks/useIsMounted';
+import { delay } from '@/utils/delay';
 
 const IMAGE_UPLOAD_TIMEOUT = 30000; // ms
 

@@ -1,14 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { BreakpointHeight as IBreakpointHeight } from 'types';
-import { assignTestProp } from '@/utils/tests';
+
 import { useField } from '@/components/FormProvider';
 import { normalizeInt } from '@/utils/field';
+import { assignTestProp } from '@/utils/tests';
+
 import { FormGroup, FormHeader } from '../FormControl.styled';
-import { Toggle } from '../Toggle';
 import { Input } from '../Input';
 import { Select } from '../Select';
+import { Toggle } from '../Toggle';
 
 type BreakpointHeightProps = {
   name: string,

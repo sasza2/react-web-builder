@@ -1,7 +1,9 @@
-import { getColorForSketch, isColorTransparent, normalizeSketchColor } from '@/utils/colors';
 import React, { useRef, useState } from 'react';
 import { ColorChangeHandler, SketchPicker } from 'react-color';
 import { useTranslation } from 'react-i18next';
+
+import { getColorForSketch, isColorTransparent, normalizeSketchColor } from '@/utils/colors';
+
 import { Label } from '../ColorPickerModal.styled';
 
 const DEBOUNCE_TIMEOUT = 200; // ms

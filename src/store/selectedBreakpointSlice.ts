@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
 import { BreakpointId } from 'types';
+
 import { isContainer } from '@/utils/breakpoint';
+
 import { addBreakpoint, removeBreakpoint } from './breakpointsSlice';
-import { setSelectedElement } from './selectedElementSlice';
 import { openContainer } from './elementsInBreakpointsSlice';
+import { setSelectedElement } from './selectedElementSlice';
 
 const initialState: BreakpointId | null = null;
 

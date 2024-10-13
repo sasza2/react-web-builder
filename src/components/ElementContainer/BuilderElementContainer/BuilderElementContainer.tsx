@@ -1,20 +1,21 @@
 import React, { useMemo } from 'react';
+import { BackgroundImage, Border, BreakpointHeight } from 'types';
 
-import { useAppSelector } from '@/store/useAppSelector';
+import { useComponentsProperty } from '@/components/ComponentsProvider';
+import { removePaddingFromLastTreeElement } from '@/components/View/removePaddingFromLastTreeElement';
 import { useBreakpoints } from '@/hooks/useBreakpoints';
 import { useElements } from '@/hooks/useElements';
-import { useComponentsProperty } from '@/components/ComponentsProvider';
-import { BackgroundImage, Border, BreakpointHeight } from 'types';
-import { mergeStyles } from '@/utils/styles';
+import { useAppSelector } from '@/store/useAppSelector';
 import { byBreakpointId } from '@/utils/breakpoint';
-import { removePaddingFromLastTreeElement } from '@/components/View/removePaddingFromLastTreeElement';
-import { RenderTree } from '../../View/RenderTree';
+import { mergeStyles } from '@/utils/styles';
+
 import { useProperties } from '../../PropertiesProvider';
 import createTreeElements from '../../View/createTreeElements';
 import getBreakpointRowsByLastElement from '../../View/getBreakpointRowsByLastElement';
 import { RenderBreakpoint } from '../../View/RenderBreakpoint/RenderBreakpoint';
-import { Empty } from './BuilderElementContainer.styled';
+import { RenderTree } from '../../View/RenderTree';
 import { useContainerStyle } from '../useContainerStyle';
+import { Empty } from './BuilderElementContainer.styled';
 
 type BuilderElementContainerProps = {
   backgroundImage?: BackgroundImage,

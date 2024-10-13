@@ -4,6 +4,7 @@ import React, {
 
 import { WAIT_FOR_LOAD } from '@/consts';
 import { assignTestProp } from '@/utils/tests';
+
 import { ComponentIsLoading } from '../../ComponentIsLoading';
 import { ComponentNotFound } from '../../ComponentNotFound';
 import { ComponentContainer, StateContainer } from './RenderWebComponent.styled';

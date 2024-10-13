@@ -1,7 +1,8 @@
-import { AccordionState, useAccordion } from '@/hooks/useAccordion';
 import React, {
   createContext, PropsWithChildren, useContext, useMemo, useRef,
 } from 'react';
+
+import { AccordionState, useAccordion } from '@/hooks/useAccordion';
 
 export enum SidebarView {
   AddElement = 1,

@@ -1,22 +1,23 @@
 import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { WebBuilderElement, WebBuilderElements } from 'types';
-import { useSelectedElementId } from '@/hooks/useSelectedElementId';
-import { useElements } from '@/hooks/useElements';
-import { assignTestProp } from '@/utils/tests';
-import { useAppDispatch } from '@/store/useAppDispatch';
-import { getElementContainerIdProp, getElementFromList } from '@/utils/element';
-import { openContainer } from '@/store/elementsInBreakpointsSlice';
-import createTreeElements from '@/components/View/createTreeElements';
-import { useAppSelector } from '@/store/useAppSelector';
-import getBreakpointRowsByLastElement from '@/components/View/getBreakpointRowsByLastElement';
-import { useBreakpoints } from '@/hooks/useBreakpoints';
-import { byBreakpointId } from '@/utils/breakpoint';
-import { calculatePositionsOfElements } from '@/utils/templates';
+
 import { useGridAPI } from '@/components/GridAPIProvider';
+import createTreeElements from '@/components/View/createTreeElements';
+import getBreakpointRowsByLastElement from '@/components/View/getBreakpointRowsByLastElement';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
+import { useBreakpoints } from '@/hooks/useBreakpoints';
+import { useElements } from '@/hooks/useElements';
+import { useSelectedElementId } from '@/hooks/useSelectedElementId';
+import { openContainer } from '@/store/elementsInBreakpointsSlice';
+import { useAppDispatch } from '@/store/useAppDispatch';
+import { useAppSelector } from '@/store/useAppSelector';
+import { byBreakpointId } from '@/utils/breakpoint';
 import { getContainerExtras } from '@/utils/container';
+import { getElementContainerIdProp, getElementFromList } from '@/utils/element';
+import { calculatePositionsOfElements } from '@/utils/templates';
+import { assignTestProp } from '@/utils/tests';
+
 import { LinkButton } from '../../Button';
 import { Description, FormGroup, FormHeader } from '../FormControl.styled';
 

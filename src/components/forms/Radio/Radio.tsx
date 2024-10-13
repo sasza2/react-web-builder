@@ -1,10 +1,12 @@
 import React from 'react';
+
 import { useField } from '@/components/FormProvider';
+
+import { FormControl } from '../FormControl';
+import { IFormControl } from '../types';
 import {
   Circle, CircleFill, Item, ItemInner, Items,
 } from './Radio.styled';
-import { IFormControl } from '../types';
-import { FormControl } from '../FormControl';
 
 type Option = {
   extra?: React.ReactElement,

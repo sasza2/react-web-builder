@@ -1,8 +1,9 @@
-import { useAppSelector } from '@/store/useAppSelector';
-import { useAppDispatch } from '@/store/useAppDispatch';
 import { setSelectedElement } from '@/store/selectedElementSlice';
+import { useAppDispatch } from '@/store/useAppDispatch';
+import { useAppSelector } from '@/store/useAppSelector';
 import { byBreakpointId, isContainer } from '@/utils/breakpoint';
 import { getElementContainerIdProp } from '@/utils/element';
+
 import { useBreakpoint } from './useBreakpoint';
 import { useBreakpoints } from './useBreakpoints';
 

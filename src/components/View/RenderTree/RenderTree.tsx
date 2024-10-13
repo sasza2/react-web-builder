@@ -1,12 +1,12 @@
 import React from 'react';
-
 import {
   Breakpoint, TransformElementProperty, Tree,
   WebBuilderComponent,
 } from 'types';
+
 import Element from '../Element';
-import { getStyleForFixedChild, getStyleForFixedParent } from './styles/fixed';
 import { getStyleForBreakpoint } from './styles/breakpoint';
+import { getStyleForFixedChild, getStyleForFixedParent } from './styles/fixed';
 
 type RenderTreeProps = {
   breakpoint: Breakpoint,

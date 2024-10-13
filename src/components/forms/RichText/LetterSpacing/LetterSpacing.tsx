@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSlate } from 'slate-react';
-
 import { Option } from 'types';
+
 import { FieldProvider } from '@/components/FormProvider';
 import { Icon } from '@/components/icons/Icon';
+
 import { Select } from '../../Select';
-import { toggleLetterSpacing } from '../utils/toggleLetterSpacing';
-import { getLetterSpacing } from '../utils/getLetterSpacing';
 import { Container } from '../LineHeight/LineHeight.styled';
+import { getLetterSpacing } from '../utils/getLetterSpacing';
+import { toggleLetterSpacing } from '../utils/toggleLetterSpacing';
 
 export const LETTER_SPACINGS: Option<string>[] = [];
 

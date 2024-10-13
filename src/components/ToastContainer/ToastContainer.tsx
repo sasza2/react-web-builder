@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { useTheme } from 'styled-components';
 import { ToastContainer as LibToastContainer } from 'react-toastify';
+import { useTheme } from 'styled-components';
 
 import { ToastContainerStyles } from './ToastContainer.styled';
 

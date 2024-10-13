@@ -1,12 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { WebBuilderElement } from 'types';
 
 import { PopupItem } from '@/components/Navbar/PublishButton/PublishButton.styled';
-import { useElements } from '@/hooks/useElements';
-import { useAppDispatch } from '@/store/useAppDispatch';
-import { changeElementInBreakpoint } from '@/store/elementsInBreakpointsSlice';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
-import { WebBuilderElement } from 'types';
+import { useElements } from '@/hooks/useElements';
+import { changeElementInBreakpoint } from '@/store/elementsInBreakpointsSlice';
+import { useAppDispatch } from '@/store/useAppDispatch';
 
 type LockElementProps = {
   elementId: string | number,

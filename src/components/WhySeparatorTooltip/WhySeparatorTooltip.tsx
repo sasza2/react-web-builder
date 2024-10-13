@@ -2,10 +2,11 @@ import React, { useCallback, useState } from 'react';
 // eslint-disable-next-line
 // @ts-ignore
 import ReactDOM from 'react-dom';
-import { Tooltip } from 'react-tooltip';
 import { useTranslation } from 'react-i18next';
+import { Tooltip } from 'react-tooltip';
 
 import { Icon } from '@/components/icons/Icon';
+
 import { WhySeparator } from '../WhySeparator';
 import { AnimationContainer, TooltipInline, TooltipPopup } from './WhySeparatorTooltip.styled';
 

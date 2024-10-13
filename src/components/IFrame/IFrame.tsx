@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { IFrameComponentProps } from 'types';
+
 import { useBoxStyle } from '../View/Box/useBoxStyle';
 import { Container, Empty } from './IFrame.styled';
 

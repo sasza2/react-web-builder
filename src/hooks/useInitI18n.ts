@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
 import i18n from 'i18next';
+import { useEffect, useState } from 'react';
 import { initReactI18next } from 'react-i18next';
 
-import { DEFAULT_LANGUAGE } from '@/consts';
 import { useProperties } from '@/components/PropertiesProvider';
+import { DEFAULT_LANGUAGE } from '@/consts';
 import en from '@/locales/en';
 
 const getDefaultLanguage = (translations: Record<string, string>) => {

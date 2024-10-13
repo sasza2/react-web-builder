@@ -2,26 +2,27 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { RemoveButton } from '@/components/Button';
-import { useAppSelector } from '@/store/useAppSelector';
-import { useSetSidebarView } from '@/hooks/useSetSidebarView';
-import { getBreakpointBackgroundColor, getBreakpointPadding } from '@/utils/breakpoint';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useClearBreakpoint } from '@/hooks/useClearBreakpoint';
+import { useElements } from '@/hooks/useElements';
 import { usePageSettings } from '@/hooks/usePageSettings';
 import { useRemoveBreakpoint } from '@/hooks/useRemoveBreakpoint';
+import { useSetSidebarView } from '@/hooks/useSetSidebarView';
 import { useUpdateBreakpoint } from '@/hooks/useUpdateBreakpoint';
-import { useElements } from '@/hooks/useElements';
-import { FormProvider, useFormCreator } from '../FormProvider';
+import { useAppSelector } from '@/store/useAppSelector';
+import { getBreakpointBackgroundColor, getBreakpointPadding } from '@/utils/breakpoint';
+
 import { useConfiguration } from '../ConfigurationProvider';
+import { FormProvider, useFormCreator } from '../FormProvider';
+import { FormContainerDiv } from '../forms/FormContainerDiv';
 import { SidebarHeader } from '../SidebarHeader';
 import { SidebarView } from '../SidebarProvider';
 import { SidebarScrollbar } from '../SidebarScrollbar';
-import { FormContainerDiv } from '../forms/FormContainerDiv';
+import { Buttons } from './Breakpoint.styled';
 import { Form } from './Form';
 import { IForm } from './types';
 import { useValidateForm } from './useValidateForm';
 import { formToBreakpoint } from './utils';
-import { Buttons } from './Breakpoint.styled';
 
 function EditBreakpointIn() {
   const { t } = useTranslation();

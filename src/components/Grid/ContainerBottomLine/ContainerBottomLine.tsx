@@ -1,10 +1,11 @@
 import React, { useMemo } from 'react';
-
 import { Breakpoint, BreakpointHeight } from 'types';
+
 import { useBreakpoints } from '@/hooks/useBreakpoints';
-import { byBreakpointId } from '@/utils/breakpoint';
 import { useAppSelector } from '@/store/useAppSelector';
+import { byBreakpointId } from '@/utils/breakpoint';
 import { getElementContainerIdProp } from '@/utils/element';
+
 import { Line } from './ContainerBottomLine.styled';
 
 type ContainerBottomLineProps = {

@@ -1,13 +1,14 @@
 import React, { useRef, useState } from 'react';
+import { Breakpoint } from 'types';
 
-import { useAppDispatch } from '@/store/useAppDispatch';
-import { useAppSelector } from '@/store/useAppSelector';
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
-import { shouldLoadTemplate, shouldLoadTemplateForBreakpoint } from '@/utils/breakpoint';
-import { commitHistory } from '@/store/changesSlice';
 import { TemplateLoaderAnimation } from '@/components/TemplateLoaderAnimation';
 import { WAIT_FOR_LOAD } from '@/consts';
-import { Breakpoint } from 'types';
+import { commitHistory } from '@/store/changesSlice';
+import { useAppDispatch } from '@/store/useAppDispatch';
+import { useAppSelector } from '@/store/useAppSelector';
+import { shouldLoadTemplate, shouldLoadTemplateForBreakpoint } from '@/utils/breakpoint';
+
 import { LoadBreakpoint } from '../LoadBreakpoint';
 
 export function LoadTemplate({ children }: React.PropsWithChildren) {

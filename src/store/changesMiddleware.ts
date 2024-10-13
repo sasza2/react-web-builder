@@ -1,17 +1,18 @@
-import { Action, Middleware, configureStore } from '@reduxjs/toolkit';
+import { Action, configureStore, Middleware } from '@reduxjs/toolkit';
 
 import { createUniqueId } from '@/utils/createUniqueId';
+
+import { replaceBreakpoints } from './breakpointsSlice';
 import { actions } from './changesActions';
 import { pushChange } from './changesSlice';
-import { replaceBreakpoints } from './breakpointsSlice';
 import { replaceElementsInBreakpoint } from './elementsInBreakpointsSlice';
 import { replacePageSettings } from './pageSettingsSlice';
+import reducer from './reducer';
 import { replaceBreakpoint } from './selectedBreakpointSlice';
 import { replaceSelectedElement } from './selectedElementSlice';
+import { replaceSelectedElements } from './selectedElementsSlice';
 import { replaceSidebar } from './sidebarSlice';
 import { RootState, Store } from './store';
-import reducer from './reducer';
-import { replaceSelectedElements } from './selectedElementsSlice';
 
 function updateStore(store: Store) {
   const temporaryReducer = {

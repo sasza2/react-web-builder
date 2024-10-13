@@ -1,15 +1,16 @@
 import React, { useMemo } from 'react';
-
-import { GradientType, gradientToValue, splitGradientColor } from '@/utils/colors';
-import { FieldProvider } from '@/components/FormProvider';
-import { LinkGhostButton, RemoveGhostButton } from '@/components/Button';
 import { useTranslation } from 'react-i18next';
+
+import { LinkGhostButton, RemoveGhostButton } from '@/components/Button';
+import { FieldProvider } from '@/components/FormProvider';
 import { FlexVertical } from '@/components/styles/common';
-import { Select } from '../../../Select';
+import { gradientToValue, GradientType, splitGradientColor } from '@/utils/colors';
+
+import { Label } from '../../../FormControl.styled';
 import { RangeSlider } from '../../../RangeSlider';
+import { Select } from '../../../Select';
 import { ColorPicker } from '../..';
 import { ButtonsActions } from './GradientColorPicker.styled';
-import { Label } from '../../../FormControl.styled';
 
 type GradientColorPickerProps = {
   setValue: (value: string) => void,

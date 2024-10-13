@@ -1,12 +1,13 @@
 import { GridAPI } from 'react-grid-panzoom';
-
 import {
   Breakpoint, BreakpointId, BreakpointsExtras, ElementExtra, ElementsExtras, ElementsInBreakpoints, Page, PageSettings,
   WebBuilderElement,
 } from 'types';
+
 import { get } from '@/utils/field';
-import { createUniqueId } from './createUniqueId';
+
 import { cloneDeep } from './clone';
+import { createUniqueId } from './createUniqueId';
 import { getElementContainerIdProp } from './element';
 
 export const getBreakpointBackgroundColor = (breakpoint: Breakpoint, pageSettings: PageSettings) => breakpoint.backgroundColor || pageSettings.backgroundColor;

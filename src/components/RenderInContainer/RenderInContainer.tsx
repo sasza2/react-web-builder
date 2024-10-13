@@ -1,7 +1,8 @@
 import React from 'react';
-
 import { RenderInContainerProps } from 'types';
+
 import { getBreakpointBackgroundColor } from '@/utils/breakpoint';
+
 import { useProperties } from '../PropertiesProvider';
 
 export function RenderInContainer({ children, breakpoint }: RenderInContainerProps) {

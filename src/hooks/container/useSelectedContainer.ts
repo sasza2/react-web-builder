@@ -1,11 +1,12 @@
 import { useMemo } from 'react';
-
 import { Breakpoint, WebBuilderElement } from 'types';
-import { getElementContainerIdProp, getElementFromList } from '@/utils/element';
+
 import { byBreakpointId } from '@/utils/breakpoint';
+import { getElementContainerIdProp, getElementFromList } from '@/utils/element';
+
+import { useBreakpoints } from '../useBreakpoints';
 import { useElements } from '../useElements';
 import { useSelectedElementId } from '../useSelectedElementId';
-import { useBreakpoints } from '../useBreakpoints';
 
 export const useSelectedContainer = (): [WebBuilderElement, Breakpoint] => {
   const { elements } = useElements();

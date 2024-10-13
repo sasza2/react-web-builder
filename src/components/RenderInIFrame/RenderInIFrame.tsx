@@ -1,13 +1,14 @@
 import React, {
   forwardRef, useCallback, useImperativeHandle, useRef, useState,
 } from 'react';
-import { StyleSheetManager } from 'styled-components';
 import Frame, { useFrame } from 'react-frame-component';
+import { StyleSheetManager } from 'styled-components';
 
 import { LoadFont } from '@/LoadFont';
 import { assignTestProp } from '@/utils/tests';
+
+import { Resizable, RESIZABLE_PROP_NAME } from '../Resizable';
 import { IFrameGlobalStyles } from './RenderInIFrame.styled';
-import { RESIZABLE_PROP_NAME, Resizable } from '../Resizable';
 
 function RenderInIFrameBody({ children }: React.PropsWithChildren) {
   const { document } = useFrame();

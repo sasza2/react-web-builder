@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from 'react';
-
 import {
-  BuilderCommonProps, WebBuilderProps, ViewProps,
+  BuilderCommonProps, ViewProps,
+  WebBuilderProps,
 } from 'types';
 
 const PropertiesContext = createContext({} as BuilderCommonProps);

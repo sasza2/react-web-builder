@@ -1,16 +1,17 @@
 import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { Breakpoint, Padding as IPadding } from 'types';
+
 import { FieldProvider } from '@/components/FormProvider';
 import { useSelectedContainer } from '@/hooks/container/useSelectedContainer';
 import { useUpdateBreakpoint } from '@/hooks/useUpdateBreakpoint';
 import { assignTestProp } from '@/utils/tests';
-import { Input } from '../Input';
-import { IFormControl } from '../types';
-import { FormGroup, FormHeader } from '../FormControl.styled';
+
 import { ColorPicker } from '../ColorPicker';
+import { FormGroup, FormHeader } from '../FormControl.styled';
+import { Input } from '../Input';
 import { Padding } from '../Padding';
+import { IFormControl } from '../types';
 
 type EditBreakpointFieldProps <T extends keyof Breakpoint> = {
   field: T,

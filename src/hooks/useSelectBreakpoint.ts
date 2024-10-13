@@ -1,6 +1,7 @@
-import { useAppDispatch } from '@/store/useAppDispatch';
 import { setSelectedBreakpoint } from '@/store/selectedBreakpointSlice';
+import { useAppDispatch } from '@/store/useAppDispatch';
 import { byBreakpointId } from '@/utils/breakpoint';
+
 import { useBreakpoints } from './useBreakpoints';
 
 export const useSelectBreakpoint = () => {

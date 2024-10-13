@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-
 import { useTranslation } from 'react-i18next';
+
 import { assignTestProp } from '@/utils/tests';
+
 import { useWebBuilderSizeHeight } from '../WebBuilderSize';
 import {
   Container, Progress, ProgressIn, Title,

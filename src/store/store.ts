@@ -1,8 +1,8 @@
 import {
   AnyAction, configureStore, StateFromReducersMapObject, ThunkDispatch,
 } from '@reduxjs/toolkit';
-
 import { Breakpoint, ElementsInBreakpoints, PageSettings } from 'types';
+
 import changesMiddleware from './changesMiddleware';
 import reducer from './reducer';
 

@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 
 import { useConfiguration } from '@/components/ConfigurationProvider';
 import { useGridAPI } from '@/components/GridAPIProvider';
+
 import { useSelectedElementId } from './useSelectedElementId';
 
 export const useBlurSelectedElement = () => {

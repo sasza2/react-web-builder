@@ -1,8 +1,9 @@
 import { useContext } from 'react';
 
-import { useGridAPI } from '@/components/GridAPIProvider';
 import { ElementsContext } from '@/components/ElementsProvider';
+import { useGridAPI } from '@/components/GridAPIProvider';
 import { assignAllToElementsExtras } from '@/utils/breakpoint';
+
 import { useBreakpoint } from './useBreakpoint';
 
 export const useSetElementsHeight = () => {

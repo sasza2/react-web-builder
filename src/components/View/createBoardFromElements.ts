@@ -1,4 +1,4 @@
-import { WebBuilderElement, WebBuilderElements, ElementsExtras } from 'types';
+import { ElementsExtras, WebBuilderElement, WebBuilderElements } from 'types';
 
 type ElementWithHeiht = WebBuilderElement & {
   h: 'auto' | number,

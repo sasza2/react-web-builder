@@ -1,16 +1,17 @@
 import React, { useEffect, useRef } from 'react';
-
 import { BreakpointHeight } from 'types';
+
+import { useGridAPI } from '@/components/GridAPIProvider';
+import { useContainerElementProperties } from '@/hooks/container/useContainerElementProperties';
 import { useContainerGridStyle } from '@/hooks/container/useContainerGridStyle';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { usePageSettings } from '@/hooks/usePageSettings';
 import { getBreakpointBackgroundColor, isContainer } from '@/utils/breakpoint';
 import { mergeStyles } from '@/utils/styles';
-import { useGridAPI } from '@/components/GridAPIProvider';
-import { useContainerElementProperties } from '@/hooks/container/useContainerElementProperties';
-import { Container } from './ContainerBackground.styled';
-import useElementsWithRender from '../useElementsWithRender';
+
 import { ContainerBottomLine } from '../ContainerBottomLine';
+import useElementsWithRender from '../useElementsWithRender';
+import { Container } from './ContainerBackground.styled';
 
 function ContainerBackgroundIn() {
   const breakpoint = useBreakpoint();

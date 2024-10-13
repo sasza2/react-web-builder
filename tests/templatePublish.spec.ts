@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
 
 import { goThroughHints } from './fixtures/goThroughHints';
-import { waitForTemplate } from './fixtures/template';
 import { publish } from './fixtures/publish';
+import { waitForTemplate } from './fixtures/template';
 
 test('publish template', async ({ page }) => {
   await page.goto('/?mode=preview&story=webbuilder--templates-story');

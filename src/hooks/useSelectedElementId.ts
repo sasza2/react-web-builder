@@ -1,6 +1,6 @@
 import { setSelectedElement } from '@/store/selectedElementSlice';
-import { useAppSelector } from '@/store/useAppSelector';
 import { useAppDispatch } from '@/store/useAppDispatch';
+import { useAppSelector } from '@/store/useAppSelector';
 
 export const useSelectedElementId = (): [string | null, (elementId: string | null) => void] => {
   const dispatch = useAppDispatch();

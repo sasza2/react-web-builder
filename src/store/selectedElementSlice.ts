@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { SidebarView } from '@/components/SidebarProvider';
+
 import { openContainer, removeElementsFromBreakpoint } from './elementsInBreakpointsSlice';
 import { setSidebar, setSidebarView } from './sidebarSlice';
 

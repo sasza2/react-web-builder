@@ -1,7 +1,7 @@
-import { Page, expect } from '@playwright/test';
+import { expect, Page } from '@playwright/test';
 
-import { getBreakpointDetails } from './getBreakpointDetails';
 import { ElementDetails, getElementDetails, getElements } from '../elements/elements';
+import { getBreakpointDetails } from './getBreakpointDetails';
 
 export const checkBreakpointElements = async (
   page: Page,

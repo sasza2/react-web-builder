@@ -2,20 +2,20 @@ import {
   addBreakpoint, addBreakpointSilent, removeBreakpoint, updateBreakpoint, updateBreakpointSilent,
 } from './breakpointsSlice';
 import {
-  addElementToBreakpoint,
   addElementsToBreakpoint,
+  addElementToBreakpoint,
   changeElementInBreakpoint,
-  setElementsInBreakpoint,
-  removeElementsFromBreakpoint,
-  setElementsInBreakpointProgrammatic,
-  pasteElements,
   openContainer,
+  pasteElements,
+  removeElementsFromBreakpoint,
+  setElementsInBreakpoint,
+  setElementsInBreakpointProgrammatic,
 } from './elementsInBreakpointsSlice';
 import { updatePageSettings } from './pageSettingsSlice';
 import { setSelectedBreakpoint } from './selectedBreakpointSlice';
 import { setSelectedElement } from './selectedElementSlice';
 import { setSelectedElements, toggleSelectedElement } from './selectedElementsSlice';
-import { setSidebarView, setSidebar } from './sidebarSlice';
+import { setSidebar, setSidebarView } from './sidebarSlice';
 
 const actionsImportant = [
   addBreakpoint,

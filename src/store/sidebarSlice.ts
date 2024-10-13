@@ -1,12 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
 import { BreakpointId } from 'types';
+
 import { SidebarView } from '@/components/SidebarProvider';
-import { AppDispatch, GetState } from './store';
+
 import { addBreakpoint } from './breakpointsSlice';
 import { openContainer, removeElementsFromBreakpoint } from './elementsInBreakpointsSlice';
 import { setSelectedBreakpoint } from './selectedBreakpointSlice';
 import { setSelectedElement } from './selectedElementSlice';
+import { AppDispatch, GetState } from './store';
 
 type SidebarState = {
   view: SidebarView | null,
