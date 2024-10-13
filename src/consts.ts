@@ -1,5 +1,6 @@
 import { FontImport, TextElement } from 'types';
 
+export const DEFAULT_CONTAINER_ID = 'default-container';
 export const DEFAULT_LANGUAGE = 'en';
 export const DOUBLE_CLICK_TIMEOUT = 700; // ms
 export const SIDEBAR_WIDTH = 281; // px

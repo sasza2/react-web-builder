@@ -51,7 +51,7 @@ export function OpenContainer({ id, testId }: OpenContainerProps) {
       delete elementsExtras.current[breakpoint.id][id];
 
       const container = breakpoints.find(byBreakpointId(containerId));
-      const containerExtras = getContainerExtras(container, gridAPIRef);
+      const containerExtras = getContainerExtras(container, gridAPIRef.current.getPanZoom().getZoom());
 
       const tree = createTreeElements(
         elementsInBreakpoints[container.id],

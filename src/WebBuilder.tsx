@@ -23,6 +23,7 @@ import { LoadTemplate } from './components/Grid/LoadTemplate/LoadTemplate';
 import { ComponentsProvider } from './components/ComponentsProvider';
 import { BuilderElementContainer } from './components/ElementContainer/BuilderElementContainer';
 import { HistoryOfElementsExtras } from './components/HistoryOfElementsExtras';
+import { PrerenderDefaultContainer } from './components/PrerenderDefaultContainer';
 
 function WebBuilder(props: WebBuilderProps) {
   return (
@@ -46,6 +47,7 @@ function WebBuilder(props: WebBuilderProps) {
                               <Sidebar />
                               <BuilderHints />
                               <ToastContainer />
+                              <PrerenderDefaultContainer />
                             </LoadTemplate>
                           </I18nProvider>
                           <LoadFont />

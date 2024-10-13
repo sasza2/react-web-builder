@@ -1,52 +1,37 @@
-import { WebBuilderElements } from 'types';
+import { useTranslation } from 'react-i18next';
+
 import { useAppDispatch } from '@/store/useAppDispatch';
 import { setElementsInBreakpointProgrammatic } from '@/store/elementsInBreakpointsSlice';
-import { createUniqueId } from '@/utils/createUniqueId';
-import { DEFAULT_BOX_CONTENT } from '@/consts';
+import { createElementsForContainer, getDefaultContainer } from '@/utils/container';
+import { ElementsExtras } from 'types';
 import { useBreakpoint } from '../useBreakpoint';
 import { useAddBreakpoint } from '../useAddBreakpoint';
+import { useElements } from '../useElements';
 
 export const useAddBreakpointForContainer = () => {
   const dispatch = useAppDispatch();
   const addBreakpoint = useAddBreakpoint();
-  const currentBreakpoint = useBreakpoint();
+  const parent = useBreakpoint();
+  const { elementsExtras } = useElements();
+  const { t } = useTranslation();
 
   const addBreakpointForContainer = () => {
-    const breakpoint = addBreakpoint({
-      cols: currentBreakpoint.cols,
-      from: currentBreakpoint.from,
-      rowHeight: currentBreakpoint.rowHeight,
-      padding: {
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-      },
-      parentId: currentBreakpoint.id,
-      to: null,
-    }, { silent: true });
+    const container = addBreakpoint(getDefaultContainer(parent), { silent: true });
 
-    const elements: WebBuilderElements = [
-      {
-        componentName: 'Box',
-        id: createUniqueId(),
-        x: 0,
-        y: 0,
-        w: currentBreakpoint.cols,
-        h: 'auto',
-        breakpointId: breakpoint.id,
-        props: [
-          {
-            propId: 'content',
-            value: DEFAULT_BOX_CONTENT,
-          },
-        ],
-      },
-    ];
+    const { elements, getPaddingBottom, measureContainerElement } = createElementsForContainer(container, parent, t);
 
-    dispatch(setElementsInBreakpointProgrammatic({ elements, breakpointId: breakpoint.id }));
+    elementsExtras.current[container.id] = elements.reduce((extras, element) => {
+      extras[element.id] = {
+        height: measureContainerElement(element.id),
+        paddingBottom: getPaddingBottom(element.id),
+      };
 
-    return breakpoint.id;
+      return extras;
+    }, {} as ElementsExtras);
+
+    dispatch(setElementsInBreakpointProgrammatic({ elements, breakpointId: container.id }));
+
+    return container.id;
   };
 
   return addBreakpointForContainer;
