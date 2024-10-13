@@ -22,3 +22,16 @@ export const addElementReference = (breakpoint: Breakpoint, element: WebBuilderE
 };
 
 export const getElementsReference = (breakpoint: Breakpoint) => elementsInBreakpointsRefMap.get(breakpoint.id);
+
+export const getElementPaddingFromStyle = (breakpointId: string, elementId: string): number | null => {
+  const elements = elementsInBreakpointsRefMap.get(breakpointId);
+  if (!elements) return null;
+
+  const elementRef = elements.get(elementId);
+  if (!elementRef) return null;
+
+  const style = window.getComputedStyle(elementRef);
+  const paddingBottom = parseFloat(style.paddingBottom) || 0;
+
+  return paddingBottom;
+};

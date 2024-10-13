@@ -113,6 +113,10 @@ export default {
   container: {
     button: 'Go to container space',
     content: 'Content',
+    defaultElements: {
+      info1: 'Using containers is important because they help organize and structure content on a page.',
+      info2: 'This is an example container. To edit this content, click \'Go to container space\' in its properties.',
+    },
     description: 'To edit content, go to container space using the button below.',
     text: 'Container',
   },
