@@ -3,8 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { WebBuilderElement, WebBuilderElements } from 'types';
 
 import { useGridAPI } from '@/components/GridAPIProvider';
+import { Hints } from '@/components/Hints';
 import createTreeElements from '@/components/View/createTreeElements';
 import getBreakpointRowsByLastElement from '@/components/View/getBreakpointRowsByLastElement';
+import { useContainerHintsList } from '@/hooks/container/useContainerHintsList';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useBreakpoints } from '@/hooks/useBreakpoints';
 import { useElements } from '@/hooks/useElements';
@@ -46,6 +48,7 @@ export function OpenContainer({ id, testId }: OpenContainerProps) {
   const breakpoint = useBreakpoint();
   const gridAPIRef = useGridAPI();
   const containerId = getContainerIdValue(elementCurrent);
+  const hintsList = useContainerHintsList();
 
   const onOpen = () => {
     if (containerId) {
@@ -76,7 +79,7 @@ export function OpenContainer({ id, testId }: OpenContainerProps) {
   };
 
   return (
-    <FormGroup {...assignTestProp(testId, null, 'openContainer')}>
+    <FormGroup data-id="openContainer" {...assignTestProp(testId, null, 'openContainer')}>
       <FormHeader>
         {t('container.content')}
       </FormHeader>
@@ -84,6 +87,10 @@ export function OpenContainer({ id, testId }: OpenContainerProps) {
       <LinkButton onClick={onOpen}>
         {t('container.button')}
       </LinkButton>
+      <Hints
+        list={hintsList}
+        speed={0}
+      />
     </FormGroup>
   );
 }

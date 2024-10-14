@@ -26,8 +26,10 @@ export default {
       enabled: 'Enabled',
       height: 'Height',
       overflow: {
+        description: 'Overflow is a property that controls what happens when content inside an element is too big to fit in the space that is available (<readMore />)',
         hidden: 'Hidden',
         label: 'Height overflow',
+        readMore: 'Read more',
         scroll: 'Scroll',
         visible: 'Visible',
       },
@@ -118,6 +120,10 @@ export default {
       info2: 'This is an example container. To edit this content, click \'Go to container space\' in its properties.',
     },
     description: 'To edit content, go to container space using the button below.',
+    hints: {
+      breakpointHeight: 'Height property is used to set the maximum height of container',
+      openContainer: 'To edit elements in container click \'Go to container space\' button',
+    },
     text: 'Container',
   },
   element: {

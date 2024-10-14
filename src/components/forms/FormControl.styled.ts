@@ -28,6 +28,10 @@ export const Label = styled.div`
 export const Description = styled.div`
   ${({ theme }) => theme.typography.Small0R};
   color: ${({ theme }) => theme.colors.gray};
+
+  a {
+    color: ${({ theme }) => theme.colors.darkBlue};
+  }
 `;
 
 export const ListErrors = styled.ul`

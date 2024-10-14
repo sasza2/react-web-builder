@@ -9,6 +9,6 @@ export type IFormControl = {
   errors?: FormErrors,
   name?: string,
   label?: JSX.Element | string,
-  description?: string,
+  description?: JSX.Element | string,
   testId?: string,
 };
