@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { clearHintsFromLocalStorage } from '@/components/Hints/clearHintsFromLocalStorage';
 import { useBuilderHintsList } from '@/components/Hints/useBuilderHintsList';
 import { SidebarView } from '@/components/SidebarProvider';
+import { useContainerHintsList } from '@/hooks/container/useContainerHintsList';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useSetSidebarView } from '@/hooks/useSetSidebarView';
 import { delay } from '@/utils/delay';
@@ -20,6 +21,7 @@ export function ShowHelperTips() {
   const breakpoint = useBreakpoint();
   const setSidebarView = useSetSidebarView();
   const builderHintsList = useBuilderHintsList();
+  const containerHintsList = useContainerHintsList();
 
   const onClick = async () => {
     if (breakpoint) {
@@ -27,7 +29,7 @@ export function ShowHelperTips() {
       await delay(300); // TODO
     }
 
-    clearHintsFromLocalStorage(builderHintsList);
+    clearHintsFromLocalStorage([...builderHintsList, ...containerHintsList]);
 
     setConfiguration({
       ...configuration,

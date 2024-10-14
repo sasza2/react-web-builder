@@ -19,6 +19,7 @@ type SelectProps<T > = {
 } & IFormControl;
 
 export function Select<T>({
+  description,
   disabled,
   name,
   errors,
@@ -41,7 +42,7 @@ export function Select<T>({
   const onMenuClose = useCallback(() => setMenuIsOpen(false), []);
 
   return (
-    <FormControl name={name} errors={errors} label={label}>
+    <FormControl description={description} name={name} errors={errors} label={label}>
       <Wrapped
         data-tooltip-id={`select-${name}`}
         $size={size}

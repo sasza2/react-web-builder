@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { BreakpointHeight as IBreakpointHeight } from 'types';
 
 import { useField } from '@/components/FormProvider';
@@ -10,6 +10,15 @@ import { FormGroup, FormHeader } from '../FormControl.styled';
 import { Input } from '../Input';
 import { Select } from '../Select';
 import { Toggle } from '../Toggle';
+
+function ReadMore() {
+  const { t } = useTranslation();
+  return (
+    <a href="https://www.w3schools.com/css/css_overflow.asp" target="_blank" rel="noreferrer">
+      {t('breakpoint.heightProp.overflow.readMore')}
+    </a>
+  );
+}
 
 type BreakpointHeightProps = {
   name: string,
@@ -22,7 +31,7 @@ export function BreakpointHeight({ name, testId }: BreakpointHeightProps) {
   const enabled = value?.enabled;
 
   return (
-    <FormGroup {...assignTestProp(testId, null, 'padding')}>
+    <FormGroup data-id="breakpointHeight" {...assignTestProp(testId, null, 'breakpointHeight')}>
       <FormHeader>
         {t('breakpoint.heightProp.height')}
       </FormHeader>
@@ -41,6 +50,14 @@ export function BreakpointHeight({ name, testId }: BreakpointHeightProps) {
           <Select
             name={`${name}.overflow`}
             label={t('breakpoint.heightProp.overflow.label')}
+            description={(
+              <Trans
+                i18nKey="breakpoint.heightProp.overflow.description"
+                components={{
+                  readMore: <ReadMore />,
+                }}
+              />
+            )}
             options={[
               {
                 label: t('breakpoint.heightProp.overflow.visible'),
