@@ -10,7 +10,7 @@ export const useSelectBreakpoint = () => {
 
   const select = (breakpointId: string | null) => {
     const breakpoint = breakpoints.find(byBreakpointId(breakpointId)) || null;
-    dispatch(setSelectedBreakpoint(breakpoint));
+    dispatch(setSelectedBreakpoint(breakpoint || { id: null }));
   };
 
   return select;
