@@ -432,3 +432,5 @@ export type IFrameComponentProps = {
   src?: ElementURL,
   padding?: Partial<Padding>,
 }
+
+export type ElementContainer = React.FC;
