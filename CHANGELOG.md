@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.14.0
+
+### Minor Changes
+
+- 213ad98: export element container hook to be able to wrap container in other components
+
 ## 0.13.0
 
 ### Minor Changes
