@@ -3,6 +3,7 @@ import { Trans } from 'react-i18next';
 import ReactPlayer from 'react-player';
 import {
   BuilderCommonProps,
+  ElementContainer,
   ImageComponentProps,
   VideoComponentProps,
   WebBuilderComponent,
@@ -43,6 +44,7 @@ import {
   createSourceProperty,
 } from './properties';
 
+export { useElementContainer } from './components/ComponentsProvider';
 export { Line } from './components/Line';
 export { IFrame } from '@/components/IFrame';
 export { Box } from '@/components/View/Box';
@@ -97,8 +99,6 @@ function VideoIn({ url }: VideoComponentProps) {
 }
 
 export const Video = memo(VideoIn, (a, b) => a.url === b.url);
-
-export type ElementContainer = React.FC;
 
 export const useInternalComponents = ({
   defaultBoxContent,

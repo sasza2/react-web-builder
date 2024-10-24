@@ -1,14 +1,20 @@
 import React, { createContext, useContext, useMemo } from 'react';
-import { BuilderCommonProps, WebBuilderComponent } from 'types';
+import { BuilderCommonProps, ElementContainer, WebBuilderComponent } from 'types';
 
-import { ElementContainer, useInternalComponents } from '@/components';
+import { useInternalComponents } from '@/components';
 import { mergeArrays } from '@/utils/array';
 
 const ComponentsContext = createContext<WebBuilderComponent[]>([]);
+const ElementContainerContext = createContext<ElementContainer>(null);
 
 export const useComponentsProperty = (): WebBuilderComponent[] => {
   const props = useContext(ComponentsContext);
   return props;
+};
+
+export const useElementContainer = () => {
+  const elementContainer = useContext(ElementContainerContext);
+  return elementContainer;
 };
 
 type ComponentsProviderProps = React.PropsWithChildren<BuilderCommonProps & {
@@ -38,7 +44,9 @@ export function ComponentsProvider({
 
   return (
     <ComponentsContext.Provider value={allComponents}>
-      {children}
+      <ElementContainerContext.Provider value={elementContainer}>
+        {children}
+      </ElementContainerContext.Provider>
     </ComponentsContext.Provider>
   );
 }
