@@ -21,6 +21,8 @@ const getBoxShadow = (breakpoint: Breakpoint, theme: Theme): string => {
   return `${theme.colors.lightGray} -${padding.left}px 0px 0px 0px, ${theme.colors.lightGray} ${padding.right}px 0px 0px 0px`;
 };
 
+export const GRID_PADDING_WIDTH = 30; // px
+
 export const GridDiv = styled.div<GridDivProps>`
   display: flex;
   position: relative;
@@ -41,7 +43,7 @@ export const GridDiv = styled.div<GridDivProps>`
   opacity: ${({ $isLoaded }) => ($isLoaded ? '1' : '0')};
 
   .react-grid-panzoom {
-    width: ${'calc(100% - 30px)'};
+    width: ${`calc(100% - ${GRID_PADDING_WIDTH}px)`};
     height: ${({ $height }) => `${$height}px`};
     max-height: ${({ $height }) => `${$height}px`};
 
