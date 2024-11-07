@@ -22,3 +22,7 @@
 .env.production.local
 
 npm-debug.log*
+
+# storybook
+/storybook-static
+*storybook.log

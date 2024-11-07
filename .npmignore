@@ -3,7 +3,6 @@
 /src
 .eslintrc
 .github
-.ladle
 test.setup.js
 tsconfig.eslint.json
 tsconfig.json
