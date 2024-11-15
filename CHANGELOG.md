@@ -1,5 +1,15 @@
 # react-web-builder
 
+## 0.15.0
+
+### Minor Changes
+
+- c4b1426: remember last grid position in breakpoints/containers
+
+### Patch Changes
+
+- e43e70b: grid initial position
+
 ## 0.14.0
 
 ### Minor Changes
