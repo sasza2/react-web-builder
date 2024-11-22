@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.15.1
+
+### Patch Changes
+
+- c5e299e: fix: adding a link to an image makes the image smaller
+
 ## 0.15.0
 
 ### Minor Changes
