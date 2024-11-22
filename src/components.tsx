@@ -59,8 +59,10 @@ export function Image({
 
   if (!url || !url.location) return null;
 
+  const width = '100%';
+
   const image = (
-    <img style={{ width: '100%', ...style }} alt={url.location} src={url.location} />
+    <img style={{ width, ...style }} alt={url.location} src={url.location} />
   );
 
   const renderImage = () => {
@@ -73,6 +75,8 @@ export function Image({
     }
 
     props.href = href.location;
+    props.style = { width };
+
     return (
       <a {...props}>{image}</a>
     );
