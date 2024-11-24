@@ -7,6 +7,7 @@ import {
   ColorType,
   getColorForInput,
   getColorForSketch,
+  normalizeColor,
 } from '@/utils/colors';
 import { getColorType } from '@/utils/colors/common';
 
@@ -87,7 +88,7 @@ export function ColorPicker({
       return;
     }
 
-    onSketchSetValue(nextValue);
+    onSketchSetValue(normalizeColor(nextValue));
   };
 
   const mainColor = () => {
@@ -99,6 +100,9 @@ export function ColorPicker({
         return getColorForSketch(value, defaultValue);
     }
   };
+
+  // users probably can put/paste colors in input without hash
+  const onInputBlur = (nextValue: string) => onBlur(normalizeColor(nextValue));
 
   return (
     <FormControl
@@ -123,7 +127,7 @@ export function ColorPicker({
               name="color"
               testId="color"
               errors={errors}
-              onBlur={onBlur}
+              onBlur={onInputBlur}
               leftNode="#"
             />
           </FieldProvider>
