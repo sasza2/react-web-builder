@@ -175,6 +175,20 @@ const createTreeElements = (
   }
 
   const element = elements[0];
+  if (!element) {
+    return {
+      id: createUniqueId(),
+      children: [],
+      marginLeft: 0,
+      marginRight: 0,
+      marginTop: 0,
+      marginBottom: 0,
+      type: 'row',
+      w: columns,
+      h: rows,
+    }
+  }
+
   const h = elementsExtras[element.id]?.height;
   return {
     id: createUniqueId(),
