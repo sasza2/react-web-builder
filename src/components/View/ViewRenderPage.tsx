@@ -12,6 +12,7 @@ import { getBreakpointBackgroundColor, isBreakpoint } from '@/utils/breakpoint';
 import { useComponentsProperty } from '../ComponentsProvider';
 import { useViewProperties } from '../PropertiesProvider';
 import { RenderInContainer } from '../RenderInContainer';
+import { ElementOptionsProvider } from './ElementOptionsProvider';
 import { RenderBreakpoint } from './RenderBreakpoint/RenderBreakpoint';
 import { RenderTree } from './RenderTree';
 import { PageContainer } from './ViewRenderPage.styled';
@@ -87,12 +88,14 @@ export function ViewRenderPage() {
               background: getBreakpointBackgroundColor(selectedBreakpoint, page),
             }}
           >
-            <RenderTree
-              breakpoint={selectedBreakpoint}
-              components={components}
-              node={selectedBreakpoint.view}
-              transformElementProperty={transformElementProperty}
-            />
+            <ElementOptionsProvider applyPaddingBottomToElements={false}>
+              <RenderTree
+                breakpoint={selectedBreakpoint}
+                components={components}
+                node={selectedBreakpoint.view}
+                transformElementProperty={transformElementProperty}
+              />
+            </ElementOptionsProvider>
           </RenderBreakpoint>
         </PageContainer>
       </RenderInContainer>
