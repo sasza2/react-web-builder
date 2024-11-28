@@ -59,7 +59,7 @@ export function Border({
       <RangeSlider
         name={`${name}.radius`}
         label={t('element.border.radius')}
-        max={20}
+        max={48}
         rightNode="px"
         testId={`${name}.radius`}
       />
