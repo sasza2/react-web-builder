@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useMemo, useRef } from 'react';
 import {
   Breakpoint, TransformElementProperty,
   WebBuilderComponent, WebBuilderElement,
@@ -6,6 +6,7 @@ import {
 
 import { getProperties } from '@/utils/element';
 
+import { useElementOptions } from './ElementOptionsProvider';
 import { addElementReference } from './elementsRefMap';
 
 type ElementProps = {
@@ -30,6 +31,13 @@ function Element({
   }
 
   const elementRef = useRef<HTMLDivElement>(null);
+  const elementOptions = useElementOptions();
+
+  const style = useMemo(() => ({
+    paddingBottom: elementOptions.applyPaddingBottomToElements ? paddingBottom : undefined,
+    width: '100%',
+    height: '100%',
+  }), [elementOptions.applyPaddingBottomToElements]);
 
   useLayoutEffect(() => {
     const ref = elementRef.current;
@@ -53,7 +61,7 @@ function Element({
       key={element.id}
       data-id={element.id}
       ref={elementRef}
-      style={{ paddingBottom, width: '100%' }}
+      style={style}
     >
       {renderElement()}
     </div>
