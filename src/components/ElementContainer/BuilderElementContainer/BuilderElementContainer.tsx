@@ -16,6 +16,7 @@ import { RenderBreakpoint } from '../../View/RenderBreakpoint/RenderBreakpoint';
 import { RenderTree } from '../../View/RenderTree';
 import { useContainerStyle } from '../useContainerStyle';
 import { Empty } from './BuilderElementContainer.styled';
+import { useTranslation } from 'react-i18next';
 
 type BuilderElementContainerProps = {
   backgroundImage?: BackgroundImage,
@@ -36,6 +37,7 @@ export function BuilderElementContainer({
   const components = useComponentsProperty();
   const { elementsExtras } = useElements();
   const elementsInBreakpoints = useAppSelector((state) => state.elementsInBreakpoints);
+  const { t } = useTranslation();
 
   const style = useContainerStyle({
     backgroundImage,
@@ -87,7 +89,7 @@ export function BuilderElementContainer({
           node={node}
           transformElementProperty={transformElementProperty}
         />
-      ) : <Empty $container={container} />}
+      ) : <Empty $container={container}>{t('container.empty')}</Empty>}
     </RenderBreakpoint>
   );
 }

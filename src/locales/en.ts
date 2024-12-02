@@ -120,6 +120,7 @@ export default {
       info2: 'This is an example container. To edit this content, click \'Go to container space\' in its properties.',
     },
     description: 'To edit content, go to container space using the button below.',
+    empty: 'Empty container',
     hints: {
       breakpointHeight: 'Height property is used to set the maximum height of container',
       openContainer: 'To edit elements in container click \'Go to container space\' button',
