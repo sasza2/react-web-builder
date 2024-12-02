@@ -1,5 +1,19 @@
 # react-web-builder
 
+## 0.16.0
+
+### Minor Changes
+
+- daf7087: feat: remove apply padding bottom in view
+- 6515e37: change max border radius size to 48
+- c12b313: container - add text "Empty container" when there are no elements in container (grid mode)
+
+### Patch Changes
+
+- 230426b: fix: set color in input
+- 2e64314: fix: open container without elements
+- 616a025: fix: update tooltip lib
+
 ## 0.15.1
 
 ### Patch Changes
