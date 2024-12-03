@@ -1,13 +1,18 @@
 import React from 'react';
 
-import { Resizable } from '@/components/Resizable';
+import { Resizable as ResizableComponent } from '@/components/Resizable';
 
-export default { title: 'Resizable' };
-
-export function ResizableStory() {
+export function Resizable() {
   return (
-    <Resizable defaultHeight={30} minHeight={20}>
+    <ResizableComponent defaultHeight={30} minHeight={20}>
       <div style={{ backgroundColor: 'violet', height: '100%' }}>resize</div>
-    </Resizable>
+    </ResizableComponent>
   );
 }
+
+const meta = {
+  component: Resizable,
+  title: 'Common/Resizable',
+};
+
+export default meta;

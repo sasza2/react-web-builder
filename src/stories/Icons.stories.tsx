@@ -6,12 +6,11 @@ import { StyleProvider } from '@/components/StyleProvider';
 
 import { IconContainer, IconDiv, IconsContainer } from './Icons.styled';
 
-export default { title: 'Icons' };
-
 export function Icons() {
   const icons: Array<[keyof AllIcons, React.FC]> = Object
     .keys(Icon)
-    .map((key: keyof AllIcons) => [key, Icon[key]]);
+    .map<[keyof AllIcons, React.FC]>((key: keyof AllIcons) => [key, Icon[key]])
+    .filter(([key]) => !key.startsWith('__docgen'));
 
   return (
     <StyleProvider>
@@ -26,3 +25,10 @@ export function Icons() {
     </StyleProvider>
   );
 }
+
+const meta = {
+  component: Icons,
+  title: 'Common/Icons',
+};
+
+export default meta;

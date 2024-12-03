@@ -186,7 +186,7 @@ const createTreeElements = (
       type: 'row',
       w: columns,
       h: rows,
-    }
+    };
   }
 
   const h = elementsExtras[element.id]?.height;
