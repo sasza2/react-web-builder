@@ -6,9 +6,7 @@ import { createUniqueId } from '@/utils/createUniqueId';
 import WebBuilder from '../WebBuilder';
 import { fonts } from './consts';
 
-export default { title: 'WebBuilder' };
-
-const templateDekstop: Tree = {
+const templateDesktop: Tree = {
   id: 'row1',
   h: 0,
   marginBottom: 0,
@@ -257,12 +255,12 @@ const template = {
         right: 15,
         bottom: 0,
       },
-      template: templateDekstop,
+      template: templateDesktop,
     },
   ],
 } as Page;
 
-export function TemplatesStory() {
+export function Templates() {
   const [page] = useState<Page>(() => {
     const pageFromLocalStorage = JSON.parse(localStorage.getItem('page-builder-draft')) as Page;
     if (pageFromLocalStorage) return pageFromLocalStorage;
@@ -293,3 +291,14 @@ export function TemplatesStory() {
     />
   );
 }
+
+const meta = {
+  component: Templates,
+  parameters: {
+    layout: 'fullscreen',
+    options: { showPanel: false },
+  },
+  title: 'WebBuilder/Templates',
+};
+
+export default meta;

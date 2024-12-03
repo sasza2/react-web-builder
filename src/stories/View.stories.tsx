@@ -3,9 +3,7 @@ import { Page } from 'types';
 
 import View from '../View';
 
-export default { title: 'View' };
-
-export function PublishedStory() {
+export function Published() {
   const page = JSON.parse(localStorage.getItem('page-builder-published')) as Page;
   if (!page) {
     return (
@@ -18,3 +16,14 @@ export function PublishedStory() {
     </div>
   );
 }
+
+const meta = {
+  component: Published,
+  parameters: {
+    layout: 'fullscreen',
+    options: { showPanel: false },
+  },
+  title: 'WebBuilder/Published',
+};
+
+export default meta;

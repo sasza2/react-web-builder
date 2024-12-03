@@ -4,9 +4,7 @@ import { OnImageUpload, Page } from 'types';
 import WebBuilder from '../WebBuilder';
 import { fonts } from './consts';
 
-export default { title: 'WebBuilder' };
-
-export function WebBuilderStory() {
+export function Builder() {
   const onPublish = (nextPage: Page) => new Promise((resolve) => {
     setTimeout(() => {
       localStorage.setItem('page-builder-published', JSON.stringify(nextPage));
@@ -52,3 +50,13 @@ export function WebBuilderStory() {
     />
   );
 }
+
+const meta = {
+  component: Builder,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  title: 'WebBuilder/Builder',
+};
+
+export default meta;

@@ -1,15 +1,22 @@
 import React from 'react';
 
 import { StyleProvider } from '@/components/StyleProvider';
+import { GlobalStyles } from '@/WebBuilder.styled';
 
-import { WhySeparator } from '../components/WhySeparator';
+import { WhySeparator as WhySeparatorComponent } from '../components/WhySeparator';
 
-export default { title: 'WhySeparator' };
-
-export function WhySeparatorStory() {
+export function WhySeparator() {
   return (
     <StyleProvider>
-      <WhySeparator />
+      <WhySeparatorComponent />
+      <GlobalStyles />
     </StyleProvider>
   );
 }
+
+const meta = {
+  component: WhySeparator,
+  title: 'WebBuilder/WhySeparator',
+};
+
+export default meta;

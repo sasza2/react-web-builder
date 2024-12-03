@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 
 import en from '@/locales/en';
 
-export default { title: 'Translations' };
-
 const createDotNotation = (prefix: string, translations: Record<string, string>) => {
   const map: Record<string, string> = {};
 
@@ -58,3 +56,10 @@ export function DotNotation() {
     </>
   );
 }
+
+const meta = {
+  component: DotNotation,
+  title: 'WebBuilder/Translations',
+};
+
+export default meta;

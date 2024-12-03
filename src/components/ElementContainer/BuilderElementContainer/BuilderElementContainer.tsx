@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { BackgroundImage, Border, BreakpointHeight } from 'types';
 
 import { useComponentsProperty } from '@/components/ComponentsProvider';
@@ -16,7 +17,6 @@ import { RenderBreakpoint } from '../../View/RenderBreakpoint/RenderBreakpoint';
 import { RenderTree } from '../../View/RenderTree';
 import { useContainerStyle } from '../useContainerStyle';
 import { Empty } from './BuilderElementContainer.styled';
-import { useTranslation } from 'react-i18next';
 
 type BuilderElementContainerProps = {
   backgroundImage?: BackgroundImage,
