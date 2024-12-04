@@ -121,6 +121,15 @@ export const createTreeFromBreakpoint = ({
     if (element.componentName === 'Container') {
       const containerIdProp = getElementContainerIdProp(copyElement.props);
       const container = allBreakpoints.find((item) => item.id === containerIdProp.value);
+
+      if (!container) {
+        treeList.push({
+          element: copyElement,
+        });
+
+        return;
+      }
+
       const copyContainerIdPropValue = rewriteContainersIds ? createUniqueId() : container.id;
 
       if (rewriteContainersIds) {

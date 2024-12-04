@@ -13,7 +13,6 @@ export const useBuildBreakpointWithTree = () => {
   const build = (breakpoint: Breakpoint): Breakpoint => {
     const elementsInBreakpoint = elementsInBreakpoints[breakpoint.id] || [];
 
-    if (!elementsInBreakpoint.length) return breakpoint;
     return {
       ...breakpoint,
       view: createTreeElements(
