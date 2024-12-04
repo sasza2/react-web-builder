@@ -76,6 +76,13 @@ export function BreakpointHeight({ name, testId }: BreakpointHeightProps) {
           />
         </>
       )}
+      {value?.overflow === 'scroll' && (
+        <Toggle
+          name={`${name}.isScrollbarHidden`}
+          label={t('breakpoint.heightProp.scrollbarVisibility.label')}
+          description={t('breakpoint.heightProp.scrollbarVisibility.description')}
+        />
+      )}
     </FormGroup>
   );
 }

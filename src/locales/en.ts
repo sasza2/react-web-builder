@@ -33,6 +33,10 @@ export default {
         scroll: 'Scroll',
         visible: 'Visible',
       },
+      scrollbarVisibility: {
+        label: 'Hide Scrollbar',
+        description: 'If enabled it hides the visible scrollbar while keeping the ability to scroll. Useful for a cleaner and more minimalistic design without sacrificing functionality',
+      },
     },
     layout: 'Layout breakpoint',
     minWidth: 'Min width',

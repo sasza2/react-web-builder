@@ -89,6 +89,7 @@ export type ImageURL = {
 export type BreakpointHeight = {
   enabled?: boolean,
   height?: number,
+  isScrollbarHidden?: boolean,
   overflow: 'hidden' | 'scroll' | 'visible',
 }
 

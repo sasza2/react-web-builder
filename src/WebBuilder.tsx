@@ -24,6 +24,7 @@ import { PrerenderDefaultContainer } from './components/PrerenderDefaultContaine
 import { ToastContainer } from './components/ToastContainer';
 import { LoadFont } from './LoadFont';
 import { StoreProvider } from './store/StoreProvider';
+import { ViewGlobalStyles } from './View.styled';
 import { GlobalStyles } from './WebBuilder.styled';
 
 function WebBuilder(props: WebBuilderProps) {
@@ -53,6 +54,7 @@ function WebBuilder(props: WebBuilderProps) {
                           </I18nProvider>
                           <LoadFont />
                           <GlobalStyles />
+                          <ViewGlobalStyles />
                         </StyleProvider>
                       </AutoSave>
                     </NavbarProvider>
