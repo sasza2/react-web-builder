@@ -8,6 +8,7 @@ import getBreakpointRowsByLastElement from '@/components/View/getBreakpointRowsB
 import { RenderBreakpoint } from '@/components/View/RenderBreakpoint/RenderBreakpoint';
 import { RenderTree } from '@/components/View/RenderTree';
 import { mergeStyles } from '@/utils/styles';
+import { HIDE_SCROLLBAR_CLASS_NAME } from '@/View.styled';
 
 import { useContainerStyle } from '../useContainerStyle';
 
@@ -55,6 +56,7 @@ export function ViewElementContainer({
   return (
     <RenderBreakpoint
       breakpoint={container}
+      className={breakpointHeight?.isScrollbarHidden ? HIDE_SCROLLBAR_CLASS_NAME : undefined}
       hasMinWidth={false}
       style={mergeStyles(
         style,

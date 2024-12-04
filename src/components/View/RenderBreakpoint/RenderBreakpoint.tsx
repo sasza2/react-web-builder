@@ -5,6 +5,7 @@ import { getBreakpointPadding } from '@/utils/breakpoint';
 
 type RenderBreakpointProps = React.PropsWithChildren<{
   breakpoint: Breakpoint,
+  className?: string,
   hasMinWidth?: boolean,
   style?: React.CSSProperties,
 }>;
@@ -12,6 +13,7 @@ type RenderBreakpointProps = React.PropsWithChildren<{
 export function RenderBreakpoint({
   breakpoint,
   children,
+  className,
   hasMinWidth = true,
   style = {},
 }: RenderBreakpointProps) {
@@ -66,6 +68,7 @@ export function RenderBreakpoint({
   return (
     <div
       key={breakpoint.id}
+      className={className}
       data-test-id={`breakpoint-${breakpoint.id}`}
       style={breakpointStyle}
       ref={breakpointRef}

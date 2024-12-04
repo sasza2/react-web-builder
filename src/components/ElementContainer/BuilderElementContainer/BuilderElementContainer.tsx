@@ -9,6 +9,7 @@ import { useElements } from '@/hooks/useElements';
 import { useAppSelector } from '@/store/useAppSelector';
 import { byBreakpointId } from '@/utils/breakpoint';
 import { mergeStyles } from '@/utils/styles';
+import { HIDE_SCROLLBAR_CLASS_NAME } from '@/View.styled';
 
 import { useProperties } from '../../PropertiesProvider';
 import createTreeElements from '../../View/createTreeElements';
@@ -74,6 +75,7 @@ export function BuilderElementContainer({
   return (
     <RenderBreakpoint
       breakpoint={container}
+      className={breakpointHeight?.isScrollbarHidden ? HIDE_SCROLLBAR_CLASS_NAME : undefined}
       hasMinWidth={false}
       style={mergeStyles(
         style,

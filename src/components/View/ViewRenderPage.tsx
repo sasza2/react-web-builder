@@ -12,11 +12,11 @@ import { getBreakpointBackgroundColor, isBreakpoint } from '@/utils/breakpoint';
 import { useComponentsProperty } from '../ComponentsProvider';
 import { useViewProperties } from '../PropertiesProvider';
 import { RenderInContainer } from '../RenderInContainer';
+import { doesTreeContainElements } from './doesTreeContainElements';
 import { ElementOptionsProvider } from './ElementOptionsProvider';
 import { RenderBreakpoint } from './RenderBreakpoint/RenderBreakpoint';
 import { RenderTree } from './RenderTree';
 import { PageContainer } from './ViewRenderPage.styled';
-import { doesTreeContainElements } from './doesTreeContainElements';
 
 export function ViewRenderPage() {
   const { page, transformElementProperty } = useViewProperties();
@@ -54,7 +54,7 @@ export function ViewRenderPage() {
 
     const sortedBreakpoints = page.breakpoints
       .filter(isBreakpoint)
-      .filter(breakpoint => doesTreeContainElements(breakpoint.view))
+      .filter((breakpoint) => doesTreeContainElements(breakpoint.view))
       .sort((a, b) => a.from - b.from);
 
     let breakpoint: Breakpoint = sortedBreakpoints[0];

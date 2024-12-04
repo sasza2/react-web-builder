@@ -8,6 +8,7 @@ import { ComponentsProvider } from './components/ComponentsProvider';
 import { ViewElementContainer } from './components/ElementContainer/ViewElementContainer';
 import { I18nProvider } from './components/I18nProvider';
 import { ViewRenderPage } from './components/View';
+import { ViewGlobalStyles } from './View.styled';
 
 function View(props: ViewProps) {
   return (
@@ -16,6 +17,7 @@ function View(props: ViewProps) {
         <StyleProvider>
           <I18nProvider>
             <ViewRenderPage />
+            <ViewGlobalStyles />
           </I18nProvider>
         </StyleProvider>
       </ComponentsProvider>
