@@ -1,5 +1,15 @@
 # react-web-builder
 
+## 0.17.0
+
+### Minor Changes
+
+- a985ca9: add scrollbar visibility toggle to scrollbar overflow visible option in container
+
+### Patch Changes
+
+- 20afffb: fix: publish container element without elements
+
 ## 0.16.0
 
 ### Minor Changes
