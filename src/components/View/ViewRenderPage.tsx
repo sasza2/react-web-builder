@@ -16,6 +16,7 @@ import { ElementOptionsProvider } from './ElementOptionsProvider';
 import { RenderBreakpoint } from './RenderBreakpoint/RenderBreakpoint';
 import { RenderTree } from './RenderTree';
 import { PageContainer } from './ViewRenderPage.styled';
+import { doesTreeContainElements } from './doesTreeContainElements';
 
 export function ViewRenderPage() {
   const { page, transformElementProperty } = useViewProperties();
@@ -53,8 +54,11 @@ export function ViewRenderPage() {
 
     const sortedBreakpoints = page.breakpoints
       .filter(isBreakpoint)
+      .filter(breakpoint => doesTreeContainElements(breakpoint.view))
       .sort((a, b) => a.from - b.from);
+
     let breakpoint: Breakpoint = sortedBreakpoints[0];
+
     for (let i = 1; i < sortedBreakpoints.length; i++) {
       const item = sortedBreakpoints[i];
       if (item.from > innerWidth) break;
