@@ -3,7 +3,7 @@ import { BreakpointId } from 'types';
 
 import { isContainer } from '@/utils/breakpoint';
 
-import { addBreakpoint, removeBreakpoint } from './breakpointsSlice';
+import { addBreakpoint, removeAllBreakpoints, removeBreakpoint } from './breakpointsSlice';
 import { openContainer } from './elementsInBreakpointsSlice';
 import { setSelectedElement } from './selectedElementSlice';
 
@@ -32,7 +32,8 @@ export const selectedBreakpointSlice = createSlice({
       .addCase(setSelectedElement, (state, { payload: { breakpointId } }: ActionSetSelectedElement) => {
         if (breakpointId !== undefined) return breakpointId;
         return state;
-      }).addCase(openContainer, (state, { payload: { breakpointId } }) => breakpointId);
+      }).addCase(openContainer, (state, { payload: { breakpointId } }) => breakpointId)
+      .addCase(removeAllBreakpoints, () => null);
   },
 });
 

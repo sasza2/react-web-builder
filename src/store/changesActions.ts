@@ -1,6 +1,7 @@
 import {
-  addBreakpoint, addBreakpointSilent, removeBreakpoint, updateBreakpoint, updateBreakpointSilent,
+  addBreakpoint, addBreakpointSilent, removeAllBreakpoints, removeBreakpoint, updateBreakpoint, updateBreakpointSilent,
 } from './breakpointsSlice';
+import { changesStartTransaction, changesStopTransaction } from './changesTransactions';
 import {
   addElementsToBreakpoint,
   addElementToBreakpoint,
@@ -11,7 +12,7 @@ import {
   setElementsInBreakpoint,
   setElementsInBreakpointProgrammatic,
 } from './elementsInBreakpointsSlice';
-import { updatePageSettings } from './pageSettingsSlice';
+import { setPageSettings, updatePageSettings } from './pageSettingsSlice';
 import { setSelectedBreakpoint } from './selectedBreakpointSlice';
 import { setSelectedElement } from './selectedElementSlice';
 import { setSelectedElements, toggleSelectedElement } from './selectedElementsSlice';
@@ -27,10 +28,14 @@ const actionsImportant = [
   changeElementInBreakpoint,
   openContainer,
   pasteElements,
+  removeAllBreakpoints,
   setElementsInBreakpoint,
+  setPageSettings,
   setSelectedElements,
   removeElementsFromBreakpoint,
   toggleSelectedElement,
+  changesStartTransaction,
+  changesStopTransaction,
 ].map((action) => action().type);
 
 export const actionsToOmit = [

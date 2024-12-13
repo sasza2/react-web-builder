@@ -3,7 +3,7 @@ import { WebBuilderElements } from 'types';
 
 import { groupElementsById } from '@/utils/element';
 
-import { removeBreakpoint } from './breakpointsSlice';
+import { removeAllBreakpoints, removeBreakpoint } from './breakpointsSlice';
 import {
   openContainer,
   removeElementsFromBreakpoint,
@@ -61,7 +61,8 @@ export const selectedElementSlice = createSlice({
         (state, { payload: { elements } }) => removeDeletedElements(state, elements),
       )
       .addCase(removeElementsFromBreakpoint, resetSelectedElements)
-      .addCase(openContainer, () => initialState);
+      .addCase(openContainer, () => initialState)
+      .addCase(removeAllBreakpoints, () => initialState);
   },
 });
 

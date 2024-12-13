@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { SidebarView } from '@/components/SidebarProvider';
 
+import { removeAllBreakpoints } from './breakpointsSlice';
 import { openContainer, removeElementsFromBreakpoint } from './elementsInBreakpointsSlice';
 import { setSidebar, setSidebarView } from './sidebarSlice';
 
@@ -28,7 +29,8 @@ export const selectedElementSlice = createSlice({
       if (payload.view !== SidebarView.EditElement) return null;
     }).addCase(setSidebarView, (state, { payload }) => {
       if (payload !== SidebarView.EditElement) return null;
-    }).addCase(openContainer, () => null);
+    }).addCase(openContainer, () => null)
+      .addCase(removeAllBreakpoints, () => null);
   },
 });
 

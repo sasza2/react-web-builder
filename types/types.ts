@@ -1,11 +1,11 @@
 import React from 'react';
 
-export type ElementId = string
+export type ElementId = string;
 
 export type WebBuilderElementProperty = {
   propId: string,
   value: unknown,
-}
+};
 
 export type Position = {
   x: number,
@@ -22,36 +22,36 @@ export type WebBuilderElement = {
   componentName: string,
   disabledMove?: boolean,
   props: WebBuilderElementProperty[],
-}
+};
 
 export type ElementExtra = {
   height?: number,
   paddingBottom?: number,
-}
+};
 
-export type ElementsExtras = Record<string | number, ElementExtra>
+export type ElementsExtras = Record<string | number, ElementExtra>;
 
-export type BreakpointsExtras = Record<BreakpointId, ElementsExtras>
+export type BreakpointsExtras = Record<BreakpointId, ElementsExtras>;
 
 export type GeneratedElement = {
   marginTop: number,
-} & Element
+} & Element;
 
-export type WebBuilderElements = Array<WebBuilderElement>
+export type WebBuilderElements = Array<WebBuilderElement>;
 
-export type ElementsInBreakpoints = Record<string | number, WebBuilderElements> 
+export type ElementsInBreakpoints = Record<string | number, WebBuilderElements>;
 
 export type Option<T = string> = {
   value: T,
   label: string | JSX.Element,
-}
+};
 
 export type FontImport = {
   fontFamily: string,
   stylesheet?: JSX.Element,
-} & Option<string>
+} & Option<string>;
 
-export type ListOptions = Array<{ id: string, label: string, active?: boolean }>
+export type ListOptions = Array<{ id: string, label: string, active?: boolean }>;
 
 export type FontOptions = {
   bold?: boolean,
@@ -61,7 +61,7 @@ export type FontOptions = {
   lineHeight?: string,
   textAlign?: 'center' | 'left' | 'right' | 'justify',
   size?: number,
-}
+};
 
 export type WebBuilderComponentPropertyAbout = {
   type: 'about',
@@ -71,29 +71,29 @@ export type WebBuilderComponentPropertyAbout = {
     label?: string,
     url?: string,
   }
-}
+};
 
-export type PropertyDefaultValue <T> = T | (({ breakpoint }: { breakpoint: Breakpoint }) => T)
+export type PropertyDefaultValue <T> = T | (({ breakpoint }: { breakpoint: Breakpoint }) => T);
 
 export type ElementURL = {
   location?: string,
   openInNewTab?: boolean,
-}
+};
 
 export type ImageURL = {
   location?: string,
   locationUpload?: string,
   upload?: unknown,
-}
+};
 
 export type BreakpointHeight = {
   enabled?: boolean,
   height?: number,
   isScrollbarHidden?: boolean,
   overflow: 'hidden' | 'scroll' | 'visible',
-}
+};
 
-type BackgroundImageUnit = 'px' | '%'
+type BackgroundImageUnit = 'px' | '%';
 
 export type BackgroundImage = {
   position: {
@@ -125,7 +125,7 @@ export type BackgroundImage = {
       }
     },
   },
-} & ImageURL
+} & ImageURL;
 
 export type WebBuilderComponentProperty = ({
   type: 'toggle',
@@ -186,7 +186,7 @@ export type WebBuilderComponentProperty = ({
   defaultValue?: PropertyDefaultValue<ElementURL>,
   canOpenInNewTab?: boolean,
 } |
-  WebBuilderComponentPropertyAbout
+WebBuilderComponentPropertyAbout
 | {
   type: 'color',
   label: JSX.Element | string,
@@ -214,13 +214,13 @@ export type WebBuilderComponentProperty = ({
     prop: WebBuilderComponentProperty
   }) => boolean,
   defaultValue?: PropertyDefaultValue<unknown>,
-}
+};
 
 export type WebBuilderGroup = {
   id: string,
   label: JSX.Element | string,
   order?: number,
-}
+};
 
 export type WebBuilderComponent = {
   id: string,
@@ -232,16 +232,16 @@ export type WebBuilderComponent = {
   group?: WebBuilderGroup | WebBuilderGroup[],
   props?: Array<WebBuilderComponentProperty>,
   order?: number,
-}
+};
 
-export type BreakpointId = string
+export type BreakpointId = string;
 
 export type Padding = {
   top: number,
   right: number,
   bottom: number,
   left: number,
-}
+};
 
 export type Border = {
   top: number,
@@ -250,7 +250,7 @@ export type Border = {
   left: number,
   radius: number,
   color: string,
-}
+};
 
 export type Breakpoint = {
   id: BreakpointId,
@@ -263,19 +263,19 @@ export type Breakpoint = {
   padding: Padding,
   view?: Tree,
   template?: Tree,
-}
+};
 
 export type PageSettings = {
   backgroundColor?: string,
   colors?: string[],
   fontFamily?: string,
-}
+};
 
 export type Page = {
   breakpoints: Breakpoint[],
   elementsInBreakpoints: Record<string, WebBuilderElements>,
   elementsExtras: BreakpointsExtras,
-} & PageSettings
+} & PageSettings;
 
 export type Tree = {
   id: string,
@@ -289,9 +289,9 @@ export type Tree = {
   w: number,
   h: number,
   type: 'row' | 'column' | 'component' | 'fixed'
-}
+};
 
-export type Translations = unknown
+export type Translations = unknown;
 
 export type RenderInContainerProps = React.PropsWithChildren<{
   backgroundColor?: string,
@@ -302,7 +302,7 @@ export type RenderInContainerProps = React.PropsWithChildren<{
 export type TransformElementProperty = (
   componentProperty: WebBuilderComponentProperty,
   elementyPropertyp: WebBuilderElementProperty,
-) => unknown
+) => unknown;
 
 export type BuilderCommonProps = {
   components?: Array<WebBuilderComponent>;
@@ -318,16 +318,16 @@ export type BuilderCommonProps = {
   translations?: Translations,
   transformElementProperty?: TransformElementProperty,
   page?: Page,
-}
+};
 
-export type ViewProps = { page: Page} & BuilderCommonProps;
+export type ViewProps = { page: Page } & BuilderCommonProps;
 
 export type WebBuilderNavbarIcon = {
   id: string,
   icon: () => JSX.Element,
   tooltip?: string,
   onClick: (res: { page: Page }) => void,
-}
+};
 
 export type HelperArrowItem = {
   hasButton?: boolean,
@@ -335,7 +335,7 @@ export type HelperArrowItem = {
   title: string,
 };
 
-export type OnImageUpload = (file: any) => Promise<ImageURL>
+export type OnImageUpload = (file: any) => Promise<ImageURL>;
 
 export type WebBuilderProps = {
   builderHints?: HelperArrowItem[],
@@ -351,7 +351,8 @@ export type WebBuilderProps = {
   onPublish?: (page: Page) => Promise<any>,
   onSaveAsDraft?: (page: Page) => Promise<any>,
   onPagePreview?: (page: Page) => Promise<any>,
-} & BuilderCommonProps
+  onTemplateRestart?: () => Page,
+} & BuilderCommonProps;
 
 export type Configuration = {
   autoFocusRichTextInEditProperties: boolean,
@@ -364,7 +365,7 @@ export type Configuration = {
   scrollSpeed: number,
   editOnDoubleClick: boolean,
   preventCloseEditOnClick: boolean,
-}
+};
 
 export type ILeaf = {
   bold?: boolean,
@@ -402,7 +403,7 @@ export type UseBoxStyleProps = {
   padding?: Partial<Padding>,
 };
 
-export type ElementRenderFunc = () => void
+export type ElementRenderFunc = () => void;
 
 export type VideoComponentProps = {
   url: ElementURL,
@@ -432,6 +433,6 @@ export type IFrameComponentProps = {
   height: number,
   src?: ElementURL,
   padding?: Partial<Padding>,
-}
+};
 
 export type ElementContainer = React.FC;

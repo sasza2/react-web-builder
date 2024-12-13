@@ -257,6 +257,10 @@ export default {
       icon: {
         tooltip: 'Page settings',
       },
+      reset: {
+        description: 'Completely clears all changes and restores the page to its original template',
+        title: 'Reset page',
+      },
     },
     fontFamily: 'Font family',
   },

@@ -281,11 +281,14 @@ export function Templates() {
     }, 2000);
   });
 
+  const onTemplateRestart = (): Page | null => template;
+
   return (
     <WebBuilder
       page={page}
       onPublish={onPublish}
       onSaveAsDraft={onSaveAsDraft}
+      onTemplateRestart={onTemplateRestart}
       components={[]}
       fonts={fonts}
     />

@@ -10,12 +10,16 @@ import { useAppDispatch } from '@/store/useAppDispatch';
 import { useAppSelector } from '@/store/useAppSelector';
 import { assignTestProp } from '@/utils/tests';
 
+import { RemoveGhostButton } from '../Button';
 import { FormProperty } from '../FormProperty';
 import { FormProvider } from '../FormProvider';
 import { ColorPicker } from '../forms/ColorPicker';
 import { PageSettingsCustomColors } from '../forms/ColorPicker/CustomColors/PageSettingsCustomColors';
 import { FormContainerDiv } from '../forms/FormContainerDiv';
-import { FormGroup, FormHeader } from '../forms/FormControl.styled';
+import {
+  Description, FormGroup, FormHeader,
+} from '../forms/FormControl.styled';
+import { useRestartTemplate } from '../Grid/RestartTemplate';
 import { useWebBuilderProperties } from '../PropertiesProvider';
 import { SidebarHeader } from '../SidebarHeader';
 import { SidebarView } from '../SidebarProvider';
@@ -25,11 +29,12 @@ const componentName = 'PageSettings';
 
 export function PageSettings() {
   const { t } = useTranslation();
-  const { fonts, pageSettingsExtra } = useWebBuilderProperties();
+  const { fonts, onTemplateRestart, pageSettingsExtra } = useWebBuilderProperties();
   const pageSettings = usePageSettings();
   const setSidebarView = useSetSidebarView();
   const dispatch = useAppDispatch();
   const undoKey = useAppSelector((state) => state.changes.undoKey);
+  const restartTemplate = useRestartTemplate();
 
   const getFormValues = () => pageSettings;
 
@@ -41,6 +46,13 @@ export function PageSettings() {
 
   const onBack = () => {
     setSidebarView(SidebarView.AddElement);
+  };
+
+  const onRestartClick = () => {
+    if (!onTemplateRestart) return;
+
+    const template = onTemplateRestart();
+    if (template) restartTemplate(template);
   };
 
   return (
@@ -88,6 +100,23 @@ export function PageSettings() {
                   prop={prop}
                 />
               ))
+            }
+            {
+              onTemplateRestart && (
+                <FormGroup>
+                  <FormHeader>
+                    {t('page.settings.reset.title')}
+                  </FormHeader>
+                  <Description>
+                    {t('page.settings.reset.description')}
+                  </Description>
+                  <RemoveGhostButton
+                    onClick={onRestartClick}
+                  >
+                    {t('page.settings.reset.title')}
+                  </RemoveGhostButton>
+                </FormGroup>
+              )
             }
           </FormProvider>
         </FormContainerDiv>

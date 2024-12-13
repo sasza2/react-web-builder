@@ -26,3 +26,6 @@ npm-debug.log*
 # storybook
 /storybook-static
 *storybook.log
+
+# vscode
+.vscode
