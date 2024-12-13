@@ -16,7 +16,7 @@ import { AutoSave } from './components/AutoSave';
 import { BeforeUnload } from './components/BeforeUnload';
 import { ComponentsProvider } from './components/ComponentsProvider';
 import { BuilderElementContainer } from './components/ElementContainer/BuilderElementContainer';
-import { LoadTemplate } from './components/Grid/LoadTemplate/LoadTemplate';
+import { LoadTemplate } from './components/Grid/LoadTemplate';
 import { BuilderHints } from './components/Hints';
 import { HistoryOfElementsExtras } from './components/HistoryOfElementsExtras';
 import { I18nProvider } from './components/I18nProvider';

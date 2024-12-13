@@ -6,6 +6,8 @@ import {
 
 import { ElementsTreeInBreakpoint } from '@/utils/breakpoint';
 
+import { removeAllBreakpoints } from './breakpointsSlice';
+
 const initialState: ElementsInBreakpoints = {};
 
 type ActionAdd = PayloadAction<{ element: WebBuilderElement, breakpointId: string }>;
@@ -103,6 +105,9 @@ export const elementsInBreakpointsSlice = createSlice({
       state,
       { payload: { elementsInBreakpoints } }: ActionReplace,
     ) => elementsInBreakpoints,
+  },
+  extraReducers: (builder) => {
+    builder.addCase(removeAllBreakpoints, () => null);
   },
 });
 

@@ -13,10 +13,11 @@ export const pageSettingsSlice = createSlice({
       ...state,
       ...pageSettings,
     }),
+    setPageSettings: (state, { payload: { pageSettings } }: ActionUpdate) => pageSettings,
     replacePageSettings: (state, { payload }: ActionReplace) => payload,
   },
 });
 
-export const { replacePageSettings, updatePageSettings } = pageSettingsSlice.actions;
+export const { replacePageSettings, setPageSettings, updatePageSettings } = pageSettingsSlice.actions;
 
 export default pageSettingsSlice.reducer;

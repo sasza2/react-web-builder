@@ -3,6 +3,7 @@ import { Action, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { createUniqueId } from '@/utils/createUniqueId';
 
 import { actionsToOmit } from './changesActions';
+import { CHANGES_START_TRANSACTION_TYPE, CHANGES_STOP_TRANSACTION_TYPE } from './changesTransactions';
 import { StateInitialChanges } from './store';
 
 type Change = {
@@ -85,11 +86,27 @@ export const changesSlice = createSlice({
       pushChanges(state, action);
     },
     undoChanges: (state) => {
+      let isTransactionType = false;
+      let transactionFinalized = false;
+
       for (let i = state.index - 1; i >= 0; i--) {
         const { action, time } = state.history[i];
         const prevHistory = state.history[i - 1];
 
         state.index--;
+
+        if (!transactionFinalized && !isTransactionType) {
+          isTransactionType = action.type === CHANGES_STOP_TRANSACTION_TYPE;
+        }
+
+        if (isTransactionType) {
+          if (action.type === CHANGES_START_TRANSACTION_TYPE) {
+            isTransactionType = false;
+            transactionFinalized = true;
+            break;
+          }
+          continue;
+        }
 
         if (prevHistory && prevHistory.action.type === 'elementsInBreakpoints/addElementToBreakpoint'
           && action.type === 'elementsInBreakpoints/setElementsInBreakpoint' && time - prevHistory.time < 1000) {
@@ -107,11 +124,26 @@ export const changesSlice = createSlice({
       state.undoKey = createUniqueId();
     },
     redoChanges: (state) => {
+      let isTransactionType = false;
+      let transactionFinalized = false;
+
       state.undoKey = createUniqueId();
       for (let i = state.index; i < state.history.length; i++) {
         const { action, time } = state.history[i];
         state.index++;
         state.saved = false;
+
+        if (!transactionFinalized && !isTransactionType) {
+          isTransactionType = action.type === CHANGES_START_TRANSACTION_TYPE;
+        }
+
+        if (isTransactionType) {
+          if (action.type === CHANGES_STOP_TRANSACTION_TYPE) {
+            isTransactionType = false;
+            transactionFinalized = true;
+          }
+          continue;
+        }
 
         const next = state.history[i + 1];
         if (next && next.action.type === 'elementsInBreakpoints/setElementsInBreakpointProgrammatic') continue;

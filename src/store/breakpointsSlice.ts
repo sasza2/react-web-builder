@@ -40,6 +40,9 @@ export const breakpointsSlice = createSlice({
       state.length = 0;
       state.push(...breakpoints);
     },
+    removeAllBreakpoints: (state) => {
+      state.length = 0;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(pasteElements, (state, { payload }) => {
@@ -75,7 +78,7 @@ export const breakpointsSlice = createSlice({
 });
 
 export const {
-  addBreakpoint, addBreakpointSilent, removeBreakpoint, replaceBreakpoints, updateBreakpoint, updateBreakpointSilent,
+  addBreakpoint, addBreakpointSilent, removeAllBreakpoints, removeBreakpoint, replaceBreakpoints, updateBreakpoint, updateBreakpointSilent,
 } = breakpointsSlice.actions;
 
 export default breakpointsSlice.reducer;

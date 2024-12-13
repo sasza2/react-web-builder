@@ -18,7 +18,7 @@ const wrapInitialStateWithChanges = (initialState: StateInitialChanges) => ({
   },
 });
 
-const getLastBreakpointId = (breakpoints: Breakpoint[]) => {
+export const getLastBreakpointId = (breakpoints: Breakpoint[]) => {
   const breakpointsWithoutContainers = breakpoints.filter(isBreakpoint);
 
   if (!breakpointsWithoutContainers.length) return null;

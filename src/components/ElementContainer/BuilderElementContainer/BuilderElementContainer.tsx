@@ -72,6 +72,10 @@ export function BuilderElementContainer({
     return tree;
   }, []);
 
+  if (!node) {
+    return <Empty $container={container}>{t('container.empty')}</Empty>;
+  }
+
   return (
     <RenderBreakpoint
       breakpoint={container}

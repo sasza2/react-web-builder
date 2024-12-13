@@ -34,7 +34,10 @@ export function TemplateLoaderAnimation({ duration }: TemplateLoaderAnimationPro
       if (currentProgressPercent > progressPercentCounter.current) {
         progressPercentCounter.current = currentProgressPercent;
         progressPercentCounterNode.current.innerHTML = `${currentProgressPercent}%`;
-        progressPercentBarNode.current.style.width = `${currentProgressPercent}%`;
+
+        if (progressPercentBarNode.current) {
+          progressPercentBarNode.current.style.width = `${currentProgressPercent}%`;
+        }
       }
     }, 100);
 

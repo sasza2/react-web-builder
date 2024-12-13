@@ -13,8 +13,7 @@ import { useFontImport } from '@/hooks/useFontImport';
 import { useGetBreakpointWidth } from '@/hooks/useGetBreakpointWidth';
 import { usePageSettings } from '@/hooks/usePageSettings';
 import { setElementsInBreakpoint } from '@/store/elementsInBreakpointsSlice';
-import { useAppSelector } from '@/store/useAppSelector';
-import { assignAllToElementsExtras, byBreakpointId, initElementsExtrasFromBreakpoint } from '@/utils/breakpoint';
+import { assignAllToElementsExtras, initElementsExtrasFromBreakpoint } from '@/utils/breakpoint';
 import { delay } from '@/utils/delay';
 import { produceRenderForElement } from '@/utils/element';
 import { calculatePositionsOfElements, getElementsFromTree } from '@/utils/templates';
@@ -37,7 +36,8 @@ export function LoadBreakpoint({
   const gridTemplateAPIRef = useRef<GridAPI>();
   const { elementsExtras } = useContext(ElementsContext);
   const dispatch = useDispatch();
-  const breakpointFromStore = useAppSelector((state) => state.breakpoints.find(byBreakpointId(breakpoint.id)));
+  const breakpointRef = useRef<Breakpoint>();
+  breakpointRef.current = breakpoint;
   const pageSettings = usePageSettings();
   const fontImport = useFontImport(pageSettings.fontFamily);
   const getBreakpointWidth = useGetBreakpointWidth();
@@ -80,8 +80,8 @@ export function LoadBreakpoint({
 
       if (!mounted) return;
 
-      initElementsExtrasFromBreakpoint(page, breakpointFromStore, elementsExtras);
-      assignAllToElementsExtras(elementsExtras, breakpointFromStore, gridTemplateAPIRef);
+      initElementsExtrasFromBreakpoint(page, breakpointRef.current, elementsExtras);
+      assignAllToElementsExtras(elementsExtras, breakpointRef.current, gridTemplateAPIRef);
 
       onFinishLoading(breakpoint);
     };
@@ -134,7 +134,7 @@ export function LoadBreakpoint({
       $isLoaded
       $pageSettings={pageSettings}
     >
-      <RenderInContainer breakpoint={breakpointFromStore}>
+      <RenderInContainer breakpoint={breakpoint}>
         <ReactGrid
           autoOrganizeElements
           boundary
