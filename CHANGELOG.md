@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.18.0
+
+### Minor Changes
+
+- 45b20a7: add reset page feature in page settings
+
 ## 0.17.0
 
 ### Minor Changes
