@@ -107,7 +107,7 @@ export const elementsInBreakpointsSlice = createSlice({
     ) => elementsInBreakpoints,
   },
   extraReducers: (builder) => {
-    builder.addCase(removeAllBreakpoints, () => null);
+    builder.addCase(removeAllBreakpoints, () => initialState);
   },
 });
 
