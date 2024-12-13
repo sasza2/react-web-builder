@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.18.1
+
+### Patch Changes
+
+- b9cf9f8: fix: reset elements in breakpoints to initial state
+
 ## 0.18.0
 
 ### Minor Changes
