@@ -13,6 +13,9 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
+      - name: Check if pnpm-lock.yaml exists
+        run: ls -l pnpm-lock.yaml
+
       - name: Install pnpm
         run: npm install -g pnpm
 
