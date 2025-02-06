@@ -2,7 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { PageSettings as IPageSettings } from 'types';
 
-import { Select } from '@/components/forms/Select';
 import { usePageSettings } from '@/hooks/usePageSettings';
 import { useSetSidebarView } from '@/hooks/useSetSidebarView';
 import { updatePageSettings } from '@/store/pageSettingsSlice';
@@ -15,6 +14,7 @@ import { FormProperty } from '../FormProperty';
 import { FormProvider } from '../FormProvider';
 import { ColorPicker } from '../forms/ColorPicker';
 import { PageSettingsCustomColors } from '../forms/ColorPicker/CustomColors/PageSettingsCustomColors';
+import { FontFamily } from '../forms/FontFamily';
 import { FormContainerDiv } from '../forms/FormContainerDiv';
 import {
   Description, FormGroup, FormHeader,
@@ -29,7 +29,7 @@ const componentName = 'PageSettings';
 
 export function PageSettings() {
   const { t } = useTranslation();
-  const { fonts, onTemplateRestart, pageSettingsExtra } = useWebBuilderProperties();
+  const { onTemplateRestart, pageSettingsExtra } = useWebBuilderProperties();
   const pageSettings = usePageSettings();
   const setSidebarView = useSetSidebarView();
   const dispatch = useAppDispatch();
@@ -67,18 +67,7 @@ export function PageSettings() {
             getFormValues={getFormValues}
             setForm={setForm}
           >
-            { fonts && (
-              <FormGroup>
-                <FormHeader>
-                  {t('page.fontFamily')}
-                </FormHeader>
-                <Select
-                  name="fontFamily"
-                  size="lg"
-                  options={fonts}
-                />
-              </FormGroup>
-            ) }
+            <FontFamily />
             <FormGroup>
               <FormHeader>
                 {t('page.background')}

@@ -6,6 +6,7 @@ import { useComponentsProperty } from '@/components/ComponentsProvider';
 import { removePaddingFromLastTreeElement } from '@/components/View/removePaddingFromLastTreeElement';
 import { useBreakpoints } from '@/hooks/useBreakpoints';
 import { useElements } from '@/hooks/useElements';
+import { useFontImport } from '@/hooks/useFontImport';
 import { useAppSelector } from '@/store/useAppSelector';
 import { byBreakpointId } from '@/utils/breakpoint';
 import { mergeStyles } from '@/utils/styles';
@@ -25,6 +26,7 @@ type BuilderElementContainerProps = {
   breakpointHeight: BreakpointHeight,
   boxShadow?: string,
   containerId: string,
+  fontFamily: string,
 };
 
 export function BuilderElementContainer({
@@ -33,12 +35,14 @@ export function BuilderElementContainer({
   breakpointHeight,
   boxShadow,
   containerId,
+  fontFamily,
 }: BuilderElementContainerProps) {
   const { transformElementProperty } = useProperties();
   const components = useComponentsProperty();
   const { elementsExtras } = useElements();
   const elementsInBreakpoints = useAppSelector((state) => state.elementsInBreakpoints);
   const { t } = useTranslation();
+  const fontImport = useFontImport(fontFamily);
 
   const style = useContainerStyle({
     backgroundImage,
@@ -85,6 +89,7 @@ export function BuilderElementContainer({
         style,
         {
           background: container.backgroundColor,
+          fontFamily: fontFamily ? fontImport.fontFamily : undefined,
         },
       )}
     >
@@ -96,6 +101,7 @@ export function BuilderElementContainer({
           transformElementProperty={transformElementProperty}
         />
       ) : <Empty $container={container}>{t('container.empty')}</Empty>}
+      {fontFamily ? fontImport.stylesheet : undefined}
     </RenderBreakpoint>
   );
 }
