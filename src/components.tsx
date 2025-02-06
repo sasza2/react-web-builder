@@ -3,6 +3,7 @@ import { Trans } from 'react-i18next';
 import ReactPlayer from 'react-player';
 import {
   BuilderCommonProps,
+  ElementAnchor,
   ElementContainer,
   ImageComponentProps,
   VideoComponentProps,
@@ -13,6 +14,7 @@ import { Box } from '@/components/View/Box';
 import { CustomButton } from '@/components/View/CustomButton';
 
 import { VideoWrapper } from './components.styled';
+import { Anchor as AnchorIcon } from './components/icons/Anchor';
 import { Container } from './components/icons/Container';
 import { CustomButton as CustomButtonIcon } from './components/icons/CustomButton';
 import { IFrame as IFrameIcon } from './components/icons/IFrame';
@@ -112,8 +114,9 @@ export const useInternalComponents = ({
   defaultButtonHref,
   defaultImageSrc,
   defaultVideoSrc,
+  elementAnchor,
   elementContainer,
-}: BuilderCommonProps & { elementContainer: ElementContainer }) => {
+}: BuilderCommonProps & { elementAnchor: ElementAnchor, elementContainer: ElementContainer }) => {
   const components: Array<WebBuilderComponent> = [
     {
       id: 'Container',
@@ -342,6 +345,7 @@ export const useInternalComponents = ({
     component: Separator,
     group: BasicGroup,
     props: [],
+    resizable: false,
     order: -100,
   });
 
@@ -372,6 +376,26 @@ export const useInternalComponents = ({
       createBoxShadowProperty(),
     ],
     order: -50,
+  });
+
+  components.push({
+    id: 'Anchor',
+    icon: AnchorIcon,
+    label: <Trans i18nKey="element.anchor.name" />,
+    component: elementAnchor,
+    group: BasicGroup,
+    props: [
+      {
+        id: 'anchorId',
+        label: <Trans i18nKey="element.anchor.id.label" />,
+        description: <Trans i18nKey="element.anchor.id.description" />,
+        leftNode: '#',
+        type: 'text',
+        defaultValue: 'example',
+      },
+    ],
+    order: -40,
+    resizable: false,
   });
 
   return components;

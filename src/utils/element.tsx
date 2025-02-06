@@ -16,7 +16,7 @@ import { RenderWebComponent } from '@/components/Grid/RenderWebComponent';
 
 export const isSeparator = (component: WebBuilderComponent) => component.id === 'Separator'; // TODO
 
-export const isResizable = (component: WebBuilderComponent) => !isSeparator(component);
+export const isResizable = (component: WebBuilderComponent) => component.resizable !== false;
 
 export const getDefaultHeight = (component: WebBuilderComponent) => {
   let h: number | 'auto' = 'auto';

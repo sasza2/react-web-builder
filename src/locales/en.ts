@@ -132,6 +132,13 @@ export default {
     text: 'Container',
   },
   element: {
+    anchor: {
+      id: {
+        label: 'Anchor ID',
+        description: 'Enter a unique name (ID) for the section you want to link to. This ID will be used to create a target. For example, if you want to link to this section later, you could call it about, services, or any name you like.',
+      },
+      name: 'Anchor',
+    },
     backgroundColor: 'Background color',
     backgroundImage: {
       name: 'Background image',

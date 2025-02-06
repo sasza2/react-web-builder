@@ -15,6 +15,7 @@ import { WebBuilderSizeProvider } from '@/components/WebBuilderSize';
 import { AutoSave } from './components/AutoSave';
 import { BeforeUnload } from './components/BeforeUnload';
 import { ComponentsProvider } from './components/ComponentsProvider';
+import { BuilderElementAnchor } from './components/ElementAnchor/BuilderElementAnchor';
 import { BuilderElementContainer } from './components/ElementContainer/BuilderElementContainer';
 import { LoadTemplate } from './components/Grid/LoadTemplate';
 import { BuilderHints } from './components/Hints';
@@ -30,7 +31,7 @@ import { GlobalStyles } from './WebBuilder.styled';
 function WebBuilder(props: WebBuilderProps) {
   return (
     <PropertiesProvider {...props}>
-      <ComponentsProvider {...props} components={props.components} elementContainer={BuilderElementContainer}>
+      <ComponentsProvider {...props} components={props.components} elementAnchor={BuilderElementAnchor} elementContainer={BuilderElementContainer}>
         <StoreProvider>
           <ConfigurationProvider>
             <GridAPIProvider>
