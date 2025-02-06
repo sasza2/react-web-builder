@@ -93,11 +93,6 @@
   "browser": {
     "[module-name]": false
   },
-  "pnpm": {
-    "overrides": {
-      "csstype": "3.1.2"
-    }
-  },
   "devDependencies": {
     "@babel/core": "7.24.3",
     "@changesets/cli": "2.27.9",
