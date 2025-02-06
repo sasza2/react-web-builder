@@ -20,10 +20,10 @@ export function LoadTemplateForPage({ children }: React.PropsWithChildren) {
   const [templateLoading, setTemplateLoading] = useState(() => shouldLoadTemplate(page));
 
   const breakpoints = useMemo<Breakpoint[]>(() => {
-    if (!templateLoading) return [];
+    if (!templateLoading || !page) return [];
     return page.breakpoints
       .filter((breakpoint) => shouldLoadTemplateForBreakpoint(page, breakpoint));
-  }, [page.breakpoints, templateLoading]);
+  }, [page?.breakpoints, templateLoading]);
 
   const onFinishLoadingBreakpoints = useCallback(() => {
     setTemplateLoading(false);

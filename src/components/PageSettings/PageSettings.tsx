@@ -24,12 +24,13 @@ import { useWebBuilderProperties } from '../PropertiesProvider';
 import { SidebarHeader } from '../SidebarHeader';
 import { SidebarView } from '../SidebarProvider';
 import { SidebarScrollbar } from '../SidebarScrollbar';
+import { UploadPage } from './UploadPage';
 
 const componentName = 'PageSettings';
 
 export function PageSettings() {
   const { t } = useTranslation();
-  const { onTemplateRestart, pageSettingsExtra } = useWebBuilderProperties();
+  const { enableUpload, onTemplateRestart, pageSettingsExtra } = useWebBuilderProperties();
   const pageSettings = usePageSettings();
   const setSidebarView = useSetSidebarView();
   const dispatch = useAppDispatch();
@@ -107,6 +108,7 @@ export function PageSettings() {
                 </FormGroup>
               )
             }
+            { enableUpload && <UploadPage /> }
           </FormProvider>
         </FormContainerDiv>
       </SidebarScrollbar>

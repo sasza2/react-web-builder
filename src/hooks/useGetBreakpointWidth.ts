@@ -16,7 +16,9 @@ export const useGetBreakpointWidth = () => {
     if (!isContainer(breakpoint)) return breakpoint.from - padding.left - padding.right;
 
     const parent = breakpoints.find(byBreakpointId(breakpoint.parentId));
-    const elements = elementsInBreakpoints[parent.id];
+    if (!parent) return 0;
+
+    const elements = elementsInBreakpoints[parent.id] || [];
 
     const containerElement = elements.find(({ props }: WebBuilderElement): string | null => {
       const containerId = getElementContainerIdProp(props);

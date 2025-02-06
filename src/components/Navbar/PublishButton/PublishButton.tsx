@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { ConfirmButton } from '@/components/Button';
 import { Icon } from '@/components/icons/Icon';
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
+import { useDownloadPage } from '@/hooks/page/useDownloadPage';
 import { usePagePublish } from '@/hooks/usePagePublish';
 import { usePageSaveAsDraft } from '@/hooks/usePageSaveAsDraft';
 import { assignTestProp } from '@/utils/tests';
@@ -16,11 +17,12 @@ import {
 
 export function PublishButtonIn() {
   const { t } = useTranslation();
-  const { onExit } = useWebBuilderProperties();
+  const { enableDownload, onExit } = useWebBuilderProperties();
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const pagePublish = usePagePublish();
   const pageSaveAsDraft = usePageSaveAsDraft();
+  const download = useDownloadPage();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -69,6 +71,14 @@ export function PublishButtonIn() {
               {...assignTestProp('saveAsDraft')}
             >
               {t('publish.draft.label')}
+            </PopupItem>
+          ) }
+          { enableDownload && (
+            <PopupItem
+              onClick={download}
+              {...assignTestProp('download')}
+            >
+              {t('publish.download')}
             </PopupItem>
           ) }
           { onExit && (
