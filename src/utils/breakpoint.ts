@@ -39,7 +39,7 @@ export const shouldLoadTemplateForBreakpoint = (
   breakpoint: Breakpoint,
 ) => {
   if (!page) return false;
-  if (!breakpoint || !breakpoint.template || isContainer(breakpoint)) return false;
+  if (!breakpoint || !breakpoint.template) return false;
 
   const elementsExtrasIds = Object.keys(get(page, `elementsExtras.${breakpoint.id}`, {}));
 

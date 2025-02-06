@@ -344,6 +344,8 @@ export type OnImageUpload = (file: any) => Promise<ImageURL>;
 
 export type WebBuilderProps = {
   builderHints?: HelperArrowItem[],
+  enableDownload?: boolean,
+  enableUpload?: boolean,
   navbarIcons?: Array<WebBuilderNavbarIcon>,
   page?: Page,
   pageSettingsExtra?: WebBuilderComponentProperty[],
@@ -351,6 +353,7 @@ export type WebBuilderProps = {
   onAutoSave?: (page: Page) => void,
   onChange?: (page: Page) => void,
   onAboutClick?: (about: WebBuilderComponentPropertyAbout['button']) => void,
+  onBeforeDownloadPage?: (page: Page) => { filename?: string, page?: Page },
   onExit?: () => Promise<void>,
   onImageUpload?: OnImageUpload,
   onPublish?: (page: Page) => Promise<any>,

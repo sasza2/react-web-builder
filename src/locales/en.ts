@@ -268,12 +268,17 @@ export default {
         description: 'Completely clears all changes and restores the page to its original template',
         title: 'Reset page',
       },
+      upload: {
+        description: 'Click to browse your device and select the file you want to upload. Please note that uploading a file will replace the current page content.',
+        title: 'Upload page',
+      },
     },
     fontFamily: 'Font family',
   },
   publish: {
     name: 'Save / Publish',
     tooltip: 'Save all changes or publish page',
+    download: 'Download',
     draft: {
       label: 'Save as draft',
       pending: 'Waiting for save',
