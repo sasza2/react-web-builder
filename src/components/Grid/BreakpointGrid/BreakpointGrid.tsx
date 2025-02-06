@@ -9,7 +9,7 @@ import { useBlurSelectedElement } from '@/hooks/useBlurSelectedElement';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useDeleteElementOnKey } from '@/hooks/useDeleteElementOnKey';
 import { useElementOnStartResizing } from '@/hooks/useElementOnStartResizing';
-import { useFontImport } from '@/hooks/useFontImport';
+import { useFontImportInGrid } from '@/hooks/useFontImportInGrid';
 import { useGetBreakpointWidth } from '@/hooks/useGetBreakpointWidth';
 import { useGridPaste } from '@/hooks/useGridPaste';
 import { usePageSettings } from '@/hooks/usePageSettings';
@@ -51,7 +51,7 @@ export function BreakpointGrid() {
   const contextMenu = useOnContextMenu();
   const { scrollElement, onScrollChange } = useScroll();
   const gridPaste = useGridPaste();
-  const fontImport = useFontImport(pageSettings.fontFamily);
+  const fontImport = useFontImportInGrid();
   const { selectedElements } = useSelectedElements();
   useDeleteElementOnKey();
   useBlurSelectedElement();

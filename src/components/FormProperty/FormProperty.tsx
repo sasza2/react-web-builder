@@ -10,6 +10,7 @@ import { BoxShadow } from '../forms/BoxShadow';
 import { BreakpointHeight } from '../forms/BreakpointHeight';
 import { ColorPicker } from '../forms/ColorPicker';
 import { EditBreakpointField } from '../forms/EditBreakpointField';
+import { FontFamily } from '../forms/FontFamily';
 import { FontOptions } from '../forms/FontOptions';
 import { FormGroup, FormHeader } from '../forms/FormControl.styled';
 import { ImageUpload } from '../forms/ImageUpload';
@@ -53,6 +54,11 @@ export function FormProperty({
           name={name}
         />
       </FormGroup>
+    );
+  }
+  if (prop.type === 'fontFamily') {
+    return (
+      <FontFamily />
     );
   }
   if (prop.type === 'list') {

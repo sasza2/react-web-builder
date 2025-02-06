@@ -204,6 +204,8 @@ WebBuilderComponentPropertyAbout
   type: 'breakpointHeight',
   defaultValue?: PropertyDefaultValue<BreakpointHeight>,
 } | {
+  type: 'fontFamily',
+} | {
   type: 'hidden',
 }) & {
   id: string,

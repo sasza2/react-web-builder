@@ -187,6 +187,10 @@ export const useInternalComponents = ({
         },
         createBorderProperty(),
         createBoxShadowProperty(),
+        {
+          id: 'fontFamily',
+          type: 'fontFamily',
+        },
       ],
       order: -600,
     },

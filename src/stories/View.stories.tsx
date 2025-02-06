@@ -2,6 +2,7 @@ import React from 'react';
 import { Page } from 'types';
 
 import View from '../View';
+import { fonts } from './consts';
 
 export function Published() {
   const page = JSON.parse(localStorage.getItem('page-builder-published')) as Page;
@@ -12,7 +13,13 @@ export function Published() {
   }
   return (
     <div className="story-template">
-      { page && <View page={page} components={[]} /> }
+      { page && (
+      <View
+        fonts={fonts}
+        page={page}
+        components={[]}
+      />
+      ) }
     </div>
   );
 }

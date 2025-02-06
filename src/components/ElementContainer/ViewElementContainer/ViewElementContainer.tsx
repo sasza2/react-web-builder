@@ -7,6 +7,7 @@ import createTreeElements from '@/components/View/createTreeElements';
 import getBreakpointRowsByLastElement from '@/components/View/getBreakpointRowsByLastElement';
 import { RenderBreakpoint } from '@/components/View/RenderBreakpoint/RenderBreakpoint';
 import { RenderTree } from '@/components/View/RenderTree';
+import { useFontImport } from '@/hooks/useFontImport';
 import { mergeStyles } from '@/utils/styles';
 import { HIDE_SCROLLBAR_CLASS_NAME } from '@/View.styled';
 
@@ -18,6 +19,7 @@ type ViewElementContainerProps = {
   breakpointHeight: BreakpointHeight,
   boxShadow?: string,
   containerId: string,
+  fontFamily?: string,
 };
 
 export function ViewElementContainer({
@@ -26,10 +28,12 @@ export function ViewElementContainer({
   breakpointHeight,
   boxShadow,
   containerId,
+  fontFamily,
 }: ViewElementContainerProps) {
   const { page, transformElementProperty } = useViewProperties();
   const container = page.breakpoints.find((item) => item.id === containerId);
   const components = useComponentsProperty();
+  const fontImport = useFontImport(fontFamily);
 
   const style = useContainerStyle({
     backgroundImage,
@@ -62,6 +66,7 @@ export function ViewElementContainer({
         style,
         {
           background: container.backgroundColor,
+          fontFamily: fontFamily ? fontImport.fontFamily : undefined,
         },
       )}
     >
@@ -71,6 +76,7 @@ export function ViewElementContainer({
         node={node}
         transformElementProperty={transformElementProperty}
       />
+      {fontFamily ? fontImport.stylesheet : undefined}
     </RenderBreakpoint>
   );
 }
