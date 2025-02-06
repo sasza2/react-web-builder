@@ -18,10 +18,10 @@ jobs:
 
       - name: Install dependencies and build
         run: pnpm i --frozen-lockfile
-        
+
       - name: Run linter
         run: pnpm lint
-        
+
       - name: Run tests
         run: pnpm test
 
