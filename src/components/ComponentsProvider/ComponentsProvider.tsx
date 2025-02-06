@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useMemo } from 'react';
-import { BuilderCommonProps, ElementContainer, WebBuilderComponent } from 'types';
+import {
+  BuilderCommonProps, ElementAnchor, ElementContainer, WebBuilderComponent,
+} from 'types';
 
 import { useInternalComponents } from '@/components';
 import { mergeArrays } from '@/utils/array';
@@ -18,6 +20,7 @@ export const useElementContainer = () => {
 };
 
 type ComponentsProviderProps = React.PropsWithChildren<BuilderCommonProps & {
+  elementAnchor: ElementAnchor,
   elementContainer: ElementContainer,
   components: WebBuilderComponent[],
 }>;
@@ -29,9 +32,10 @@ const mergeItem = (a: WebBuilderComponent, b: WebBuilderComponent) => ({
 });
 
 export function ComponentsProvider({
-  children, components, elementContainer, page, ...props
+  children, components, elementAnchor, elementContainer, page, ...props
 }: ComponentsProviderProps) {
   const internalComponents = useInternalComponents({
+    elementAnchor,
     elementContainer,
     components,
     page,

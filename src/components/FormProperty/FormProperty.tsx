@@ -156,6 +156,8 @@ export function FormProperty({
           {prop.label}
         </FormHeader>
         <Input
+          leftNode={prop.leftNode}
+          label={prop.description}
           name={name}
         />
       </FormGroup>

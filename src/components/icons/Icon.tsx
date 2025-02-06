@@ -2,6 +2,7 @@ import React from 'react';
 import { Tooltip } from 'react-tooltip';
 
 import { AddBreakpoint } from './AddBreakpoint';
+import { Anchor } from './Anchor';
 import { ArrowLeft } from './ArrowLeft';
 import { ColorBasic } from './ColorBasic';
 import { ColorGradient } from './ColorGradient';
@@ -76,6 +77,7 @@ export function Icon({
 
 Icon.AddBreakpoint = AddBreakpoint;
 Icon.ArrowLeft = ArrowLeft;
+Icon.Anchor = Anchor;
 Icon.Configuration = Configuration;
 Icon.ColorBasic = ColorBasic;
 Icon.ColorGradient = ColorGradient;

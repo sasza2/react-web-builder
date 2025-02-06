@@ -134,7 +134,9 @@ export type WebBuilderComponentProperty = ({
 } | {
   type: 'text',
   label: JSX.Element | string,
+  description?: JSX.Element | string,
   defaultValue?: PropertyDefaultValue<string>,
+  leftNode?: JSX.Element | string,
 } | {
   type: 'number',
   label: JSX.Element | string,
@@ -234,6 +236,7 @@ export type WebBuilderComponent = {
   group?: WebBuilderGroup | WebBuilderGroup[],
   props?: Array<WebBuilderComponentProperty>,
   order?: number,
+  resizable?: boolean,
 };
 
 export type BreakpointId = string;
@@ -438,3 +441,5 @@ export type IFrameComponentProps = {
 };
 
 export type ElementContainer = React.FC;
+
+export type ElementAnchor = React.FC<{ anchorId: string }>;
