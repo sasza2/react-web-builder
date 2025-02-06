@@ -115,7 +115,7 @@ export const calculatePositionsOfElements = (
     }
   };
 
-  rec(treeWithHeight, 0, 0);
+  rec(treeWithHeight, treeWithHeight.marginLeft, treeWithHeight.marginTop);
 
   return elements;
 };
