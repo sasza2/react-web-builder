@@ -1,5 +1,18 @@
 # react-web-builder
 
+## 0.19.0
+
+### Minor Changes
+
+- b57fd8f: anchor component
+- 24ba614: allow page download/upload
+- c5f3caf: property font family for container
+
+### Patch Changes
+
+- b78f702: update react-grid-panzoom (organize grid elements issue with containers)
+- 61382fa: fix: opening container in builder with only one element
+
 ## 0.18.1
 
 ### Patch Changes
