@@ -30,8 +30,8 @@ dependencies:
     specifier: 5.2.6
     version: 5.2.6(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
   react-grid-panzoom:
-    specifier: 1.10.1
-    version: 1.10.1(react-dom@18.2.0)(react@18.2.0)
+    specifier: 1.10.2
+    version: 1.10.2(react-dom@18.2.0)(react@18.2.0)
   react-i18next:
     specifier: 13.2.2
     version: 13.2.2(i18next@23.5.1)(react-dom@18.2.0)(react@18.2.0)
@@ -5429,8 +5429,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-grid-panzoom@1.10.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-X015YR2PxbmUo+alpsTlr97u0V9snJP5DMxBKxSk2lpMgRnvDmh46AB8MElTw2ekYL/qcxIw8Ev7Clbq0krXnw==}
+  /react-grid-panzoom@1.10.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-/AY2o2Bgq/Vkrz9UvEDSej7KzyIvG6BGXOW5n2XH0/weaiUnBliMWi9YkfqqV4AxGV1ygRYI2WIHgrg6Y5zGtg==}
     peerDependencies:
       react: '>=16.14.0'
       react-dom: '>=16.14.0'

@@ -35,29 +35,29 @@
   ],
   "exports": {
     ".": {
+      "types": "./types/index.d.ts",
       "import": "./dist/WebBuilder.js",
-      "require": "./dist/WebBuilder.cjs",
-      "types": "./types/index.d.ts"
+      "require": "./dist/WebBuilder.cjs"
     },
     "./components": {
+      "types": "./types/components.d.ts",
       "import": "./dist/components.js",
-      "require": "./dist/components.cjs",
-      "types": "./types/components.d.ts"
+      "require": "./dist/components.cjs"
     },
     "./Box": {
+      "types": "./types/Box.d.ts",
       "import": "./dist/Box.js",
-      "require": "./dist/Box.cjs",
-      "types": "./types/Box.d.ts"
+      "require": "./dist/Box.cjs"
     },
     "./useBoxStyle": {
+      "types": "./types/useBoxStyle.d.ts",
       "import": "./dist/useBoxStyle.js",
-      "require": "./dist/useBoxStyle.cjs",
-      "types": "./types/useBoxStyle.d.ts"
+      "require": "./dist/useBoxStyle.cjs"
     },
     "./View": {
+      "types": "./types/View.d.ts",
       "import": "./dist/View.js",
-      "require": "./dist/View.cjs",
-      "types": "./types/View.d.ts"
+      "require": "./dist/View.cjs"
     }
   },
   "keywords": [
@@ -153,7 +153,7 @@
     "react-accessible-accordion": "5.0.0",
     "react-color": "2.19.3",
     "react-frame-component": "5.2.6",
-    "react-grid-panzoom": "1.10.1",
+    "react-grid-panzoom": "1.10.2",
     "react-i18next": "13.2.2",
     "react-player": "2.13.0",
     "react-range": "1.8.14",
