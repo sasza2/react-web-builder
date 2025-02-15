@@ -73,6 +73,7 @@ function InputRef({
 
   const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = useCallback((e) => {
     if (e.code === 'Enter') {
+      e.preventDefault();
       onBlurInternal();
       setTimeout(() => (e.target as HTMLInputElement).blur(), 0);
     }
