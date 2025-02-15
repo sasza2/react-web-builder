@@ -1,5 +1,12 @@
 # react-web-builder
 
+## 0.19.1
+
+### Patch Changes
+
+- 54edbfb: fix pressing enter key in input (no page refresh)
+- ad6ea45: add anchor component classname
+
 ## 0.19.0
 
 ### Minor Changes
