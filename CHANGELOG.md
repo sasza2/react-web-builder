@@ -1,5 +1,14 @@
 # react-web-builder
 
+## 0.19.2
+
+### Patch Changes
+
+- 4e89e84: fix saving input value when user clicks on element
+- 4b59457: fix builder anchor element when loading breakpoint
+- 6d2aa69: fix loading templates
+- 5176bca: fix opening container with paddings
+
 ## 0.19.1
 
 ### Patch Changes
