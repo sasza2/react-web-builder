@@ -29,7 +29,7 @@ export const useGetBreakpointWidth = () => {
     if (!containerElement) return breakpoint.from;
 
     const parentWidth = getBreakpointWidth(parent);
-    return (containerElement.w / parent.cols) * parentWidth;
+    return (containerElement.w / parent.cols) * parentWidth - padding.left - padding.right;
   }, [breakpoints, elementsInBreakpoints]);
 
   return getBreakpointWidth;
