@@ -1,7 +1,6 @@
-import { Page, WebBuilderElements, WebBuilderProps } from 'types';
+import { Page, WebBuilderProps } from 'types';
 
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
-import { useAppSelector } from '@/store/useAppSelector';
 import { getPageSettings } from '@/utils/pageSettings';
 
 import { useBreakpoints } from '../useBreakpoints';
@@ -35,22 +34,11 @@ const downloadBlob = (page: Page, onBeforeDownloadPage?: WebBuilderProps['onBefo
 
 export const useDownloadPage = () => {
   const breakpoints = useBreakpoints();
-  const elementsInBreakpoints = useAppSelector((state) => state.elementsInBreakpoints);
   const pageSettings = usePageSettings();
   const buildBreakpointWithTree = useBuildBreakpointWithTree();
   const { onBeforeDownloadPage } = useWebBuilderProperties();
 
   const download = () => {
-    const elements: WebBuilderElements = [];
-    Object.entries(elementsInBreakpoints).forEach(([breakpointId, elementsInBreakpoint]) => {
-      elementsInBreakpoint.forEach((element) => {
-        elements.push({
-          ...element,
-          breakpointId,
-        });
-      });
-    });
-
     const breakpointsWithTree = breakpoints.map(buildBreakpointWithTree).filter((breakpoint) => breakpoint.view).map((breakpoint) => ({
       ...breakpoint,
       view: null,

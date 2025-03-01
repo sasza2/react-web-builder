@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { BackgroundImage, Border, BreakpointHeight } from 'types';
 
 import { useComponentsProperty } from '@/components/ComponentsProvider';
+import { useIsBreakpointLoading } from '@/components/Grid/LoadBreakpoint';
 import { removePaddingFromLastTreeElement } from '@/components/View/removePaddingFromLastTreeElement';
 import { useBreakpoints } from '@/hooks/useBreakpoints';
 import { useElements } from '@/hooks/useElements';
@@ -52,6 +53,7 @@ export function BuilderElementContainer({
   });
 
   const breakpoints = useBreakpoints();
+  const isBreakpointLoading = useIsBreakpointLoading();
 
   const container = useMemo(() => {
     const breakpoint = breakpoints.find(byBreakpointId(containerId));
@@ -63,7 +65,11 @@ export function BuilderElementContainer({
 
     const elementsInContainer = elementsInBreakpoints[container.id] || [];
 
-    if (!elementsInContainer.length) return null;
+    if (!elementsInContainer.length) {
+      if (isBreakpointLoading && container.template) return container.template;
+      return null;
+    }
+
     const tree = createTreeElements(
       elementsInContainer,
       elementsExtras.current[container.id] || {},
@@ -74,10 +80,14 @@ export function BuilderElementContainer({
     removePaddingFromLastTreeElement(tree);
 
     return tree;
-  }, []);
+  }, [container, elementsInBreakpoints, isBreakpointLoading]);
 
   if (!node) {
-    return <Empty $container={container}>{t('container.empty')}</Empty>;
+    return (
+      <Empty $container={container}>
+        {t('container.empty')}
+      </Empty>
+    );
   }
 
   return (
@@ -93,15 +103,12 @@ export function BuilderElementContainer({
         },
       )}
     >
-      {node ? (
-        <RenderTree
-          breakpoint={container}
-          components={components}
-          node={node}
-          transformElementProperty={transformElementProperty}
-        />
-      ) : <Empty $container={container}>{t('container.empty')}</Empty>}
-      {fontFamily ? fontImport.stylesheet : undefined}
+      <RenderTree
+        breakpoint={container}
+        components={components}
+        node={node}
+        transformElementProperty={transformElementProperty}
+      />
     </RenderBreakpoint>
   );
 }

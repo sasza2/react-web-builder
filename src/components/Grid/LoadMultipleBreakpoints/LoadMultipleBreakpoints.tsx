@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { Breakpoint } from 'types';
 
 import { TemplateLoaderAnimation } from '@/components/TemplateLoaderAnimation';
-import { WAIT_FOR_LOAD } from '@/consts';
 
 import { LoadBreakpoint } from '../LoadBreakpoint';
 import { Container } from './LoadMultipleBreakpoint.styled';
@@ -47,7 +46,7 @@ export function LoadMultipleBreakpoints({
 
   return (
     <>
-      <TemplateLoaderAnimation duration={WAIT_FOR_LOAD * 2} />
+      <TemplateLoaderAnimation />
       <Container>
         {breakpoints.length > 0 && (
           breakpoints

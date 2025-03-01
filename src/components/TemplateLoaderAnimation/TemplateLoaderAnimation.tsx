@@ -8,11 +8,7 @@ import {
   Container, Progress, ProgressIn, Title,
 } from './TemplateLoaderAnimation.styled';
 
-type TemplateLoaderAnimationProps = {
-  duration: number,
-};
-
-export function TemplateLoaderAnimation({ duration }: TemplateLoaderAnimationProps) {
+export function TemplateLoaderAnimation() {
   const { t } = useTranslation();
   const webBuilderHeight = useWebBuilderSizeHeight();
   const progressPercentCounter = useRef<number>(0);
@@ -26,25 +22,25 @@ export function TemplateLoaderAnimation({ duration }: TemplateLoaderAnimationPro
   }, []);
 
   useEffect(() => {
-    let count = 0;
+    let currentProgressPercent = 0;
 
     const timer = setInterval(() => {
-      count += 100;
-      const currentProgressPercent = Math.min(Math.floor(count / duration * 100), 100);
       if (currentProgressPercent > progressPercentCounter.current) {
         progressPercentCounter.current = currentProgressPercent;
-        progressPercentCounterNode.current.innerHTML = `${currentProgressPercent}%`;
+        progressPercentCounterNode.current.innerHTML = `${Math.floor(currentProgressPercent)}%`;
 
         if (progressPercentBarNode.current) {
           progressPercentBarNode.current.style.width = `${currentProgressPercent}%`;
         }
       }
-    }, 100);
+
+      currentProgressPercent += (100 - currentProgressPercent) / 10;
+    }, 200);
 
     return () => {
       clearInterval(timer);
     };
-  }, [duration]);
+  }, []);
 
   return (
     <Container
