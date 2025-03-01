@@ -9,7 +9,8 @@ type BuilderElementAnchorProps = {
 };
 
 export function BuilderElementAnchor({ anchorId }: BuilderElementAnchorProps) {
-  const { rowHeight } = useBreakpoint();
+  const breakpoint = useBreakpoint();
+  const rowHeight = breakpoint?.rowHeight || 0;
 
   return (
     <Container $rowHeight={rowHeight}>
