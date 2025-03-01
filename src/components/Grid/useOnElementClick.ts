@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { useElements } from '@/hooks/useElements';
 import { useSelectedElementId } from '@/hooks/useSelectedElementId';
 import { useSelectedElements } from '@/hooks/useSelectedElements';
+import { blurInput, hasFocusOnInput } from '@/utils/input';
 
 import { useConfiguration } from '../ConfigurationProvider';
 import { useIsDoubleClickOnElement } from './useIsDoubleClickOnElement';
@@ -19,6 +20,11 @@ const useOnElementClick = () => {
 
   const onElementClick: GridProps['onElementClick'] = ({ id }, { e, stop }) => {
     if (!id) return;
+
+    if (hasFocusOnInput()) {
+      blurInput();
+      return;
+    }
 
     const element = elements.find((item) => item.id === id);
     if (element && element.disabledMove) {
