@@ -270,15 +270,16 @@ export function Templates() {
   const onPublish = (nextPage: Page) => new Promise((resolve) => {
     setTimeout(() => {
       localStorage.setItem('page-builder-published', JSON.stringify(nextPage));
+      window.parent.location = '/?path=/story/webbuilder-published--published';
       resolve(undefined);
-    }, 2000);
+    }, 100); // fake backend delay
   });
 
   const onSaveAsDraft = (nextPage: Page) => new Promise((resolve) => {
     setTimeout(() => {
       localStorage.setItem('page-builder-draft', JSON.stringify(nextPage));
       resolve(undefined);
-    }, 2000);
+    }, 100); // fake backend delay
   });
 
   const onTemplateRestart = (): Page | null => template;

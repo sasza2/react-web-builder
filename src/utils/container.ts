@@ -10,6 +10,8 @@ import { DEFAULT_CONTAINER_ID } from '@/consts';
 import { createUniqueId } from './createUniqueId';
 import { calculatePositionsOfElements } from './templates';
 
+const PIXEL_PRECISION = 1000.0;
+
 export const getContainerExtras = (container: Breakpoint, zoom: number): ElementsExtras => {
   const containerExtras: ElementsExtras = {};
   const containerMapRef = getElementsReference(container);
@@ -20,7 +22,7 @@ export const getContainerExtras = (container: Breakpoint, zoom: number): Element
     const heightInPixels = (elementRef.firstChild as HTMLElement).getBoundingClientRect().height;
 
     containerExtras[elementId] = {
-      height: Math.ceil(Math.round(heightInPixels / container.rowHeight / zoom * 10) / 10),
+      height: Math.ceil(Math.round(heightInPixels / container.rowHeight / zoom * PIXEL_PRECISION) / PIXEL_PRECISION),
       paddingBottom,
     };
   });

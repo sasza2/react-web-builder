@@ -15,7 +15,10 @@ export const useBuildPage = () => {
 
   const build = (): Page => ({
     ...getPageSettings(pageSettings),
-    breakpoints,
+    breakpoints: breakpoints.map((breakpoint) => ({
+      ...breakpoint,
+      template: null,
+    })),
     elementsInBreakpoints,
     elementsExtras: elementsExtras.current,
   });

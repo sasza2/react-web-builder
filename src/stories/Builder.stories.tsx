@@ -1,23 +1,22 @@
 import React from 'react';
 import { OnImageUpload, Page } from 'types';
 
+import { delay } from '@/utils/delay';
+
 import WebBuilder from '../WebBuilder';
 import { fonts } from './consts';
 
 export function Builder() {
   const onPublish = (nextPage: Page) => new Promise((resolve) => {
-    setTimeout(() => {
-      localStorage.setItem('page-builder-published', JSON.stringify(nextPage));
-      resolve(undefined);
-    }, 2000);
+    localStorage.setItem('page-builder-published', JSON.stringify(nextPage));
+    window.parent.location = '/?path=/story/webbuilder-published--published';
+    resolve(null);
   });
 
-  const onSaveAsDraft = (nextPage: Page) => new Promise((resolve) => {
-    setTimeout(() => {
-      localStorage.setItem('page-builder-draft', JSON.stringify(nextPage));
-      resolve(undefined);
-    }, 2000);
-  });
+  const onSaveAsDraft = async (nextPage: Page) => {
+    await delay(100); // fake backend delay
+    localStorage.setItem('page-builder-draft', JSON.stringify(nextPage));
+  };
 
   const onImageUpload: OnImageUpload = async (file: string | Blob) => {
     const data = new FormData();
@@ -41,6 +40,8 @@ export function Builder() {
   const page = JSON.parse(localStorage.getItem('page-builder-draft')) as Page;
   return (
     <WebBuilder
+      enableDownload
+      enableUpload
       page={page}
       onAutoSave={onSaveAsDraft}
       onImageUpload={onImageUpload}

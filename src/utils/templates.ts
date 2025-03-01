@@ -59,6 +59,20 @@ const fillTreeWithHeight = (
         treeWithHeight.h = height;
       }
       break;
+    case 'fixed':
+      {
+        let maxHeight = 0;
+        tree.children.forEach((child) => {
+          const treeIn = fillTreeWithHeight(child, measureElementHeight);
+          if (!treeIn) return;
+
+          treeWithHeight.children.push(treeIn);
+          const height = treeIn.marginTop + treeIn.h;
+          if (height > maxHeight) maxHeight = height;
+        });
+        treeWithHeight.h = maxHeight;
+      }
+      break;
     case 'component': {
       const height = measureElementHeight(tree.element.id);
       treeWithHeight.element = {
@@ -69,7 +83,7 @@ const fillTreeWithHeight = (
     }
     default:
       throw new Error('undefined tree type');
-  } // TODO case fixed
+  }
 
   return treeWithHeight;
 };
@@ -109,6 +123,11 @@ export const calculatePositionsOfElements = (
         tree.element.x = marginLeft;
         tree.element.y = marginTop;
         elements.push(tree.element);
+        break;
+      case 'fixed':
+        tree.children.forEach((child) => {
+          rec(child, tree.marginLeft + marginLeft + child.marginLeft, tree.marginTop + marginTop + child.marginTop);
+        });
         break;
       default:
         throw new Error('undefined tree type');

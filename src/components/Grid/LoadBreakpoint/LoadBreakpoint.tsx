@@ -9,6 +9,7 @@ import { useComponentsProperty } from '@/components/ComponentsProvider';
 import { ElementsContext } from '@/components/ElementsProvider';
 import { useProperties } from '@/components/PropertiesProvider';
 import { RenderInContainer } from '@/components/RenderInContainer';
+import { WAIT_FOR_LOAD } from '@/consts';
 import { useFontImport } from '@/hooks/useFontImport';
 import { useGetBreakpointWidth } from '@/hooks/useGetBreakpointWidth';
 import { usePageSettings } from '@/hooks/usePageSettings';
@@ -19,6 +20,8 @@ import { produceRenderForElement } from '@/utils/element';
 import { calculatePositionsOfElements, getElementsFromTree } from '@/utils/templates';
 
 import { GridDiv } from '../Grid.styled';
+import { IsBreakpointLoading } from './IsBreakpointLoading';
+import { useBreakpointWaitForLoad } from './useBreakpointWaitForLoad';
 
 type LoadBreakpointProps = {
   breakpoint: Breakpoint,
@@ -41,6 +44,8 @@ export function LoadBreakpoint({
   const pageSettings = usePageSettings();
   const fontImport = useFontImport(pageSettings.fontFamily);
   const getBreakpointWidth = useGetBreakpointWidth();
+  const [elementsLoaded, setElementLoaded] = useState(false);
+  const [waitForLoadingBreakpointRef, continueWaiting] = useBreakpointWaitForLoad();
 
   const [elements, setElements] = useState<WebBuilderElements>(
     () => getElementsFromTree(breakpoint.template),
@@ -52,9 +57,11 @@ export function LoadBreakpoint({
     const organizeElements = async () => {
       if (onStartLoading) onStartLoading(breakpoint);
 
-      await delay(2500); // TODO
+      await waitForLoadingBreakpointRef.current;
 
       if (!mounted) return;
+
+      setElementLoaded(true);
 
       let nextElements: WebBuilderElements;
 
@@ -76,7 +83,7 @@ export function LoadBreakpoint({
 
       setElements(nextElements);
 
-      await delay(500); // TODO
+      await delay(WAIT_FOR_LOAD);
 
       if (!mounted) return;
 
@@ -94,6 +101,11 @@ export function LoadBreakpoint({
   }, []);
 
   const setGridElements = (gridElements: GridElement[]) => {
+    if (!elementsLoaded) {
+      continueWaiting();
+      return;
+    }
+
     const nextElements = gridElements.map((element) => {
       const nextElement = { ...element };
       delete nextElement.render;
@@ -127,27 +139,29 @@ export function LoadBreakpoint({
   );
 
   return (
-    <GridDiv
-      $breakpoint={breakpoint}
-      $fontImport={fontImport}
-      $height="100vh"
-      $isLoaded
-      $pageSettings={pageSettings}
-    >
-      <RenderInContainer breakpoint={breakpoint}>
-        <ReactGrid
-          autoOrganizeElements
-          boundary
-          cols={breakpoint.cols}
-          rowHeight={breakpoint.rowHeight}
-          rows="auto"
-          elements={gridElements}
-          setElements={setGridElements}
-          width={getBreakpointWidth(breakpoint)}
-          ref={gridTemplateAPIRef}
-        />
-        {fontImport?.stylesheet}
-      </RenderInContainer>
-    </GridDiv>
+    <IsBreakpointLoading.Provider value={!elementsLoaded}>
+      <GridDiv
+        $breakpoint={breakpoint}
+        $fontImport={fontImport}
+        $height="100vh"
+        $isLoaded
+        $pageSettings={pageSettings}
+      >
+        <RenderInContainer breakpoint={breakpoint}>
+          <ReactGrid
+            autoOrganizeElements
+            boundary
+            cols={breakpoint.cols}
+            rowHeight={breakpoint.rowHeight}
+            rows="auto"
+            elements={gridElements}
+            setElements={setGridElements}
+            width={getBreakpointWidth(breakpoint)}
+            ref={gridTemplateAPIRef}
+          />
+          {fontImport?.stylesheet}
+        </RenderInContainer>
+      </GridDiv>
+    </IsBreakpointLoading.Provider>
   );
 }
