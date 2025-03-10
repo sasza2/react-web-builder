@@ -1,23 +1,49 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 import { Page } from 'types';
 
 import { LinkGhostButton } from '@/components/Button';
 import { Description, FormGroup, FormHeader } from '@/components/forms/FormControl.styled';
 import { useRestartTemplate } from '@/components/Grid/RestartTemplate';
+import { useValidatePage } from '@/hooks/page/useValidatePage';
 
 export function UploadPage() {
   const { t } = useTranslation();
   const fileRef = useRef<HTMLInputElement>(null);
   const restartTemplate = useRestartTemplate();
+  const validatePage = useValidatePage();
 
   useEffect(() => {
     const fileNode = fileRef.current;
     if (!fileNode) return;
 
     const onChange = (changeEvent: Event) => {
+      let resolve: () => void = null;
+      let reject: () => void = null;
+
+      const promise = new Promise((resolvePromise, rejectPromise) => {
+        resolve = resolvePromise as () => void;
+        reject = rejectPromise as () => void;
+      });
+
+      toast.promise(
+        promise,
+        {
+          pending: t('page.settings.upload.pending'),
+          success: t('page.settings.upload.success'),
+          error: t('errors.somethingWentWrong'),
+        },
+        {
+          draggable: false,
+        },
+      );
+
       const target = changeEvent.target as HTMLInputElement;
-      if (!target) return;
+      if (!target) {
+        reject();
+        return;
+      }
 
       const file = target.files[0];
 
@@ -25,10 +51,28 @@ export function UploadPage() {
         const reader = new FileReader();
 
         reader.onload = (e: ProgressEvent<FileReader>) => {
-          restartTemplate(JSON.parse(e.target.result as string) as Page);
+          let page: Page | null = null;
+          try {
+            page = JSON.parse(e.target.result as string) as Page;
+          } catch {
+            reject();
+            return;
+          }
+
+          if (!page || !validatePage(page)) {
+            reject();
+            return;
+          }
+
+          restartTemplate(page);
+          resolve();
         };
 
+        reader.onerror = () => reject();
+
         reader.readAsText(file);
+      } else {
+        reject();
       }
     };
 
@@ -37,7 +81,7 @@ export function UploadPage() {
     return () => {
       fileNode.removeEventListener('change', onChange);
     };
-  }, []);
+  }, [restartTemplate, t, validatePage]);
 
   const onUploadClick = () => {
     fileRef.current.click();

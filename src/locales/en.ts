@@ -271,6 +271,8 @@ export default {
       upload: {
         description: 'Click to browse your device and select the file you want to upload. Please note that uploading a file will replace the current page content.',
         title: 'Upload page',
+        pending: 'Uploading a new page',
+        success: 'The page has been uploaded',
       },
     },
     fontFamily: 'Font family',
