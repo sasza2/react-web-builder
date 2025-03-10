@@ -1,0 +1,35 @@
+name: Demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  demo:
+    name: Demo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        run: npm install -g pnpm@8.15.5
+
+      - name: Install dependencies and build
+        run: pnpm i --frozen-lockfile
+
+      - name: Run linter
+        run: pnpm lint
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Run build
+        run: pnpm build:demo
+
+      - name: Build demo version
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H react-web-builder.100bit.pl >> ~/.ssh/known_hosts
+          rsync -avz --delete ./storybook-static/ debian@react-web-builder.100bit.pl:/var/www/html/react-web-builder.100bit.pl/
