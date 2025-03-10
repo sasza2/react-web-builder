@@ -26,7 +26,7 @@ jobs:
       - name: Run build
         run: pnpm build:demo
 
-      - name: Build demo version
+      - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
@@ -35,4 +35,4 @@ jobs:
 
       - name: Deploy to server
         run: |
-          scp -r ./storybook-static/ debian@react-web-builder.100bit.pl:/var/www/html/react-web-builder.100bit.pl/
+          scp -r ./storybook-static/* debian@react-web-builder.100bit.pl:/var/www/html/react-web-builder.100bit.pl/
