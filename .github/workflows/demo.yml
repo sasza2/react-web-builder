@@ -32,4 +32,7 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H react-web-builder.100bit.pl >> ~/.ssh/known_hosts
+
+      - name: Deploy to server
+        run: |
           rsync -avz --delete ./storybook-static/ debian@react-web-builder.100bit.pl:/var/www/html/react-web-builder.100bit.pl/
