@@ -42,4 +42,10 @@ jobs:
 
       - name: Build demo version
         if: steps.changesets.outputs.hasChangesets == 'false'
-        run: echo 'build demo version'
+        run: |
+          pnpm build:demo
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H react-web-builder.100bit.pl >> ~/.ssh/known_hosts
+          rsync -avz --delete ./storybook-static/ debian@react-web-builder.100bit.pl:/var/www/html/react-web-builder.100bit.pl/
