@@ -35,4 +35,4 @@ jobs:
 
       - name: Deploy to server
         run: |
-          rsync -avz --delete ./storybook-static/ debian@react-web-builder.100bit.pl:/var/www/html/react-web-builder.100bit.pl/
+          scp -r ./storybook-static/ debian@react-web-builder.100bit.pl:/var/www/html/react-web-builder.100bit.pl/
