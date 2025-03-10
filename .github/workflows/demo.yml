@@ -1,16 +1,15 @@
-name: Demo
+name: Demo (storybook)
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - master
 
 jobs:
   demo:
-    name: Demo
+    name: Demo (storybook)
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-
       - name: Install pnpm
         run: npm install -g pnpm@8.15.5
 
