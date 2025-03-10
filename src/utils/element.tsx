@@ -196,3 +196,8 @@ export const getElementContainerIdProp = (props: WebBuilderElementProperty[]): W
   const containerIdProp = props.find((prop) => prop.propId === 'containerId');
   return containerIdProp;
 };
+
+export const sortElements = (elements: WebBuilderElements) => [...elements].sort((a, b) => {
+  if (a.y === b.y) return a.x - b.x;
+  return a.y - b.y;
+});

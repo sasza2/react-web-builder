@@ -24,6 +24,7 @@ import { RenderInContainer } from '../../RenderInContainer';
 import { ContainerBackground } from '../ContainerBackground';
 import { DotBackground } from '../DotBackground';
 import { GridDiv } from '../Grid.styled';
+import { KeyboardEvents } from '../KeyboardEvents';
 import { Popup } from '../Popup';
 import useElementsWithRender from '../useElementsWithRender';
 import useGridMovement from '../useGridMovement';
@@ -106,6 +107,7 @@ export function BreakpointGrid() {
       {scrollElement}
       {contextMenu.menu && <Popup {...contextMenu} gridPaste={gridPaste} />}
       {fontImport?.stylesheet}
+      <KeyboardEvents />
     </GridDiv>
   );
 }
