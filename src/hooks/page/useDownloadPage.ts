@@ -1,4 +1,4 @@
-import { Page, WebBuilderProps } from 'types';
+import { Breakpoint, Page, WebBuilderProps } from 'types';
 
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
 import { getPageSettings } from '@/utils/pageSettings';
@@ -39,7 +39,7 @@ export const useDownloadPage = () => {
   const { onBeforeDownloadPage } = useWebBuilderProperties();
 
   const download = () => {
-    const breakpointsWithTree = breakpoints.map(buildBreakpointWithTree).filter((breakpoint) => breakpoint.view).map((breakpoint) => ({
+    const breakpointsWithTree: Breakpoint[] = breakpoints.map(buildBreakpointWithTree).filter((breakpoint) => breakpoint.view).map((breakpoint) => ({
       ...breakpoint,
       view: null,
       template: breakpoint.view,

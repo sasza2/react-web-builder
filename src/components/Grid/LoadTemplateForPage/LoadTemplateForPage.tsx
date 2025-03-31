@@ -25,7 +25,7 @@ export function LoadTemplateForPage({ children }: React.PropsWithChildren) {
       .filter((breakpoint) => shouldLoadTemplateForBreakpoint(page, breakpoint));
   }, [page?.breakpoints, templateLoading]);
 
-  const onFinishLoadingBreakpoints = useCallback(() => {
+  const afterLoadingAll = useCallback(() => {
     setTemplateLoading(false);
     dispatch(commitHistory({ initial: storeRef.current }));
   }, [dispatch, setTemplateLoading]);
@@ -33,8 +33,8 @@ export function LoadTemplateForPage({ children }: React.PropsWithChildren) {
   if (templateLoading) {
     return (
       <LoadMultipleBreakpoints
+        afterLoadingAll={afterLoadingAll}
         breakpoints={breakpoints}
-        onFinishLoadingBreakpoint={onFinishLoadingBreakpoints}
       />
     );
   }
