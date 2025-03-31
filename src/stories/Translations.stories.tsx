@@ -35,7 +35,7 @@ const createDotNotationAsText = (prefix: string): string => {
   const translationsDotNotation = createDotNotation(prefix, en as unknown as Record<string, string>);
   return Object.entries(translationsDotNotation)
     .sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
-    .reduce((text, [key, value]) => `${text}'${key}': '${value.replace("'", "\\'")}',\n`, '');
+    .reduce((text, [key, value]) => `${text}'${key}': '${value.replace(/'/g, "\\'")}',\n`, '');
 };
 
 export function DotNotation() {
