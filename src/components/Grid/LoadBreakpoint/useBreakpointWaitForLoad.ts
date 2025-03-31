@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 
+import { withResolvers } from '@/utils/promise';
+
 const CONTINUE_WAITING_TIME = 4000; // ms
 const MAX_WAITING_TIME = 30000; // ms
 
@@ -7,9 +9,10 @@ export const useBreakpointWaitForLoad = (): [React.MutableRefObject<Promise<void
   const promiseResolveRef = useRef<() => void>();
   const promiseRef = useRef<Promise<void>>();
   if (!promiseRef.current) {
-    promiseRef.current = new Promise((resolve) => {
-      promiseResolveRef.current = resolve;
-    });
+    const { promise, resolve } = withResolvers();
+
+    promiseResolveRef.current = resolve;
+    promiseRef.current = promise;
   }
 
   useEffect(() => {

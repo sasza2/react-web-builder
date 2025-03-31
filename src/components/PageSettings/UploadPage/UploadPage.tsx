@@ -7,6 +7,7 @@ import { LinkGhostButton } from '@/components/Button';
 import { Description, FormGroup, FormHeader } from '@/components/forms/FormControl.styled';
 import { useRestartTemplate } from '@/components/Grid/RestartTemplate';
 import { useValidatePage } from '@/hooks/page/useValidatePage';
+import { withResolvers } from '@/utils/promise';
 
 export function UploadPage() {
   const { t } = useTranslation();
@@ -19,18 +20,11 @@ export function UploadPage() {
     if (!fileNode) return;
 
     const onChange = (changeEvent: Event) => {
-      let resolve: () => void = null;
-      let reject: () => void = null;
-
-      const promise = new Promise((resolvePromise, rejectPromise) => {
-        resolve = resolvePromise as () => void;
-        reject = rejectPromise as () => void;
-      });
+      const { promise, resolve, reject } = withResolvers();
 
       toast.promise(
         promise,
         {
-          pending: t('page.settings.upload.pending'),
           success: t('page.settings.upload.success'),
           error: t('errors.somethingWentWrong'),
         },
@@ -64,8 +58,9 @@ export function UploadPage() {
             return;
           }
 
-          restartTemplate(page);
-          resolve();
+          restartTemplate(page)
+            .then(resolve)
+            .catch(reject);
         };
 
         reader.onerror = () => reject();
