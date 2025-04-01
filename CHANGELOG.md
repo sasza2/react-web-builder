@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.20.1
+
+### Patch Changes
+
+- 36dfce5: fix uploading template
+
 ## 0.20.0
 
 ### Minor Changes
