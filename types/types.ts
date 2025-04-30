@@ -91,6 +91,7 @@ export type BreakpointHeight = {
   height?: number,
   isScrollbarHidden?: boolean,
   overflow: 'hidden' | 'scroll' | 'visible',
+  responsive?: boolean,
 };
 
 type BackgroundImageUnit = 'px' | '%';

@@ -3,6 +3,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { BreakpointHeight as IBreakpointHeight } from 'types';
 
 import { useField } from '@/components/FormProvider';
+import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { normalizeInt } from '@/utils/field';
 import { assignTestProp } from '@/utils/tests';
 
@@ -26,6 +27,7 @@ type BreakpointHeightProps = {
 };
 
 export function BreakpointHeight({ name, testId }: BreakpointHeightProps) {
+  const breakpoint = useBreakpoint();
   const { t } = useTranslation();
   const { value } = useField<IBreakpointHeight>(name);
   const enabled = value?.enabled;
@@ -46,6 +48,11 @@ export function BreakpointHeight({ name, testId }: BreakpointHeightProps) {
             name={`${name}.height`}
             rightNode={t('common.pixels')}
             normalize={normalizeInt}
+          />
+          <Toggle
+            label={t('breakpoint.heightProp.responsive.label')}
+            name={`${name}.responsive`}
+            description={t('breakpoint.heightProp.responsive.description', { value: breakpoint.from })}
           />
           <Select
             name={`${name}.overflow`}
