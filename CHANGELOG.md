@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.21.0
+
+### Minor Changes
+
+- fd1087e: container height - responsive option
+
 ## 0.20.1
 
 ### Patch Changes
