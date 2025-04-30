@@ -33,6 +33,10 @@ export default {
         scroll: 'Scroll',
         visible: 'Visible',
       },
+      responsive: {
+        label: 'Responsive',
+        description: 'If this setting is enabled, the height adjusts automatically as the container’s width changes. Your specified height corresponds to a width of {{value}}px',
+      },
       scrollbarVisibility: {
         label: 'Hide Scrollbar',
         description: 'If enabled it hides the visible scrollbar while keeping the ability to scroll. Useful for a cleaner and more minimalistic design without sacrificing functionality',

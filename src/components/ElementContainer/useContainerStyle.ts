@@ -24,8 +24,16 @@ export const useContainerStyle = ({
   if (breakpointHeight?.enabled) {
     const height = parseInt(breakpointHeight?.height as unknown as string) || undefined;
     if (height) {
-      style.height = `${height}px`;
-      style.maxHeight = style.height;
+      const CSSHeight = `${height}px`;
+
+      if (breakpointHeight?.responsive) {
+        const CSSCalcHeight = `calc(${CSSHeight} / var(--breakpoint-scale, 1))`;
+        style.height = CSSCalcHeight;
+        style.maxHeight = CSSCalcHeight;
+      } else {
+        style.height = CSSHeight;
+        style.maxHeight = CSSHeight;
+      }
     }
 
     if (breakpointHeight?.overflow) {
