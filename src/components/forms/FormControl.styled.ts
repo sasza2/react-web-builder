@@ -38,4 +38,8 @@ export const ListErrors = styled.ul`
   padding: 0 0 0 15px;
   color: ${({ theme }) => theme.colors.strongRed};
   ${({ theme }) => theme.typography.Small0R};
+
+  li {
+    word-break: break-word;
+  }
 `;

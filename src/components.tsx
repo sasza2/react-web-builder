@@ -14,9 +14,11 @@ import { Box } from '@/components/View/Box';
 import { CustomButton } from '@/components/View/CustomButton';
 
 import { VideoWrapper } from './components.styled';
+import { HTMLComponent } from './components/HTMLComponent';
 import { Anchor as AnchorIcon } from './components/icons/Anchor';
 import { Container } from './components/icons/Container';
 import { CustomButton as CustomButtonIcon } from './components/icons/CustomButton';
+import { HTML as HTMLIcon } from './components/icons/HTML';
 import { IFrame as IFrameIcon } from './components/icons/IFrame';
 import { Image as ImageIcon } from './components/icons/Image';
 import { Line as LineIcon } from './components/icons/Line';
@@ -396,6 +398,37 @@ export const useInternalComponents = ({
     ],
     order: -40,
     resizable: false,
+  });
+
+  components.push({
+    id: 'HTMLComponent',
+    icon: HTMLIcon,
+    label: 'HTML',
+    component: HTMLComponent,
+    group: BasicGroup,
+    props: [
+      {
+        id: 'html',
+        label: 'HTML',
+        type: 'html',
+        defaultValue: {
+          value: '<style>\n'
+            + `h1, h2 { color: ${theme.colors.darkBlue} }\n`
+            + '.text { font-style: italic; }\n'
+            + '</style>\n\n'
+            + '<h1>Your Page</h1>\n'
+            + '<p>Welcome to your custom HTML area.</p>\n\n'
+            + '<h2>Example</h2>\n'
+            + '<p class="text">You can write anything here:</p>\n\n'
+            + '<ul>\n'
+            + '<li>Text</li>\n'
+            + '<li>Links</li>\n'
+            + '<li style="font-weight: bold">Images</li>\n'
+            + '</ul>',
+        },
+      },
+    ],
+    order: -50,
   });
 
   return components;

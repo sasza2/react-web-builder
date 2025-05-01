@@ -20,13 +20,16 @@ export const InputGroup = styled.div<{ $hasFocus?: boolean, $height?: number }>`
     height: 100%;
     box-sizing: border-box;
     max-width: 100%;
-    text-indent: 10px;
     flex: 1;
     overflow: hidden;
 
     &:focus {
       outline: none;
     }
+  }
+
+  input {
+    text-indent: 10px;
   }
 `;
 

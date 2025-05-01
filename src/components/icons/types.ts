@@ -17,6 +17,7 @@ export type AllIcons = {
   Container: RenderIcon,
   Desktop: RenderIcon,
   Hamburger: RenderIcon,
+  HTML: RenderIcon,
   IFrame: RenderIcon,
   Image: RenderIcon,
   LetterSpacing: RenderIcon,
