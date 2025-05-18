@@ -71,7 +71,7 @@
     "dev": "storybook dev -p 6006",
     "e2e": "playwright test",
     "lint": "eslint src tests types --fix --cache",
-    "test": "vitest --config vite.lib.config.ts",
+    "test": "vitest run --config vite.lib.config.ts src",
     "prepack": "pnpm build:lib",
     "publish:package": "changeset publish",
     "version:package": "changeset version",
