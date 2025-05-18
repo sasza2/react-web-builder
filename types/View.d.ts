@@ -1,5 +1,4 @@
-
-import { ViewProps } from './types'
+import { ViewProps } from './types';
 
 export {
   Breakpoint,
@@ -16,6 +15,6 @@ export {
   WebBuilderElement,
   WebBuilderElementProperty,
   WebBuilderGroup,
-} from './types'
+} from './types';
 
 export default function View(props: ViewProps): JSX.Element;

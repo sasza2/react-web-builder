@@ -128,6 +128,10 @@ export type BackgroundImage = {
   },
 } & ImageURL;
 
+export type HTMLComponentValue = {
+  value: string
+};
+
 export type WebBuilderComponentProperty = ({
   type: 'toggle',
   label: JSX.Element | string,
@@ -153,7 +157,7 @@ export type WebBuilderComponentProperty = ({
 } | {
   type: 'html',
   label: JSX.Element | string,
-  defaultValue?: string,
+  defaultValue?: HTMLComponentValue,
 } | {
   type: 'select',
   label: JSX.Element | string,
@@ -341,7 +345,7 @@ export type HelperArrowItem = {
   title: string,
 };
 
-export type OnImageUpload = (file: any) => Promise<ImageURL>;
+export type OnImageUpload = (file: unknown) => Promise<ImageURL>;
 
 export type WebBuilderProps = {
   builderHints?: HelperArrowItem[],
@@ -357,9 +361,9 @@ export type WebBuilderProps = {
   onBeforeDownloadPage?: (page: Page) => { filename?: string, page?: Page },
   onExit?: () => Promise<void>,
   onImageUpload?: OnImageUpload,
-  onPublish?: (page: Page) => Promise<any>,
-  onSaveAsDraft?: (page: Page) => Promise<any>,
-  onPagePreview?: (page: Page) => Promise<any>,
+  onPublish?: (page: Page) => Promise<unknown>,
+  onSaveAsDraft?: (page: Page) => Promise<unknown>,
+  onPagePreview?: (page: Page) => Promise<unknown>,
   onTemplateRestart?: () => Page,
 } & BuilderCommonProps;
 

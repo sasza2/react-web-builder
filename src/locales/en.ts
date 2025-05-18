@@ -199,6 +199,18 @@ export default {
     deleteSelected: 'Delete elements',
     deselect: 'Deselect',
     height: 'Height',
+    html: {
+      errors: {
+        invalidCSS: 'Invalid CSS {{css}}',
+        unsupportedCSS: 'Unsupported CSS {{css}}',
+        unsupportedCSSAttribute: 'Unsupported CSS attribute {{prop}}',
+        unsupportedCSSSelector: 'Unsupported CSS selector {{selector}}',
+        unsupportedCSSValue: 'Unsupported CSS value {{prop}}: {{value}}',
+        unsupportedHTMLAttribute: 'Unsupported HTML attribute <{{tagName}} {{attribute}}=',
+        unsupportedHTMLAttributeValue: 'Unsupported HTML attribute value <{{tagName}} {{attribute}}="{{value}}"',
+        unsupportedHTMLTagName: 'Unsupported HTML tag name <{{tagName}}',
+      },
+    },
     iframe: {
       height: 'Iframe height',
       name: 'HTML Iframe',
