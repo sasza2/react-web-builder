@@ -4,6 +4,7 @@ import { OnImageUpload, WebBuilderComponentProperty } from 'types';
 import { assignTestProp } from '@/utils/tests';
 
 import { About } from '../forms/About';
+import { FormArray } from '../forms/Array';
 import { BackgroundImage } from '../forms/BackgroundImage';
 import { Border } from '../forms/Border';
 import { BoxShadow } from '../forms/BoxShadow';
@@ -17,6 +18,7 @@ import { ImageUpload } from '../forms/ImageUpload';
 import { Input } from '../forms/Input';
 import { InputHTML } from '../forms/InputHTML';
 import { ListOrder } from '../forms/ListOrder';
+import { FormObject } from '../forms/Object';
 import { OpenContainer } from '../forms/OpenContainer';
 import { Padding } from '../forms/Padding';
 import { RangeSlider } from '../forms/RangeSlider';
@@ -253,6 +255,34 @@ export function FormProperty({
           />
         ) }
       </FormGroup>
+    );
+  }
+  if (prop.type === 'array') {
+    return (
+      <FormArray
+        autoFocus={autoFocus}
+        defaultValue={defaultValue}
+        formCreatorId={formCreatorId}
+        of={prop.of}
+        onImageUpload={onImageUpload}
+        testId={testId}
+        label={prop.label}
+        name={name}
+      />
+    );
+  }
+  if (prop.type === 'object') {
+    return (
+      <FormObject
+        autoFocus={autoFocus}
+        defaultValue={defaultValue}
+        formCreatorId={formCreatorId}
+        of={prop.of}
+        onImageUpload={onImageUpload}
+        testId={testId}
+        label={prop.label}
+        name={name}
+      />
     );
   }
   return null;

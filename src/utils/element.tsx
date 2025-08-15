@@ -48,7 +48,11 @@ export const getDefaultValue = <T extends WebBuilderComponentProperty>(
   if (typeof prop.defaultValue === 'function') {
     return prop.defaultValue({ breakpoint }) as T['defaultValue'];
   }
-  return prop.defaultValue;
+
+  if (prop.defaultValue !== undefined) return prop.defaultValue;
+
+  if (prop.type === 'array') return [];
+  if (prop.type === 'object') return {};
 };
 
 export const getElementPropsWhenCreating = (component: WebBuilderComponent, breakpoint: Breakpoint) => component.props.map((prop) => {

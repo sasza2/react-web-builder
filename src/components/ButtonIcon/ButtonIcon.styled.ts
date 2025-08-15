@@ -1,16 +1,20 @@
 import styled, { css } from 'styled-components';
 
+const getSize = (big: string, small: string) => ({ $size }: { $size?: 'big' | 'small' }) => ($size === 'small' ? small : big);
+
 export const Container = styled.button<{
   $active?: boolean,
   $disabled?: boolean,
   $transparent?: boolean,
+  $size?: 'big' | 'small',
 }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: ${getSize('40px', '24px')};
+  height: ${getSize('40px', '24px')};
   border-radius: 8px;
+  padding: 0;
 
   ${({ $active, $disabled }) => !$active && !$disabled && css`
     &:hover {
@@ -61,9 +65,9 @@ export const Container = styled.button<{
     `;
   }}
 
-  svg {    
-    width: 20px;
-    height: 20px;
+  svg {
+    width: ${getSize('20px', '12px')};
+    height: ${getSize('20px', '12px')};
   }
 
 `;

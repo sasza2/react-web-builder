@@ -133,6 +133,18 @@ export type HTMLComponentValue = {
 };
 
 export type WebBuilderComponentProperty = ({
+  type: 'object',
+  label: JSX.Element | string,
+  of: WebBuilderComponentProperty[],
+  defaultValue?: PropertyDefaultValue<Record<string, unknown>>,
+} | {
+  type: 'array',
+  label: JSX.Element | string,
+  of: WebBuilderComponentProperty,
+  min?: number,
+  max?: number,
+  defaultValue?: PropertyDefaultValue<Array<unknown>>,
+} | {
   type: 'toggle',
   label: JSX.Element | string,
   defaultValue?: PropertyDefaultValue<boolean>,

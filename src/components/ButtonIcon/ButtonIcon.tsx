@@ -10,6 +10,7 @@ type ButtonIconProps = React.PropsWithChildren<{
   disabled?: boolean,
   id?: string,
   onClick?: () => void,
+  size?: 'big' | 'small',
   testId?: string,
   tooltip?: string,
   transparent?: boolean,
@@ -21,6 +22,7 @@ export function ButtonIcon({
   disabled,
   id,
   onClick,
+  size,
   testId,
   tooltip,
   transparent,
@@ -34,6 +36,7 @@ export function ButtonIcon({
         $active={active}
         $disabled={disabled}
         disabled={disabled}
+        $size={size}
         $transparent={transparent}
         onClick={onClick}
         type="button"
