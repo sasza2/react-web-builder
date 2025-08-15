@@ -139,24 +139,17 @@ export function EditPropertiesIn({
         return true;
       })
       .map(withAutoFocus())
-      .map(([prop, { autoFocus }]) => {
-        const elementProp = element.props.find((p) => p.propId === prop.id) || {
-          propId: prop.id,
-          value: getDefaultValue(prop, breakpoint),
-        };
-
-        return (
-          <FormProperty
-            key={prop.id}
-            autoFocus={autoFocus}
-            defaultValue={getDefaultValue(prop, breakpoint) as string}
-            formCreatorId={formCreator.id}
-            prop={prop}
-            name={elementProp.propId}
-            onImageUpload={onImageUpload}
-          />
-        );
-      });
+      .map(([prop, { autoFocus }]) => (
+        <FormProperty
+          key={prop.id}
+          autoFocus={autoFocus}
+          defaultValue={getDefaultValue(prop, breakpoint) as string}
+          formCreatorId={formCreator.id}
+          prop={prop}
+          name={prop.id}
+          onImageUpload={onImageUpload}
+        />
+      ));
   };
 
   return (

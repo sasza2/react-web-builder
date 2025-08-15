@@ -143,6 +143,13 @@ export default {
       },
       name: 'Anchor',
     },
+    array: {
+      add: 'Add new item',
+      delete: 'Delete this item',
+      item: 'Item',
+      moveDown: 'Move down this item',
+      moveUp: 'Move up this item',
+    },
     backgroundColor: 'Background color',
     backgroundImage: {
       name: 'Background image',
