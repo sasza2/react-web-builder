@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react';
 import { Position, WebBuilderElement, WebBuilderElements } from 'types';
 
 import { useGridAPI } from '@/components/GridAPIProvider';
+import { useSidebarWidth } from '@/components/SidebarProvider';
 import { useWebBuilderSizeWidth } from '@/components/WebBuilderSize';
-import { SIDEBAR_WIDTH } from '@/consts';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useElements } from '@/hooks/useElements';
 import { useGetBreakpointWidth } from '@/hooks/useGetBreakpointWidth';
@@ -80,7 +80,8 @@ export function KeyboardEvents(): JSX.Element {
   const { elements } = useElements();
   const elementsRef = useRef<typeof elements>();
   elementsRef.current = elements;
-  const webBuilderWidth = useWebBuilderSizeWidth() - SIDEBAR_WIDTH - GRID_PADDING_WIDTH;
+  const sidebarWidth = useSidebarWidth();
+  const webBuilderWidth = useWebBuilderSizeWidth() - sidebarWidth - GRID_PADDING_WIDTH;
   const getBreakpointWidth = useGetBreakpointWidth();
 
   useEffect(() => {

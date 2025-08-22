@@ -24,7 +24,7 @@ export const Container = styled.div<{
   color: ${({ $active, theme }) => ($active ? theme.colors.white : theme.colors.gray)};
   background-color: ${({ $active, theme }) => ($active ? theme.colors.darkBlue : undefined)};
   height: 75px;
-  width: 120px;
+  width: calc((var(--react-web-builder-sidebar-width) - 32px - 8px) / 2);
   position: relative;
   border-radius: 4px;
   border: 1px solid ${({ theme }) => theme.colors.lightGray};

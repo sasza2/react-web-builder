@@ -14,6 +14,7 @@ import { PageSettings } from '../PageSettings';
 import { SelectNewElement } from '../SelectNewElement';
 import { SidebarView, useSidebarRef } from '../SidebarProvider/SidebarProvider';
 import { Modal } from './Modal';
+import { Resize } from './Resize';
 import { Container } from './Sidebar.styled';
 
 export function Sidebar() {
@@ -53,6 +54,7 @@ export function Sidebar() {
           {renderContent()}
         </ErrorBoundary>
       </Container>
+      <Resize height={height} />
       <Modal />
     </>
   );

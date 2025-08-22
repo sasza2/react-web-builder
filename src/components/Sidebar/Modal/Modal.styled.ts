@@ -15,6 +15,6 @@ export const Container = styled.div`
   z-index: ${({ theme }) => theme.zIndex.max};
 
   >div {
-    width: 281px;
+    width: ${SIDEBAR_WIDTH}px;
   }
 `;

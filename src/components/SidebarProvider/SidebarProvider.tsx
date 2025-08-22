@@ -1,7 +1,9 @@
 import React, {
-  createContext, PropsWithChildren, useContext, useMemo, useRef,
+  createContext, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useRef,
+  useState,
 } from 'react';
 
+import { SIDEBAR_WIDTH } from '@/consts';
 import { AccordionState, useAccordion } from '@/hooks/useAccordion';
 
 export enum SidebarView {
@@ -18,6 +20,8 @@ type SidebarContext = {
   modalRef: React.MutableRefObject<HTMLDivElement>;
   sidebarRef: React.MutableRefObject<HTMLDivElement>;
   selectNewElementAccordion: AccordionState,
+  setWidth: (width: number) => void;
+  width: number,
 };
 
 const Sidebar = createContext<SidebarContext>({} as SidebarContext);
@@ -37,16 +41,42 @@ export const useSidebarModalRef = (): React.MutableRefObject<HTMLDivElement> => 
   return modalRef;
 };
 
+export const useSidebarWidth = (): number => {
+  const { width } = useContext(Sidebar);
+  return width;
+};
+
+export const useSidebarSetWidth = (): SidebarContext['setWidth'] => {
+  const { setWidth } = useContext(Sidebar);
+  return setWidth;
+};
+
+const updateSidebarPropertyWidth = (width: number) => {
+  document.body.style.setProperty('--react-web-builder-sidebar-width', `${width}px`);
+};
+
 export function SidebarProvider({ children }: PropsWithChildren) {
   const modalRef = useRef<HTMLDivElement>();
   const sidebarRef = useRef<HTMLDivElement>();
   const selectNewElementAccordion = useAccordion();
+  const [width, setWidth] = useState(SIDEBAR_WIDTH);
 
-  const value = useMemo(() => ({
+  useEffect(() => {
+    updateSidebarPropertyWidth(SIDEBAR_WIDTH);
+  }, []);
+
+  const setWidthInternal = useCallback((nextWidth: number) => {
+    updateSidebarPropertyWidth(nextWidth);
+    setWidth(nextWidth);
+  }, [setWidth]);
+
+  const value = useMemo<SidebarContext>(() => ({
     selectNewElementAccordion,
     modalRef,
     sidebarRef,
-  }), [selectNewElementAccordion, sidebarRef]);
+    setWidth: setWidthInternal,
+    width,
+  }), [selectNewElementAccordion, sidebarRef, setWidthInternal, width]);
 
   return (
     <Sidebar.Provider value={value}>
