@@ -6,7 +6,6 @@ import React, {
 import ReactDOM from 'react-dom';
 import { Position, WebBuilderComponent, WebBuilderElement } from 'types';
 
-import { SIDEBAR_WIDTH } from '@/consts';
 import { useAddBreakpointForContainer } from '@/hooks/container/useAddBreakpointForContainer';
 import { useAddElement } from '@/hooks/useAddElement';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
@@ -18,6 +17,7 @@ import {
 import { PREVENT_ELEMENTS_TRANSITION_CLASS_NAME } from '@/WebBuilder.styled';
 
 import { useGridAPI } from '../GridAPIProvider/GridAPIProvider';
+import { useSidebarWidth } from '../SidebarProvider';
 import { Container } from './DragElement.styled';
 
 const COMPONENT_ID = 'component';
@@ -52,6 +52,7 @@ export const DragElement: React.FC<DragElementProps> = ({
   const hasAdded = useRef<boolean>(false);
   const gridTop = useGridPositionTop();
   const addBreakpointForContainer = useAddBreakpointForContainer();
+  const sidebarWidth = useSidebarWidth();
 
   useEffect(() => {
     if (!loaded) return;
@@ -124,7 +125,7 @@ export const DragElement: React.FC<DragElementProps> = ({
         if (disabled) return;
 
         gridAPIRef.current.grabElement(id, {
-          x: offset.x + SIDEBAR_WIDTH / panZoom.getZoom(),
+          x: offset.x + sidebarWidth / panZoom.getZoom(),
           y: gridTop / panZoom.getZoom(),
         });
       }, 100); // TODO
@@ -147,7 +148,7 @@ export const DragElement: React.FC<DragElementProps> = ({
     return () => {
       window.removeEventListener('mouseup', onMouseUp);
     };
-  }, [loaded]);
+  }, [loaded, sidebarWidth]);
 
   useLayoutEffect(() => {
     const timer = setInterval(() => {

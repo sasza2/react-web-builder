@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const PREVENT_ELEMENTS_TRANSITION_CLASS_NAME = 'react-web-builder-prevent-elements-transition';
+export const PREVENT_USER_SELECT_CLASS_NAME = 'react-web-builder-prevent-user-select';
 
 export const GlobalStyles = createGlobalStyle`
   .react-tooltip {
@@ -14,7 +15,8 @@ export const GlobalStyles = createGlobalStyle`
 
   .react-panzoom,
   .react-panzoom--element-moving,
-  .react-panzoom--grabbing {
+  .react-panzoom--grabbing,
+  .react-web-builder-prevent-user-select {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;

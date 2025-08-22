@@ -3,12 +3,12 @@ import { BreakpointId, Position } from 'types';
 
 import { useGridAPI } from '@/components/GridAPIProvider';
 import { useWebBuilderSizeWidth } from '@/components/WebBuilderSize';
-import { SIDEBAR_WIDTH } from '@/consts';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useGetBreakpointWidth } from '@/hooks/useGetBreakpointWidth';
 import { getBreakpointPadding } from '@/utils/breakpoint';
 import getGridCenterPositionX from '@/utils/getGridCenterPositionX';
 
+import { useSidebarWidth } from '../SidebarProvider';
 import { GRID_PADDING_WIDTH } from './Grid.styled';
 
 const DESKTOP_ZOOM_SCALE = 0.9;
@@ -20,7 +20,8 @@ const breakpointsLastPosition = new Map<BreakpointId, { position: Position, zoom
 export const useGridPositionInit = (isLoaded: boolean) => {
   const gridAPIRef = useGridAPI();
   const breakpoint = useBreakpoint();
-  const webBuilderWidth = useWebBuilderSizeWidth() - SIDEBAR_WIDTH - GRID_PADDING_WIDTH;
+  const sidebarWidth = useSidebarWidth();
+  const webBuilderWidth = useWebBuilderSizeWidth() - sidebarWidth - GRID_PADDING_WIDTH;
   const getBreakpointWidth = useGetBreakpointWidth();
 
   useEffect(() => {

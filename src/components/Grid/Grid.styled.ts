@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Breakpoint, FontImport, PageSettings } from 'types';
 
-import { SIDEBAR_WIDTH } from '@/consts';
 import { getBreakpointBackgroundColor, getBreakpointPadding } from '@/utils/breakpoint';
 
 import { Theme } from '../StyleProvider/styled';
@@ -27,9 +26,9 @@ export const GridDiv = styled.div<GridDivProps>`
   display: flex;
   position: relative;
   justify-content: center;
-  width: ${() => `calc(100% - ${SIDEBAR_WIDTH}px)`};
-  max-width: ${() => `calc(100% - ${SIDEBAR_WIDTH}px)`};
-  margin-left: ${() => `${SIDEBAR_WIDTH}px`};
+  width: calc(100% - var(--react-web-builder-sidebar-width));
+  max-width: calc(100% - var(--react-web-builder-sidebar-width));
+  margin-left: var(--react-web-builder-sidebar-width);
   transition: opacity 0.6s;
   overflow: hidden;
   border: 1px solid ${({ theme }) => theme.colors.lightGray};
