@@ -1,5 +1,6 @@
 import {
   AnyAction, configureStore, StateFromReducersMapObject, ThunkDispatch,
+  Tuple,
 } from '@reduxjs/toolkit';
 import { Breakpoint, ElementsInBreakpoints, PageSettings } from 'types';
 
@@ -12,7 +13,7 @@ export const createStore = (preloadedState: PreloadedState) => configureStore({
   reducer,
   middleware: (getDefaultMiddleware) => {
     const defaultMiddleware = getDefaultMiddleware();
-    return [changesMiddleware, ...defaultMiddleware];
+    return new Tuple(changesMiddleware, ...defaultMiddleware);
   },
   preloadedState,
 });
