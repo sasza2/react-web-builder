@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { FieldProvider } from '@/components/FormProvider';
 import { Icon } from '@/components/icons/Icon';
+import { Trans } from '@/components/Trans';
 
 import { Button } from '../../RichText/buttons';
 import { Color } from '../Color';

@@ -1,4 +1,4 @@
-import { Page } from 'types';
+import { Breakpoint, Page } from 'types';
 
 import { useAppSelector } from '@/store/useAppSelector';
 import { getPageSettings } from '@/utils/pageSettings';
@@ -18,7 +18,7 @@ export const useBuildPage = () => {
     breakpoints: breakpoints.map((breakpoint) => ({
       ...breakpoint,
       template: null,
-    })),
+    } as Breakpoint)),
     elementsInBreakpoints,
     elementsExtras: elementsExtras.current,
   });

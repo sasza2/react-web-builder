@@ -43,7 +43,7 @@ export const useDownloadPage = () => {
       ...breakpoint,
       view: null,
       template: breakpoint.view,
-    }));
+    } as Breakpoint));
 
     downloadBlob({
       ...getPageSettings(pageSettings),

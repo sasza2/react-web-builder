@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { usePageSettings } from '@/hooks/usePageSettings';
 import { useSetSidebarView } from '@/hooks/useSetSidebarView';
@@ -11,6 +11,7 @@ import { Input } from '../forms/Input';
 import { Padding } from '../forms/Padding';
 import { Toggle } from '../forms/Toggle';
 import { SidebarView } from '../SidebarProvider';
+import { Trans } from '../Trans';
 import { Clickable } from './Form.styled';
 import { Errors } from './types';
 

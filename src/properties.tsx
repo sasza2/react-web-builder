@@ -1,8 +1,9 @@
 import React from 'react';
-import { Trans } from 'react-i18next';
 import {
   Border, Padding, TextElement, WebBuilderComponentProperty,
 } from 'types';
+
+import { Trans } from './components/Trans';
 
 export const createContentProperty = (
   defaultBoxContent: TextElement[],

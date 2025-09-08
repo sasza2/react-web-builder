@@ -1,8 +1,9 @@
 import React from 'react';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { BreakpointHeight as IBreakpointHeight } from 'types';
 
 import { useField } from '@/components/FormProvider';
+import { Trans } from '@/components/Trans';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { normalizeInt } from '@/utils/field';
 import { assignTestProp } from '@/utils/tests';

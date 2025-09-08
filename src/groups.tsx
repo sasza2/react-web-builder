@@ -1,5 +1,6 @@
 import React from 'react';
-import { Trans } from 'react-i18next';
+
+import { Trans } from './components/Trans';
 
 export const BasicGroup = {
   id: 'basic',

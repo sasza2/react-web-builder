@@ -1,5 +1,4 @@
 import React, { memo } from 'react';
-import { Trans } from 'react-i18next';
 import ReactPlayer from 'react-player';
 import {
   BuilderCommonProps,
@@ -29,6 +28,7 @@ import { IFrame } from './components/IFrame';
 import { Line } from './components/Line';
 import { Separator } from './components/Separator';
 import theme from './components/StyleProvider/theme';
+import { Trans } from './components/Trans';
 import { useBoxStyle } from './components/View/Box/useBoxStyle';
 import {
   DEFAULT_BOX_CONTENT,
@@ -98,7 +98,7 @@ function VideoIn({ url }: VideoComponentProps) {
   return (
     <VideoWrapper>
       <ReactPlayer
-        url={url.location}
+        src={url.location}
         width="100%"
         height="100%"
       />
