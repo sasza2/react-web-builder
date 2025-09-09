@@ -1,1 +1,1 @@
-export * from './RestartTemplate';
+export * from "./RestartTemplate";

@@ -1,144 +1,142 @@
-import React, { useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { toast } from 'react-toastify';
-import { useTheme } from 'styled-components';
-import type { ImageURL, OnImageUpload } from 'types';
+import React, { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
+import { useTheme } from "styled-components";
+import type { ImageURL, OnImageUpload } from "types";
 
-import { LinkButton } from '@/components/Button';
-import { useField } from '@/components/FormProvider';
-import { LoaderSpinner } from '@/components/LoaderSpinner';
-import { useIsMounted } from '@/hooks/useIsMounted';
-import { delay } from '@/utils/delay';
+import { LinkButton } from "@/components/Button";
+import { useField } from "@/components/FormProvider";
+import { LoaderSpinner } from "@/components/LoaderSpinner";
+import { useIsMounted } from "@/hooks/useIsMounted";
+import { delay } from "@/utils/delay";
 
 const IMAGE_UPLOAD_TIMEOUT = 30000; // ms
 
 const validateUpload = (upload: ImageURL) => {
-  if (!upload) {
-    return false;
-  }
+	if (!upload) {
+		return false;
+	}
 
-  if (typeof upload !== 'object') {
-    return false;
-  }
+	if (typeof upload !== "object") {
+		return false;
+	}
 
-  if (typeof upload.location !== 'string') {
-    return false;
-  }
+	if (typeof upload.location !== "string") {
+		return false;
+	}
 
-  if (!upload.upload) {
-    return false;
-  }
+	if (!upload.upload) {
+		return false;
+	}
 
-  return true;
+	return true;
 };
 
 type ImageUploadRacePromise = (props: {
-  imageUploadPromise: Promise<ImageURL>,
-  errorMessage: string,
+	imageUploadPromise: Promise<ImageURL>;
+	errorMessage: string;
 }) => Promise<ImageURL>;
 
 const imageUploadRacePromise: ImageUploadRacePromise = async ({
-  imageUploadPromise,
-  errorMessage,
+	imageUploadPromise,
+	errorMessage,
 }) => {
-  const upload = await Promise.race([
-    delay(IMAGE_UPLOAD_TIMEOUT),
-    imageUploadPromise,
-  ]);
+	const upload = await Promise.race([
+		delay(IMAGE_UPLOAD_TIMEOUT),
+		imageUploadPromise,
+	]);
 
-  if (!validateUpload(upload)) {
-    throw new Error(errorMessage);
-  }
+	if (!validateUpload(upload)) {
+		throw new Error(errorMessage);
+	}
 
-  return upload;
+	return upload;
 };
 
 type FileUploadProps = {
-  name: string,
-  onImageUpload: OnImageUpload,
+	name: string;
+	onImageUpload: OnImageUpload;
 };
 
-export function FileUpload({
-  name,
-  onImageUpload,
-}: FileUploadProps) {
-  const { t } = useTranslation();
-  const theme = useTheme();
-  const fileRef = useRef<HTMLInputElement>();
-  const { setValue, value } = useField<ImageURL>(name);
-  const [loading, setLoading] = useState(false);
-  const isMounted = useIsMounted();
-  const isUploaded = value.locationUpload && value.location === value.locationUpload;
+export function FileUpload({ name, onImageUpload }: FileUploadProps) {
+	const { t } = useTranslation();
+	const theme = useTheme();
+	const fileRef = useRef<HTMLInputElement>();
+	const { setValue, value } = useField<ImageURL>(name);
+	const [loading, setLoading] = useState(false);
+	const isMounted = useIsMounted();
+	const isUploaded =
+		value.locationUpload && value.location === value.locationUpload;
 
-  const onFileUpload = () => {
-    if (loading) return;
+	const onFileUpload = () => {
+		if (loading) return;
 
-    if (!fileRef.current) return;
+		if (!fileRef.current) return;
 
-    const { files } = fileRef.current;
-    if (!files || !files[0]) return;
+		const { files } = fileRef.current;
+		if (!files || !files[0]) return;
 
-    setLoading(true);
+		setLoading(true);
 
-    const image = files[0];
+		const image = files[0];
 
-    const promise = imageUploadRacePromise({
-      imageUploadPromise: onImageUpload(image),
-      errorMessage: t('errors.somethingWentWrong'),
-    });
+		const promise = imageUploadRacePromise({
+			imageUploadPromise: onImageUpload(image),
+			errorMessage: t("errors.somethingWentWrong"),
+		});
 
-    toast.promise(
-      promise,
-      {
-        pending: t('element.imageUpload.pending'),
-        success: t('element.imageUpload.success'),
-        error: t('errors.somethingWentWrong'),
-      },
-      {
-        draggable: false,
-      },
-    );
+		toast.promise(
+			promise,
+			{
+				pending: t("element.imageUpload.pending"),
+				success: t("element.imageUpload.success"),
+				error: t("errors.somethingWentWrong"),
+			},
+			{
+				draggable: false,
+			},
+		);
 
-    promise.then((upload: ImageURL) => {
-      if (!isMounted.current) return;
+		promise.then((upload: ImageURL) => {
+			if (!isMounted.current) return;
 
-      setValue({
-        ...value,
-        ...upload,
-        locationUpload: upload.location,
-      });
-    });
+			setValue({
+				...value,
+				...upload,
+				locationUpload: upload.location,
+			});
+		});
 
-    promise.finally(() => {
-      if (!isMounted.current) return;
+		promise.finally(() => {
+			if (!isMounted.current) return;
 
-      setLoading(false);
-    });
-  };
+			setLoading(false);
+		});
+	};
 
-  const onClick = () => {
-    fileRef.current.click();
-  };
+	const onClick = () => {
+		fileRef.current.click();
+	};
 
-  const buttonLabel = () => {
-    if (loading) return <LoaderSpinner color={theme.colors.white} />;
-    return isUploaded
-      ? t('element.imageUpload.change')
-      : t('element.imageUpload.upload');
-  };
+	const buttonLabel = () => {
+		if (loading) return <LoaderSpinner color={theme.colors.white} />;
+		return isUploaded
+			? t("element.imageUpload.change")
+			: t("element.imageUpload.upload");
+	};
 
-  return (
-    <>
-      <input
-        type="file"
-        accept="image/*"
-        style={{ display: 'none' }}
-        ref={fileRef}
-        onChange={onFileUpload}
-      />
-      <LinkButton disabled={loading} onClick={onClick}>
-        {buttonLabel()}
-      </LinkButton>
-    </>
-  );
+	return (
+		<>
+			<input
+				type="file"
+				accept="image/*"
+				style={{ display: "none" }}
+				ref={fileRef}
+				onChange={onFileUpload}
+			/>
+			<LinkButton disabled={loading} onClick={onClick}>
+				{buttonLabel()}
+			</LinkButton>
+		</>
+	);
 }

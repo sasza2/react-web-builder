@@ -1,1 +1,1 @@
-export * from './ViewElementAnchor';
+export * from "./ViewElementAnchor";

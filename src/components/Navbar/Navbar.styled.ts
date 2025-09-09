@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
-import { NAVBAR_HEIGHT } from '@/consts';
+import { NAVBAR_HEIGHT } from "@/consts";
 
 export const Wrapper = styled.div`
   padding: 0 15px;
@@ -22,7 +22,9 @@ export const Options = styled.div<{ $toLeft?: boolean }>`
   height: 100%;
   gap: 0px 18px;
 
-  ${({ $toLeft }) => $toLeft && css`
+  ${({ $toLeft }) =>
+		$toLeft &&
+		css`
     margin-left: auto;
   `};
 `;

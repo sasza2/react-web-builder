@@ -1,1 +1,1 @@
-export * from './AnimationWidth';
+export * from "./AnimationWidth";

@@ -1,50 +1,55 @@
-import type { ElementsExtras, WebBuilderElement, WebBuilderElements } from 'types';
+import type {
+	ElementsExtras,
+	WebBuilderElement,
+	WebBuilderElements,
+} from "types";
 
 type ElementWithHeiht = WebBuilderElement & {
-  h: 'auto' | number,
+	h: "auto" | number;
 };
 
 type CreateBoardFromElements = (
-  elements: WebBuilderElements,
-  elementsExtras: ElementsExtras,
+	elements: WebBuilderElements,
+	elementsExtras: ElementsExtras,
 ) => {
-  boardByRows: Array<WebBuilderElements>,
-  boardByColumns: Array<WebBuilderElements>,
+	boardByRows: Array<WebBuilderElements>;
+	boardByColumns: Array<WebBuilderElements>;
 };
 
 const createBoardFromElements: CreateBoardFromElements = (
-  elements,
-  elementsExtras,
+	elements,
+	elementsExtras,
 ) => {
-  const boardByRows: Array<WebBuilderElements> = [];
-  const boardByColumns: Array<WebBuilderElements> = [];
-  let columns = 0;
-  let rows = 0;
+	const boardByRows: Array<WebBuilderElements> = [];
+	const boardByColumns: Array<WebBuilderElements> = [];
+	let columns = 0;
+	let rows = 0;
 
-  elements.forEach((element: ElementWithHeiht) => {
-    const maxX = element.x + element.w;
-    const heightFromExtras = elementsExtras[element.id]?.height || 1; // TODO
-    const height = (element.h === 'auto' ? heightFromExtras : element.h) || heightFromExtras;
-    const maxY = element.y + height;
+	elements.forEach((element: ElementWithHeiht) => {
+		const maxX = element.x + element.w;
+		const heightFromExtras = elementsExtras[element.id]?.height || 1; // TODO
+		const height =
+			(element.h === "auto" ? heightFromExtras : element.h) || heightFromExtras;
+		const maxY = element.y + height;
 
-    if (maxX > columns) columns = maxX;
-    if (maxY > rows) rows = maxY;
+		if (maxX > columns) columns = maxX;
+		if (maxY > rows) rows = maxY;
 
-    for (let { x } = element; x < maxX; x++) {
-      for (let { y } = element; y < maxY; y++) {
-        if (!boardByRows[y]) boardByRows[y] = [];
-        if (!boardByColumns[x]) boardByColumns[x] = [];
+		for (let { x } = element; x < maxX; x++) {
+			for (let { y } = element; y < maxY; y++) {
+				if (!boardByRows[y]) boardByRows[y] = [];
+				if (!boardByColumns[x]) boardByColumns[x] = [];
 
-        boardByColumns[x][y] = element;
-        boardByRows[y][x] = element;
-      }
-    }
-  });
+				boardByColumns[x][y] = element;
+				boardByRows[y][x] = element;
+			}
+		}
+	});
 
-  return {
-    boardByRows,
-    boardByColumns,
-  };
+	return {
+		boardByRows,
+		boardByColumns,
+	};
 };
 
 export default createBoardFromElements;

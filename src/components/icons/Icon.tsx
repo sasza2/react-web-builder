@@ -1,81 +1,75 @@
-import React from 'react';
-import { Tooltip } from 'react-tooltip';
+import React from "react";
+import { Tooltip } from "react-tooltip";
 
-import { AddBreakpoint } from './AddBreakpoint';
-import { Anchor } from './Anchor';
-import { ArrowLeft } from './ArrowLeft';
-import { ColorBasic } from './ColorBasic';
-import { ColorGradient } from './ColorGradient';
-import { Configuration } from './Configuration';
-import { Container } from './Container';
-import { Cross } from './Cross';
-import { Desktop } from './Desktop';
-import { Hamburger } from './Hamburger';
-import { HTML } from './HTML';
-import { IFrame } from './IFrame';
-import { Image } from './Image';
-import { LetterSpacing } from './LetterSpacing';
-import { Line } from './Line';
-import { LineHeight } from './LineHeight';
-import { Link } from './Link';
-import { Loader } from './Loader';
-import { Mobile } from './Mobile';
-import { MoveUp } from './MoveUp';
-import { Padding } from './Padding';
-import { PageSettings } from './PageSettings';
-import { Palette } from './Palette';
-import { Plus } from './Plus';
-import { QuestionMark } from './QuestionMark';
-import { Redo } from './Redo';
-import { Row } from './Row';
-import { Square } from './Square';
-import { Tablet } from './Tablet';
-import { Text } from './Text';
-import { TextBold } from './TextBold';
-import { TextCenter } from './TextCenter';
-import { TextItalic } from './TextItalic';
-import { TextJustify } from './TextJustify';
-import { TextLeft } from './TextLeft';
-import { TextRight } from './TextRight';
-import { TextUnderline } from './TextUnderline';
-import { Trash } from './Trash';
-import type { IconWrapperProps } from './types';
-import { Undo } from './Undo';
-import { Video } from './Video';
-import { View } from './View';
-import { Zoom } from './Zoom';
+import { AddBreakpoint } from "./AddBreakpoint";
+import { Anchor } from "./Anchor";
+import { ArrowLeft } from "./ArrowLeft";
+import { ColorBasic } from "./ColorBasic";
+import { ColorGradient } from "./ColorGradient";
+import { Configuration } from "./Configuration";
+import { Container } from "./Container";
+import { Cross } from "./Cross";
+import { Desktop } from "./Desktop";
+import { Hamburger } from "./Hamburger";
+import { HTML } from "./HTML";
+import { IFrame } from "./IFrame";
+import { Image } from "./Image";
+import { LetterSpacing } from "./LetterSpacing";
+import { Line } from "./Line";
+import { LineHeight } from "./LineHeight";
+import { Link } from "./Link";
+import { Loader } from "./Loader";
+import { Mobile } from "./Mobile";
+import { MoveUp } from "./MoveUp";
+import { Padding } from "./Padding";
+import { PageSettings } from "./PageSettings";
+import { Palette } from "./Palette";
+import { Plus } from "./Plus";
+import { QuestionMark } from "./QuestionMark";
+import { Redo } from "./Redo";
+import { Row } from "./Row";
+import { Square } from "./Square";
+import { Tablet } from "./Tablet";
+import { Text } from "./Text";
+import { TextBold } from "./TextBold";
+import { TextCenter } from "./TextCenter";
+import { TextItalic } from "./TextItalic";
+import { TextJustify } from "./TextJustify";
+import { TextLeft } from "./TextLeft";
+import { TextRight } from "./TextRight";
+import { TextUnderline } from "./TextUnderline";
+import { Trash } from "./Trash";
+import type { IconWrapperProps } from "./types";
+import { Undo } from "./Undo";
+import { Video } from "./Video";
+import { View } from "./View";
+import { Zoom } from "./Zoom";
 
 type IconProps = {
-  icon: React.FC<IconWrapperProps>,
-  tooltip?: string,
+	icon: React.FC<IconWrapperProps>;
+	tooltip?: string;
 } & IconWrapperProps;
 
 export function Icon({
-  className,
-  icon: RenderIcon,
-  id,
-  onClick,
-  tooltip,
+	className,
+	icon: RenderIcon,
+	id,
+	onClick,
+	tooltip,
 }: IconProps) {
-  const svgProps = {
-    className,
-    'data-icon-id': id,
-    'data-tooltip-id': id ? `tooltip-${id}` : undefined,
-    onClick,
-  };
+	const svgProps = {
+		className,
+		"data-icon-id": id,
+		"data-tooltip-id": id ? `tooltip-${id}` : undefined,
+		onClick,
+	};
 
-  return (
-    <>
-      <RenderIcon {...svgProps} />
-      {
-        tooltip && (
-          <Tooltip id={`tooltip-${id}`}>
-            {tooltip}
-          </Tooltip>
-        )
-      }
-    </>
-  );
+	return (
+		<>
+			<RenderIcon {...svgProps} />
+			{tooltip && <Tooltip id={`tooltip-${id}`}>{tooltip}</Tooltip>}
+		</>
+	);
 }
 
 Icon.AddBreakpoint = AddBreakpoint;

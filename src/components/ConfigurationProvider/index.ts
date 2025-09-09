@@ -1,1 +1,1 @@
-export * from './ConfigurationProvider';
+export * from "./ConfigurationProvider";

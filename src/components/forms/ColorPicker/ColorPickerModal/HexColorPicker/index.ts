@@ -1,1 +1,1 @@
-export * from './HexColorPicker';
+export * from "./HexColorPicker";

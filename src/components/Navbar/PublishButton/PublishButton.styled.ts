@@ -1,13 +1,13 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const AbsoluteContainer = styled.div<{ $isOpen: boolean }>`
   position: absolute;
   top: 50px;
   right: 0px;
-  pointer-events: ${({ $isOpen }) => ($isOpen ? 'all' : 'none')};
+  pointer-events: ${({ $isOpen }) => ($isOpen ? "all" : "none")};
 `;
 
-export const Popup = styled.div<{ $isOpen: boolean, $isClosing: boolean }>`
+export const Popup = styled.div<{ $isOpen: boolean; $isClosing: boolean }>`
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -19,17 +19,19 @@ export const Popup = styled.div<{ $isOpen: boolean, $isClosing: boolean }>`
   border-bottom-right-radius: 12px;
   pointer-events: none;
   opacity: ${({ $isOpen, $isClosing }) => {
-    if ($isClosing || !$isOpen) return '0';
-    return '1';
-  }};
+		if ($isClosing || !$isOpen) return "0";
+		return "1";
+	}};
   transition: opacity 0.3s;
   ${({ theme }) => theme.typography.Big0R};
   visibility: ${({ $isOpen, $isClosing }) => {
-    if ($isClosing || $isOpen) return 'visibile';
-    return 'hidden';
-  }};
+		if ($isClosing || $isOpen) return "visibile";
+		return "hidden";
+	}};
 
-  ${({ $isOpen }) => $isOpen && css`
+  ${({ $isOpen }) =>
+		$isOpen &&
+		css`
     pointer-events: all;
   `}
 `;

@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
-export const InputGroup = styled.div<{ $hasFocus?: boolean, $height?: number }>`
+export const InputGroup = styled.div<{ $hasFocus?: boolean; $height?: number }>`
   display: flex;
   border: 1px solid ${({ theme }) => theme.colors.lightGray};
   overflow: hidden;
@@ -9,7 +9,9 @@ export const InputGroup = styled.div<{ $hasFocus?: boolean, $height?: number }>`
   border-radius: 4px;
   ${({ theme }) => theme.typography.Medium0R};
 
-  ${({ $hasFocus }) => $hasFocus && css`
+  ${({ $hasFocus }) =>
+		$hasFocus &&
+		css`
     border: 1px solid ${({ theme }) => theme.colors.darkBlue};
   `}
 
@@ -33,7 +35,10 @@ export const InputGroup = styled.div<{ $hasFocus?: boolean, $height?: number }>`
   }
 `;
 
-export const ExtraNode = styled.div<{ $leftBorder?: boolean, $rightBorder?: boolean }>`
+export const ExtraNode = styled.div<{
+	$leftBorder?: boolean;
+	$rightBorder?: boolean;
+}>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,11 +48,15 @@ export const ExtraNode = styled.div<{ $leftBorder?: boolean, $rightBorder?: bool
   background-color: ${({ theme }) => theme.colors.whiteSmoke};
   color: ${({ theme }) => theme.colors.darkBlue};
 
-  ${({ $leftBorder }) => $leftBorder && css`
+  ${({ $leftBorder }) =>
+		$leftBorder &&
+		css`
     border-left: 1px solid ${({ theme }) => theme.colors.lightGray};
   `}
 
-  ${({ $rightBorder }) => $rightBorder && css`
+  ${({ $rightBorder }) =>
+		$rightBorder &&
+		css`
     border-right: 1px solid ${({ theme }) => theme.colors.lightGray};
   `}
 `;

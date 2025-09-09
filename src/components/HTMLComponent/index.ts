@@ -1,1 +1,1 @@
-export * from './HTMLComponent';
+export * from "./HTMLComponent";

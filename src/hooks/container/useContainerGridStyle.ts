@@ -1,12 +1,15 @@
-import type { CSSProperties } from 'react';
+import type { CSSProperties } from "react";
 
-import { type ContainerStyleProps, useContainerStyle } from '@/components/ElementContainer/useContainerStyle';
+import {
+	type ContainerStyleProps,
+	useContainerStyle,
+} from "@/components/ElementContainer/useContainerStyle";
 
-import { useContainerElementProperties } from './useContainerElementProperties';
+import { useContainerElementProperties } from "./useContainerElementProperties";
 
 export const useContainerGridStyle = (): CSSProperties => {
-  const properties = useContainerElementProperties();
-  const style = useContainerStyle(properties as ContainerStyleProps);
+	const properties = useContainerElementProperties();
+	const style = useContainerStyle(properties as ContainerStyleProps);
 
-  return style;
+	return style;
 };

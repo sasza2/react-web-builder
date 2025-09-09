@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
-import { Container as ButtonIcon } from '@/components/ButtonIcon/ButtonIcon.styled';
-import { NAVBAR_HEIGHT } from '@/consts';
+import { Container as ButtonIcon } from "@/components/ButtonIcon/ButtonIcon.styled";
+import { NAVBAR_HEIGHT } from "@/consts";
 
 // textMdBold
 export const Center = styled.div`
@@ -27,7 +27,9 @@ export const ButtonContainer = styled.div`
 export const Children = styled.div<{ $hasBackButton: boolean }>`
   word-break: break-word;
   color: ${({ theme }) => theme.colors.gray};
-  ${({ $hasBackButton }) => $hasBackButton && css`
+  ${({ $hasBackButton }) =>
+		$hasBackButton &&
+		css`
     width: 180px;
     margin-left: 60px;
   `};

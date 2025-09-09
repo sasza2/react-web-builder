@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Container = styled.div<{ $color: string, $width: number }>`
+export const Container = styled.div<{ $color: string; $width: number }>`
   svg {
     width: ${({ $width }) => `${$width}px`};
     fill: ${({ $color }) => $color};

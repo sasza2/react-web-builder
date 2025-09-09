@@ -1,1 +1,1 @@
-export const RESIZABLE_PROP_NAME = '--height';
+export const RESIZABLE_PROP_NAME = "--height";

@@ -1,54 +1,55 @@
-import type { GridProps } from 'react-grid-panzoom';
-import { useTranslation } from 'react-i18next';
-import { toast } from 'react-toastify';
+import type { GridProps } from "react-grid-panzoom";
+import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 
-import { useElements } from '@/hooks/useElements';
-import { useSelectedElementId } from '@/hooks/useSelectedElementId';
-import { useSelectedElements } from '@/hooks/useSelectedElements';
-import { blurInput, hasFocusOnInput } from '@/utils/input';
+import { useElements } from "@/hooks/useElements";
+import { useSelectedElementId } from "@/hooks/useSelectedElementId";
+import { useSelectedElements } from "@/hooks/useSelectedElements";
+import { blurInput, hasFocusOnInput } from "@/utils/input";
 
-import { useConfiguration } from '../ConfigurationProvider';
-import { useIsDoubleClickOnElement } from './useIsDoubleClickOnElement';
+import { useConfiguration } from "../ConfigurationProvider";
+import { useIsDoubleClickOnElement } from "./useIsDoubleClickOnElement";
 
 const useOnElementClick = () => {
-  const { t } = useTranslation();
-  const { elements } = useElements();
-  const [selectedElementId, setSelectedElementId] = useSelectedElementId();
-  const isDoubleClickOnElement = useIsDoubleClickOnElement();
-  const configuration = useConfiguration();
-  const { selectedElements, setSelectedElements, toggleSelectedElement } = useSelectedElements();
+	const { t } = useTranslation();
+	const { elements } = useElements();
+	const [selectedElementId, setSelectedElementId] = useSelectedElementId();
+	const isDoubleClickOnElement = useIsDoubleClickOnElement();
+	const configuration = useConfiguration();
+	const { selectedElements, setSelectedElements, toggleSelectedElement } =
+		useSelectedElements();
 
-  const onElementClick: GridProps['onElementClick'] = ({ id }, { e, stop }) => {
-    if (!id) return;
+	const onElementClick: GridProps["onElementClick"] = ({ id }, { e, stop }) => {
+		if (!id) return;
 
-    if (hasFocusOnInput()) {
-      blurInput();
-      return;
-    }
+		if (hasFocusOnInput()) {
+			blurInput();
+			return;
+		}
 
-    const element = elements.find((item) => item.id === id);
-    if (element?.disabledMove) {
-      toast.info(t('element.lockInfo'));
-    }
+		const element = elements.find((item) => item.id === id);
+		if (element?.disabledMove) {
+			toast.info(t("element.lockInfo"));
+		}
 
-    if (e.shiftKey) {
-      toggleSelectedElement(id);
-      stop();
-      return;
-    }
+		if (e.shiftKey) {
+			toggleSelectedElement(id);
+			stop();
+			return;
+		}
 
-    if (!selectedElements.includes(id)) {
-      setSelectedElements([]);
-    }
+		if (!selectedElements.includes(id)) {
+			setSelectedElements([]);
+		}
 
-    if (selectedElementId === id) return;
+		if (selectedElementId === id) return;
 
-    if (configuration.editOnDoubleClick && !isDoubleClickOnElement(id)) return;
+		if (configuration.editOnDoubleClick && !isDoubleClickOnElement(id)) return;
 
-    setSelectedElementId(id as string);
-  };
+		setSelectedElementId(id as string);
+	};
 
-  return onElementClick;
+	return onElementClick;
 };
 
 export default useOnElementClick;

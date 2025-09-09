@@ -1,5 +1,7 @@
-import { UseBoxStyleProps } from './types';
+import { UseBoxStyleProps } from "./types";
 
-export { UseBoxStyleProps } from './types';
+export { UseBoxStyleProps } from "./types";
 
-export default function useBoxStyle(props: UseBoxStyleProps): React.CSSProperties;
+export default function useBoxStyle(
+	props: UseBoxStyleProps,
+): React.CSSProperties;

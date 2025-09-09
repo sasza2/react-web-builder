@@ -1,14 +1,14 @@
-import { useCallback } from 'react';
-import type { Page } from 'types';
+import { useCallback } from "react";
+import type { Page } from "types";
 
 export const useValidatePage = () => {
-  const validate = useCallback((page: Page) => {
-    if (!page || typeof page !== 'object') return false;
+	const validate = useCallback((page: Page) => {
+		if (!page || typeof page !== "object") return false;
 
-    if (!Array.isArray(page.breakpoints)) return false;
+		if (!Array.isArray(page.breakpoints)) return false;
 
-    return true;
-  }, []);
+		return true;
+	}, []);
 
-  return validate;
+	return validate;
 };

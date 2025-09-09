@@ -1,56 +1,53 @@
-import React from 'react';
+import React from "react";
 
-import { useField } from '@/components/FormProvider';
+import { useField } from "@/components/FormProvider";
 
-import { FormControl } from '../FormControl';
-import type { IFormControl } from '../types';
-import {
-  Circle, CircleFill, Item, ItemInner, Items,
-} from './Radio.styled';
+import { FormControl } from "../FormControl";
+import type { IFormControl } from "../types";
+import { Circle, CircleFill, Item, ItemInner, Items } from "./Radio.styled";
 
 type Option = {
-  extra?: React.ReactElement,
-  label?: string;
-  type: string;
+	extra?: React.ReactElement;
+	label?: string;
+	type: string;
 };
 
 type RadioProps = {
-  options?: Option[],
+	options?: Option[];
 } & IFormControl;
 
-export function Radio({
-  errors,
-  label,
-  name,
-  options,
-}: RadioProps) {
-  const { setValue, value } = useField<{ type: string }>(name);
+export function Radio({ errors, label, name, options }: RadioProps) {
+	const { setValue, value } = useField<{ type: string }>(name);
 
-  const onSelectItem = (option: Option) => () => {
-    if (value?.type === option.type) return;
+	const onSelectItem = (option: Option) => () => {
+		if (value?.type === option.type) return;
 
-    setValue({ ...value, type: option.type });
-  };
+		setValue({ ...value, type: option.type });
+	};
 
-  return (
-    <FormControl name={name} errors={errors} label={label}>
-      <Items>
-        {options.map((option) => {
-          const isSelected = value?.type === option.type;
+	return (
+		<FormControl name={name} errors={errors} label={label}>
+			<Items>
+				{options.map((option) => {
+					const isSelected = value?.type === option.type;
 
-          return (
-            <Item key={option.type} $selected={isSelected} onClick={onSelectItem(option)}>
-              <ItemInner>
-                <Circle $selected={isSelected}>
-                  {isSelected ? <CircleFill /> : null}
-                </Circle>
-                {option.label}
-              </ItemInner>
-              {option.extra}
-            </Item>
-          );
-        })}
-      </Items>
-    </FormControl>
-  );
+					return (
+						<Item
+							key={option.type}
+							$selected={isSelected}
+							onClick={onSelectItem(option)}
+						>
+							<ItemInner>
+								<Circle $selected={isSelected}>
+									{isSelected ? <CircleFill /> : null}
+								</Circle>
+								{option.label}
+							</ItemInner>
+							{option.extra}
+						</Item>
+					);
+				})}
+			</Items>
+		</FormControl>
+	);
 }

@@ -1,1 +1,1 @@
-export * from './ElementOptionsProvider';
+export * from "./ElementOptionsProvider";

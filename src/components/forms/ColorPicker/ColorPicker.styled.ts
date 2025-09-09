@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { FormControlDiv } from '@/components/forms/FormControl.styled';
+import { FormControlDiv } from "@/components/forms/FormControl.styled";
 
 export const InputContainer = styled.div`
   display: flex;

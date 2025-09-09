@@ -1,26 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { useGridAPI } from '@/components/GridAPIProvider';
+import { useGridAPI } from "@/components/GridAPIProvider";
 
 const useIsGridLoaded = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const gridAPIRef = useGridAPI();
+	const [isLoaded, setIsLoaded] = useState(false);
+	const gridAPIRef = useGridAPI();
 
-  useEffect(() => {
-    if (isLoaded) return;
+	useEffect(() => {
+		if (isLoaded) return;
 
-    const waitForAPI = () => {
-      if (gridAPIRef.current) setIsLoaded(true);
-    };
+		const waitForAPI = () => {
+			if (gridAPIRef.current) setIsLoaded(true);
+		};
 
-    const timer = setInterval(waitForAPI, 200);
+		const timer = setInterval(waitForAPI, 200);
 
-    return () => {
-      clearInterval(timer);
-    };
-  }, [isLoaded]);
+		return () => {
+			clearInterval(timer);
+		};
+	}, [isLoaded]);
 
-  return isLoaded;
+	return isLoaded;
 };
 
 export default useIsGridLoaded;

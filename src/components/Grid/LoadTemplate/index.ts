@@ -1,1 +1,1 @@
-export * from './LoadTemplate';
+export * from "./LoadTemplate";

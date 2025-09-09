@@ -1,14 +1,14 @@
-import { useMemo } from 'react';
+import { useMemo } from "react";
 
-import { useWebBuilderProperties } from '@/components/PropertiesProvider';
-import { DEFAULT_PRESET_COLORS } from '@/consts';
-import { normalizeColor } from '@/utils/colors';
+import { useWebBuilderProperties } from "@/components/PropertiesProvider";
+import { DEFAULT_PRESET_COLORS } from "@/consts";
+import { normalizeColor } from "@/utils/colors";
 
 export const usePresetColors = (): string[] => {
-  const { presetColors } = useWebBuilderProperties();
+	const { presetColors } = useWebBuilderProperties();
 
-  return useMemo(
-    () => (presetColors || DEFAULT_PRESET_COLORS).map(normalizeColor),
-    [presetColors],
-  );
+	return useMemo(
+		() => (presetColors || DEFAULT_PRESET_COLORS).map(normalizeColor),
+		[presetColors],
+	);
 };

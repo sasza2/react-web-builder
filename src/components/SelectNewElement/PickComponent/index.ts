@@ -1,1 +1,1 @@
-export * from './PickComponent';
+export * from "./PickComponent";

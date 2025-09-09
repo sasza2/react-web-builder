@@ -1,25 +1,25 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.3/schema.json",
-  "files": {
-    "includes": ["src/**", "tests/**", "types/**"]
-  },
-  "javascript": {
-    "jsxRuntime": "reactClassic"
-  },
-  "linter": {
-    "rules": {
-      "a11y": {
-        "noStaticElementInteractions": "off",
-        "noSvgWithoutTitle": "off"
-      },
-      "correctness": {
-        "useExhaustiveDependencies": "off",
-        "useParseIntRadix": "off",
-        "useUniqueElementIds": "off"
-      },
-      "suspicious": {
-        "noArrayIndexKey": "off"
-      }
-    }
-  }
+	"$schema": "https://biomejs.dev/schemas/2.2.3/schema.json",
+	"files": {
+		"includes": ["src/**", "tests/**", "types/**"]
+	},
+	"javascript": {
+		"jsxRuntime": "reactClassic"
+	},
+	"linter": {
+		"rules": {
+			"a11y": {
+				"noStaticElementInteractions": "off",
+				"noSvgWithoutTitle": "off"
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "off",
+				"useParseIntRadix": "off",
+				"useUniqueElementIds": "off"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "off"
+			}
+		}
+	}
 }

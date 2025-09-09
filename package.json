@@ -70,7 +70,7 @@
     "changeset": "changeset",
     "dev": "storybook dev -p 6006",
     "e2e": "playwright test",
-    "format": "biome format",
+    "format": "biome format --write",
     "lint": "biome lint --write",
     "test": "vitest run --config vite.lib.config.ts src",
     "prepack": "pnpm build:lib",

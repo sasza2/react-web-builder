@@ -1,1 +1,1 @@
-export * from './TemplateLoaderAnimation';
+export * from "./TemplateLoaderAnimation";

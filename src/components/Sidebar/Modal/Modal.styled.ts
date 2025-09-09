@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { NAVBAR_HEIGHT, SIDEBAR_WIDTH } from '@/consts';
+import { NAVBAR_HEIGHT, SIDEBAR_WIDTH } from "@/consts";
 
 export const Container = styled.div`
   display: flex;

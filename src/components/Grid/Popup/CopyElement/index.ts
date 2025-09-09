@@ -1,1 +1,1 @@
-export * from './CopyElement';
+export * from "./CopyElement";

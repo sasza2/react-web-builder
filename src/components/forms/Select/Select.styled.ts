@@ -1,16 +1,16 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const HEIGHT_BY_SIZE = {
-  xs: 26,
-  lg: 40,
+	xs: 26,
+	lg: 40,
 };
 
-const getPaddingForIndicator = (size: 'xs' | 'lg') => {
-  const height = HEIGHT_BY_SIZE[size];
-  return `${Math.max((height - 22) / 2, 0)}px 8px !important`;
+const getPaddingForIndicator = (size: "xs" | "lg") => {
+	const height = HEIGHT_BY_SIZE[size];
+	return `${Math.max((height - 22) / 2, 0)}px 8px !important`;
 };
 
-export const Wrapped = styled.div<{ $size: 'xs' | 'lg' }>`
+export const Wrapped = styled.div<{ $size: "xs" | "lg" }>`
   font-family: ${({ theme }) => theme.fontFamily};
 
   .react-select__menu {
@@ -40,13 +40,13 @@ export const Wrapped = styled.div<{ $size: 'xs' | 'lg' }>`
   }
   .react-select__single-value {
     ${({ $size, theme }) => {
-    switch ($size) {
-      case 'xs':
-        return theme.typography.Small0R;
-      default:
-        return theme.typography.Title0R;
-    }
-  }}
+			switch ($size) {
+				case "xs":
+					return theme.typography.Small0R;
+				default:
+					return theme.typography.Title0R;
+			}
+		}}
 
     svg {
       fill: ${({ theme }) => theme.colors.gray};

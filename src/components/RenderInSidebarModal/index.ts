@@ -1,1 +1,1 @@
-export * from './RenderInSidebarModal';
+export * from "./RenderInSidebarModal";

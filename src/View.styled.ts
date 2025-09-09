@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
-export const HIDE_SCROLLBAR_CLASS_NAME = 'react-web-builder-hide-scrollbar';
+export const HIDE_SCROLLBAR_CLASS_NAME = "react-web-builder-hide-scrollbar";
 
 export const ViewGlobalStyles = createGlobalStyle`
   ${`.${HIDE_SCROLLBAR_CLASS_NAME}`}::-webkit-scrollbar {

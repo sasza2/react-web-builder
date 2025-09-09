@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { InputGroup } from '../Input/Input.styled';
-import { Container as TabsContainer } from '../Tabs/Tabs.styled';
+import { InputGroup } from "../Input/Input.styled";
+import { Container as TabsContainer } from "../Tabs/Tabs.styled";
 
 export const FormContainer = styled.div`
   display: flex;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Empty = styled.div<{ $height: number }>`
   width: 100%;

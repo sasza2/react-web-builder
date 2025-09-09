@@ -1,1 +1,1 @@
-export * from './ComponentIsLoading';
+export * from "./ComponentIsLoading";

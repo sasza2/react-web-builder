@@ -1,8 +1,8 @@
-import { expect, type Page } from '@playwright/test';
+import { expect, type Page } from "@playwright/test";
 
-import { sleep } from './sleep';
+import { sleep } from "./sleep";
 
 export const waitForTemplate = async (page: Page) => {
-  await expect(page.getByTestId('templateLoaderAnimation')).toHaveCount(0);
-  await sleep(3000);
+	await expect(page.getByTestId("templateLoaderAnimation")).toHaveCount(0);
+	await sleep(3000);
 };

@@ -1,1 +1,1 @@
-export * from './RemoveElement';
+export * from "./RemoveElement";

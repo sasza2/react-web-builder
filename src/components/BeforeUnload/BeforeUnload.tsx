@@ -1,25 +1,25 @@
-import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
-import { useAppSelector } from '@/store/useAppSelector';
+import { useAppSelector } from "@/store/useAppSelector";
 
 export function BeforeUnload(): JSX.Element {
-  const changes = useAppSelector((state) => state.changes);
-  const { t } = useTranslation();
+	const changes = useAppSelector((state) => state.changes);
+	const { t } = useTranslation();
 
-  useEffect(() => {
-    if (changes.saved) return;
+	useEffect(() => {
+		if (changes.saved) return;
 
-    const onBeforeunload = (event: BeforeUnloadEvent) => {
-      event.returnValue = t('errors.unsavedChanges');
-    };
+		const onBeforeunload = (event: BeforeUnloadEvent) => {
+			event.returnValue = t("errors.unsavedChanges");
+		};
 
-    window.addEventListener('beforeunload', onBeforeunload);
+		window.addEventListener("beforeunload", onBeforeunload);
 
-    return () => {
-      window.removeEventListener('beforeunload', onBeforeunload);
-    };
-  }, [changes.saved, t]);
+		return () => {
+			window.removeEventListener("beforeunload", onBeforeunload);
+		};
+	}, [changes.saved, t]);
 
-  return null;
+	return null;
 }

@@ -1,47 +1,48 @@
-import type { Breakpoint, Page } from 'types';
+import type { Breakpoint, Page } from "types";
 
-import { initialState as changesInitialState } from '../store/changesSlice';
-import type { RootState, StateInitialChanges } from '../store/store';
-import { isBreakpoint } from './breakpoint';
-import generateDefaultBreakpoints from './generateDefaultBreakpoints';
-import { getPageSettings } from './pageSettings';
+import { initialState as changesInitialState } from "../store/changesSlice";
+import type { RootState, StateInitialChanges } from "../store/store";
+import { isBreakpoint } from "./breakpoint";
+import generateDefaultBreakpoints from "./generateDefaultBreakpoints";
+import { getPageSettings } from "./pageSettings";
 
 type GetInitialStateFromPage = (page?: Page) => StateInitialChanges & {
-  changes?: RootState['changes'],
+	changes?: RootState["changes"];
 };
 
 const wrapInitialStateWithChanges = (initialState: StateInitialChanges) => ({
-  ...initialState,
-  changes: {
-    ...changesInitialState,
-    initial: initialState,
-  },
+	...initialState,
+	changes: {
+		...changesInitialState,
+		initial: initialState,
+	},
 });
 
 export const getLastBreakpointId = (breakpoints: Breakpoint[]) => {
-  const breakpointsWithoutContainers = breakpoints.filter(isBreakpoint);
+	const breakpointsWithoutContainers = breakpoints.filter(isBreakpoint);
 
-  if (!breakpointsWithoutContainers.length) return null;
-  return breakpointsWithoutContainers[breakpointsWithoutContainers.length - 1].id;
+	if (!breakpointsWithoutContainers.length) return null;
+	return breakpointsWithoutContainers[breakpointsWithoutContainers.length - 1]
+		.id;
 };
 
 const getInitialStateFromPage: GetInitialStateFromPage = (page) => {
-  if (!page) {
-    const defaultBreakpoints = generateDefaultBreakpoints();
-    return wrapInitialStateWithChanges({
-      breakpoints: defaultBreakpoints,
-      selectedBreakpoint: getLastBreakpointId(defaultBreakpoints),
-    });
-  }
+	if (!page) {
+		const defaultBreakpoints = generateDefaultBreakpoints();
+		return wrapInitialStateWithChanges({
+			breakpoints: defaultBreakpoints,
+			selectedBreakpoint: getLastBreakpointId(defaultBreakpoints),
+		});
+	}
 
-  const breakpoints = page.breakpoints || [];
+	const breakpoints = page.breakpoints || [];
 
-  return wrapInitialStateWithChanges({
-    breakpoints,
-    elementsInBreakpoints: page.elementsInBreakpoints || {},
-    selectedBreakpoint: getLastBreakpointId(breakpoints),
-    pageSettings: getPageSettings(page),
-  });
+	return wrapInitialStateWithChanges({
+		breakpoints,
+		elementsInBreakpoints: page.elementsInBreakpoints || {},
+		selectedBreakpoint: getLastBreakpointId(breakpoints),
+		pageSettings: getPageSettings(page),
+	});
 };
 
 export default getInitialStateFromPage;

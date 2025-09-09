@@ -1,13 +1,13 @@
-import { useCallback } from 'react';
+import { useCallback } from "react";
 
-import { useSelectedElements } from './useSelectedElements';
+import { useSelectedElements } from "./useSelectedElements";
 
 export const useElementOnStartResizing = () => {
-  const { setSelectedElements } = useSelectedElements();
+	const { setSelectedElements } = useSelectedElements();
 
-  const onStartResizing = useCallback(() => {
-    setSelectedElements([]);
-  }, []);
+	const onStartResizing = useCallback(() => {
+		setSelectedElements([]);
+	}, []);
 
-  return onStartResizing;
+	return onStartResizing;
 };

@@ -1,7 +1,7 @@
-import { type CSSProperties, styled } from 'styled-components';
+import { type CSSProperties, styled } from "styled-components";
 
 type BackgroundContainerProps = {
-  $background?: CSSProperties['background'],
+	$background?: CSSProperties["background"];
 };
 
 export const Container = styled.div<BackgroundContainerProps>`

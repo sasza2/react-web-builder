@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { RESIZABLE_PROP_NAME } from '@/components/Resizable';
+import { RESIZABLE_PROP_NAME } from "@/components/Resizable";
 
-export const SLATE_HIGHLIGHTED = 'react-web-builder-editor-higlighted';
+export const SLATE_HIGHLIGHTED = "react-web-builder-editor-higlighted";
 
 export const EditableWrapper = styled.div`
   height: ${() => `calc(var(${RESIZABLE_PROP_NAME}, 160px) - 10px)`};

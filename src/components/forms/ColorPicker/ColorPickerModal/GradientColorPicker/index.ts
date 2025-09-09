@@ -1,1 +1,1 @@
-export * from './GradientColorPicker';
+export * from "./GradientColorPicker";

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Line = styled.div<{ $top: number }>`
   border-bottom: 5px dashed ${({ theme }) => theme.colors.strongRed};

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div<{ $disabled?: boolean }>`
   margin: 0 18px 0 auto;

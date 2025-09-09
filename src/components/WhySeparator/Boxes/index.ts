@@ -1,1 +1,1 @@
-export { AnimationSeparator, Boxes } from './Boxes';
+export { AnimationSeparator, Boxes } from "./Boxes";

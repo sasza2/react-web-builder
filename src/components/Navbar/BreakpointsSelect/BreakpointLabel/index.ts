@@ -1,1 +1,1 @@
-export * from './BreakpointLabel';
+export * from "./BreakpointLabel";

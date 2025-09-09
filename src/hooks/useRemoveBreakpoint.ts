@@ -1,14 +1,14 @@
-import type { Breakpoint } from 'types';
+import type { Breakpoint } from "types";
 
-import { removeBreakpoint } from '@/store/breakpointsSlice';
-import { useAppDispatch } from '@/store/useAppDispatch';
+import { removeBreakpoint } from "@/store/breakpointsSlice";
+import { useAppDispatch } from "@/store/useAppDispatch";
 
 export const useRemoveBreakpoint = () => {
-  const dispatch = useAppDispatch();
+	const dispatch = useAppDispatch();
 
-  const remove = (breakpoint: Breakpoint) => {
-    dispatch(removeBreakpoint({ breakpoint }));
-  };
+	const remove = (breakpoint: Breakpoint) => {
+		dispatch(removeBreakpoint({ breakpoint }));
+	};
 
-  return remove;
+	return remove;
 };

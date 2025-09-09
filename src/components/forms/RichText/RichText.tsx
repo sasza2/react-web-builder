@@ -1,37 +1,37 @@
-import React from 'react';
-import type { TextElement } from 'types';
+import React from "react";
+import type { TextElement } from "types";
 
-import { useField } from '@/components/FormProvider';
+import { useField } from "@/components/FormProvider";
 
-import { FormControl } from '../FormControl';
-import type { IFormControl } from '../types';
-import { Editor } from './Editor/Editor';
+import { FormControl } from "../FormControl";
+import type { IFormControl } from "../types";
+import { Editor } from "./Editor/Editor";
 
- type RichTextProps = {
-   autoFocus?: boolean,
-   colorAvailable?: boolean,
-   hyperlinkAvailable?: boolean,
- } & IFormControl;
+type RichTextProps = {
+	autoFocus?: boolean;
+	colorAvailable?: boolean;
+	hyperlinkAvailable?: boolean;
+} & IFormControl;
 
 export function RichText({
-  autoFocus,
-  colorAvailable,
-  hyperlinkAvailable,
-  name,
-  errors,
-  label,
+	autoFocus,
+	colorAvailable,
+	hyperlinkAvailable,
+	name,
+	errors,
+	label,
 }: RichTextProps) {
-  const { setValue, value } = useField<TextElement[]>(name);
+	const { setValue, value } = useField<TextElement[]>(name);
 
-  return (
-    <FormControl name={name} errors={errors} label={label}>
-      <Editor
-        autoFocus={autoFocus}
-        colorAvailable={colorAvailable}
-        hyperlinkAvailable={hyperlinkAvailable}
-        value={value}
-        setValue={setValue}
-      />
-    </FormControl>
-  );
+	return (
+		<FormControl name={name} errors={errors} label={label}>
+			<Editor
+				autoFocus={autoFocus}
+				colorAvailable={colorAvailable}
+				hyperlinkAvailable={hyperlinkAvailable}
+				value={value}
+				setValue={setValue}
+			/>
+		</FormControl>
+	);
 }

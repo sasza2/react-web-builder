@@ -1,1 +1,1 @@
-export * from './LockElement';
+export * from "./LockElement";

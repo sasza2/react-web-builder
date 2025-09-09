@@ -1,4 +1,4 @@
-import { css, styled } from 'styled-components';
+import { css, styled } from "styled-components";
 
 export const Container = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.lightGray};
@@ -26,7 +26,9 @@ export const Tab = styled.div<{ $selected?: boolean }>`
 
   ${({ theme }) => theme.typography.Medium0B};
 
-  ${({ $selected }) => $selected && css`
+  ${({ $selected }) =>
+		$selected &&
+		css`
     background-color: ${({ theme }) => theme.colors.darkBlue};
     color: ${({ theme }) => theme.colors.white};
   `};

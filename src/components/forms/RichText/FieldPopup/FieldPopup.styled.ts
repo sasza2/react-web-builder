@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { FormControlDiv } from '../../FormControl.styled';
+import { FormControlDiv } from "../../FormControl.styled";
 
 export const Popup = styled.div<{ $closing: boolean }>`
   margin-top: -70px;
@@ -11,7 +11,7 @@ export const Popup = styled.div<{ $closing: boolean }>`
   background-color: ${({ theme }) => theme.colors.white};
   width: 230px;
   border: 1px solid ${({ theme }) => theme.colors.lightGray};
-  opacity: ${({ $closing }) => ($closing ? '0' : '1')};
+  opacity: ${({ $closing }) => ($closing ? "0" : "1")};
   transition: opacity 0.3s;
 
   ${FormControlDiv} {

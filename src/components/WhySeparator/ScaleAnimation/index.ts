@@ -1,1 +1,1 @@
-export * from './ScaleAnimation';
+export * from "./ScaleAnimation";

@@ -1,84 +1,80 @@
-import 'react-tooltip/dist/react-tooltip.css';
+import "react-tooltip/dist/react-tooltip.css";
 
-import React, { forwardRef, useId } from 'react';
-import { Tooltip } from 'react-tooltip';
+import React, { forwardRef, useId } from "react";
+import { Tooltip } from "react-tooltip";
 
-import { assignTestProp } from '@/utils/tests';
+import { assignTestProp } from "@/utils/tests";
 
 import {
-  ConfirmButtonContainer,
-  LinkButtonContainer,
-  LinkGhostButtonContainer,
-  RemoveButtonContainer,
-  RemoveGhostButtonContainer,
-} from './Button.styled';
+	ConfirmButtonContainer,
+	LinkButtonContainer,
+	LinkGhostButtonContainer,
+	RemoveButtonContainer,
+	RemoveGhostButtonContainer,
+} from "./Button.styled";
 
 type ButtonRef = {
-  buttonRef: React.MutableRefObject<HTMLButtonElement>,
+	buttonRef: React.MutableRefObject<HTMLButtonElement>;
 };
 
-type ButtonProps = React.PropsWithChildren<{
-  disabled?: boolean,
-  id?: string
-  onClick?: React.MouseEventHandler,
-  testId?: string,
-  tooltip?: string,
-} & Partial<ButtonRef>>;
+type ButtonProps = React.PropsWithChildren<
+	{
+		disabled?: boolean;
+		id?: string;
+		onClick?: React.MouseEventHandler;
+		testId?: string;
+		tooltip?: string;
+	} & Partial<ButtonRef>
+>;
 
 type IButtonContainer = React.FC<
-React.ButtonHTMLAttributes<HTMLButtonElement>
-& { $disabled?: boolean, ref: ButtonRef['buttonRef'] }
+	React.ButtonHTMLAttributes<HTMLButtonElement> & {
+		$disabled?: boolean;
+		ref: ButtonRef["buttonRef"];
+	}
 >;
 
 function Button({
-  buttonContainer: ButtonContainer,
-  buttonRef,
-  children,
-  disabled,
-  id,
-  onClick,
-  testId,
-  tooltip,
+	buttonContainer: ButtonContainer,
+	buttonRef,
+	children,
+	disabled,
+	id,
+	onClick,
+	testId,
+	tooltip,
 }: ButtonProps & { buttonContainer: IButtonContainer }) {
-  const customId = useId();
-  const buttonId = id || customId;
-  return (
-    <>
-      <ButtonContainer
-        $disabled={disabled}
-        data-button-id={buttonId}
-        data-tooltip-id={`button-${buttonId}`}
-        ref={buttonRef}
-        onClick={disabled ? undefined : onClick}
-        type="button"
-        {...assignTestProp(testId)}
-      >
-        {children}
-      </ButtonContainer>
-      {
-        tooltip && (
-          <Tooltip id={`button-${buttonId}`}>
-            {tooltip}
-          </Tooltip>
-        )
-      }
-    </>
-  );
+	const customId = useId();
+	const buttonId = id || customId;
+	return (
+		<>
+			<ButtonContainer
+				$disabled={disabled}
+				data-button-id={buttonId}
+				data-tooltip-id={`button-${buttonId}`}
+				ref={buttonRef}
+				onClick={disabled ? undefined : onClick}
+				type="button"
+				{...assignTestProp(testId)}
+			>
+				{children}
+			</ButtonContainer>
+			{tooltip && <Tooltip id={`button-${buttonId}`}>{tooltip}</Tooltip>}
+		</>
+	);
 }
 
-Button.displayName = 'Button';
+Button.displayName = "Button";
 
 const createButton = (buttonContainer: React.FC) => {
-  const ButtonWithRef = forwardRef((props: ButtonProps, ref: ButtonRef['buttonRef']) => (
-    <Button
-      {...props}
-      buttonRef={ref}
-      buttonContainer={buttonContainer}
-    />
-  ));
-  ButtonWithRef.displayName = 'ButtonWithRef';
+	const ButtonWithRef = forwardRef(
+		(props: ButtonProps, ref: ButtonRef["buttonRef"]) => (
+			<Button {...props} buttonRef={ref} buttonContainer={buttonContainer} />
+		),
+	);
+	ButtonWithRef.displayName = "ButtonWithRef";
 
-  return ButtonWithRef;
+	return ButtonWithRef;
 };
 
 export const ConfirmButton = createButton(ConfirmButtonContainer);
