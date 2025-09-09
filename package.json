@@ -25,6 +25,9 @@
       ]
     }
   },
+  "engines": {
+    "pnpm": "^10.0.0"
+  },
   "files": [
     "dist/*",
     "types/*",
@@ -76,8 +79,7 @@
     "prepack": "pnpm build:lib",
     "publish:package": "changeset publish",
     "version:package": "changeset version",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "storybook dev -p 6006"
   },
   "publishConfig": {
     "access": "public"
@@ -97,7 +99,7 @@
   "devDependencies": {
     "@babel/core": "7.28.4",
     "@biomejs/biome": "2.2.3",
-    "@changesets/cli": "2.29.6",
+    "@changesets/cli": "2.29.7",
     "@playwright/test": "1.55.0",
     "@storybook/react-vite": "9.1.5",
     "@testing-library/jest-dom": "6.8.0",
