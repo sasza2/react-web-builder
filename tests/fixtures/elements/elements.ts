@@ -1,7 +1,7 @@
-import { Locator, Page } from '@playwright/test';
+import type { Locator, Page } from '@playwright/test';
 
 import { getBreakpointZoom } from '../breakpoint/getBreakpointZoom';
-import { BreakpointDetails } from '../breakpoint/types';
+import type { BreakpointDetails } from '../breakpoint/types';
 
 export type ElementDetails = {
   id: string,

@@ -1,4 +1,4 @@
-import { ColorResult } from 'react-color';
+import type { ColorResult } from 'react-color';
 
 import { getColorType } from './common';
 import { splitGradientColor } from './gradient';
@@ -35,7 +35,7 @@ const splitColor = (color: string): { r: number, g: number, b: number, a: number
     return {
       r, g, b, a,
     };
-  } catch (e) {
+  } catch (_e) {
     return null;
   }
 };

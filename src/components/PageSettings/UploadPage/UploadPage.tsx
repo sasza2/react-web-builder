@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
-import { Page } from 'types';
+import type { Page } from 'types';
 
 import { LinkGhostButton } from '@/components/Button';
 import { Description, FormGroup, FormHeader } from '@/components/forms/FormControl.styled';

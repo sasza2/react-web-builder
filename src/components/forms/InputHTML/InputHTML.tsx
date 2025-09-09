@@ -1,15 +1,15 @@
-import { TFunction } from 'i18next';
+import type { TFunction } from 'i18next';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { HTMLComponentValue } from 'types';
+import type { HTMLComponentValue } from 'types';
 
 import { useField } from '@/components/FormProvider';
 import { useHTMLTransform } from '@/hooks/useHTMLTransform';
-import { TransformError, TransformErrorTypes } from '@/utils/html2json/errors';
+import { type TransformError, TransformErrorTypes } from '@/utils/html2json/errors';
 
 import { FormControl } from '../FormControl';
 import { InputGroup } from '../Input/Input.styled';
-import { FormErrors, IFormControl } from '../types';
+import type { FormErrors, IFormControl } from '../types';
 
 const CSS_MAX_LENGTH = 100; // chars
 

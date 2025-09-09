@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useMemo } from 'react';
-import {
+import type {
   BuilderCommonProps, ElementAnchor, ElementContainer, WebBuilderComponent,
 } from 'types';
 

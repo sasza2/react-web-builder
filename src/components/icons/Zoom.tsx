@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IconWrapperProps } from './types';
+import type { IconWrapperProps } from './types';
 
 export function Zoom(props: IconWrapperProps) {
   return (

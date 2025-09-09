@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Breakpoint, Tree } from 'types';
+import type { Breakpoint, Tree } from 'types';
 
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useFontImport } from '@/hooks/useFontImport';

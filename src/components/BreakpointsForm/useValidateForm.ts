@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Breakpoint, WebBuilderElements } from 'types';
+import type { Breakpoint, WebBuilderElements } from 'types';
 
 import { useSidebarRef } from '@/components/SidebarProvider';
 import { NAVBAR_HEIGHT } from '@/consts';
@@ -9,7 +9,7 @@ import { useBreakpoints } from '@/hooks/useBreakpoints';
 import { useElements } from '@/hooks/useElements';
 import { isBreakpoint } from '@/utils/breakpoint';
 
-import { Errors, IForm } from './types';
+import type { Errors, IForm } from './types';
 
 type UseValidateForm = () => [Errors, (form: IForm) => Errors];
 

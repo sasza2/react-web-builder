@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { useTheme } from 'styled-components';
-import { ImageURL, OnImageUpload } from 'types';
+import type { ImageURL, OnImageUpload } from 'types';
 
 import { LinkButton } from '@/components/Button';
 import { useField } from '@/components/FormProvider';

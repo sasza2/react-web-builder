@@ -1,4 +1,4 @@
-import { Page, WebBuilderElements } from 'types';
+import type { Page, WebBuilderElements } from 'types';
 
 import { useAppSelector } from '@/store/useAppSelector';
 import { getPageSettings } from '@/utils/pageSettings';

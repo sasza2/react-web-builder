@@ -1,4 +1,4 @@
-import { WebBuilderElements } from 'types';
+import type { WebBuilderElements } from 'types';
 
 import { setElementsInBreakpoint } from '@/store/elementsInBreakpointsSlice';
 import { useAppDispatch } from '@/store/useAppDispatch';

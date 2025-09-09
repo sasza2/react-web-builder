@@ -1,8 +1,8 @@
-import { Page } from '@playwright/test';
+import type { Page } from '@playwright/test';
 
 import { getInputValueAsInt } from '../form';
 import { getBreakpointZoom } from './getBreakpointZoom';
-import { BreakpointDetails } from './types';
+import type { BreakpointDetails } from './types';
 
 export const getBreakpointDetails = async (page: Page): Promise<BreakpointDetails> => {
   const breakpointSelect = page.getByTestId('breakpointSelect');

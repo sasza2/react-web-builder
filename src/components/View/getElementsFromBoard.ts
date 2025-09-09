@@ -1,4 +1,4 @@
-import { WebBuilderElement, WebBuilderElements } from 'types';
+import type { WebBuilderElement, WebBuilderElements } from 'types';
 
 const getElementsFromBoard = (board: Array<WebBuilderElements>): WebBuilderElements => {
   const elementsMap: Record<string | number, WebBuilderElement> = {};

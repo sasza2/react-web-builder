@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
-import { BoxProps } from 'types';
+import type { BoxProps } from 'types';
 
 import { Empty } from './Box.styled';
-import { Element, ElementProps } from './Element';
+import { Element, type ElementProps } from './Element';
 import { Leaf } from './Leaf';
 import { useBoxStyle } from './useBoxStyle';
 

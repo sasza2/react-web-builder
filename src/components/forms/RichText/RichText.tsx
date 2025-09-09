@@ -1,10 +1,10 @@
 import React from 'react';
-import { TextElement } from 'types';
+import type { TextElement } from 'types';
 
 import { useField } from '@/components/FormProvider';
 
 import { FormControl } from '../FormControl';
-import { IFormControl } from '../types';
+import type { IFormControl } from '../types';
 import { Editor } from './Editor/Editor';
 
  type RichTextProps = {

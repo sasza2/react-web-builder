@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { ColorChangeHandler, SketchPicker } from 'react-color';
+import { type ColorChangeHandler, SketchPicker } from 'react-color';
 import { useTranslation } from 'react-i18next';
 
 import { getColorForSketch, isColorTransparent, normalizeSketchColor } from '@/utils/colors';

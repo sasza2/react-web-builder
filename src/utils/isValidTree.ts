@@ -1,4 +1,4 @@
-import { Tree } from 'types';
+import type { Tree } from 'types';
 
 type Errors = {
   error: string;

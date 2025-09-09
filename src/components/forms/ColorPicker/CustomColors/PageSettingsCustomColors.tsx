@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageSettings } from 'types';
+import type { PageSettings } from 'types';
 
 import { usePageSettings } from '@/hooks/usePageSettings';
 import { updatePageSettings } from '@/store/pageSettingsSlice';

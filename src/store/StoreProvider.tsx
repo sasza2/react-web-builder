@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
 import getInitialStateFromPage from '@/utils/getInitialStateFromPage';
 
-import { createStore, Store } from './store';
+import { createStore, type Store } from './store';
 
 export function StoreProvider({ children }: React.PropsWithChildren) {
   const { page } = useWebBuilderProperties();

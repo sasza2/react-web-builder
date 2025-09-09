@@ -1,7 +1,7 @@
-import { Page } from '@playwright/test';
+import type { Page } from '@playwright/test';
 
 import { getBreakpointZoom } from '../breakpoint/getBreakpointZoom';
-import { BreakpointDetails } from '../breakpoint/types';
+import type { BreakpointDetails } from '../breakpoint/types';
 import { gridReset } from '../grid';
 import { openGroup } from '../openGroup';
 import { sleep } from '../sleep';

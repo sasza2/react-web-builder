@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Page, Tree } from 'types';
+import type { Page, Tree } from 'types';
 
 import { createUniqueId } from '@/utils/createUniqueId';
 

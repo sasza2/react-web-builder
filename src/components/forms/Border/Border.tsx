@@ -10,7 +10,7 @@ import { FormGroup, FormHeader } from '../FormControl.styled';
 import { Input } from '../Input';
 import { PaddingContainer } from '../Padding/Padding.styled';
 import { RangeSlider } from '../RangeSlider';
-import { IFormControl } from '../types';
+import type { IFormControl } from '../types';
 
 type BorderProps = {
   name: string,

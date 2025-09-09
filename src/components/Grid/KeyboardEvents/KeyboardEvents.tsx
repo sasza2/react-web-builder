@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Position, WebBuilderElement, WebBuilderElements } from 'types';
+import type { Position, WebBuilderElement, WebBuilderElements } from 'types';
 
 import { useGridAPI } from '@/components/GridAPIProvider';
 import { useSidebarWidth } from '@/components/SidebarProvider';

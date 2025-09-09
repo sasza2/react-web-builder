@@ -1,5 +1,5 @@
 import React from 'react';
-import { ILeaf } from 'types';
+import type { ILeaf } from 'types';
 
 import { SLATE_HIGHLIGHTED } from '@/components/forms/RichText/Editor/Editor.styled';
 import { ColorType, isLightColor } from '@/utils/colors';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FontOptions as IFontOptions } from 'types';
+import type { FontOptions as IFontOptions } from 'types';
 
 import { FieldProvider, useField } from '@/components/FormProvider';
 import { Icon } from '@/components/icons/Icon';
@@ -11,7 +11,7 @@ import { LETTER_SPACINGS } from '../RichText/LetterSpacing';
 import { Container as LineHeightContainer, LINE_HEIGHTS } from '../RichText/LineHeight';
 import { ToolbarWrapper } from '../RichText/Toolbar/Toolbar.styled';
 import { Select } from '../Select';
-import { IFormControl } from '../types';
+import type { IFormControl } from '../types';
 
 type FontOptionsProps = IFormControl;
 

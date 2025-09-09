@@ -6,7 +6,7 @@ import ReactToggle from 'react-toggle';
 import { useField } from '@/components/FormProvider';
 
 import { FormControl } from '../FormControl';
-import { IFormControl } from '../types';
+import type { IFormControl } from '../types';
 import { Container } from './Toggle.style';
 
 type ToggleProps = {

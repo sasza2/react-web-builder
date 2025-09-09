@@ -1,4 +1,4 @@
-import { Tree } from 'types';
+import type { Tree } from 'types';
 
 export const doesTreeContainElements = (tree: Tree): boolean => {
   if (!tree) return false;

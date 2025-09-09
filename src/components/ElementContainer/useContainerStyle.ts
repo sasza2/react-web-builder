@@ -1,5 +1,5 @@
-import { CSSProperties } from 'react';
-import { BackgroundImage, Border, BreakpointHeight } from 'types';
+import type { CSSProperties } from 'react';
+import type { BackgroundImage, Border, BreakpointHeight } from 'types';
 
 import { useBoxStyle } from '@/components/View/Box/useBoxStyle';
 
@@ -41,7 +41,7 @@ export const useContainerStyle = ({
     }
   }
 
-  if (backgroundImage && backgroundImage.location) {
+  if (backgroundImage?.location) {
     const image = `url(${backgroundImage.location})`;
 
     let repeat = 'repeat';

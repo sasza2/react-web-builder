@@ -1,7 +1,7 @@
 import React, {
   createContext, useCallback, useContext, useEffect, useRef, useState,
 } from 'react';
-import { Page } from 'types';
+import type { Page } from 'types';
 
 import { useBreakpoints } from '@/hooks/useBreakpoints';
 import { addBreakpointSilent, removeAllBreakpoints } from '@/store/breakpointsSlice';
@@ -11,7 +11,7 @@ import { setSelectedBreakpoint } from '@/store/selectedBreakpointSlice';
 import { useAppDispatch } from '@/store/useAppDispatch';
 import { getLastBreakpointId } from '@/utils/getInitialStateFromPage';
 import { getPageSettings } from '@/utils/pageSettings';
-import { WithResolvers, withResolvers } from '@/utils/promise';
+import { type WithResolvers, withResolvers } from '@/utils/promise';
 
 import { LoadMultipleBreakpoints } from '../LoadMultipleBreakpoints';
 

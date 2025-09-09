@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { BreakpointsExtras } from 'types';
+import type { BreakpointsExtras } from 'types';
 
 import { useElements } from '@/hooks/useElements';
 import { useAppSelector } from '@/store/useAppSelector';
@@ -8,7 +8,7 @@ import { cloneDeep } from '@/utils/clone';
 export function HistoryOfElementsExtras(): JSX.Element {
   const historyMap = useRef<Map<string, BreakpointsExtras>>(new Map());
   const changes = useAppSelector((state) => state.changes);
-  const key = changes.history.at(changes.index - 1)?.key;
+  const key = changes.history?.[changes.index - 1]?.key;
   const { elementsExtras } = useElements();
 
   useEffect(() => {

@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
-import { Breakpoint, FontImport, PageSettings } from 'types';
+import type { Breakpoint, FontImport, PageSettings } from 'types';
 
 import { getBreakpointBackgroundColor, getBreakpointPadding } from '@/utils/breakpoint';
 
-import { Theme } from '../StyleProvider/styled';
+import type { Theme } from '../StyleProvider/styled';
 
 type GridDivProps = {
   $breakpoint: Breakpoint,

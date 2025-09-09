@@ -1,6 +1,6 @@
-import { Breakpoint } from 'types';
+import type { Breakpoint } from 'types';
 
-import { IForm } from './types';
+import type { IForm } from './types';
 
 export const formToBreakpoint = (form: IForm): Omit<Breakpoint, 'id'> => ({
   from: parseInt(form.from),

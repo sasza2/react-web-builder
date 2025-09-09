@@ -1,7 +1,7 @@
 import React, {
   createContext, useContext, useMemo, useState,
 } from 'react';
-import { Configuration } from 'types';
+import type { Configuration } from 'types';
 
 type ConfigurationContextType = {
   configuration: Configuration,

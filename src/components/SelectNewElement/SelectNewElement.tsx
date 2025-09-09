@@ -1,4 +1,4 @@
-import { TFunction } from 'i18next';
+import type { TFunction } from 'i18next';
 import React, {
   memo, useCallback, useMemo, useState,
 } from 'react';
@@ -10,9 +10,9 @@ import {
   AccordionItemPanel,
 } from 'react-accessible-accordion';
 import { useTranslation } from 'react-i18next';
-import { WebBuilderComponent, WebBuilderGroup } from 'types';
+import type { WebBuilderComponent, WebBuilderGroup } from 'types';
 
-import { DragElement, DragElementDetails } from '@/components/DragElement';
+import { DragElement, type DragElementDetails } from '@/components/DragElement';
 import { useGridPositionTop } from '@/hooks/useGridPositionTop';
 import { useSidebarContainerEditGoBack } from '@/hooks/useSidebarContainerEditGoBack';
 import { assignTestProp } from '@/utils/tests';

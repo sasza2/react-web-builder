@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest';
 
-import { NodeElement, transform } from './transform';
+import { type NodeElement, transform } from './transform';
 
 it('should return safe html', () => {
   const [transformChild] = transform(

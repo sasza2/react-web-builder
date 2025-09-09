@@ -1,5 +1,5 @@
 import React, { memo, useMemo } from 'react';
-import {
+import type {
   Border, ElementURL, ILeaf, Padding,
 } from 'types';
 

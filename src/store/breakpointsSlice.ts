@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Breakpoint } from 'types';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type { Breakpoint } from 'types';
 
-import { byBreakpointId, ElementsTreeInBreakpoint } from '@/utils/breakpoint';
+import { byBreakpointId, type ElementsTreeInBreakpoint } from '@/utils/breakpoint';
 
 import { pasteElements, removeElementsFromBreakpoint } from './elementsInBreakpointsSlice';
 

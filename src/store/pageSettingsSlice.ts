@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { PageSettings } from 'types';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type { PageSettings } from 'types';
 
 type ActionUpdate = PayloadAction<{ pageSettings: PageSettings }>;
 
@@ -13,8 +13,8 @@ export const pageSettingsSlice = createSlice({
       ...state,
       ...pageSettings,
     }),
-    setPageSettings: (state, { payload: { pageSettings } }: ActionUpdate) => pageSettings,
-    replacePageSettings: (state, { payload }: ActionReplace) => payload,
+    setPageSettings: (_state, { payload: { pageSettings } }: ActionUpdate) => pageSettings,
+    replacePageSettings: (_state, { payload }: ActionReplace) => payload,
   },
 });
 

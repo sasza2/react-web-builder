@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Icon } from '@/components/icons/Icon';
-import { AllIcons } from '@/components/icons/types';
+import type { AllIcons } from '@/components/icons/types';
 import { StyleProvider } from '@/components/StyleProvider';
 
 import { IconContainer, IconDiv, IconsContainer } from './Icons.styled';

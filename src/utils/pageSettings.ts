@@ -1,4 +1,4 @@
-import { Page, PageSettings } from 'types';
+import type { Page, PageSettings } from 'types';
 
 export const getPageSettings = (page: PageSettings): PageSettings => {
   const clearPage = {

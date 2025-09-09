@@ -1,7 +1,7 @@
 import React, {
   createContext, useMemo, useRef,
 } from 'react';
-import {
+import type {
   BreakpointsExtras, ElementId, ElementRenderFunc, WebBuilderElements,
 } from 'types';
 

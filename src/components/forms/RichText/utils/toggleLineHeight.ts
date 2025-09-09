@@ -1,6 +1,6 @@
 import {
-  Editor,
-  Element as SlateElement,
+  type Editor,
+  type Element as SlateElement,
   Transforms,
 } from 'slate';
 

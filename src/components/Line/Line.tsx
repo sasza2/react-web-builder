@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineComponentProps } from 'types';
+import type { LineComponentProps } from 'types';
 
 import { Container } from './Line.styled';
 

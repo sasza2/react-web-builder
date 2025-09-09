@@ -1,4 +1,4 @@
-import {
+import type {
   Breakpoint, Tree, WebBuilderElement, WebBuilderElements,
 } from 'types';
 

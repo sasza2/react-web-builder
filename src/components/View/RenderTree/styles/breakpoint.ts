@@ -1,5 +1,5 @@
-import { CSSProperties } from 'react';
-import { Breakpoint, Tree } from 'types';
+import type { CSSProperties } from 'react';
+import type { Breakpoint, Tree } from 'types';
 
 import { isBreakpoint } from '@/utils/breakpoint';
 

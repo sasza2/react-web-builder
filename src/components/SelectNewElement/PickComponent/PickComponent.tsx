@@ -1,5 +1,5 @@
 import React from 'react';
-import { WebBuilderComponent } from 'types';
+import type { WebBuilderComponent } from 'types';
 
 import { Icon } from '@/components/icons/Icon';
 import { isSeparator } from '@/utils/element';

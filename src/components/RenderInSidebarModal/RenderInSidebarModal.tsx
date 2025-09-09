@@ -33,7 +33,7 @@ export function RenderInSidebarModal({
     const onPointerDown = (e: PointerEvent) => {
       const target = e.target as HTMLElement;
 
-      if (opener && opener.current && (opener.current === target || opener.current.contains(target))) {
+      if (opener?.current && (opener.current === target || opener.current.contains(target))) {
         return;
       }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageSettings as IPageSettings } from 'types';
+import type { PageSettings as IPageSettings } from 'types';
 
 import { usePageSettings } from '@/hooks/usePageSettings';
 import { useSetSidebarView } from '@/hooks/useSetSidebarView';
@@ -82,7 +82,7 @@ export function PageSettings() {
               />
             </FormGroup>
             {
-              pageSettingsExtra && pageSettingsExtra.map((prop) => (
+              pageSettingsExtra?.map((prop) => (
                 <FormProperty
                   key={prop.id}
                   formCreatorId="pageSettings"

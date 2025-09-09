@@ -6,7 +6,7 @@ import {
 import { ReactEditor } from 'slate-react';
 
 import theme from '@/components/StyleProvider/theme';
-import { CustomElement } from '@/slate.d';
+import type { CustomElement } from '@/slate.d';
 
 import { isBlockActive } from './isBlockActive';
 

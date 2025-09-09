@@ -1,4 +1,4 @@
-import { Breakpoint } from 'types';
+import type { Breakpoint } from 'types';
 
 import { useAppSelector } from '@/store/useAppSelector';
 import { byBreakpointId } from '@/utils/breakpoint';

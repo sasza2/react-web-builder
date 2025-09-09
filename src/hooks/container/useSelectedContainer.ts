@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Breakpoint, WebBuilderElement } from 'types';
+import type { Breakpoint, WebBuilderElement } from 'types';
 
 import { byBreakpointId } from '@/utils/breakpoint';
 import { getElementContainerIdProp, getElementFromList } from '@/utils/element';

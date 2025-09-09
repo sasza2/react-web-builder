@@ -1,4 +1,4 @@
-import { WebBuilderNavbarIcon } from 'types';
+import type { WebBuilderNavbarIcon } from 'types';
 
 import { useBuildPageWithTree } from './page/useBuildPageWithTree';
 

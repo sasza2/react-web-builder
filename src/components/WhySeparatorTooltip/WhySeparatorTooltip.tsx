@@ -1,6 +1,4 @@
 import React, { useCallback, useState } from 'react';
-// eslint-disable-next-line
-// @ts-ignore
 import ReactDOM from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { Tooltip } from 'react-tooltip';

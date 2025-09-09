@@ -1,4 +1,4 @@
-import { Breakpoint, Page } from 'types';
+import type { Breakpoint, Page } from 'types';
 
 import { useAppSelector } from '@/store/useAppSelector';
 import { getPageSettings } from '@/utils/pageSettings';

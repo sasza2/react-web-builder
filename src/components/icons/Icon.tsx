@@ -39,7 +39,7 @@ import { TextLeft } from './TextLeft';
 import { TextRight } from './TextRight';
 import { TextUnderline } from './TextUnderline';
 import { Trash } from './Trash';
-import { IconWrapperProps } from './types';
+import type { IconWrapperProps } from './types';
 import { Undo } from './Undo';
 import { Video } from './Video';
 import { View } from './View';

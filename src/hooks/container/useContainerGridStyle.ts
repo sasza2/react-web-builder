@@ -1,6 +1,6 @@
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 
-import { ContainerStyleProps, useContainerStyle } from '@/components/ElementContainer/useContainerStyle';
+import { type ContainerStyleProps, useContainerStyle } from '@/components/ElementContainer/useContainerStyle';
 
 import { useContainerElementProperties } from './useContainerElementProperties';
 

@@ -1,4 +1,4 @@
-import { FontImport, TextElement } from 'types';
+import type { FontImport, TextElement } from 'types';
 
 export const DEFAULT_CONTAINER_ID = 'default-container';
 export const DEFAULT_LANGUAGE = 'en';

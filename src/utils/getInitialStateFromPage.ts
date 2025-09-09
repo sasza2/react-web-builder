@@ -1,7 +1,7 @@
-import { Breakpoint, Page } from 'types';
+import type { Breakpoint, Page } from 'types';
 
 import { initialState as changesInitialState } from '../store/changesSlice';
-import { RootState, StateInitialChanges } from '../store/store';
+import type { RootState, StateInitialChanges } from '../store/store';
 import { isBreakpoint } from './breakpoint';
 import generateDefaultBreakpoints from './generateDefaultBreakpoints';
 import { getPageSettings } from './pageSettings';

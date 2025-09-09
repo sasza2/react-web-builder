@@ -1,5 +1,5 @@
 import React from 'react';
-import {
+import type {
   Border, Padding, TextElement, WebBuilderComponentProperty,
 } from 'types';
 

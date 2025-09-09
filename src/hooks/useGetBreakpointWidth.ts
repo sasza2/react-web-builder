@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Breakpoint, WebBuilderElement } from 'types';
+import type { Breakpoint, WebBuilderElement } from 'types';
 
 import { useAppSelector } from '@/store/useAppSelector';
 import { byBreakpointId, getBreakpointPadding, isContainer } from '@/utils/breakpoint';

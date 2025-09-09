@@ -1,4 +1,4 @@
-import { WebBuilderElements } from 'types';
+import type { WebBuilderElements } from 'types';
 
 const splitBoardBySeparators = (boardByColumns: Array<WebBuilderElements>, columns: number): Array<[number, number]> => {
   const tmp: number[] = [];

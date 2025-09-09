@@ -1,9 +1,9 @@
 import React, {
   useContext, useEffect, useMemo, useRef, useState,
 } from 'react';
-import ReactGrid, { GridAPI, GridElement } from 'react-grid-panzoom';
+import ReactGrid, { type GridAPI, type GridElement } from 'react-grid-panzoom';
 import { useDispatch } from 'react-redux';
-import { Breakpoint, WebBuilderElement, WebBuilderElements } from 'types';
+import type { Breakpoint, WebBuilderElement, WebBuilderElements } from 'types';
 
 import { useComponentsProperty } from '@/components/ComponentsProvider';
 import { ElementsContext } from '@/components/ElementsProvider';

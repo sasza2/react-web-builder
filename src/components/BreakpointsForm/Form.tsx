@@ -13,7 +13,7 @@ import { Toggle } from '../forms/Toggle';
 import { SidebarView } from '../SidebarProvider';
 import { Trans } from '../Trans';
 import { Clickable } from './Form.styled';
-import { Errors } from './types';
+import type { Errors } from './types';
 
 type FormProps = {
   errors: Errors,

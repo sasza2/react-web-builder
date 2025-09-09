@@ -20,7 +20,7 @@ export const useForm = () => {
   return context;
 };
 
-export const useFormCreator = <T extends unknown> (initialState: () => T, deps: unknown[] = []) => { // eslint-disable-line
+export const useFormCreator = <T,> (initialState: () => T, deps: unknown[] = []) => { // eslint-disable-line
   const [form, setForm] = useState<T>(initialState);
   const [formId, setFormId] = useState<string>(null);
   const didUpdate = useRef(false);
@@ -56,7 +56,7 @@ type UseFieldOptions <T> = {
   value: T,
 };
 
-export const useField = <T extends unknown>(name: string): UseFieldOptions<T> => { // eslint-disable-line
+export const useField = <T,>(name: string): UseFieldOptions<T> => { // eslint-disable-line
   const { getFormValues, onChange, setForm } = useForm();
 
   const setValue = (value: T) => {

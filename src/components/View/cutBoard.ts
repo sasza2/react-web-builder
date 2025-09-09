@@ -1,4 +1,4 @@
-import { WebBuilderElements } from 'types';
+import type { WebBuilderElements } from 'types';
 
 type CutOptions = {
   from: number,

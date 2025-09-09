@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Breakpoint, WebBuilderElement } from 'types';
+import type { Breakpoint, WebBuilderElement } from 'types';
 
 import { useComponentsProperty } from '@/components/ComponentsProvider';
 import { useProperties } from '@/components/PropertiesProvider';

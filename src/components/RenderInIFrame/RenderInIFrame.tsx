@@ -25,7 +25,7 @@ type ApplyHeightToIFrameBodyRef = {
   setHeight: (height: number) => void,
 };
 
-const ApplyHeightToIFrameBody = forwardRef<ApplyHeightToIFrameBodyRef, React.PropsWithChildren>((props, ref) => {
+const ApplyHeightToIFrameBody = forwardRef<ApplyHeightToIFrameBodyRef, React.PropsWithChildren>((_props, ref) => {
   const { document } = useFrame();
 
   useImperativeHandle(

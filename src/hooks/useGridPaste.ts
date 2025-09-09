@@ -1,5 +1,5 @@
-import { OrganizeElementsOptions } from 'react-grid-panzoom';
-import { Tree, WebBuilderElement } from 'types';
+import type { OrganizeElementsOptions } from 'react-grid-panzoom';
+import type { Tree, WebBuilderElement } from 'types';
 
 import { useGridAPI } from '@/components/GridAPIProvider';
 import { MARGIN_BOTTOM_ON_PASTED_ELEMENT } from '@/consts';

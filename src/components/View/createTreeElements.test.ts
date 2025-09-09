@@ -1,4 +1,4 @@
-import { Tree, WebBuilderElements } from 'types';
+import type { Tree, WebBuilderElements } from 'types';
 import { expect, it, vi } from 'vitest';
 
 import createTreeElements from './createTreeElements';

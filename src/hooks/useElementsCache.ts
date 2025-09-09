@@ -1,7 +1,7 @@
 import {
   useContext, useEffect, useMemo, useRef,
 } from 'react';
-import { ElementId, ElementRenderFunc } from 'types';
+import type { ElementId, ElementRenderFunc } from 'types';
 
 import { ElementsContext } from '@/components/ElementsProvider';
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';

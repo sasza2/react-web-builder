@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { FontImport } from 'types';
+import type { FontImport } from 'types';
 
 import { useProperties } from '@/components/PropertiesProvider';
 import { DEFAULT_FONT_IMPORT } from '@/consts';

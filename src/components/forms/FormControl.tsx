@@ -5,7 +5,7 @@ import { assignTestProp } from '@/utils/tests';
 import {
   Description, FormControlDiv, Label, ListErrors,
 } from './FormControl.styled';
-import { IFormControl } from './types';
+import type { IFormControl } from './types';
 
 export function FormControl({
   children,

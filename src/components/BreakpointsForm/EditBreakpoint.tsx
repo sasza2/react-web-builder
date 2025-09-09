@@ -20,7 +20,7 @@ import { SidebarView } from '../SidebarProvider';
 import { SidebarScrollbar } from '../SidebarScrollbar';
 import { Buttons } from './Breakpoint.styled';
 import { Form } from './Form';
-import { IForm } from './types';
+import type { IForm } from './types';
 import { useValidateForm } from './useValidateForm';
 import { formToBreakpoint } from './utils';
 

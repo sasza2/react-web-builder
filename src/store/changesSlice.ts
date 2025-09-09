@@ -1,10 +1,10 @@
-import { Action, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { type Action, createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 import { createUniqueId } from '@/utils/createUniqueId';
 
 import { actionsToOmit } from './changesActions';
 import { CHANGES_START_TRANSACTION_TYPE, CHANGES_STOP_TRANSACTION_TYPE } from './changesTransactions';
-import { StateInitialChanges } from './store';
+import type { StateInitialChanges } from './store';
 
 type Change = {
   action: Action<string>,
@@ -162,7 +162,7 @@ export const changesSlice = createSlice({
         }
       }
     },
-    commitHistory: (state, { payload: { initial } }: ActionCommit) => ({
+    commitHistory: (_state, { payload: { initial } }: ActionCommit) => ({
       ...initialState,
       initial,
     }),

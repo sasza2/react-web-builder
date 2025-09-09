@@ -1,4 +1,4 @@
-import { WebBuilderElement } from 'types';
+import type { WebBuilderElement } from 'types';
 import { expect, it } from 'vitest';
 
 import canSplitLine from './canSplitLine';

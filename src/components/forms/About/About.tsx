@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { WebBuilderComponentPropertyAbout } from 'types';
+import type { WebBuilderComponentPropertyAbout } from 'types';
 
 import { LinkButton } from '@/components/Button';
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
@@ -21,7 +21,7 @@ export function About({
   return (
     <Container>
       { description && <Description>{description}</Description> }
-      { button && button.label && (
+      { button?.label && (
         <ButtonContainer onClick={onClick}>
           <LinkButton>
             {button.label}

@@ -1,18 +1,18 @@
 import React, {
   useCallback, useMemo, useState,
 } from 'react';
-import { createEditor, Descendant } from 'slate';
+import { createEditor, type Descendant } from 'slate';
 import {
-  Editable, RenderElementProps, RenderLeafProps,
+  Editable, type RenderElementProps, type RenderLeafProps,
   Slate, withReact,
 } from 'slate-react';
-import { TextElement } from 'types';
+import type { TextElement } from 'types';
 
 import { Icon } from '@/components/icons/Icon';
 import { RenderInIFrame } from '@/components/RenderInIFrame';
 import { Scrollbar } from '@/components/Scrollbar';
 import {
-  Element, ElementProps, Leaf, LeafProps,
+  Element, type ElementProps, Leaf, type LeafProps,
 } from '@/components/View/Box';
 import { useAppSelector } from '@/store/useAppSelector';
 

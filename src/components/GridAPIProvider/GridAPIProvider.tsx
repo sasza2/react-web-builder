@@ -1,7 +1,7 @@
 import React, {
-  createContext, PropsWithChildren, useContext, useRef,
+  createContext, type PropsWithChildren, useContext, useRef,
 } from 'react';
-import { GridAPI } from 'react-grid-panzoom';
+import type { GridAPI } from 'react-grid-panzoom';
 
 const GridAPIContext = createContext<React.MutableRefObject<GridAPI>>(null);
 

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Breakpoint } from 'types';
+import type { Breakpoint } from 'types';
 
 import { TemplateLoaderAnimation } from '@/components/TemplateLoaderAnimation';
 

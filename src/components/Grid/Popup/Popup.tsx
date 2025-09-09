@@ -2,7 +2,7 @@ import React, {
   useCallback, useEffect, useRef, useState,
 } from 'react';
 import ReactDOM from 'react-dom';
-import { Position } from 'types';
+import type { Position } from 'types';
 
 import { Popup as PopupContainer } from '@/components/Navbar/PublishButton/PublishButton.styled';
 import { useWebBuilderSize } from '@/components/WebBuilderSize';

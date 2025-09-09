@@ -1,10 +1,10 @@
 import React from 'react';
-import { OnImageUpload, WebBuilderComponentProperty } from 'types';
+import type { OnImageUpload, WebBuilderComponentProperty } from 'types';
 
 import { FormProperty } from '@/components/FormProperty';
 
 import { FormGroup, FormHeader } from '../FormControl.styled';
-import { IFormControl } from '../types';
+import type { IFormControl } from '../types';
 import { Container } from './FormObject.styled';
 
 type FormArrayProps = {

@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { BreakpointId } from 'types';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type { BreakpointId } from 'types';
 
 import { SidebarView } from '@/components/SidebarProvider';
 
@@ -7,7 +7,7 @@ import { addBreakpoint } from './breakpointsSlice';
 import { openContainer, removeElementsFromBreakpoint } from './elementsInBreakpointsSlice';
 import { setSelectedBreakpoint } from './selectedBreakpointSlice';
 import { setSelectedElement } from './selectedElementSlice';
-import { AppDispatch, GetState } from './store';
+import type { AppDispatch, GetState } from './store';
 
 type SidebarState = {
   view: SidebarView | null,
@@ -24,7 +24,7 @@ type ActionSetSidebar = PayloadAction<{ view: SidebarView | null }>;
 type ActionReplaceSidebar = ActionSetSidebar;
 
 const updateBreakpoint = (state: SidebarState, breakpoint: { id: BreakpointId, parentId?: BreakpointId }) => {
-  if (breakpoint && breakpoint.parentId) {
+  if (breakpoint?.parentId) {
     return state;
   }
   state.view = SidebarView.EditBreakpoint;
@@ -37,8 +37,8 @@ export const sidebarSlice = createSlice({
     setSidebarView: (state, { payload: view }: ActionSetSidebarView) => {
       state.view = view;
     },
-    setSidebar: (state, { payload }: ActionSetSidebar) => payload,
-    replaceSidebar: (state, { payload }: ActionReplaceSidebar) => payload,
+    setSidebar: (_state, { payload }: ActionSetSidebar) => payload,
+    replaceSidebar: (_state, { payload }: ActionReplaceSidebar) => payload,
   },
   extraReducers: (builder) => {
     builder.addCase(setSelectedElement, (state, action) => {

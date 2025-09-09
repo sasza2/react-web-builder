@@ -1,12 +1,10 @@
-// eslint-disable-next-line
-// @ts-ignore
 import arrowCreate from 'arrows-svg';
 import React, {
   useCallback, useEffect, useRef, useState,
 } from 'react';
 import ReactDOM from 'react-dom';
 import { useTranslation } from 'react-i18next';
-import { HelperArrowItem } from 'types';
+import type { HelperArrowItem } from 'types';
 
 import { ConfirmButton } from '@/components/Button';
 import { assignTestProp } from '@/utils/tests';
@@ -44,7 +42,7 @@ export function HelperArrow({
   useEffect(() => {
     if (!nodeExists || animating) return;
 
-    let arrow: { node: HTMLDivElement, clear: () => void } = null;
+    let arrow: ReturnType<typeof arrowCreate> = null;
 
     const createArrowInterval = setInterval(() => {
       try {
@@ -56,15 +54,15 @@ export function HelperArrow({
         document.body.appendChild(arrow.node);
 
         clearInterval(createArrowInterval);
-      } catch (e) {
+      } catch (_e) {
         arrow = null;
       }
     }, 200);
 
-    const start = new Date().getTime();
+    const start = Date.now();
 
     const onClick = (e: MouseEvent) => {
-      const now = new Date().getTime() - start;
+      const now = Date.now() - start;
       if (now < 1000) return;
 
       const target = e.target as HTMLDivElement;

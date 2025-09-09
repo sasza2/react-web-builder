@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnImageUpload } from 'types';
+import type { OnImageUpload } from 'types';
 
 import { assignTestProp } from '@/utils/tests';
 
@@ -8,7 +8,7 @@ import { FormGroup, FormHeader } from '../FormControl.styled';
 import { ImageUpload } from '../ImageUpload';
 import { Length } from '../Length';
 import { Radio } from '../Radio';
-import { IFormControl } from '../types';
+import type { IFormControl } from '../types';
 
 type BackgroundImageProps = {
   name: string,

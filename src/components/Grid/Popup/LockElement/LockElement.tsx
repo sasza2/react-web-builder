@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { WebBuilderElement } from 'types';
+import type { WebBuilderElement } from 'types';
 
 import { PopupItem } from '@/components/Navbar/PublishButton/PublishButton.styled';
 import { useBreakpoint } from '@/hooks/useBreakpoint';

@@ -7,7 +7,7 @@ import { normalizeInt } from '@/utils/field';
 
 import { FormControl } from '../FormControl';
 import { Input } from '../Input';
-import { IFormControl } from '../types';
+import type { IFormControl } from '../types';
 import { InputContainer, RangeContainer, RangeSliderWithInput } from './RangerSlider.styled';
 
 type RangeSliderProps = {
@@ -61,7 +61,7 @@ export function RangeSlider({
             }}
             values={[value]}
             renderTrack={({ props, children }) => (
-              <div // eslint-disable-line jsx-a11y/no-static-element-interactions
+              <div
                 onMouseDown={props.onMouseDown}
                 onTouchStart={props.onTouchStart}
                 style={{

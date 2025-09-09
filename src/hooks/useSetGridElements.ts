@@ -1,6 +1,6 @@
 import { useRef } from 'react';
-import { GridProps } from 'react-grid-panzoom';
-import { WebBuilderElement, WebBuilderElements } from 'types';
+import type { GridProps } from 'react-grid-panzoom';
+import type { WebBuilderElement, WebBuilderElements } from 'types';
 
 import { useElements } from './useElements';
 import { useSetElements } from './useSetElements';
