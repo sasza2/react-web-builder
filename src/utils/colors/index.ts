@@ -1,3 +1,3 @@
-export * from './gradient';
-export * from './hex';
-export * from './types';
+export * from "./gradient";
+export * from "./hex";
+export * from "./types";

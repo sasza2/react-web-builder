@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const IconContainer = styled.div`
   display: flex;
@@ -14,8 +14,8 @@ export const TooltipContainer = styled.div`
 
 // text md semi
 export const Container = styled.div<{
-  $active?: boolean,
-  $overflow: 'visible' | 'hidden',
+	$active?: boolean;
+	$overflow: "visible" | "hidden";
 }>`
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@ export const Container = styled.div<{
   position: relative;
   border-radius: 4px;
   border: 1px solid ${({ theme }) => theme.colors.lightGray};
-  cursor: ${({ $active }) => ($active ? 'grabbing' : 'grab')};
+  cursor: ${({ $active }) => ($active ? "grabbing" : "grab")};
   ${({ theme }) => theme.typography.Small0R};
   gap: 8px;
   overflow: ${({ $overflow }) => $overflow};

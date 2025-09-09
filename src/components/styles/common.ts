@@ -1,6 +1,6 @@
-import { type CSSProperties, styled } from 'styled-components';
+import { type CSSProperties, styled } from "styled-components";
 
-export const Flex = styled.div<{ $gap?: CSSProperties['gap'] }>`
+export const Flex = styled.div<{ $gap?: CSSProperties["gap"] }>`
   display: flex;
   gap: ${({ $gap }) => $gap};
   width: 100%;

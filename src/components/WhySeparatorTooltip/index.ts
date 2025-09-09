@@ -1,1 +1,1 @@
-export * from './WhySeparatorTooltip';
+export * from "./WhySeparatorTooltip";

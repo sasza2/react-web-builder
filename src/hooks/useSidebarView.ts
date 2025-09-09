@@ -1,6 +1,6 @@
-import { useAppSelector } from '@/store/useAppSelector';
+import { useAppSelector } from "@/store/useAppSelector";
 
 export const useSidebar = () => {
-  const sidebar = useAppSelector((state) => state.sidebar);
-  return sidebar;
+	const sidebar = useAppSelector((state) => state.sidebar);
+	return sidebar;
 };

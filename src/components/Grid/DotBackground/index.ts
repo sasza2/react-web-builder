@@ -1,1 +1,1 @@
-export { DotBackground } from './DotBackground';
+export { DotBackground } from "./DotBackground";

@@ -1,1 +1,1 @@
-export * from './ViewRenderPage';
+export * from "./ViewRenderPage";

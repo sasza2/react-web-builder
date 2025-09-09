@@ -1,1 +1,1 @@
-export * from './ColorPickerModal';
+export * from "./ColorPickerModal";

@@ -1,1 +1,1 @@
-export * from './LoadMultipleBreakpoints';
+export * from "./LoadMultipleBreakpoints";

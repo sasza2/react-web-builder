@@ -1,1 +1,1 @@
-export * from './Paste';
+export * from "./Paste";

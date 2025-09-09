@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Title = styled.div<{ $animating: boolean }>`
   display: flex;
@@ -11,7 +11,7 @@ export const Title = styled.div<{ $animating: boolean }>`
   bottom: 5%;
   z-index: ${({ theme }) => theme.zIndex.max};
   pointer-events: none;
-  opacity: ${({ $animating }) => ($animating ? '0' : '1')};
+  opacity: ${({ $animating }) => ($animating ? "0" : "1")};
   transition: 0.3s opacity;
 
   p {
@@ -32,5 +32,6 @@ export const ButtonContainer = styled.div`
   margin-top: 10px;
 `;
 
-export const boxShadowClassName = 'react-web-builder-box-shadow';
-export const boxShadowAnimatingIdClassName = 'react-web-builder-box-shadow-animating';
+export const boxShadowClassName = "react-web-builder-box-shadow";
+export const boxShadowAnimatingIdClassName =
+	"react-web-builder-box-shadow-animating";

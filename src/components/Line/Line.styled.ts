@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div<{
-  $borderRadius: number,
-  $height: number,
+	$borderRadius: number;
+	$height: number;
 }>`
   display: flex;
   width: 100%;

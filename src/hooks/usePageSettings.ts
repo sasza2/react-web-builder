@@ -1,8 +1,8 @@
-import type { PageSettings } from 'types';
+import type { PageSettings } from "types";
 
-import { useAppSelector } from '@/store/useAppSelector';
+import { useAppSelector } from "@/store/useAppSelector";
 
 export const usePageSettings = (): PageSettings => {
-  const pageSettings = useAppSelector((state) => state.pageSettings);
-  return pageSettings;
+	const pageSettings = useAppSelector((state) => state.pageSettings);
+	return pageSettings;
 };

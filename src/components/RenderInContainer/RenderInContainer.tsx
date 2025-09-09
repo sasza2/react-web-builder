@@ -1,25 +1,28 @@
-import React from 'react';
-import type { RenderInContainerProps } from 'types';
+import React from "react";
+import type { RenderInContainerProps } from "types";
 
-import { getBreakpointBackgroundColor } from '@/utils/breakpoint';
+import { getBreakpointBackgroundColor } from "@/utils/breakpoint";
 
-import { useProperties } from '../PropertiesProvider';
+import { useProperties } from "../PropertiesProvider";
 
-export function RenderInContainer({ children, breakpoint }: RenderInContainerProps) {
-  const { container, page } = useProperties();
+export function RenderInContainer({
+	children,
+	breakpoint,
+}: RenderInContainerProps) {
+	const { container, page } = useProperties();
 
-  if (container) {
-    const Container = container;
-    return (
-      <Container
-        backgroundColor={getBreakpointBackgroundColor(breakpoint, page)}
-        breakpoint={breakpoint}
-        page={page}
-      >
-        {children}
-      </Container>
-    );
-  }
+	if (container) {
+		const Container = container;
+		return (
+			<Container
+				backgroundColor={getBreakpointBackgroundColor(breakpoint, page)}
+				breakpoint={breakpoint}
+				page={page}
+			>
+				{children}
+			</Container>
+		);
+	}
 
-  return children as JSX.Element;
+	return children as JSX.Element;
 }

@@ -1,1 +1,1 @@
-export * from './GridAPIProvider';
+export * from "./GridAPIProvider";

@@ -1,2 +1,2 @@
-export * from './Color';
-export { ColorContainer } from './Color.styled';
+export * from "./Color";
+export { ColorContainer } from "./Color.styled";

@@ -1,36 +1,36 @@
-import React, {
-  createContext, useContext, useMemo, useState,
-} from 'react';
+import React, { createContext, useContext, useMemo, useState } from "react";
 
 enum ScrollMode {
-  Scroll,
-  Zoom,
+	Scroll,
+	Zoom,
 }
 
 type SetWheelMode = (wheelMode: ScrollMode) => void;
 
 type NavbarContextProps = {
-  wheelMode: ScrollMode,
-  setWheelMode: SetWheelMode,
+	wheelMode: ScrollMode;
+	setWheelMode: SetWheelMode;
 };
 
 const NavbarContext = createContext({} as NavbarContextProps);
 
 export const useNavbarWheelMode = (): [ScrollMode, SetWheelMode] => {
-  const { wheelMode, setWheelMode } = useContext(NavbarContext);
-  return [wheelMode, setWheelMode];
+	const { wheelMode, setWheelMode } = useContext(NavbarContext);
+	return [wheelMode, setWheelMode];
 };
 
 export function NavbarProvider({ children }: React.PropsWithChildren) {
-  const [wheelMode, setWheelMode] = useState(ScrollMode.Scroll);
+	const [wheelMode, setWheelMode] = useState(ScrollMode.Scroll);
 
-  const value = useMemo(() => ({
-    wheelMode, setWheelMode,
-  }), [wheelMode, setWheelMode]);
+	const value = useMemo(
+		() => ({
+			wheelMode,
+			setWheelMode,
+		}),
+		[wheelMode, setWheelMode],
+	);
 
-  return (
-    <NavbarContext.Provider value={value}>
-      {children}
-    </NavbarContext.Provider>
-  );
+	return (
+		<NavbarContext.Provider value={value}>{children}</NavbarContext.Provider>
+	);
 }

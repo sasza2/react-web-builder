@@ -1,1 +1,1 @@
-export * from './PropertiesProvider';
+export * from "./PropertiesProvider";

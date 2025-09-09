@@ -1,144 +1,154 @@
-import { useEffect, useRef } from 'react';
-import type { Position, WebBuilderElement, WebBuilderElements } from 'types';
+import { useEffect, useRef } from "react";
+import type { Position, WebBuilderElement, WebBuilderElements } from "types";
 
-import { useGridAPI } from '@/components/GridAPIProvider';
-import { useSidebarWidth } from '@/components/SidebarProvider';
-import { useWebBuilderSizeWidth } from '@/components/WebBuilderSize';
-import { useBreakpoint } from '@/hooks/useBreakpoint';
-import { useElements } from '@/hooks/useElements';
-import { useGetBreakpointWidth } from '@/hooks/useGetBreakpointWidth';
-import { getBreakpointPadding } from '@/utils/breakpoint';
-import { sortElements } from '@/utils/element';
-import getGridCenterPositionX from '@/utils/getGridCenterPositionX';
+import { useGridAPI } from "@/components/GridAPIProvider";
+import { useSidebarWidth } from "@/components/SidebarProvider";
+import { useWebBuilderSizeWidth } from "@/components/WebBuilderSize";
+import { useBreakpoint } from "@/hooks/useBreakpoint";
+import { useElements } from "@/hooks/useElements";
+import { useGetBreakpointWidth } from "@/hooks/useGetBreakpointWidth";
+import { getBreakpointPadding } from "@/utils/breakpoint";
+import { sortElements } from "@/utils/element";
+import getGridCenterPositionX from "@/utils/getGridCenterPositionX";
 
-import { GRID_PADDING_WIDTH } from '../Grid.styled';
+import { GRID_PADDING_WIDTH } from "../Grid.styled";
 
 const STEP_SIZE = 20; // px
 
 const KEYS = {
-  ArrowUp: {
-    x: 0,
-    y: STEP_SIZE,
-  },
-  ArrowDown: {
-    x: 0,
-    y: -STEP_SIZE,
-  },
-  ArrowLeft: {
-    x: STEP_SIZE,
-    y: 0,
-  },
-  ArrowRight: {
-    x: -STEP_SIZE,
-    y: 0,
-  },
-  Tab: {
-    x: 0,
-    y: 0,
-  },
+	ArrowUp: {
+		x: 0,
+		y: STEP_SIZE,
+	},
+	ArrowDown: {
+		x: 0,
+		y: -STEP_SIZE,
+	},
+	ArrowLeft: {
+		x: STEP_SIZE,
+		y: 0,
+	},
+	ArrowRight: {
+		x: -STEP_SIZE,
+		y: 0,
+	},
+	Tab: {
+		x: 0,
+		y: 0,
+	},
 } as const;
 
 type GetNextElement = (props: {
-  elements: WebBuilderElements,
-  isReversed: boolean,
-  lastFocusPosition: Position | null,
+	elements: WebBuilderElements;
+	isReversed: boolean;
+	lastFocusPosition: Position | null;
 }) => WebBuilderElement;
 
-const getNextElement: GetNextElement = ({ elements, isReversed, lastFocusPosition }): WebBuilderElement => {
-  const sortedElements = sortElements(elements);
+const getNextElement: GetNextElement = ({
+	elements,
+	isReversed,
+	lastFocusPosition,
+}): WebBuilderElement => {
+	const sortedElements = sortElements(elements);
 
-  if (isReversed) sortedElements.reverse();
+	if (isReversed) sortedElements.reverse();
 
-  if (lastFocusPosition === null) {
-    return sortedElements[0];
-  }
+	if (lastFocusPosition === null) {
+		return sortedElements[0];
+	}
 
-  const predicateElement = (element: WebBuilderElement) => {
-    if (element.y === lastFocusPosition.y && element.x > lastFocusPosition.x) return true;
+	const predicateElement = (element: WebBuilderElement) => {
+		if (element.y === lastFocusPosition.y && element.x > lastFocusPosition.x)
+			return true;
 
-    return element.y > lastFocusPosition.y;
-  };
+		return element.y > lastFocusPosition.y;
+	};
 
-  const predicateElementReversed = (element: WebBuilderElement) => {
-    if (element.y === lastFocusPosition.y && element.x < lastFocusPosition.x) return true;
+	const predicateElementReversed = (element: WebBuilderElement) => {
+		if (element.y === lastFocusPosition.y && element.x < lastFocusPosition.x)
+			return true;
 
-    return element.y < lastFocusPosition.y;
-  };
+		return element.y < lastFocusPosition.y;
+	};
 
-  let nextElement = sortedElements.find(isReversed ? predicateElementReversed : predicateElement);
+	let nextElement = sortedElements.find(
+		isReversed ? predicateElementReversed : predicateElement,
+	);
 
-  if (!nextElement) {
-    [nextElement] = sortedElements;
-  }
+	if (!nextElement) {
+		[nextElement] = sortedElements;
+	}
 
-  return nextElement;
+	return nextElement;
 };
 
 export function KeyboardEvents(): JSX.Element {
-  const gridAPIRef = useGridAPI();
-  const breakpoint = useBreakpoint();
-  const { elements } = useElements();
-  const elementsRef = useRef<typeof elements>();
-  elementsRef.current = elements;
-  const sidebarWidth = useSidebarWidth();
-  const webBuilderWidth = useWebBuilderSizeWidth() - sidebarWidth - GRID_PADDING_WIDTH;
-  const getBreakpointWidth = useGetBreakpointWidth();
+	const gridAPIRef = useGridAPI();
+	const breakpoint = useBreakpoint();
+	const { elements } = useElements();
+	const elementsRef = useRef<typeof elements>();
+	elementsRef.current = elements;
+	const sidebarWidth = useSidebarWidth();
+	const webBuilderWidth =
+		useWebBuilderSizeWidth() - sidebarWidth - GRID_PADDING_WIDTH;
+	const getBreakpointWidth = useGetBreakpointWidth();
 
-  useEffect(() => {
-    let lastFocusPosition: Position | null = null;
+	useEffect(() => {
+		let lastFocusPosition: Position | null = null;
 
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (document.body !== document.activeElement) return;
-      if (!(e.code in KEYS)) return;
+		const onKeyDown = (e: KeyboardEvent) => {
+			if (document.body !== document.activeElement) return;
+			if (!(e.code in KEYS)) return;
 
-      e.preventDefault();
-      e.stopPropagation();
+			e.preventDefault();
+			e.stopPropagation();
 
-      const panZoom = gridAPIRef.current.getPanZoom();
-      const panZoomPosition = panZoom.getPosition();
+			const panZoom = gridAPIRef.current.getPanZoom();
+			const panZoomPosition = panZoom.getPosition();
 
-      const addPosition = KEYS[e.code as keyof typeof KEYS];
-      if (addPosition.x || addPosition.y) {
-        panZoom.setPosition(
-          panZoomPosition.x + addPosition.x,
-          panZoomPosition.y + addPosition.y,
-        );
-      }
+			const addPosition = KEYS[e.code as keyof typeof KEYS];
+			if (addPosition.x || addPosition.y) {
+				panZoom.setPosition(
+					panZoomPosition.x + addPosition.x,
+					panZoomPosition.y + addPosition.y,
+				);
+			}
 
-      if (e.code === 'Tab') {
-        if (!elementsRef.current || !elementsRef.current.length) return;
+			if (e.code === "Tab") {
+				if (!elementsRef.current || !elementsRef.current.length) return;
 
-        const nextElement = getNextElement({
-          elements: elementsRef.current,
-          isReversed: e.shiftKey,
-          lastFocusPosition,
-        });
+				const nextElement = getNextElement({
+					elements: elementsRef.current,
+					isReversed: e.shiftKey,
+					lastFocusPosition,
+				});
 
-        lastFocusPosition = nextElement;
+				lastFocusPosition = nextElement;
 
-        const panZoomElements = panZoom.getElements();
-        const zoom = panZoom.getZoom();
-        const panZoomElement = panZoomElements[nextElement.id];
+				const panZoomElements = panZoom.getElements();
+				const zoom = panZoom.getZoom();
+				const panZoomElement = panZoomElements[nextElement.id];
 
-        const padding = getBreakpointPadding(breakpoint);
-        const breakpointWidth = getBreakpointWidth(breakpoint);
-        panZoom.setPosition(
-          getGridCenterPositionX(
-            breakpointWidth - padding.left - padding.right,
-            webBuilderWidth,
-            panZoom.getZoom(),
-          ) - (panZoomElement.position.x) * zoom,
-          -(panZoomElement.position.y) * zoom,
-        );
-      }
-    };
+				const padding = getBreakpointPadding(breakpoint);
+				const breakpointWidth = getBreakpointWidth(breakpoint);
+				panZoom.setPosition(
+					getGridCenterPositionX(
+						breakpointWidth - padding.left - padding.right,
+						webBuilderWidth,
+						panZoom.getZoom(),
+					) -
+						panZoomElement.position.x * zoom,
+					-panZoomElement.position.y * zoom,
+				);
+			}
+		};
 
-    window.addEventListener('keydown', onKeyDown);
+		window.addEventListener("keydown", onKeyDown);
 
-    return () => {
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, []);
+		return () => {
+			window.removeEventListener("keydown", onKeyDown);
+		};
+	}, []);
 
-  return null;
+	return null;
 }

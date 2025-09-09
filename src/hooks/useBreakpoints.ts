@@ -1,6 +1,6 @@
-import { useAppSelector } from '@/store/useAppSelector';
+import { useAppSelector } from "@/store/useAppSelector";
 
 export const useBreakpoints = () => {
-  const breakpoints = useAppSelector((state) => state.breakpoints);
-  return breakpoints;
+	const breakpoints = useAppSelector((state) => state.breakpoints);
+	return breakpoints;
 };

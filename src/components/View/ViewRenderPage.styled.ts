@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import type { FontImport } from 'types';
+import styled from "styled-components";
+import type { FontImport } from "types";
 
 export const PageContainer = styled.div<{ $fontImport: FontImport | null }>`
   display: flex;

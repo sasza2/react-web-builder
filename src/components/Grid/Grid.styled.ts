@@ -1,23 +1,26 @@
-import styled, { css } from 'styled-components';
-import type { Breakpoint, FontImport, PageSettings } from 'types';
+import styled, { css } from "styled-components";
+import type { Breakpoint, FontImport, PageSettings } from "types";
 
-import { getBreakpointBackgroundColor, getBreakpointPadding } from '@/utils/breakpoint';
+import {
+	getBreakpointBackgroundColor,
+	getBreakpointPadding,
+} from "@/utils/breakpoint";
 
-import type { Theme } from '../StyleProvider/styled';
+import type { Theme } from "../StyleProvider/styled";
 
 type GridDivProps = {
-  $breakpoint: Breakpoint,
-  $fontImport: FontImport | null;
-  $height: string | number,
-  $isLoaded: boolean,
-  $pageSettings: PageSettings,
-  $selectedElementId?: string,
-  $selectedElements?: (string | number)[],
+	$breakpoint: Breakpoint;
+	$fontImport: FontImport | null;
+	$height: string | number;
+	$isLoaded: boolean;
+	$pageSettings: PageSettings;
+	$selectedElementId?: string;
+	$selectedElements?: (string | number)[];
 };
 
 const getBoxShadow = (breakpoint: Breakpoint, theme: Theme): string => {
-  const padding = getBreakpointPadding(breakpoint);
-  return `${theme.colors.lightGray} -${padding.left}px 0px 0px 0px, ${theme.colors.lightGray} ${padding.right}px 0px 0px 0px`;
+	const padding = getBreakpointPadding(breakpoint);
+	return `${theme.colors.lightGray} -${padding.left}px 0px 0px 0px, ${theme.colors.lightGray} ${padding.right}px 0px 0px 0px`;
 };
 
 export const GRID_PADDING_WIDTH = 30; // px
@@ -39,7 +42,7 @@ export const GridDiv = styled.div<GridDivProps>`
   -webkit-user-select: none;
   user-select: none;
   max-height: ${({ $height }) => `${$height}px`};
-  opacity: ${({ $isLoaded }) => ($isLoaded ? '1' : '0')};
+  opacity: ${({ $isLoaded }) => ($isLoaded ? "1" : "0")};
 
   .react-grid-panzoom {
     width: ${`calc(100% - ${GRID_PADDING_WIDTH}px)`};
@@ -52,21 +55,23 @@ export const GridDiv = styled.div<GridDivProps>`
         background-color: ${({ $breakpoint, $pageSettings }) => getBreakpointBackgroundColor($breakpoint, $pageSettings)};
         box-shadow: ${({ $breakpoint, theme }) => getBoxShadow($breakpoint, theme)};
 
-        ${({ $selectedElementId }) => ($selectedElementId
-    ? `
+        ${({ $selectedElementId }) =>
+					$selectedElementId
+						? `
                     .react-panzoom-element--id-${$selectedElementId} {
                       outline-offset: -2px;
                       animation: react-panzoom-element-animation 1s infinite;
                     }
                     `
-    : undefined)
-}
+						: undefined}
       }
     }
 
-    ${({ $selectedElements, theme }) => $selectedElements && css`
-      ${$selectedElements.map((elementId) => (
-    `
+    ${({ $selectedElements, theme }) =>
+			$selectedElements &&
+			css`
+      ${$selectedElements.map(
+				(elementId) => `
           .react-panzoom-element--id-${elementId} {
             transition: 0s !important;
 
@@ -75,8 +80,8 @@ export const GridDiv = styled.div<GridDivProps>`
               background-color: ${theme.colors.darkBlue}25;
             }
           }
-        `
-  ))}
+        `,
+			)}
     `}
 
     .react-grid-panzoom-lines-container .react-grid-panzoom-line {

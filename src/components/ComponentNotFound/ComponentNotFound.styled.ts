@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Label = styled.div`
   color: ${({ theme }) => theme.colors.black};

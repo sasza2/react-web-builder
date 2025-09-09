@@ -1,1 +1,1 @@
-export * from './RenderWebComponent';
+export * from "./RenderWebComponent";

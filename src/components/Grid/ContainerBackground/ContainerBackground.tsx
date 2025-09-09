@@ -1,59 +1,66 @@
-import React, { useEffect, useRef } from 'react';
-import type { BreakpointHeight } from 'types';
+import React, { useEffect, useRef } from "react";
+import type { BreakpointHeight } from "types";
 
-import { useGridAPI } from '@/components/GridAPIProvider';
-import { useContainerElementProperties } from '@/hooks/container/useContainerElementProperties';
-import { useContainerGridStyle } from '@/hooks/container/useContainerGridStyle';
-import { useBreakpoint } from '@/hooks/useBreakpoint';
-import { usePageSettings } from '@/hooks/usePageSettings';
-import { getBreakpointBackgroundColor, isContainer } from '@/utils/breakpoint';
-import { mergeStyles } from '@/utils/styles';
+import { useGridAPI } from "@/components/GridAPIProvider";
+import { useContainerElementProperties } from "@/hooks/container/useContainerElementProperties";
+import { useContainerGridStyle } from "@/hooks/container/useContainerGridStyle";
+import { useBreakpoint } from "@/hooks/useBreakpoint";
+import { usePageSettings } from "@/hooks/usePageSettings";
+import { getBreakpointBackgroundColor, isContainer } from "@/utils/breakpoint";
+import { mergeStyles } from "@/utils/styles";
 
-import { ContainerBottomLine } from '../ContainerBottomLine';
-import useElementsWithRender from '../useElementsWithRender';
-import { Container } from './ContainerBackground.styled';
+import { ContainerBottomLine } from "../ContainerBottomLine";
+import useElementsWithRender from "../useElementsWithRender";
+import { Container } from "./ContainerBackground.styled";
 
 function ContainerBackgroundIn() {
-  const breakpoint = useBreakpoint();
-  const containerStyle = useContainerGridStyle();
-  const gridAPIRef = useGridAPI();
-  const pageSettings = usePageSettings();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const elements = useElementsWithRender();
+	const breakpoint = useBreakpoint();
+	const containerStyle = useContainerGridStyle();
+	const gridAPIRef = useGridAPI();
+	const pageSettings = usePageSettings();
+	const containerRef = useRef<HTMLDivElement>(null);
+	const elements = useElementsWithRender();
 
-  const { background } = mergeStyles(containerStyle, {
-    background: getBreakpointBackgroundColor(breakpoint, pageSettings),
-  });
+	const { background } = mergeStyles(containerStyle, {
+		background: getBreakpointBackgroundColor(breakpoint, pageSettings),
+	});
 
-  const properties = useContainerElementProperties();
-  const breakpointHeight = properties?.breakpointHeight as BreakpointHeight;
-  const height: number | null = (breakpointHeight?.enabled) ? breakpointHeight.height : undefined;
+	const properties = useContainerElementProperties();
+	const breakpointHeight = properties?.breakpointHeight as BreakpointHeight;
+	const height: number | null = breakpointHeight?.enabled
+		? breakpointHeight.height
+		: undefined;
 
-  useEffect(() => {
-    if (height !== undefined) return;
+	useEffect(() => {
+		if (height !== undefined) return;
 
-    const timer = setTimeout(() => {
-      const backgroundSize = gridAPIRef.current.getLowestElementBottomInPixels();
+		const timer = setTimeout(() => {
+			const backgroundSize =
+				gridAPIRef.current.getLowestElementBottomInPixels();
 
-      containerRef.current.style.height = `${backgroundSize}px`;
-    }, 200);
+			containerRef.current.style.height = `${backgroundSize}px`;
+		}, 200);
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [elements, height]);
+		return () => {
+			clearTimeout(timer);
+		};
+	}, [elements, height]);
 
-  return (
-    <>
-      <Container $background={background} ref={containerRef} style={{ height }} />
-      <ContainerBottomLine breakpoint={breakpoint} />
-    </>
-  );
+	return (
+		<>
+			<Container
+				$background={background}
+				ref={containerRef}
+				style={{ height }}
+			/>
+			<ContainerBottomLine breakpoint={breakpoint} />
+		</>
+	);
 }
 
 export function ContainerBackground() {
-  const breakpoint = useBreakpoint();
-  if (!isContainer(breakpoint)) return null;
+	const breakpoint = useBreakpoint();
+	if (!isContainer(breakpoint)) return null;
 
-  return <ContainerBackgroundIn />;
+	return <ContainerBackgroundIn />;
 }

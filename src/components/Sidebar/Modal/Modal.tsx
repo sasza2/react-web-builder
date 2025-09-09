@@ -1,12 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import { useSidebarModalRef } from '@/components/SidebarProvider';
+import { useSidebarModalRef } from "@/components/SidebarProvider";
 
-import { Container } from './Modal.styled';
+import { Container } from "./Modal.styled";
 
 export function Modal() {
-  const modalRef = useSidebarModalRef();
-  return (
-    <Container ref={modalRef} />
-  );
+	const modalRef = useSidebarModalRef();
+	return <Container ref={modalRef} />;
 }

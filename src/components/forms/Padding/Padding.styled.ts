@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { FormControlDiv } from '../FormControl.styled';
+import { FormControlDiv } from "../FormControl.styled";
 
 export const PaddingContainer = styled.div`
   display: flex;

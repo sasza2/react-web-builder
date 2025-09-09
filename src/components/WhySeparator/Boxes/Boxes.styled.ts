@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const FloatLeft = styled.div`
   float: left;
@@ -30,7 +30,7 @@ export const SeparatorDiv = styled.div<{ $hidden: boolean }>`
   width: 100%;
   height: 10px;
   transition: opacity var(--speed);
-  opacity: ${({ $hidden }) => ($hidden ? '0' : '1')};
+  opacity: ${({ $hidden }) => ($hidden ? "0" : "1")};
   float: left;
 `;
 

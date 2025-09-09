@@ -1,27 +1,27 @@
-import { useRef } from 'react';
+import { useRef } from "react";
 
-import { DOUBLE_CLICK_TIMEOUT } from '@/consts';
+import { DOUBLE_CLICK_TIMEOUT } from "@/consts";
 
 export const useIsDoubleClickOnElement = () => {
-  const lastSelectedElementId = useRef<string | number>();
-  const lastClickTime = useRef<number>(0);
+	const lastSelectedElementId = useRef<string | number>();
+	const lastClickTime = useRef<number>(0);
 
-  const isDoubleClick = (id: string | number): boolean => {
-    const currentTime = Date.now();
+	const isDoubleClick = (id: string | number): boolean => {
+		const currentTime = Date.now();
 
-    if (lastSelectedElementId.current !== id) {
-      lastSelectedElementId.current = id;
-      lastClickTime.current = currentTime;
-      return false;
-    }
+		if (lastSelectedElementId.current !== id) {
+			lastSelectedElementId.current = id;
+			lastClickTime.current = currentTime;
+			return false;
+		}
 
-    if (currentTime - lastClickTime.current > DOUBLE_CLICK_TIMEOUT) {
-      lastClickTime.current = currentTime;
-      return false;
-    }
+		if (currentTime - lastClickTime.current > DOUBLE_CLICK_TIMEOUT) {
+			lastClickTime.current = currentTime;
+			return false;
+		}
 
-    return true;
-  };
+		return true;
+	};
 
-  return isDoubleClick;
+	return isDoubleClick;
 };

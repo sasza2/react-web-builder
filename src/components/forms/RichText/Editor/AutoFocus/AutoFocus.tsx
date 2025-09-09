@@ -1,49 +1,56 @@
-import { useEffect, useRef } from 'react';
-import { useFrame } from 'react-frame-component';
-import type { BaseEditor } from 'slate';
-import type { ReactEditor } from 'slate-react';
+import { useEffect, useRef } from "react";
+import { useFrame } from "react-frame-component";
+import type { BaseEditor } from "slate";
+import type { ReactEditor } from "slate-react";
 
-import { useConfiguration } from '@/components/ConfigurationProvider';
+import { useConfiguration } from "@/components/ConfigurationProvider";
 
 type AutoFocusProps = {
-  autoFocus?: boolean,
-  editor: BaseEditor & ReactEditor,
+	autoFocus?: boolean;
+	editor: BaseEditor & ReactEditor;
 };
 
-export function AutoFocus({ autoFocus = false, editor }: AutoFocusProps): JSX.Element {
-  const { autoFocusRichTextInEditProperties } = useConfiguration();
-  const editorRef = useRef<typeof editor>();
-  editorRef.current = editor;
+export function AutoFocus({
+	autoFocus = false,
+	editor,
+}: AutoFocusProps): JSX.Element {
+	const { autoFocusRichTextInEditProperties } = useConfiguration();
+	const editorRef = useRef<typeof editor>();
+	editorRef.current = editor;
 
-  const { document: iframeDocument, window: iframeWindow } = useFrame();
+	const { document: iframeDocument, window: iframeWindow } = useFrame();
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const textbox: HTMLDivElement = iframeDocument.body.querySelector('[role="textbox"]');
-      if (!textbox) return;
+	useEffect(() => {
+		const timer = setInterval(
+			() => {
+				const textbox: HTMLDivElement =
+					iframeDocument.body.querySelector('[role="textbox"]');
+				if (!textbox) return;
 
-      const scrollbox = textbox.parentNode.parentNode as HTMLDivElement;
+				const scrollbox = textbox.parentNode.parentNode as HTMLDivElement;
 
-      textbox.focus();
+				textbox.focus();
 
-      iframeWindow.getSelection().selectAllChildren(textbox);
-      iframeWindow.getSelection().collapseToEnd();
+				iframeWindow.getSelection().selectAllChildren(textbox);
+				iframeWindow.getSelection().collapseToEnd();
 
-      if (!autoFocusRichTextInEditProperties || !autoFocus) {
-        textbox.blur();
-        clearInterval(timer);
-        return;
-      }
+				if (!autoFocusRichTextInEditProperties || !autoFocus) {
+					textbox.blur();
+					clearInterval(timer);
+					return;
+				}
 
-      scrollbox.scrollTop = scrollbox.scrollHeight;
+				scrollbox.scrollTop = scrollbox.scrollHeight;
 
-      clearInterval(timer);
-    }, autoFocus ? 400 : 200); // TODO
+				clearInterval(timer);
+			},
+			autoFocus ? 400 : 200,
+		); // TODO
 
-    return () => {
-      clearInterval(timer);
-    };
-  }, [autoFocusRichTextInEditProperties, autoFocus]);
+		return () => {
+			clearInterval(timer);
+		};
+	}, [autoFocusRichTextInEditProperties, autoFocus]);
 
-  return null;
+	return null;
 }

@@ -1,5 +1,5 @@
 export enum ColorType {
-  Gradient,
-  Hex,
-  None,
+	Gradient,
+	Hex,
+	None,
 }

@@ -1,16 +1,16 @@
-import { useWebBuilderProperties } from '@/components/PropertiesProvider';
+import { useWebBuilderProperties } from "@/components/PropertiesProvider";
 
-import { useBuildPageWithTree } from './page/useBuildPageWithTree';
+import { useBuildPageWithTree } from "./page/useBuildPageWithTree";
 
 export const usePagePreview = () => {
-  const { onPagePreview } = useWebBuilderProperties();
-  const build = useBuildPageWithTree();
+	const { onPagePreview } = useWebBuilderProperties();
+	const build = useBuildPageWithTree();
 
-  const view = async () => {
-    if (onPagePreview) {
-      await onPagePreview(build());
-    }
-  };
+	const view = async () => {
+		if (onPagePreview) {
+			await onPagePreview(build());
+		}
+	};
 
-  return view;
+	return view;
 };

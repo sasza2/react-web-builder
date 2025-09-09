@@ -1,22 +1,22 @@
-import type { Page } from '@playwright/test';
+import type { Page } from "@playwright/test";
 
-import { sleep } from '../sleep';
-import { selectBreakpoint } from './selectBreakpoint';
+import { sleep } from "../sleep";
+import { selectBreakpoint } from "./selectBreakpoint";
 
 type Options = {
-  from: number,
+	from: number;
 };
 
 export const addBreakpoint = async (page: Page, options: Options) => {
-  await selectBreakpoint(page, 'breakpointAdd');
+	await selectBreakpoint(page, "breakpointAdd");
 
-  const sidebar = page.getByTestId('sidebar');
-  const from = sidebar.getByTestId('from');
+	const sidebar = page.getByTestId("sidebar");
+	const from = sidebar.getByTestId("from");
 
-  await from.fill(`${options.from}`);
+	await from.fill(`${options.from}`);
 
-  const breakpointAddButton = page.getByTestId('breakpointAddButton');
-  await breakpointAddButton.click();
+	const breakpointAddButton = page.getByTestId("breakpointAddButton");
+	await breakpointAddButton.click();
 
-  await sleep(200);
+	await sleep(200);
 };

@@ -1,126 +1,170 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type {
-  Breakpoint,
-  ElementsInBreakpoints, WebBuilderElement, WebBuilderElements,
-} from 'types';
+	Breakpoint,
+	ElementsInBreakpoints,
+	WebBuilderElement,
+	WebBuilderElements,
+} from "types";
 
-import type { ElementsTreeInBreakpoint } from '@/utils/breakpoint';
+import type { ElementsTreeInBreakpoint } from "@/utils/breakpoint";
 
-import { removeAllBreakpoints } from './breakpointsSlice';
+import { removeAllBreakpoints } from "./breakpointsSlice";
 
 const initialState: ElementsInBreakpoints = {};
 
-type ActionAdd = PayloadAction<{ element: WebBuilderElement, breakpointId: string }>;
-
-type ActionAddMultiple = PayloadAction<{ elements: WebBuilderElement[], breakpointId: string }>;
-
-type ActionChangeElementInBreakpoint = PayloadAction<{ element: Partial<WebBuilderElement>, breakpointId: string }>;
-
-type ActionRemoveMultiple = PayloadAction<{
-  elementsTree: ElementsTreeInBreakpoint[],
-  currentBreakpoint: Breakpoint,
-  removeBreakpoint?: boolean,
+type ActionAdd = PayloadAction<{
+	element: WebBuilderElement;
+	breakpointId: string;
 }>;
 
-type ActionSet = PayloadAction<{ elements: WebBuilderElements, breakpointId: string }>;
+type ActionAddMultiple = PayloadAction<{
+	elements: WebBuilderElement[];
+	breakpointId: string;
+}>;
+
+type ActionChangeElementInBreakpoint = PayloadAction<{
+	element: Partial<WebBuilderElement>;
+	breakpointId: string;
+}>;
+
+type ActionRemoveMultiple = PayloadAction<{
+	elementsTree: ElementsTreeInBreakpoint[];
+	currentBreakpoint: Breakpoint;
+	removeBreakpoint?: boolean;
+}>;
+
+type ActionSet = PayloadAction<{
+	elements: WebBuilderElements;
+	breakpointId: string;
+}>;
 
 type ActionOpenContainer = ActionSet;
 
-type ActionReplace = PayloadAction<{ elementsInBreakpoints: ElementsInBreakpoints }>;
+type ActionReplace = PayloadAction<{
+	elementsInBreakpoints: ElementsInBreakpoints;
+}>;
 
 type ActionPaste = PayloadAction<{
-  elementsTree: ElementsTreeInBreakpoint[],
-  currentBreakpoint: Breakpoint,
+	elementsTree: ElementsTreeInBreakpoint[];
+	currentBreakpoint: Breakpoint;
 }>;
 
 export const elementsInBreakpointsSlice = createSlice({
-  name: 'elementsInBreakpoints',
-  initialState,
-  reducers: {
-    addElementToBreakpoint: (state, { payload: { element, breakpointId } }: ActionAdd) => {
-      if (!state[breakpointId]) state[breakpointId] = [];
-      state[breakpointId].push(element);
-    },
-    addElementsToBreakpoint: (state, { payload: { elements, breakpointId } }: ActionAddMultiple) => {
-      if (!state[breakpointId]) state[breakpointId] = [];
-      state[breakpointId].push(...elements);
-    },
-    changeElementInBreakpoint: (state, { payload: { element, breakpointId } }: ActionChangeElementInBreakpoint) => {
-      const currentElementIndex = state[breakpointId].findIndex((item) => item.id === element.id);
-      if (currentElementIndex < 0) return;
+	name: "elementsInBreakpoints",
+	initialState,
+	reducers: {
+		addElementToBreakpoint: (
+			state,
+			{ payload: { element, breakpointId } }: ActionAdd,
+		) => {
+			if (!state[breakpointId]) state[breakpointId] = [];
+			state[breakpointId].push(element);
+		},
+		addElementsToBreakpoint: (
+			state,
+			{ payload: { elements, breakpointId } }: ActionAddMultiple,
+		) => {
+			if (!state[breakpointId]) state[breakpointId] = [];
+			state[breakpointId].push(...elements);
+		},
+		changeElementInBreakpoint: (
+			state,
+			{ payload: { element, breakpointId } }: ActionChangeElementInBreakpoint,
+		) => {
+			const currentElementIndex = state[breakpointId].findIndex(
+				(item) => item.id === element.id,
+			);
+			if (currentElementIndex < 0) return;
 
-      const currentElement = state[breakpointId][currentElementIndex];
+			const currentElement = state[breakpointId][currentElementIndex];
 
-      state[breakpointId][currentElementIndex] = {
-        ...currentElement,
-        ...element,
-      };
-    },
-    pasteElements: (state, { payload }: ActionPaste) => {
-      const addRecursive = (currentBreakpoint: Breakpoint, elementsTree: ElementsTreeInBreakpoint[]) => {
-        elementsTree.forEach((elementTree) => {
-          if (!state[currentBreakpoint.id]) state[currentBreakpoint.id] = [];
+			state[breakpointId][currentElementIndex] = {
+				...currentElement,
+				...element,
+			};
+		},
+		pasteElements: (state, { payload }: ActionPaste) => {
+			const addRecursive = (
+				currentBreakpoint: Breakpoint,
+				elementsTree: ElementsTreeInBreakpoint[],
+			) => {
+				elementsTree.forEach((elementTree) => {
+					if (!state[currentBreakpoint.id]) state[currentBreakpoint.id] = [];
 
-          state[currentBreakpoint.id].push(elementTree.element);
+					state[currentBreakpoint.id].push(elementTree.element);
 
-          if (elementTree.container) {
-            addRecursive(elementTree.container, elementTree.children);
-          }
-        });
-      };
+					if (elementTree.container) {
+						addRecursive(elementTree.container, elementTree.children);
+					}
+				});
+			};
 
-      addRecursive(payload.currentBreakpoint, payload.elementsTree);
-    },
-    openContainer: (state, { payload: { elements, breakpointId } }: ActionOpenContainer) => {
-      state[breakpointId] = elements;
-    },
-    setElementsInBreakpoint: (state, { payload: { elements, breakpointId } }: ActionSet) => {
-      state[breakpointId] = elements;
-    },
-    setElementsInBreakpointProgrammatic: (state, { payload: { elements, breakpointId } }: ActionSet) => {
-      state[breakpointId] = elements;
-    },
-    removeElementsFromBreakpoint: (
-      state,
-      { payload }: ActionRemoveMultiple,
-    ) => {
-      const removeRecursive = (breakpoint: Breakpoint, elementsTree: ElementsTreeInBreakpoint[]) => {
-        elementsTree.forEach((elementTree) => {
-          if (elementTree.container) {
-            delete state[elementTree.container.id];
-            removeRecursive(elementTree.container, elementTree.children);
-          }
+			addRecursive(payload.currentBreakpoint, payload.elementsTree);
+		},
+		openContainer: (
+			state,
+			{ payload: { elements, breakpointId } }: ActionOpenContainer,
+		) => {
+			state[breakpointId] = elements;
+		},
+		setElementsInBreakpoint: (
+			state,
+			{ payload: { elements, breakpointId } }: ActionSet,
+		) => {
+			state[breakpointId] = elements;
+		},
+		setElementsInBreakpointProgrammatic: (
+			state,
+			{ payload: { elements, breakpointId } }: ActionSet,
+		) => {
+			state[breakpointId] = elements;
+		},
+		removeElementsFromBreakpoint: (
+			state,
+			{ payload }: ActionRemoveMultiple,
+		) => {
+			const removeRecursive = (
+				breakpoint: Breakpoint,
+				elementsTree: ElementsTreeInBreakpoint[],
+			) => {
+				elementsTree.forEach((elementTree) => {
+					if (elementTree.container) {
+						delete state[elementTree.container.id];
+						removeRecursive(elementTree.container, elementTree.children);
+					}
 
-          if (state[breakpoint.id]) {
-            state[breakpoint.id] = state[breakpoint.id].filter((element) => element.id !== elementTree.element.id);
-          }
-        });
-      };
+					if (state[breakpoint.id]) {
+						state[breakpoint.id] = state[breakpoint.id].filter(
+							(element) => element.id !== elementTree.element.id,
+						);
+					}
+				});
+			};
 
-      removeRecursive(payload.currentBreakpoint, payload.elementsTree);
+			removeRecursive(payload.currentBreakpoint, payload.elementsTree);
 
-      if (payload.removeBreakpoint) delete state[payload.currentBreakpoint.id];
-    },
-    replaceElementsInBreakpoint: (
-      _state,
-      { payload: { elementsInBreakpoints } }: ActionReplace,
-    ) => elementsInBreakpoints,
-  },
-  extraReducers: (builder) => {
-    builder.addCase(removeAllBreakpoints, () => initialState);
-  },
+			if (payload.removeBreakpoint) delete state[payload.currentBreakpoint.id];
+		},
+		replaceElementsInBreakpoint: (
+			_state,
+			{ payload: { elementsInBreakpoints } }: ActionReplace,
+		) => elementsInBreakpoints,
+	},
+	extraReducers: (builder) => {
+		builder.addCase(removeAllBreakpoints, () => initialState);
+	},
 });
 
 export const {
-  addElementToBreakpoint,
-  addElementsToBreakpoint,
-  changeElementInBreakpoint,
-  openContainer,
-  pasteElements,
-  setElementsInBreakpoint,
-  setElementsInBreakpointProgrammatic,
-  removeElementsFromBreakpoint,
-  replaceElementsInBreakpoint,
+	addElementToBreakpoint,
+	addElementsToBreakpoint,
+	changeElementInBreakpoint,
+	openContainer,
+	pasteElements,
+	setElementsInBreakpoint,
+	setElementsInBreakpointProgrammatic,
+	removeElementsFromBreakpoint,
+	replaceElementsInBreakpoint,
 } = elementsInBreakpointsSlice.actions;
 
 export default elementsInBreakpointsSlice.reducer;

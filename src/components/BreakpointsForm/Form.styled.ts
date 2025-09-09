@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Clickable = styled.a`
   color: ${({ theme }) => theme.colors.darkBlue};

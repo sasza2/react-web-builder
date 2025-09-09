@@ -1,2 +1,2 @@
-export * from './IsBreakpointLoading';
-export * from './LoadBreakpoint';
+export * from "./IsBreakpointLoading";
+export * from "./LoadBreakpoint";

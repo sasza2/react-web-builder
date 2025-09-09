@@ -1,9 +1,9 @@
-import { useBreakpoint } from '../useBreakpoint';
-import { useContainerElementPropertiesByValue } from './useContainerElementPropertiesByValue';
+import { useBreakpoint } from "../useBreakpoint";
+import { useContainerElementPropertiesByValue } from "./useContainerElementPropertiesByValue";
 
 export const useContainerElementProperties = (): Record<string, unknown> => {
-  const container = useBreakpoint();
+	const container = useBreakpoint();
 
-  const getProperties = useContainerElementPropertiesByValue();
-  return getProperties(container);
+	const getProperties = useContainerElementPropertiesByValue();
+	return getProperties(container);
 };

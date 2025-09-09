@@ -1,6 +1,11 @@
 import {
-  BoxProps, ElementContainer, IFrameComponentProps, ImageComponentProps, LineComponentProps, VideoComponentProps,
-} from './types';
+	BoxProps,
+	ElementContainer,
+	IFrameComponentProps,
+	ImageComponentProps,
+	LineComponentProps,
+	VideoComponentProps,
+} from "./types";
 
 export function Box(props: BoxProps): JSX.Element;
 

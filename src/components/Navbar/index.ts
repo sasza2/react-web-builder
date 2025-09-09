@@ -1,2 +1,2 @@
-export * from './Navbar';
-export { NavbarProvider, useNavbarWheelMode } from './NavbarProvider';
+export * from "./Navbar";
+export { NavbarProvider, useNavbarWheelMode } from "./NavbarProvider";

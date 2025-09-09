@@ -1,1 +1,1 @@
-export * from './WhySeparator';
+export * from "./WhySeparator";

@@ -1,19 +1,22 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState } from "react";
 
 type AccordionID = string | number;
 
 export type AccordionState = {
-  preExpanded: AccordionID[],
-  onChange: React.Dispatch<React.SetStateAction<AccordionID[]>>,
+	preExpanded: AccordionID[];
+	onChange: React.Dispatch<React.SetStateAction<AccordionID[]>>;
 };
 
 export const useAccordion = (): AccordionState => {
-  const [preExpanded, onChange] = useState<AccordionID[]>([]);
+	const [preExpanded, onChange] = useState<AccordionID[]>([]);
 
-  const accordion = useMemo(() => ({
-    preExpanded,
-    onChange,
-  }), [preExpanded, onChange]);
+	const accordion = useMemo(
+		() => ({
+			preExpanded,
+			onChange,
+		}),
+		[preExpanded, onChange],
+	);
 
-  return accordion;
+	return accordion;
 };

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { RESIZABLE_PROP_NAME } from './consts';
+import { RESIZABLE_PROP_NAME } from "./consts";
 
 export const Container = styled.div`
   position: relative;
