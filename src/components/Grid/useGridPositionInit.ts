@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BreakpointId, Position } from 'types';
+import type { BreakpointId, Position } from 'types';
 
 import { useGridAPI } from '@/components/GridAPIProvider';
 import { useWebBuilderSizeWidth } from '@/components/WebBuilderSize';

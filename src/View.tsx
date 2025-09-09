@@ -1,5 +1,5 @@
 import React from 'react';
-import { ViewProps } from 'types';
+import type { ViewProps } from 'types';
 
 import { PropertiesProvider } from '@/components/PropertiesProvider';
 import { StyleProvider } from '@/components/StyleProvider';

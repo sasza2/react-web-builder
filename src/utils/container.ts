@@ -1,5 +1,5 @@
-import { TFunction } from 'i18next';
-import {
+import type { TFunction } from 'i18next';
+import type {
   Breakpoint, ElementsExtras, Tree, WebBuilderElements,
 } from 'types';
 

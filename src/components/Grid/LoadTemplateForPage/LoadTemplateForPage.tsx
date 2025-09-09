@@ -1,7 +1,7 @@
 import React, {
   useCallback, useMemo, useRef, useState,
 } from 'react';
-import { Breakpoint } from 'types';
+import type { Breakpoint } from 'types';
 
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
 import { commitHistory } from '@/store/changesSlice';

@@ -1,4 +1,4 @@
-import { Action } from '@reduxjs/toolkit';
+import type { Action } from '@reduxjs/toolkit';
 
 export const CHANGES_START_TRANSACTION_TYPE = 'changesStartTransaction';
 

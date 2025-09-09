@@ -1,4 +1,4 @@
-import { Breakpoint } from 'types';
+import type { Breakpoint } from 'types';
 
 import { removeBreakpoint } from '@/store/breakpointsSlice';
 import { useAppDispatch } from '@/store/useAppDispatch';

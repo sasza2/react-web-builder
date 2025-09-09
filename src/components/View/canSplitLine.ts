@@ -1,4 +1,4 @@
-import { WebBuilderElements } from 'types';
+import type { WebBuilderElements } from 'types';
 
 const canSplitLine = (prev: WebBuilderElements, current: WebBuilderElements): boolean => {
   const size = Math.max(prev.length, current.length);

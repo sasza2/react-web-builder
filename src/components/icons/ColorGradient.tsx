@@ -1,6 +1,6 @@
-import React, { CSSProperties } from 'react';
+import React, { type CSSProperties } from 'react';
 
-import { IconWrapperProps } from './types';
+import type { IconWrapperProps } from './types';
 
 type ColorGradientProps = IconWrapperProps & {
   height?: CSSProperties['height'],

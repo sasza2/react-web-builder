@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useMemo, useRef } from 'react';
-import { Breakpoint } from 'types';
+import type { Breakpoint } from 'types';
 
 import { getBreakpointPadding } from '@/utils/breakpoint';
 

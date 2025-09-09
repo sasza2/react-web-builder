@@ -1,4 +1,4 @@
-import valueParser, { Node } from 'postcss-value-parser';
+import valueParser, { type Node } from 'postcss-value-parser';
 
 type Validator = (value: string) => boolean;
 

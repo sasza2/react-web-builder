@@ -1,4 +1,4 @@
-import { UseBoxStyleProps } from 'types';
+import type { UseBoxStyleProps } from 'types';
 
 import { DEFAULT_LETTER_SPACING, DEFAULT_LINE_HEIGHT } from '@/consts';
 import { isValidColor } from '@/utils/colors';

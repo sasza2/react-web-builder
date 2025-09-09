@@ -1,5 +1,5 @@
-import { GridAPI } from 'react-grid-panzoom';
-import {
+import type { GridAPI } from 'react-grid-panzoom';
+import type {
   Breakpoint, BreakpointId, BreakpointsExtras, ElementExtra, ElementsExtras, ElementsInBreakpoints, Page, PageSettings,
   WebBuilderElement,
 } from 'types';

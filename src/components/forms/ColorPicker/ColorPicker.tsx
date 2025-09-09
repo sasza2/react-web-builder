@@ -14,7 +14,7 @@ import { getColorType } from '@/utils/colors/common';
 import { FormControl } from '../FormControl';
 import { Label } from '../FormControl.styled';
 import { Input } from '../Input';
-import { IFormControl } from '../types';
+import type { IFormControl } from '../types';
 import { Color } from './Color';
 import {
   ColorsContainer, InputContainer,

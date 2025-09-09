@@ -16,7 +16,7 @@ test('load template', async ({ page }) => {
   await saveAsDraft(page);
   await page.reload();
 
-  let didDisplayLoader;
+  let didDisplayLoader: boolean = false;
   try {
     await expect(page.getByTestId('templateLoaderAnimation')).toHaveCount(1);
     didDisplayLoader = true;

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { WebBuilderElement, WebBuilderElements } from 'types';
+import type { WebBuilderElement, WebBuilderElements } from 'types';
 
 import { useGridAPI } from '@/components/GridAPIProvider';
 import { Hints } from '@/components/Hints';
@@ -25,7 +25,7 @@ import { Description, FormGroup, FormHeader } from '../FormControl.styled';
 
 const getContainerIdValue = (element: WebBuilderElement): string | null => {
   const containerId = getElementContainerIdProp(element.props);
-  if (containerId && containerId.value) return containerId.value as string;
+  if (containerId?.value) return containerId.value as string;
   return null;
 };
 

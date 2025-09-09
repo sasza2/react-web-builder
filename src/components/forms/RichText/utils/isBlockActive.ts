@@ -1,6 +1,6 @@
 import { Editor, Element as SlateElement } from 'slate';
 
-import { CustomElement } from '@/slate.d';
+import type { CustomElement } from '@/slate.d';
 
 export const isBlockActive = (editor: Editor, format: string, blockType: string) => {
   const { selection } = editor;

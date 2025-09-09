@@ -6,7 +6,7 @@ import { useField } from '@/components/FormProvider';
 import { assignTestProp } from '@/utils/tests';
 
 import { FormControl } from '../FormControl';
-import { IFormControl } from '../types';
+import type { IFormControl } from '../types';
 import { ExtraNode, InputGroup } from './Input.styled';
 
 type InputProps = {

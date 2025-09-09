@@ -4,11 +4,11 @@ import { createUniqueId } from '../createUniqueId';
 import { isValidLink } from '../link';
 import { ALLOWED_TAGS } from './consts';
 import {
-  ErrorsInstance, initErrorsInstance, reportError, TransformErrorTypes, wrapError,
+  type ErrorsInstance, initErrorsInstance, reportError, TransformErrorTypes, wrapError,
 } from './errors';
 import {
   isValidSelector,
-  ItemNode, parseStyle, transformSelector, transformStyles, transformStylesForReact,
+  type ItemNode, parseStyle, transformSelector, transformStyles, transformStylesForReact,
 } from './styles';
 import { sizeValidator } from './validators';
 
@@ -253,7 +253,7 @@ export const transform = (
   });
 
   const allElements: Node[] = [...styles];
-  if (stackChildren && stackChildren[0]) {
+  if (stackChildren?.[0]) {
     allElements.push(...stackChildren[0]);
   }
 

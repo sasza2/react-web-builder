@@ -1,5 +1,5 @@
 import React from 'react';
-import { WebBuilderProps } from 'types';
+import type { WebBuilderProps } from 'types';
 
 import { ConfigurationProvider } from '@/components/ConfigurationProvider';
 import { ElementsProvider } from '@/components/ElementsProvider';

@@ -1,4 +1,4 @@
-import { Tree } from 'types';
+import type { Tree } from 'types';
 
 export const cloneTree = (tree: Tree, createUniqueId: (current: string) => string): Tree => {
   const clonedTree = { ...tree };

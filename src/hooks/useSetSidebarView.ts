@@ -1,4 +1,4 @@
-import { SidebarView } from '@/components/SidebarProvider';
+import type { SidebarView } from '@/components/SidebarProvider';
 import { setViewAnimation } from '@/store/sidebarSlice';
 import { useAppDispatch } from '@/store/useAppDispatch';
 

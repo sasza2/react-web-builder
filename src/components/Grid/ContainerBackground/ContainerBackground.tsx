@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { BreakpointHeight } from 'types';
+import type { BreakpointHeight } from 'types';
 
 import { useGridAPI } from '@/components/GridAPIProvider';
 import { useContainerElementProperties } from '@/hooks/container/useContainerElementProperties';
@@ -27,7 +27,7 @@ function ContainerBackgroundIn() {
 
   const properties = useContainerElementProperties();
   const breakpointHeight = properties?.breakpointHeight as BreakpointHeight;
-  const height: number | null = (breakpointHeight && breakpointHeight.enabled) ? breakpointHeight.height : undefined;
+  const height: number | null = (breakpointHeight?.enabled) ? breakpointHeight.height : undefined;
 
   useEffect(() => {
     if (height !== undefined) return;

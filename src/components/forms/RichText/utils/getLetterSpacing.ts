@@ -1,7 +1,7 @@
 import { Editor, Element as SlateElement } from 'slate';
 
 import { DEFAULT_LETTER_SPACING } from '@/consts';
-import { CustomElement } from '@/slate.d';
+import type { CustomElement } from '@/slate.d';
 
 export const getLetterSpacing = (editor: Editor) => {
   const { selection } = editor;

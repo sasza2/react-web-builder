@@ -1,5 +1,5 @@
 import React from 'react';
-import { OnImageUpload, WebBuilderComponentProperty } from 'types';
+import type { OnImageUpload, WebBuilderComponentProperty } from 'types';
 
 import { assignTestProp } from '@/utils/tests';
 

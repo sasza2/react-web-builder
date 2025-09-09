@@ -1,10 +1,10 @@
-import PanZoom, { API, Element as PanZoomElement } from '@sasza/react-panzoom';
+import PanZoom, { type API, Element as PanZoomElement } from '@sasza/react-panzoom';
 import React, {
   useCallback, useEffect, useLayoutEffect,
   useRef, useState,
 } from 'react';
 import ReactDOM from 'react-dom';
-import { Position, WebBuilderComponent, WebBuilderElement } from 'types';
+import type { Position, WebBuilderComponent, WebBuilderElement } from 'types';
 
 import { useAddBreakpointForContainer } from '@/hooks/container/useAddBreakpointForContainer';
 import { useAddElement } from '@/hooks/useAddElement';

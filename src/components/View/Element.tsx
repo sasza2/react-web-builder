@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useMemo, useRef } from 'react';
-import {
+import type {
   Breakpoint, TransformElementProperty,
   WebBuilderComponent, WebBuilderElement,
 } from 'types';
@@ -26,8 +26,7 @@ function Element({
 }: ElementProps) {
   const component = components.find(({ id }) => id === element.componentName);
   if (!component) {
-    console.warn(`Component ${element.componentName} not found`); // eslint-disable-line no-console
-    return null;
+    throw new Error(`Component ${element.componentName} not found`);
   }
 
   const elementRef = useRef<HTMLDivElement>(null);

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { ElementsExtras } from 'types';
+import type { ElementsExtras } from 'types';
 
 import { setElementsInBreakpointProgrammatic } from '@/store/elementsInBreakpointsSlice';
 import { useAppDispatch } from '@/store/useAppDispatch';

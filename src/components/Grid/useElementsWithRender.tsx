@@ -1,6 +1,6 @@
 import { useMemo, useRef } from 'react';
-import { GridElement } from 'react-grid-panzoom';
-import { ElementId, ElementRenderFunc } from 'types';
+import type { GridElement } from 'react-grid-panzoom';
+import type { ElementId, ElementRenderFunc } from 'types';
 
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
 import { useBreakpoint } from '@/hooks/useBreakpoint';

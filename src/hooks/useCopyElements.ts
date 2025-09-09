@@ -1,4 +1,4 @@
-import { WebBuilderElements } from 'types';
+import type { WebBuilderElements } from 'types';
 
 import createTreeElements from '@/components/View/createTreeElements';
 import getBreakpointRowsByLastElement from '@/components/View/getBreakpointRowsByLastElement';

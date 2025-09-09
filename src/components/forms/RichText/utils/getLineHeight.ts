@@ -1,7 +1,7 @@
 import { Editor, Element as SlateElement } from 'slate';
 
 import { DEFAULT_LINE_HEIGHT } from '@/consts';
-import { CustomElement } from '@/slate.d';
+import type { CustomElement } from '@/slate.d';
 
 export const getLineHeight = (editor: Editor) => {
   const { selection } = editor;

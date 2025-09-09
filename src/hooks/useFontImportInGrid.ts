@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Breakpoint } from 'types';
+import type { Breakpoint } from 'types';
 
 import { byBreakpointId } from '@/utils/breakpoint';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { useTheme } from 'styled-components';
 
-import { IconWrapperProps } from './types';
+import type { IconWrapperProps } from './types';
 
 const Icon = styled.svg<{ $rotate?: number }>`
   transform: ${({ $rotate }) => `rotate(${$rotate || 0}deg)`};

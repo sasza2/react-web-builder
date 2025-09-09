@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnImageUpload, WebBuilderComponentProperty } from 'types';
+import type { OnImageUpload, WebBuilderComponentProperty } from 'types';
 
 import { ButtonIcon } from '@/components/ButtonIcon';
 import { FormProperty } from '@/components/FormProperty';
@@ -10,7 +10,7 @@ import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { getDefaultValue } from '@/utils/element';
 
 import { FormGroup, FormHeader } from '../FormControl.styled';
-import { IFormControl } from '../types';
+import type { IFormControl } from '../types';
 import { Container, ItemLabel, ItemLabelActions } from './FormArray.styled';
 
 type FormArrayProps = {

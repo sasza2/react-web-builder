@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { HelperArrowItem } from 'types';
+import type { HelperArrowItem } from 'types';
 
 import { useWebBuilderProperties } from '../PropertiesProvider';
 

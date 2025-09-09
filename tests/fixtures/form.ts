@@ -1,4 +1,4 @@
-import { expect, Locator } from '@playwright/test';
+import { expect, type Locator } from '@playwright/test';
 
 export const getInputValueAsInt = async (locator: Locator, testId: string): Promise<number> => {
   const input = locator.getByTestId(testId);

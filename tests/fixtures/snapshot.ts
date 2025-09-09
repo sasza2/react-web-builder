@@ -1,5 +1,5 @@
-import { Locator } from '@playwright/test';
-import parseHTML, { DOMNode } from 'html-dom-parser';
+import type { Locator } from '@playwright/test';
+import parseHTML, { type DOMNode } from 'html-dom-parser';
 import parseCSS from 'style-to-object';
 
 type SimpleNode = {

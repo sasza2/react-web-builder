@@ -1,4 +1,4 @@
-import { HelperArrowItem } from 'types';
+import type { HelperArrowItem } from 'types';
 
 export const clearHintsFromLocalStorage = (list: HelperArrowItem[]) => {
   list.forEach((item) => {

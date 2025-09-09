@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BackgroundImage, Border, BreakpointHeight } from 'types';
+import type { BackgroundImage, Border, BreakpointHeight } from 'types';
 
 import { useComponentsProperty } from '@/components/ComponentsProvider';
 import { useIsBreakpointLoading } from '@/components/Grid/LoadBreakpoint';

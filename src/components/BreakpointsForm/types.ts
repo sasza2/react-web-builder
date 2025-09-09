@@ -1,4 +1,4 @@
-import { Padding } from 'types';
+import type { Padding } from 'types';
 
 export type Error = {
   name: string,

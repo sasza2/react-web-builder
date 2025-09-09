@@ -1,4 +1,4 @@
-import { ElementsExtras, WebBuilderElements } from 'types';
+import type { ElementsExtras, WebBuilderElements } from 'types';
 
 const getBreakpointRowsByLastElement = (
   elements: WebBuilderElements,

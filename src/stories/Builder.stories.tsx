@@ -1,5 +1,5 @@
 import React from 'react';
-import { OnImageUpload, Page } from 'types';
+import type { OnImageUpload, Page } from 'types';
 
 import { delay } from '@/utils/delay';
 
@@ -32,7 +32,7 @@ export function Builder() {
         location: `http://localhost:37437/${json.location}`,
         upload: { status: true },
       };
-    } catch (e) {
+    } catch (_e) {
       throw new Error('error when uploading file');
     }
   };

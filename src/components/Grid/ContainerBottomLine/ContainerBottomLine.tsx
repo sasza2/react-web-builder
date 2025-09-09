@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Breakpoint, BreakpointHeight } from 'types';
+import type { Breakpoint, BreakpointHeight } from 'types';
 
 import { useBreakpoints } from '@/hooks/useBreakpoints';
 import { useAppSelector } from '@/store/useAppSelector';

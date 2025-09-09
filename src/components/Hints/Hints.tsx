@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { HelperArrowItem } from 'types';
+import type { HelperArrowItem } from 'types';
 
 import { useIsMounted } from '@/hooks/useIsMounted';
 

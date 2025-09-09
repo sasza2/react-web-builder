@@ -1,9 +1,9 @@
-import { parse as postcssParse, Root } from 'postcss';
-import selectorParser, { Node } from 'postcss-selector-parser';
+import { parse as postcssParse, type Root } from 'postcss';
+import selectorParser, { type Node } from 'postcss-selector-parser';
 
 import { ALLOWED_TAGS } from './consts';
 import {
-  ErrorsInstance, reportError, TransformErrorTypes, wrapError,
+  type ErrorsInstance, reportError, TransformErrorTypes, wrapError,
 } from './errors';
 import { allowedCSSProperties } from './validators';
 
@@ -38,7 +38,7 @@ export const isValidSelector = (selectorOriginal: string): boolean => {
   if (selector.startsWith(':')) return false;
 
   // eslint-disable-next-line no-useless-escape
-  const safePattern = /^[a-zA-Z0-9#\.\-[=\]"',: \s>+~]*$/;
+  const safePattern = /^[a-zA-Z0-9#.\-[=\]"',: \s>+~]*$/;
   if (!safePattern.test(selector)) {
     return false;
   }
@@ -46,7 +46,7 @@ export const isValidSelector = (selectorOriginal: string): boolean => {
   if (typeof document !== 'undefined') {
     try {
       document.createDocumentFragment().querySelector(selector);
-    } catch (e) {
+    } catch (_e) {
       return false;
     }
   }

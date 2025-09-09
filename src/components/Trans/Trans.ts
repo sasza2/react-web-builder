@@ -1,4 +1,4 @@
-import { ParseKeys } from 'i18next';
+import type { ParseKeys } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 type TransProps = {

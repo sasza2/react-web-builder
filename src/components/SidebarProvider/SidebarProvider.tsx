@@ -1,10 +1,10 @@
 import React, {
-  createContext, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useRef,
+  createContext, type PropsWithChildren, useCallback, useContext, useEffect, useMemo, useRef,
   useState,
 } from 'react';
 
 import { SIDEBAR_WIDTH } from '@/consts';
-import { AccordionState, useAccordion } from '@/hooks/useAccordion';
+import { type AccordionState, useAccordion } from '@/hooks/useAccordion';
 
 export enum SidebarView {
   AddElement = 1,

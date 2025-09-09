@@ -1,4 +1,4 @@
-import { CSSProperties, styled } from 'styled-components';
+import { type CSSProperties, styled } from 'styled-components';
 
 export const Flex = styled.div<{ $gap?: CSSProperties['gap'] }>`
   display: flex;

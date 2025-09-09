@@ -1,4 +1,4 @@
-import { WebBuilderElement, WebBuilderElements } from 'types';
+import type { WebBuilderElement, WebBuilderElements } from 'types';
 import { expect, it } from 'vitest';
 
 import splitBoardBySeparators from './splitBoardBySeparators';

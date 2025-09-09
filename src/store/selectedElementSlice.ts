@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 import { SidebarView } from '@/components/SidebarProvider';
 
@@ -16,8 +16,8 @@ export const selectedElementSlice = createSlice({
   name: 'selectedElement',
   initialState,
   reducers: {
-    setSelectedElement: (state, { payload: { elementId } }: ActionSet) => elementId,
-    replaceSelectedElement: (state, { payload: { elementId } }: ActionReplace) => elementId,
+    setSelectedElement: (_state, { payload: { elementId } }: ActionSet) => elementId,
+    replaceSelectedElement: (_state, { payload: { elementId } }: ActionReplace) => elementId,
   },
   extraReducers: (builder) => {
     builder.addCase(removeElementsFromBreakpoint, (state, { payload: { elementsTree } }) => {
@@ -25,9 +25,9 @@ export const selectedElementSlice = createSlice({
         if (elementTree.element.id === state) return null;
       }
       return state;
-    }).addCase(setSidebar, (state, { payload }) => {
+    }).addCase(setSidebar, (_state, { payload }) => {
       if (payload.view !== SidebarView.EditElement) return null;
-    }).addCase(setSidebarView, (state, { payload }) => {
+    }).addCase(setSidebarView, (_state, { payload }) => {
       if (payload !== SidebarView.EditElement) return null;
     }).addCase(openContainer, () => null)
       .addCase(removeAllBreakpoints, () => null);

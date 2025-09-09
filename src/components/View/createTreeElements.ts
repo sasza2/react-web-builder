@@ -1,4 +1,4 @@
-import { ElementsExtras, Tree, WebBuilderElements } from 'types';
+import type { ElementsExtras, Tree, WebBuilderElements } from 'types';
 
 import { createUniqueId } from '@/utils/createUniqueId';
 

@@ -1,4 +1,4 @@
-import { PageSettings } from 'types';
+import type { PageSettings } from 'types';
 
 import { useAppSelector } from '@/store/useAppSelector';
 

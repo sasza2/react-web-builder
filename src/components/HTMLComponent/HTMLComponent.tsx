@@ -1,7 +1,7 @@
 import React, {
   createElement, memo,
 } from 'react';
-import { HTMLComponentValue, WebBuilderElement } from 'types';
+import type { HTMLComponentValue, WebBuilderElement } from 'types';
 
 import { useHTMLTransform } from '@/hooks/useHTMLTransform';
 import { ALLOWED_TAGS_VALUES } from '@/utils/html2json/consts';

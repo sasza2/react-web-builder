@@ -1,4 +1,4 @@
-import { Breakpoint, Page, WebBuilderProps } from 'types';
+import type { Breakpoint, Page, WebBuilderProps } from 'types';
 
 import { useWebBuilderProperties } from '@/components/PropertiesProvider';
 import { getPageSettings } from '@/utils/pageSettings';

@@ -1,4 +1,4 @@
-import { Breakpoint } from 'types';
+import type { Breakpoint } from 'types';
 
 import createTreeElements from '@/components/View/createTreeElements';
 import getBreakpointRowsByLastElement from '@/components/View/getBreakpointRowsByLastElement';

@@ -3,7 +3,7 @@ import React from 'react';
 import { useField } from '@/components/FormProvider';
 
 import { FormControl } from '../FormControl';
-import { IFormControl } from '../types';
+import type { IFormControl } from '../types';
 import {
   Circle, CircleFill, Item, ItemInner, Items,
 } from './Radio.styled';

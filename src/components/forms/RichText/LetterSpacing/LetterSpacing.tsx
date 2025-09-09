@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSlate } from 'slate-react';
-import { Option } from 'types';
+import type { Option } from 'types';
 
 import { FieldProvider } from '@/components/FormProvider';
 import { Icon } from '@/components/icons/Icon';

@@ -1,4 +1,4 @@
-import { Breakpoint } from 'types';
+import type { Breakpoint } from 'types';
 
 import { useGridAPI } from '@/components/GridAPIProvider';
 import { removeElementsFromBreakpoint } from '@/store/elementsInBreakpointsSlice';

@@ -1,4 +1,4 @@
-import { WebBuilderElement } from 'types';
+import type { WebBuilderElement } from 'types';
 
 import { useAppSelector } from '@/store/useAppSelector';
 import { createTreeFromBreakpoint } from '@/utils/breakpoint';

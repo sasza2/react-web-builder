@@ -7,7 +7,7 @@ import { assignTestProp } from '@/utils/tests';
 
 import { FormGroup, FormHeader } from '../FormControl.styled';
 import { Input } from '../Input';
-import { IFormControl } from '../types';
+import type { IFormControl } from '../types';
 import { PaddingContainer } from './Padding.styled';
 
 type PaddingProps = {

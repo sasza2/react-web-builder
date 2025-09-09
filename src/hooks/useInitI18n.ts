@@ -7,7 +7,7 @@ import { DEFAULT_LANGUAGE } from '@/consts';
 import en from '@/locales/en';
 
 const getDefaultLanguage = (translations: Record<string, string>) => {
-  if (translations && translations.locale) return translations.locale;
+  if (translations?.locale) return translations.locale;
   return DEFAULT_LANGUAGE;
 };
 

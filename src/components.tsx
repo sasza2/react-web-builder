@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import ReactPlayer from 'react-player';
-import {
+import type {
   BuilderCommonProps,
   ElementAnchor,
   ElementContainer,

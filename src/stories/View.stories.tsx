@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page } from 'types';
+import type { Page } from 'types';
 
 import View from '../View';
 import { fonts } from './consts';

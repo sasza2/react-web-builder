@@ -1,5 +1,5 @@
 import React, {
-  createContext, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useRef,
+  createContext, type PropsWithChildren, useCallback, useContext, useEffect, useMemo, useRef,
   useState,
 } from 'react';
 

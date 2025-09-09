@@ -1,4 +1,4 @@
-import { GridProps } from 'react-grid-panzoom';
+import type { GridProps } from 'react-grid-panzoom';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
@@ -27,7 +27,7 @@ const useOnElementClick = () => {
     }
 
     const element = elements.find((item) => item.id === id);
-    if (element && element.disabledMove) {
+    if (element?.disabledMove) {
       toast.info(t('element.lockInfo'));
     }
 

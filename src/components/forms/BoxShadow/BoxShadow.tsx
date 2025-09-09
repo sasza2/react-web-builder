@@ -2,14 +2,14 @@ import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { FieldProvider, useField } from '@/components/FormProvider';
-import { BoxShadow as IBoxShadow, boxShadowToValue, splitBoxShadow } from '@/utils/boxShadow';
+import { type BoxShadow as IBoxShadow, boxShadowToValue, splitBoxShadow } from '@/utils/boxShadow';
 import { assignTestProp } from '@/utils/tests';
 
 import { ColorPicker } from '../ColorPicker';
 import { FormGroup, FormHeader } from '../FormControl.styled';
 import { RangeSlider } from '../RangeSlider';
 import { Toggle } from '../Toggle';
-import { IFormControl } from '../types';
+import type { IFormControl } from '../types';
 
 type BoxShadowProps = {
   name: string,

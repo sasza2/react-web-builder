@@ -1,5 +1,5 @@
 import React from 'react';
-import { RenderInContainerProps } from 'types';
+import type { RenderInContainerProps } from 'types';
 
 import { getBreakpointBackgroundColor } from '@/utils/breakpoint';
 

@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { WebBuilderElements } from 'types';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type { WebBuilderElements } from 'types';
 
 import { groupElementsById } from '@/utils/element';
 
@@ -40,14 +40,14 @@ export const selectedElementSlice = createSlice({
   name: 'selectedElements',
   initialState,
   reducers: {
-    setSelectedElements: (state, { payload: { elementsIds } }: ActionSet) => elementsIds,
+    setSelectedElements: (_state, { payload: { elementsIds } }: ActionSet) => elementsIds,
     toggleSelectedElement: (state, { payload: { elementId } }: ActionRemove) => {
       if (state.includes(elementId)) {
         return removeByElementId(state, elementId);
       }
       return [...state, elementId];
     },
-    replaceSelectedElements: (state, { payload: { elementsIds } }: ActionReplace) => elementsIds,
+    replaceSelectedElements: (_state, { payload: { elementsIds } }: ActionReplace) => elementsIds,
   },
   extraReducers: (builder) => {
     builder.addCase(removeBreakpoint, resetSelectedElements)

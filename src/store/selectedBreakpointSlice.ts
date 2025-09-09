@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { BreakpointId } from 'types';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type { BreakpointId } from 'types';
 
 import { isContainer } from '@/utils/breakpoint';
 
@@ -19,8 +19,8 @@ export const selectedBreakpointSlice = createSlice({
   name: 'selectedBreakpoint',
   initialState,
   reducers: {
-    setSelectedBreakpoint: (state, { payload: { id } }: ActionSet) => id || null,
-    replaceBreakpoint: (state, { payload: { id } }: ActionReplace) => id || null,
+    setSelectedBreakpoint: (_state, { payload: { id } }: ActionSet) => id || null,
+    replaceBreakpoint: (_state, { payload: { id } }: ActionReplace) => id || null,
   },
   extraReducers: (builder) => {
     builder
@@ -32,7 +32,7 @@ export const selectedBreakpointSlice = createSlice({
       .addCase(setSelectedElement, (state, { payload: { breakpointId } }: ActionSetSelectedElement) => {
         if (breakpointId !== undefined) return breakpointId;
         return state;
-      }).addCase(openContainer, (state, { payload: { breakpointId } }) => breakpointId)
+      }).addCase(openContainer, (_state, { payload: { breakpointId } }) => breakpointId)
       .addCase(removeAllBreakpoints, () => null);
   },
 });

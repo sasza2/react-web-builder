@@ -1,6 +1,6 @@
-import { Page } from '@playwright/test';
+import type { Page } from '@playwright/test';
 
-import { BreakpointDetails } from './types';
+import type { BreakpointDetails } from './types';
 
 export const getBreakpointZoom = async (
   page: Page,

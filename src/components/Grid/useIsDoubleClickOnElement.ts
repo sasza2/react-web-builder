@@ -7,7 +7,7 @@ export const useIsDoubleClickOnElement = () => {
   const lastClickTime = useRef<number>(0);
 
   const isDoubleClick = (id: string | number): boolean => {
-    const currentTime = new Date().getTime();
+    const currentTime = Date.now();
 
     if (lastSelectedElementId.current !== id) {
       lastSelectedElementId.current = id;

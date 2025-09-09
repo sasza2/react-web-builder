@@ -1,5 +1,5 @@
-import { TFunction } from 'i18next';
-import React, { ReactNode } from 'react';
+import type { TFunction } from 'i18next';
+import React, { type ReactNode } from 'react';
 import { withTranslation } from 'react-i18next';
 
 interface Props {

@@ -1,4 +1,4 @@
-import { Breakpoint, WebBuilderElement } from 'types';
+import type { Breakpoint, WebBuilderElement } from 'types';
 
 const elementsInBreakpointsRefMap = new Map<string, Map<string, HTMLElement>>();
 

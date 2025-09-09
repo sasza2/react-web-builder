@@ -1,6 +1,6 @@
 import React, { useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
+import type {
   WebBuilderComponent, WebBuilderElement, WebBuilderElementProperty,
   WebBuilderElements,
 } from 'types';

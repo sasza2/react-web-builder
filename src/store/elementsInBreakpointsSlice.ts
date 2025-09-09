@@ -1,10 +1,10 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type {
   Breakpoint,
   ElementsInBreakpoints, WebBuilderElement, WebBuilderElements,
 } from 'types';
 
-import { ElementsTreeInBreakpoint } from '@/utils/breakpoint';
+import type { ElementsTreeInBreakpoint } from '@/utils/breakpoint';
 
 import { removeAllBreakpoints } from './breakpointsSlice';
 
@@ -102,7 +102,7 @@ export const elementsInBreakpointsSlice = createSlice({
       if (payload.removeBreakpoint) delete state[payload.currentBreakpoint.id];
     },
     replaceElementsInBreakpoint: (
-      state,
+      _state,
       { payload: { elementsInBreakpoints } }: ActionReplace,
     ) => elementsInBreakpoints,
   },

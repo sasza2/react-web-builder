@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Page } from 'types';
+import type { Page } from 'types';
 
 export const useValidatePage = () => {
   const validate = useCallback((page: Page) => {

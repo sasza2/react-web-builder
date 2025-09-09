@@ -1,4 +1,4 @@
-import { Action, configureStore, Middleware } from '@reduxjs/toolkit';
+import { type Action, configureStore, type Middleware } from '@reduxjs/toolkit';
 
 import { createUniqueId } from '@/utils/createUniqueId';
 
@@ -12,7 +12,7 @@ import { replaceBreakpoint } from './selectedBreakpointSlice';
 import { replaceSelectedElement } from './selectedElementSlice';
 import { replaceSelectedElements } from './selectedElementsSlice';
 import { replaceSidebar } from './sidebarSlice';
-import { RootState, Store } from './store';
+import type { RootState, Store } from './store';
 
 function updateStore(store: Store) {
   const temporaryReducer = {
@@ -72,7 +72,7 @@ const changesMiddleware: Middleware = (store: Store) => (next) => (action: Actio
   next(action);
 
   if (actions.includes(action.type)) {
-    store.dispatch(pushChange({ key: createUniqueId(), action, time: new Date().getTime() }));
+    store.dispatch(pushChange({ key: createUniqueId(), action, time: Date.now() }));
   }
 };
 
