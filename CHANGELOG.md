@@ -1,5 +1,12 @@
 # react-web-builder
 
+## 0.22.0
+
+### Minor Changes
+
+- 40e3fd7: Ability to change the width of the sidebar
+- 84cbaeb: new component property types "array" and "object"
+
 ## 0.21.0
 
 ### Minor Changes
