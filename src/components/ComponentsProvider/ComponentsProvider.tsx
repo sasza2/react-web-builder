@@ -8,6 +8,7 @@ import type {
 
 import { useInternalComponents } from "@/components";
 import { mergeArrays } from "@/utils/array";
+import { prepareComponents } from "@/utils/component";
 
 const ComponentsContext = createContext<WebBuilderComponent[]>([]);
 const ElementContainerContext = createContext<ElementContainer>(null);
@@ -47,12 +48,14 @@ export function ComponentsProvider({
 	const internalComponents = useInternalComponents({
 		elementAnchor,
 		elementContainer,
-		components,
 		page,
 		...props,
 	});
 	const allComponents = useMemo(
-		() => mergeArrays([internalComponents, components], mergeItem),
+		() =>
+			prepareComponents(
+				mergeArrays([internalComponents, components], mergeItem),
+			),
 		[internalComponents, components],
 	);
 
