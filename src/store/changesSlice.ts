@@ -87,6 +87,20 @@ const pushChanges = (
 	return state;
 };
 
+const isStartResizingElementAction = (action: Action<string>) => {
+	if (
+		action.type === "selectedElements/setSelectedElements" &&
+		"payload" in action
+	) {
+		const { payload } = action as PayloadAction<{
+			elementsIds: Array<string | number>;
+		}>;
+		if (!payload.elementsIds?.length) return true;
+	}
+
+	return false;
+};
+
 export const changesSlice = createSlice({
 	name: "changes",
 	initialState,
@@ -134,6 +148,8 @@ export const changesSlice = createSlice({
 				) {
 					continue;
 				}
+
+				if (isStartResizingElementAction(action)) continue;
 
 				if (!actionsToOmit.includes(action.type as ActionType)) break;
 			}
@@ -187,6 +203,8 @@ export const changesSlice = createSlice({
 				) {
 					continue;
 				}
+
+				if (isStartResizingElementAction(action)) continue;
 
 				if (!actionsToOmit.includes(action.type as ActionType)) {
 					return;
