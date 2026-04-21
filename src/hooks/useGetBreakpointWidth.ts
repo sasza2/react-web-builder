@@ -5,7 +5,7 @@ import { useAppSelector } from "@/store/useAppSelector";
 import {
 	byBreakpointId,
 	getBreakpointPadding,
-	isContainer,
+	isContainerBreakpoint,
 } from "@/utils/breakpoint";
 import { getElementContainerIdProp } from "@/utils/element";
 
@@ -20,7 +20,7 @@ export const useGetBreakpointWidth = () => {
 	const getBreakpointWidth = useCallback(
 		(breakpoint: Breakpoint): number => {
 			const padding = getBreakpointPadding(breakpoint);
-			if (!isContainer(breakpoint))
+			if (!isContainerBreakpoint(breakpoint))
 				return breakpoint.from - padding.left - padding.right;
 
 			const parent = breakpoints.find(byBreakpointId(breakpoint.parentId));

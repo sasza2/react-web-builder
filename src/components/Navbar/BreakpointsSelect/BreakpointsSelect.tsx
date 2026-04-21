@@ -9,7 +9,7 @@ import { useBreakpoints } from "@/hooks/useBreakpoints";
 import { useSelectBreakpoint } from "@/hooks/useSelectBreakpoint";
 import { useSetSidebarView } from "@/hooks/useSetSidebarView";
 import { useSidebar } from "@/hooks/useSidebarView";
-import { isBreakpoint, isContainer } from "@/utils/breakpoint";
+import { isBreakpoint, isContainerBreakpoint } from "@/utils/breakpoint";
 import { assignTestProp } from "@/utils/tests";
 
 import { BreakpointLabel } from "./BreakpointLabel";
@@ -23,7 +23,7 @@ export function BreakpointsSelect() {
 	const setSidebarView = useSetSidebarView();
 	const sidebar = useSidebar();
 	const blockChangeRef = useRef<boolean>(null);
-	const disabled = breakpoint && isContainer(breakpoint);
+	const disabled = breakpoint && isContainerBreakpoint(breakpoint);
 
 	const options = useMemo(() => {
 		const sortedBreakpoints = [...breakpoints]

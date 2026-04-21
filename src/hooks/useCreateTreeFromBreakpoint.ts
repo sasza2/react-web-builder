@@ -1,5 +1,6 @@
 import type { WebBuilderElement } from "types";
 
+import { useComponentsProperty } from "@/components/ComponentsProvider";
 import { useAppSelector } from "@/store/useAppSelector";
 import { createTreeFromBreakpoint } from "@/utils/breakpoint";
 
@@ -10,6 +11,7 @@ import { useElements } from "./useElements";
 export const useCreateTreeFromBreakpoint = () => {
 	const breakpoint = useBreakpoint();
 	const breakpoints = useBreakpoints();
+	const components = useComponentsProperty();
 	const { elementsExtras } = useElements();
 	const elementsInBreakpoints = useAppSelector(
 		(state) => state.elementsInBreakpoints,
@@ -21,6 +23,7 @@ export const useCreateTreeFromBreakpoint = () => {
 	) =>
 		createTreeFromBreakpoint({
 			allBreakpoints: breakpoints,
+			components,
 			elementsInBreakpoints,
 			selectedElements,
 			currentBreakpoint: breakpoint,

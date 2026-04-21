@@ -107,7 +107,7 @@ export const DragElement: React.FC<DragElementProps> = ({
 			const id = createUniqueId();
 
 			const nextProps = getElementPropsWhenCreating(component, breakpoint);
-			if (component.id === "Container") {
+			if (component.isContainer) {
 				const containerIdProp = getElementContainerIdProp(nextProps);
 				if (containerIdProp) {
 					containerIdProp.value = addBreakpointForContainer();

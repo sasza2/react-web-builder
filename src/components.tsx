@@ -114,6 +114,7 @@ export const useInternalComponents = ({
 		{
 			id: "Container",
 			icon: Container,
+			isContainer: true,
 			label: <Trans i18nKey="container.text" />,
 			component: elementContainer,
 			group: BasicGroup,

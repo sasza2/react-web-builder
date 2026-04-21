@@ -1,7 +1,9 @@
+import { useComponentsProperty } from "@/components/ComponentsProvider";
 import { setSelectedElement } from "@/store/selectedElementSlice";
 import { useAppDispatch } from "@/store/useAppDispatch";
 import { useAppSelector } from "@/store/useAppSelector";
-import { byBreakpointId, isContainer } from "@/utils/breakpoint";
+import { byBreakpointId, isContainerBreakpoint } from "@/utils/breakpoint";
+import { isContainerComponent } from "@/utils/component";
 import { getElementContainerIdProp } from "@/utils/element";
 
 import { useBreakpoint } from "./useBreakpoint";
@@ -10,6 +12,7 @@ import { useBreakpoints } from "./useBreakpoints";
 export const useSidebarContainerEditGoBack = (): (() => void) | undefined => {
 	const container = useBreakpoint();
 	const breakpoints = useBreakpoints();
+	const components = useComponentsProperty();
 	const elementsInBreakpoints = useAppSelector(
 		(state) => state.elementsInBreakpoints,
 	);
@@ -20,7 +23,8 @@ export const useSidebarContainerEditGoBack = (): (() => void) | undefined => {
 
 		const elements = elementsInBreakpoints[parent.id];
 		const elementParent = elements.find((element) => {
-			if (element.componentName !== "Container") return false;
+			if (!isContainerComponent(element.componentName, components))
+				return false;
 
 			const containerIdProp = getElementContainerIdProp(element.props);
 			if (containerIdProp && containerIdProp.value === container.id)
@@ -39,5 +43,5 @@ export const useSidebarContainerEditGoBack = (): (() => void) | undefined => {
 		}
 	};
 
-	return isContainer(container) ? goBack : undefined;
+	return isContainerBreakpoint(container) ? goBack : undefined;
 };

@@ -6,7 +6,10 @@ import { useContainerElementProperties } from "@/hooks/container/useContainerEle
 import { useContainerGridStyle } from "@/hooks/container/useContainerGridStyle";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { usePageSettings } from "@/hooks/usePageSettings";
-import { getBreakpointBackgroundColor, isContainer } from "@/utils/breakpoint";
+import {
+	getBreakpointBackgroundColor,
+	isContainerBreakpoint,
+} from "@/utils/breakpoint";
 import { mergeStyles } from "@/utils/styles";
 
 import { ContainerBottomLine } from "../ContainerBottomLine";
@@ -60,7 +63,7 @@ function ContainerBackgroundIn() {
 
 export function ContainerBackground() {
 	const breakpoint = useBreakpoint();
-	if (!isContainer(breakpoint)) return null;
+	if (!isContainerBreakpoint(breakpoint)) return null;
 
 	return <ContainerBackgroundIn />;
 }

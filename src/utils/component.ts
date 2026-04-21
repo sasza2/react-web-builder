@@ -11,3 +11,11 @@ export const prepareComponents = (
 			props: [],
 		};
 	});
+
+export const isContainerComponent = (
+	componentName: string,
+	components: WebBuilderComponent[],
+): boolean => {
+	const component = components.find((item) => item.id === componentName);
+	return Boolean(component?.isContainer);
+};

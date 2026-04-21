@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { BreakpointId } from "types";
 
-import { isContainer } from "@/utils/breakpoint";
+import { isContainerBreakpoint } from "@/utils/breakpoint";
 
 import {
 	addBreakpoint,
@@ -34,7 +34,7 @@ export const selectedBreakpointSlice = createSlice({
 	extraReducers: (builder) => {
 		builder
 			.addCase(addBreakpoint, (state, { payload: { breakpoint } }) =>
-				isContainer(breakpoint) ? state : breakpoint.id,
+				isContainerBreakpoint(breakpoint) ? state : breakpoint.id,
 			)
 			.addCase(removeBreakpoint, (state, { payload: { breakpoint } }) => {
 				if (state === breakpoint.id) return null;

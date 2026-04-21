@@ -141,7 +141,7 @@ export const produceRenderForElement = (
 		return [
 			() => (
 				<RenderWebComponent
-					display={componentOfElement.id === "Container" ? "flex" : undefined}
+					display={componentOfElement.isContainer ? "flex" : undefined}
 				>
 					<ErrorBoundary>
 						<WebBuilderComponentRender {...props} />

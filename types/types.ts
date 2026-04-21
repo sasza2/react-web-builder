@@ -284,6 +284,7 @@ export type WebBuilderComponent = {
 		  }) => number);
 	expandToWindowWidth?: boolean;
 	group?: WebBuilderGroup | WebBuilderGroup[];
+	isContainer?: boolean;
 	props?: Array<WebBuilderComponentProperty>;
 	order?: number;
 	resizable?: boolean;

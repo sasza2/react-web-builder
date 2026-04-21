@@ -8,12 +8,14 @@ import type {
 	ElementsInBreakpoints,
 	Page,
 	PageSettings,
+	WebBuilderComponent,
 	WebBuilderElement,
 } from "types";
 
 import { get } from "@/utils/field";
 
 import { cloneDeep } from "./clone";
+import { isContainerComponent } from "./component";
 import { createUniqueId } from "./createUniqueId";
 import { getElementContainerIdProp } from "./element";
 
@@ -42,7 +44,7 @@ export const getBreakpointPadding = (breakpoint: Breakpoint) => {
 
 export const isBreakpoint = (breakpoint: Breakpoint) => !breakpoint.parentId;
 
-export const isContainer = (breakpoint: Breakpoint) =>
+export const isContainerBreakpoint = (breakpoint: Breakpoint) =>
 	!isBreakpoint(breakpoint);
 
 export const shouldLoadTemplateForBreakpoint = (
@@ -121,6 +123,7 @@ export type ElementsTreeInBreakpoint = {
 
 export const createTreeFromBreakpoint = ({
 	allBreakpoints,
+	components,
 	elementsInBreakpoints,
 	selectedElements,
 	currentBreakpoint,
@@ -128,6 +131,7 @@ export const createTreeFromBreakpoint = ({
 	rewriteContainersIds,
 }: {
 	allBreakpoints: Breakpoint[];
+	components: WebBuilderComponent[];
 	elementsInBreakpoints: ElementsInBreakpoints;
 	selectedElements: WebBuilderElement[];
 	currentBreakpoint: Breakpoint;
@@ -139,7 +143,7 @@ export const createTreeFromBreakpoint = ({
 	selectedElements.forEach((element) => {
 		const copyElement = cloneDeep(element);
 
-		if (element.componentName === "Container") {
+		if (isContainerComponent(element.componentName, components)) {
 			const containerIdProp = getElementContainerIdProp(copyElement.props);
 			const container = allBreakpoints.find(
 				(item) => item.id === containerIdProp.value,
@@ -173,6 +177,7 @@ export const createTreeFromBreakpoint = ({
 
 			const children = createTreeFromBreakpoint({
 				allBreakpoints,
+				components,
 				elementsInBreakpoints,
 				selectedElements:
 					elementsInBreakpoints[containerIdProp.value as string],

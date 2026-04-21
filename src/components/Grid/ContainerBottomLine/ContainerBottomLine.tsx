@@ -1,9 +1,11 @@
 import React, { useMemo } from "react";
 import type { Breakpoint, BreakpointHeight } from "types";
 
+import { useComponentsProperty } from "@/components/ComponentsProvider";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
 import { useAppSelector } from "@/store/useAppSelector";
 import { byBreakpointId } from "@/utils/breakpoint";
+import { isContainerComponent } from "@/utils/component";
 import { getElementContainerIdProp } from "@/utils/element";
 
 import { Line } from "./ContainerBottomLine.styled";
@@ -14,6 +16,7 @@ type ContainerBottomLineProps = {
 
 export function ContainerBottomLine({ breakpoint }: ContainerBottomLineProps) {
 	const breakpoints = useBreakpoints();
+	const components = useComponentsProperty();
 	const elementsInBreakpoints = useAppSelector(
 		(state) => state.elementsInBreakpoints,
 	);
@@ -29,7 +32,7 @@ export function ContainerBottomLine({ breakpoint }: ContainerBottomLineProps) {
 		const elements = elementsInBreakpoints[parentBreakpoint.id];
 
 		const element = elements.find((item) => {
-			if (item.componentName !== "Container") return false;
+			if (!isContainerComponent(item.componentName, components)) return false;
 
 			const containerIdProp = getElementContainerIdProp(item.props);
 			if (!containerIdProp) return false;
@@ -49,7 +52,7 @@ export function ContainerBottomLine({ breakpoint }: ContainerBottomLineProps) {
 		if (!breakpointHeightValue || !breakpointHeightValue.height) return null;
 
 		return Math.floor(breakpointHeightValue.height) || null;
-	}, [breakpoint, breakpoints, elementsInBreakpoints]);
+	}, [breakpoint, breakpoints, components, elementsInBreakpoints]);
 
 	if (!breakpointHeight) return null;
 	return <Line $top={breakpointHeight} />;

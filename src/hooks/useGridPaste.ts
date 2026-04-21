@@ -1,6 +1,7 @@
 import type { OrganizeElementsOptions } from "react-grid-panzoom";
 import type { Tree, WebBuilderElement } from "types";
 
+import { useComponentsProperty } from "@/components/ComponentsProvider";
 import { useGridAPI } from "@/components/GridAPIProvider";
 import { MARGIN_BOTTOM_ON_PASTED_ELEMENT } from "@/consts";
 import { useIsMounted } from "@/hooks/useIsMounted";
@@ -38,6 +39,7 @@ export const useGridPaste = () => {
 	const gridAPIRef = useGridAPI();
 	const isMounted = useIsMounted();
 	const breakpoints = useBreakpoints();
+	const components = useComponentsProperty();
 	const elementsInBreakpoints = useAppSelector(
 		(state) => state.elementsInBreakpoints,
 	);
@@ -97,6 +99,7 @@ export const useGridPaste = () => {
 
 				const elementsTree = createTreeFromBreakpoint({
 					allBreakpoints: breakpoints,
+					components,
 					elementsInBreakpoints,
 					selectedElements: [pastedElement],
 					currentBreakpoint: breakpoint,
@@ -130,6 +133,7 @@ export const useGridPaste = () => {
 
 				const elementsTree = createTreeFromBreakpoint({
 					allBreakpoints: breakpoints,
+					components,
 					elementsInBreakpoints,
 					selectedElements: pastedElements,
 					currentBreakpoint: breakpoint,
