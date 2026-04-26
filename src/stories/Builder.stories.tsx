@@ -10,7 +10,6 @@ export function Builder() {
 	const onPublish = (nextPage: Page) =>
 		new Promise((resolve) => {
 			localStorage.setItem("page-builder-published", JSON.stringify(nextPage));
-			window.parent.location = "/?path=/story/webbuilder-published--published";
 			resolve(null);
 		});
 

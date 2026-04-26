@@ -9,7 +9,9 @@ import { sleep } from "./fixtures/sleep";
 import { waitForTemplate } from "./fixtures/template";
 
 test("load template", async ({ page }) => {
-	await page.goto("/?mode=preview&story=webbuilder--templates-story");
+	await page.goto(
+		"/iframe.html?id=webbuilder-templates--templates&viewMode=story",
+	);
 	await goThroughHints(page);
 	await waitForTemplate(page);
 
@@ -38,7 +40,9 @@ test("load template", async ({ page }) => {
 
 	await checkBreakpointElements(page, template.default.mobile);
 
-	await page.goto("/?mode=preview&story=view--published-story");
+	await page.goto(
+		"/iframe.html?id=webbuilder-published--published&viewMode=story",
+	);
 
 	const view = page.locator(".story-template");
 	const textContent = await view.textContent();

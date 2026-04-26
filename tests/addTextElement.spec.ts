@@ -10,7 +10,7 @@ import { sleep } from "./fixtures/sleep";
 import { toSnapshot } from "./fixtures/snapshot";
 
 test("add text element", async ({ page }) => {
-	await page.goto("/?mode=preview&story=webbuilder--web-builder-story");
+	await page.goto("/iframe.html?id=webbuilder-builder--builder&viewMode=story");
 	await goThroughHints(page);
 
 	const breakpointDetails = await getBreakpointDetails(page);

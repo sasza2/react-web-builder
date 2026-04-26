@@ -7,7 +7,9 @@ import { goThroughHints } from "./fixtures/goThroughHints";
 import { sleep } from "./fixtures/sleep";
 
 test("load template", async ({ page }) => {
-	await page.goto("/?mode=preview&story=webbuilder--templates-story");
+	await page.goto(
+		"/iframe.html?id=webbuilder-templates--templates&viewMode=story",
+	);
 	await goThroughHints(page);
 
 	await expect(page.locator("templateLoaderAnimation")).toHaveCount(0);

@@ -14,7 +14,7 @@ import { goThroughHints } from "./fixtures/goThroughHints";
 import { sleep } from "./fixtures/sleep";
 
 test("resize element", async ({ page }) => {
-	await page.goto("/?mode=preview&story=webbuilder--web-builder-story");
+	await page.goto("/iframe.html?id=webbuilder-builder--builder&viewMode=story");
 	await goThroughHints(page);
 
 	const breakpointDetails = await getBreakpointDetails(page);

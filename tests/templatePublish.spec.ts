@@ -5,12 +5,16 @@ import { publish } from "./fixtures/publish";
 import { waitForTemplate } from "./fixtures/template";
 
 test("publish template", async ({ page }) => {
-	await page.goto("/?mode=preview&story=webbuilder--templates-story");
+	await page.goto(
+		"/iframe.html?id=webbuilder-templates--templates&viewMode=story",
+	);
 	await goThroughHints(page);
 	await waitForTemplate(page);
 
 	await publish(page);
-	await page.goto("/?mode=preview&story=view--published-story");
+	await page.goto(
+		"/iframe.html?id=webbuilder-published--published&viewMode=story",
+	);
 	await expect(page).toHaveScreenshot("templatePublishedDesktop.png", {
 		fullPage: true,
 	});

@@ -282,8 +282,6 @@ export function Templates() {
 					"page-builder-published",
 					JSON.stringify(nextPage),
 				);
-				window.parent.location =
-					"/?path=/story/webbuilder-published--published";
 				resolve(undefined);
 			}, 100); // fake backend delay
 		});

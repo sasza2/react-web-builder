@@ -7,7 +7,7 @@ import { goThroughHints } from "./fixtures/goThroughHints";
 import { sleep } from "./fixtures/sleep";
 
 test("add elements history (undo/redo)", async ({ page }) => {
-	await page.goto("/?mode=preview&story=webbuilder--web-builder-story");
+	await page.goto("/iframe.html?id=webbuilder-builder--builder&viewMode=story");
 	await goThroughHints(page);
 
 	const historyUndo = page.getByTestId("historyUndo");

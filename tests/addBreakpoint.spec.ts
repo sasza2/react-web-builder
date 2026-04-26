@@ -4,7 +4,7 @@ import { addBreakpoint } from "./fixtures/breakpoint/addBreakpoint";
 import { goThroughHints } from "./fixtures/goThroughHints";
 
 test("add breakpoint", async ({ page }) => {
-	await page.goto("/?mode=preview&story=webbuilder--web-builder-story");
+	await page.goto("/iframe.html?id=webbuilder-builder--builder&viewMode=story");
 	await goThroughHints(page);
 
 	await addBreakpoint(page, {
