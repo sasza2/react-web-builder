@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.23.0
+
+### Minor Changes
+
+- 85a8fce: isContainer prop changes
+
 ## 0.22.0
 
 ### Minor Changes
