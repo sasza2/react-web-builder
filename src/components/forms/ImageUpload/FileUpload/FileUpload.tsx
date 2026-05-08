@@ -40,17 +40,17 @@ type ImageUploadRacePromise = (props: {
 const imageUploadRacePromise: ImageUploadRacePromise = async ({
 	imageUploadPromise,
 	errorMessage,
-}) => {
+}): Promise<ImageURL> => {
 	const upload = await Promise.race([
 		delay(IMAGE_UPLOAD_TIMEOUT),
 		imageUploadPromise,
 	]);
 
-	if (!validateUpload(upload)) {
+	if (!validateUpload(upload as ImageURL)) {
 		throw new Error(errorMessage);
 	}
 
-	return upload;
+	return upload as ImageURL;
 };
 
 type FileUploadProps = {
@@ -61,12 +61,12 @@ type FileUploadProps = {
 export function FileUpload({ name, onImageUpload }: FileUploadProps) {
 	const { t } = useTranslation();
 	const theme = useTheme();
-	const fileRef = useRef<HTMLInputElement>();
-	const { setValue, value } = useField<ImageURL>(name);
+	const fileRef = useRef<HTMLInputElement>(null);
+	const { setValue, value } = useField<ImageURL | undefined>(name);
 	const [loading, setLoading] = useState(false);
 	const isMounted = useIsMounted();
 	const isUploaded =
-		value.locationUpload && value.location === value.locationUpload;
+		value?.locationUpload && value?.location === value?.locationUpload;
 
 	const onFileUpload = () => {
 		if (loading) return;
@@ -115,7 +115,7 @@ export function FileUpload({ name, onImageUpload }: FileUploadProps) {
 	};
 
 	const onClick = () => {
-		fileRef.current.click();
+		fileRef.current?.click();
 	};
 
 	const buttonLabel = () => {
