@@ -75,9 +75,11 @@ export function OpenContainer({ id, testId }: OpenContainerProps) {
 				),
 			);
 
+			console.log('containerExtras', containerExtras)
+
 			const nextElements = calculatePositionsOfElements(
 				tree,
-				(elementId) => containerExtras[elementId].height,
+				(elementId) => containerExtras[elementId]?.height ?? 0,
 			);
 
 			dispatch(
