@@ -1,5 +1,13 @@
 # react-web-builder
 
+## 0.23.1
+
+### Patch Changes
+
+- ece5a3f: fix file upload
+- aa8f4f8: fix opening containers and file upload
+- 3056eff: fix opening container when using separator inside
+
 ## 0.23.0
 
 ### Minor Changes
