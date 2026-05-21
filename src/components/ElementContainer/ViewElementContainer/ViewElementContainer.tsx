@@ -12,6 +12,7 @@ import { mergeStyles } from "@/utils/styles";
 import { HIDE_SCROLLBAR_CLASS_NAME } from "@/View.styled";
 
 import { useContainerStyle } from "../useContainerStyle";
+import { ElementContainerDecorator } from "../ElementContainerDecorator/ElementContainerDecorator";
 
 type ViewElementContainerProps = {
 	backgroundImage?: BackgroundImage;
@@ -22,14 +23,15 @@ type ViewElementContainerProps = {
 	fontFamily?: string;
 };
 
-export function ViewElementContainer({
-	backgroundImage,
-	border,
-	breakpointHeight,
-	boxShadow,
-	containerId,
-	fontFamily,
-}: ViewElementContainerProps) {
+export function ViewElementContainer(props: ViewElementContainerProps) {
+	const {
+		backgroundImage,
+		border,
+		breakpointHeight,
+		boxShadow,
+		containerId,
+		fontFamily,
+	} = props;
 	const { page, transformElementProperty } = useViewProperties();
 	const container = page.breakpoints.find((item) => item.id === containerId);
 	const components = useComponentsProperty();
@@ -74,12 +76,14 @@ export function ViewElementContainer({
 				fontFamily: fontFamily ? fontImport.fontFamily : undefined,
 			})}
 		>
-			<RenderTree
-				breakpoint={container}
-				components={components}
-				node={node}
-				transformElementProperty={transformElementProperty}
-			/>
+			<ElementContainerDecorator {...props} container={container}>
+				<RenderTree
+					breakpoint={container}
+					components={components}
+					node={node}
+					transformElementProperty={transformElementProperty}
+				/>
+			</ElementContainerDecorator>
 			{fontFamily ? fontImport.stylesheet : undefined}
 		</RenderBreakpoint>
 	);

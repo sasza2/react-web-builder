@@ -355,6 +355,10 @@ export type RenderInContainerProps = React.PropsWithChildren<{
 	page?: Page;
 }>;
 
+export type ElementContainerDecoratorProps = React.PropsWithChildren<{
+	container?: Breakpoint;
+}>;
+
 export type TransformElementProperty = (
 	componentProperty: WebBuilderComponentProperty,
 	elementyPropertyp: WebBuilderElementProperty,
@@ -370,6 +374,7 @@ export type BuilderCommonProps = {
 	defaultButtonHref?: string;
 	defaultImageSrc?: string;
 	defaultVideoSrc?: string;
+	elementContainerDecorator?: React.ElementType<ElementContainerDecoratorProps>;
 	fonts?: FontImport[];
 	translations?: Translations;
 	transformElementProperty?: TransformElementProperty;

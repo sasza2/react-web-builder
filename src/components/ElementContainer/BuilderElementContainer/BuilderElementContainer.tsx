@@ -20,6 +20,7 @@ import { RenderBreakpoint } from "../../View/RenderBreakpoint/RenderBreakpoint";
 import { RenderTree } from "../../View/RenderTree";
 import { useContainerStyle } from "../useContainerStyle";
 import { Empty } from "./BuilderElementContainer.styled";
+import { ElementContainerDecorator } from "../ElementContainerDecorator/ElementContainerDecorator";
 
 type BuilderElementContainerProps = {
 	backgroundImage?: BackgroundImage;
@@ -30,14 +31,15 @@ type BuilderElementContainerProps = {
 	fontFamily: string;
 };
 
-export function BuilderElementContainer({
-	backgroundImage,
-	border,
-	breakpointHeight,
-	boxShadow,
-	containerId,
-	fontFamily,
-}: BuilderElementContainerProps) {
+export function BuilderElementContainer(props: BuilderElementContainerProps) {
+	const {
+		backgroundImage,
+		border,
+		breakpointHeight,
+		boxShadow,
+		containerId,
+		fontFamily,
+	} = props;
 	const { transformElementProperty } = useProperties();
 	const components = useComponentsProperty();
 	const { elementsExtras } = useElements();
@@ -105,12 +107,14 @@ export function BuilderElementContainer({
 				fontFamily: fontFamily ? fontImport.fontFamily : undefined,
 			})}
 		>
-			<RenderTree
-				breakpoint={container}
-				components={components}
-				node={node}
-				transformElementProperty={transformElementProperty}
-			/>
+			<ElementContainerDecorator {...props} container={container}>
+				<RenderTree
+					breakpoint={container}
+					components={components}
+					node={node}
+					transformElementProperty={transformElementProperty}
+				/>
+			</ElementContainerDecorator>
 		</RenderBreakpoint>
 	);
 }
