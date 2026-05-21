@@ -1,5 +1,18 @@
 # react-web-builder
 
+## 0.24.0
+
+### Minor Changes
+
+- 629341f: element container decorator prop
+
+### Patch Changes
+
+- 629341f: fix render breakpoint animation frame
+- 629341f: fix color picker optional on blur
+- 629341f: console.warn instead of throw error
+- 629341f: fix selecting breakpoint
+
 ## 0.23.1
 
 ### Patch Changes
