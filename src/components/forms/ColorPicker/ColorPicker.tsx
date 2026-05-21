@@ -100,7 +100,9 @@ export function ColorPicker({
 	};
 
 	// users probably can put/paste colors in input without hash
-	const onInputBlur = (nextValue: string) => onBlur(normalizeColor(nextValue));
+	const onInputBlur = onBlur
+		? (nextValue: string) => onBlur(normalizeColor(nextValue))
+		: undefined;
 
 	return (
 		<FormControl name={name} label={label} errors={errors} testId="colorPicker">
