@@ -62,11 +62,18 @@ export function RenderBreakpoint({
 
 		onUpdate();
 
-		const resizeObserver = new ResizeObserver(onUpdate);
+		let rafId: ReturnType<typeof requestAnimationFrame>;
+		const onResize = () => {
+			cancelAnimationFrame(rafId);
+			rafId = requestAnimationFrame(onUpdate);
+		};
+
+		const resizeObserver = new ResizeObserver(onResize);
 
 		resizeObserver.observe(ref);
 
 		return () => {
+			cancelAnimationFrame(rafId);
 			resizeObserver.disconnect();
 		};
 	}, [breakpoint.from, breakpointRef, paddingWidth]);
