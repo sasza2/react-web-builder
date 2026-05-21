@@ -27,9 +27,6 @@ function Element({
 	transformElementProperty,
 }: ElementProps) {
 	const component = components.find(({ id }) => id === element.componentName);
-	if (!component) {
-		throw new Error(`Component ${element.componentName} not found`);
-	}
 
 	const elementRef = useRef<HTMLDivElement>(null);
 	const elementOptions = useElementOptions();
@@ -65,9 +62,14 @@ function Element({
 	);
 
 	const renderElement = () => {
-		const ElementOfComponent = component.component as React.FC<typeof props>;
+		const ElementOfComponent = component?.component as React.FC<typeof props>;
 		return <ElementOfComponent {...props} />;
 	};
+
+	if (!component) {
+		console.warn(`Component ${element.componentName} not found`);
+		return null;
+	}
 
 	return (
 		<div key={element.id} data-id={element.id} ref={elementRef} style={style}>

@@ -80,7 +80,7 @@ export const getElementPropsWhenCreating = (
 	});
 
 export const getProperties = (
-	component: WebBuilderComponent,
+	component: WebBuilderComponent | undefined,
 	breakpoint: Breakpoint,
 	element: WebBuilderElement,
 	transformElementProperty?: TransformElementProperty,
@@ -91,7 +91,7 @@ export const getProperties = (
 		element,
 	};
 
-	if (component) {
+	if (component?.props) {
 		component.props.forEach((prop) => {
 			if (prop.defaultValue) props[prop.id] = getDefaultValue(prop, breakpoint);
 		});
@@ -102,7 +102,7 @@ export const getProperties = (
 			if (prop.value === undefined || prop.value === null || prop.value === "")
 				return;
 
-			if (component && transformElementProperty) {
+			if (component?.props && transformElementProperty) {
 				props[prop.propId] = transformElementProperty(
 					component.props.find(
 						(componentProp) => componentProp.id === prop.propId,
