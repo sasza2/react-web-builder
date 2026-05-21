@@ -68,7 +68,7 @@ export function BreakpointsSelect() {
 	const onClick: React.MouseEventHandler<HTMLDivElement> = () => {
 		if (blockChangeRef.current) return;
 
-		if (breakpoint.id) {
+		if (breakpoint?.id) {
 			setSidebarView(SidebarView.EditBreakpoint);
 		} else {
 			setSidebarView(SidebarView.AddBreakpoint);
