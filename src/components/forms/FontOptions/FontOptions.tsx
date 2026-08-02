@@ -9,8 +9,8 @@ import { ButtonWrapper } from "../RichText/buttons.styled";
 import { FONT_SIZES } from "../RichText/FontSizeSelect/FontSizeSelect";
 import { LETTER_SPACINGS } from "../RichText/LetterSpacing";
 import {
-	Container as LineHeightContainer,
 	LINE_HEIGHTS,
+	Container as LineHeightContainer,
 } from "../RichText/LineHeight";
 import { ToolbarWrapper } from "../RichText/Toolbar/Toolbar.styled";
 import { Select } from "../Select";

@@ -18,9 +18,9 @@ import createTreeElements from "../../View/createTreeElements";
 import getBreakpointRowsByLastElement from "../../View/getBreakpointRowsByLastElement";
 import { RenderBreakpoint } from "../../View/RenderBreakpoint/RenderBreakpoint";
 import { RenderTree } from "../../View/RenderTree";
+import { ElementContainerDecorator } from "../ElementContainerDecorator/ElementContainerDecorator";
 import { useContainerStyle } from "../useContainerStyle";
 import { Empty } from "./BuilderElementContainer.styled";
-import { ElementContainerDecorator } from "../ElementContainerDecorator/ElementContainerDecorator";
 
 type BuilderElementContainerProps = {
 	backgroundImage?: BackgroundImage;

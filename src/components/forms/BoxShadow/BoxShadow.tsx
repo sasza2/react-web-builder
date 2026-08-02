@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 
 import { FieldProvider, useField } from "@/components/FormProvider";
 import {
-	type BoxShadow as IBoxShadow,
 	boxShadowToValue,
+	type BoxShadow as IBoxShadow,
 	splitBoxShadow,
 } from "@/utils/boxShadow";
 import { assignTestProp } from "@/utils/tests";

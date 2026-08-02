@@ -18,6 +18,12 @@
     },
     "rootDirs": ["src", "types"],
     "skipLibCheck": true,
-    "target": "es5"
-  }
+    "target": "es5",
+    "types": ["vitest/globals"]
+  },
+  "include": ["src", "types"],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

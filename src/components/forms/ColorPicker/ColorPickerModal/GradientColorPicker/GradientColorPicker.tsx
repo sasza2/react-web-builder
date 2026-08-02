@@ -5,8 +5,8 @@ import { LinkGhostButton, RemoveGhostButton } from "@/components/Button";
 import { FieldProvider } from "@/components/FormProvider";
 import { FlexVertical } from "@/components/styles/common";
 import {
-	gradientToValue,
 	GradientType,
+	gradientToValue,
 	splitGradientColor,
 } from "@/utils/colors";
 

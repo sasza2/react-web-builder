@@ -1,0 +1,596 @@
+
+ RUN  v3.2.4 /Users/sasza/Documents/Projects/react-web-builder
+      Coverage enabled with istanbul
+
+ ✓ src/components/ElementAnchor/ViewElementAnchor/ViewElementAnchor.test.tsx (1 test) 13ms
+ ✓ src/components/ElementAnchor/BuilderElementAnchor/BuilderElementAnchor.test.tsx (3 tests) 42ms
+ ✓ src/components/DragElement/DragElement.test.tsx (10 tests) 53ms
+
+ Test Files  3 passed (3)
+      Tests  14 passed (14)
+   Start at  14:16:59
+   Duration  11.52s (transform 1.28s, setup 437ms, collect 2.83s, tests 108ms, environment 2.35s, prepare 579ms)
+
+ % Coverage report from istanbul
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |    4.14 |     1.35 |    2.82 |    4.39 |                   
+ src               |   23.17 |        0 |       0 |   24.35 |                   
+  LoadFont.tsx     |       0 |      100 |       0 |       0 | 4                 
+  View.styled.ts   |       0 |      100 |     100 |       0 | 3-5               
+  View.tsx         |       0 |      100 |       0 |       0 | 15                
+  ...der.styled.ts |   27.27 |      100 |       0 |   27.27 | 10-66             
+  WebBuilder.tsx   |       0 |      100 |       0 |       0 | 32                
+  ...nts.styled.ts |       0 |      100 |       0 |       0 | 3-5               
+  components.tsx   |       0 |        0 |       0 |       0 | 56-423            
+  consts.ts        |     100 |      100 |     100 |     100 |                   
+  groups.tsx       |       0 |      100 |     100 |       0 | 5-11              
+  properties.tsx   |       0 |        0 |       0 |       0 | 11-84             
+ ...nents/AutoSave |       0 |        0 |       0 |       0 |                   
+  AutoSave.tsx     |       0 |        0 |       0 |       0 | 12-32             
+ ...s/BeforeUnload |       0 |        0 |       0 |       0 |                   
+  BeforeUnload.tsx |       0 |        0 |       0 |       0 | 7-24              
+ ...reakpointsForm |       0 |        0 |       0 |       0 |                   
+  ...reakpoint.tsx |       0 |        0 |       0 |       0 | 20-62             
+  ...int.styled.ts |       0 |      100 |     100 |       0 | 3                 
+  ...reakpoint.tsx |       0 |        0 |       0 |       0 | 31-124            
+  Form.styled.ts   |       0 |      100 |       0 |       0 | 3-4               
+  Form.tsx         |       0 |        0 |       0 |       0 | 25-39             
+  ...lidateForm.ts |       0 |        0 |       0 |       0 | 16-208            
+  utils.ts         |       0 |        0 |       0 |       0 | 5                 
+ ...ponents/Button |       0 |        0 |       0 |       0 |                   
+  Button.styled.ts |       0 |        0 |       0 |       0 | 3-44              
+  Button.tsx       |       0 |        0 |       0 |       0 | 47-88             
+ ...nts/ButtonIcon |       0 |        0 |       0 |       0 |                   
+  ...con.styled.ts |       0 |        0 |       0 |       0 | 4-69              
+  ButtonIcon.tsx   |       0 |        0 |       0 |       0 | 30-31             
+ ...onentIsLoading |      40 |      100 |       0 |      40 |                   
+  ...ing.styled.ts |   66.66 |      100 |       0 |   66.66 | 10                
+  ...IsLoading.tsx |       0 |      100 |       0 |       0 | 9-10              
+ ...ponentNotFound |      20 |      100 |       0 |      20 |                   
+  ...und.styled.ts |   33.33 |      100 |       0 |   33.33 | 4-5               
+  ...tNotFound.tsx |       0 |      100 |       0 |       0 | 8-9               
+ ...onentsProvider |       0 |      100 |       0 |       0 |                   
+  ...sProvider.tsx |       0 |      100 |       0 |       0 | 13-62             
+ .../Configuration |       0 |        0 |       0 |       0 |                   
+  ...ion.styled.ts |       0 |      100 |     100 |       0 | 3                 
+  ...iguration.tsx |       0 |        0 |       0 |       0 | 21-32             
+ ...ShowHelperTips |       0 |        0 |       0 |       0 |                   
+  ...elperTips.tsx |       0 |        0 |       0 |       0 | 21-43             
+ ...rationProvider |       0 |        0 |       0 |       0 |                   
+  ...nProvider.tsx |       0 |        0 |       0 |       0 | 9-60              
+ ...ts/DragElement |   97.29 |    85.71 |     100 |   98.59 |                   
+  ...ent.styled.ts |     100 |      100 |     100 |     100 |                   
+  DragElement.tsx  |   97.22 |    85.71 |     100 |   98.55 | 97                
+ ...EditProperties |       0 |        0 |       0 |       0 |                   
+  ...ies.styled.ts |       0 |      100 |     100 |       0 | 3                 
+  ...roperties.tsx |       0 |        0 |       0 |       0 | 39-195            
+ ...rElementAnchor |     100 |      100 |     100 |     100 |                   
+  ...hor.styled.ts |     100 |      100 |     100 |     100 |                   
+  ...entAnchor.tsx |     100 |      100 |     100 |     100 |                   
+ ...wElementAnchor |     100 |      100 |     100 |     100 |                   
+  ...entAnchor.tsx |     100 |      100 |     100 |     100 |                   
+ ...ementContainer |       0 |        0 |       0 |       0 |                   
+  ...ainerStyle.ts |       0 |        0 |       0 |       0 | 13-77             
+ ...ementContainer |       0 |        0 |       0 |       0 |                   
+  ...ner.styled.ts |       0 |      100 |       0 |       0 | 4-5               
+  ...Container.tsx |       0 |        0 |       0 |       0 | 42-96             
+ ...ainerDecorator |       0 |        0 |       0 |       0 |                   
+  ...Decorator.tsx |       0 |        0 |       0 |       0 | 12-18             
+ ...ementContainer |       0 |        0 |       0 |       0 |                   
+  ...Container.tsx |       0 |        0 |       0 |       0 | 33-64             
+ ...ementsProvider |       0 |        0 |       0 |       0 |                   
+  ...sProvider.tsx |       0 |        0 |       0 |       0 | 20-55             
+ .../ErrorBoundary |   14.28 |        0 |       0 |   14.28 |                   
+  ...rBoundary.tsx |   14.28 |        0 |       0 |   14.28 | 14-27             
+ ...s/FormProperty |       0 |        0 |       0 |       0 |                   
+  FormProperty.tsx |       0 |        0 |       0 |       0 | 49-223            
+ ...s/FormProvider |       0 |        0 |       0 |       0 |                   
+  FormProvider.tsx |       0 |        0 |       0 |       0 | 22-140            
+ ...omponents/Grid |       0 |        0 |       0 |       0 |                   
+  Grid.styled.ts   |       0 |        0 |       0 |       0 | 21-89             
+  Grid.tsx         |       0 |        0 |       0 |       0 | 9-13              
+  ...ithRender.tsx |       0 |        0 |       0 |       0 | 15-77             
+  ...idMovement.ts |       0 |        0 |       0 |       0 | 5-47              
+  ...sitionInit.ts |       0 |        0 |       0 |       0 | 14-73             
+  ...kOnElement.ts |       0 |        0 |       0 |       0 | 5-26              
+  ...GridLoaded.ts |       0 |        0 |       0 |       0 | 5-23              
+  ...ontextMenu.ts |       0 |        0 |       0 |       0 | 14-72             
+  ...ementClick.ts |       0 |        0 |       0 |       0 | 13-52             
+  utils.ts         |       0 |      100 |       0 |       0 | 5-7               
+ ...BreakpointGrid |       0 |        0 |       0 |       0 |                   
+  ...pointGrid.tsx |       0 |        0 |       0 |       0 | 38-97             
+ ...inerBackground |       0 |        0 |       0 |       0 |                   
+  ...und.styled.ts |       0 |      100 |       0 |       0 | 7-8               
+  ...ackground.tsx |       0 |        0 |       0 |       0 | 20-68             
+ ...inerBottomLine |       0 |        0 |       0 |       0 |                   
+  ...ine.styled.ts |       0 |      100 |       0 |       0 | 3-8               
+  ...ottomLine.tsx |       0 |        0 |       0 |       0 | 18-58             
+ .../DotBackground |       0 |        0 |       0 |       0 |                   
+  ...und.styled.ts |       0 |      100 |     100 |       0 | 3                 
+  ...ackground.tsx |       0 |        0 |       0 |       0 | 9-58              
+ ...KeyboardEvents |       0 |        0 |       0 |       0 |                   
+  ...ardEvents.tsx |       0 |        0 |       0 |       0 | 16-153            
+ ...LoadBreakpoint |       0 |        0 |       0 |       0 |                   
+  ...ntLoading.tsx |       0 |      100 |       0 |       0 | 3-7               
+  ...reakpoint.tsx |       0 |        0 |       0 |       0 | 41-159            
+  ...aitForLoad.ts |       0 |        0 |       0 |       0 | 5-45              
+ ...pleBreakpoints |       0 |        0 |       0 |       0 |                   
+  ...int.styled.ts |       0 |      100 |     100 |       0 | 3                 
+  ...eakpoints.tsx |       0 |        0 |       0 |       0 | 24-53             
+ ...d/LoadTemplate |       0 |      100 |       0 |       0 |                   
+  LoadTemplate.tsx |       0 |      100 |       0 |       0 | 7                 
+ ...emplateForPage |       0 |        0 |       0 |       0 |                   
+  ...teForPage.tsx |       0 |        0 |       0 |       0 | 16-46             
+ ...nts/Grid/Popup |       0 |        0 |       0 |       0 |                   
+  Popup.styled.ts  |       0 |      100 |       0 |       0 | 3-8               
+  Popup.tsx        |       0 |        0 |       0 |       0 | 31-124            
+ ...opyAllElements |       0 |      100 |       0 |       0 |                   
+  ...lElements.tsx |       0 |      100 |       0 |       0 | 12-20             
+ ...up/CopyElement |       0 |        0 |       0 |       0 |                   
+  CopyElement.tsx  |       0 |        0 |       0 |       0 | 14-29             
+ ...up/LockElement |       0 |        0 |       0 |       0 |                   
+  LockElement.tsx  |       0 |        0 |       0 |       0 | 17-37             
+ ...id/Popup/Paste |       0 |      100 |       0 |       0 |                   
+  Paste.tsx        |       0 |      100 |       0 |       0 | 14-21             
+ .../RemoveElement |       0 |        0 |       0 |       0 |                   
+  ...veElement.tsx |       0 |        0 |       0 |       0 | 15-35             
+ ...mptySpaceBelow |       0 |        0 |       0 |       0 |                   
+  ...paceBelow.tsx |       0 |        0 |       0 |       0 | 24-66             
+ .../SelectElement |       0 |        0 |       0 |       0 |                   
+  ...ctElement.tsx |       0 |        0 |       0 |       0 | 13-22             
+ ...ltipleElements |       0 |        0 |       0 |       0 |                   
+  ...eElements.tsx |       0 |        0 |       0 |       0 | 18-56             
+ ...erWebComponent |    9.09 |        0 |       0 |      10 |                   
+  ...ent.styled.ts |   66.66 |      100 |       0 |   66.66 | 11                
+  ...Component.tsx |    3.33 |        0 |       0 |     3.7 | 21-63             
+ ...estartTemplate |       0 |        0 |       0 |       0 |                   
+  ...tTemplate.tsx |       0 |        0 |       0 |       0 | 29-84             
+ ...Grid/useScroll |       0 |        0 |       0 |       0 |                   
+  Scroll.styled.ts |       0 |      100 |       0 |       0 | 3-34              
+  useScroll.tsx    |       0 |        0 |       0 |       0 | 17-197            
+ ...ridAPIProvider |       0 |      100 |       0 |       0 |                   
+  ...IProvider.tsx |       0 |      100 |       0 |       0 | 9-19              
+ .../HTMLComponent |       0 |        0 |       0 |       0 |                   
+  ...Component.tsx |       0 |        0 |       0 |       0 | 17-84             
+ ...mponents/Hints |       0 |        0 |       0 |       0 |                   
+  BuilderHints.tsx |       0 |      100 |       0 |       0 | 8-11              
+  Hints.tsx        |       0 |        0 |       0 |       0 | 14-48             
+  ...calStorage.ts |       0 |      100 |       0 |       0 | 3-6               
+  ...rHintsList.ts |       0 |        0 |       0 |       0 | 7-38              
+ ...ts/HelperArrow |       0 |        0 |       0 |       0 |                   
+  ...row.styled.ts |       0 |        0 |       0 |       0 | 3-37              
+  HelperArrow.tsx  |       0 |        0 |       0 |       0 | 17-153            
+  shadows.ts       |       0 |        0 |       0 |       0 | 6-101             
+ ...ElementsExtras |       0 |        0 |       0 |       0 |                   
+  ...ntsExtras.tsx |       0 |        0 |       0 |       0 | 9-24              
+ ...s/I18nProvider |       0 |      100 |       0 |       0 |                   
+  I18nProvider.tsx |       0 |      100 |       0 |       0 | 7-8               
+ ...ponents/IFrame |       0 |        0 |       0 |       0 |                   
+  IFrame.styled.ts |       0 |      100 |       0 |       0 | 3-10              
+  IFrame.tsx       |       0 |        0 |       0 |       0 | 16-23             
+ ...omponents/Line |       0 |        0 |       0 |       0 |                   
+  Line.styled.ts   |       0 |      100 |       0 |       0 | 3-11              
+  Line.tsx         |       0 |        0 |       0 |       0 | 14-23             
+ .../LoaderSpinner |      20 |        0 |       0 |      20 |                   
+  ...ner.styled.ts |   33.33 |      100 |       0 |   33.33 | 5-6               
+  ...erSpinner.tsx |       0 |        0 |       0 |       0 | 13-14             
+ ...ponents/Navbar |       0 |        0 |       0 |       0 |                   
+  Navbar.styled.ts |       0 |        0 |       0 |       0 | 5-26              
+  Navbar.tsx       |       0 |        0 |       0 |       0 | 20-49             
+  ...rProvider.tsx |       0 |        0 |       0 |       0 | 3-33              
+ ...akpointsSelect |       0 |        0 |       0 |       0 |                   
+  ...ect.styled.ts |       0 |      100 |       0 |       0 | 3-10              
+  ...ntsSelect.tsx |       0 |        0 |       0 |       0 | 19-136            
+ ...reakpointLabel |       0 |        0 |       0 |       0 |                   
+  ...bel.styled.ts |       0 |      100 |       0 |       0 | 3-14              
+  ...ointLabel.tsx |       0 |        0 |       0 |       0 | 14-26             
+ ...HistoryChanges |       0 |        0 |       0 |       0 |                   
+  ...ged.styled.ts |       0 |      100 |     100 |       0 | 3                 
+  ...ryChanges.tsx |       0 |        0 |       0 |       0 | 13-27             
+ .../PublishButton |       0 |        0 |       0 |       0 |                   
+  ...ton.styled.ts |       0 |        0 |       0 |       0 | 3-54              
+  ...ishButton.tsx |       0 |        0 |       0 |       0 | 20-91             
+ ...s/PageSettings |       0 |        0 |       0 |       0 |                   
+  PageSettings.tsx |       0 |        0 |       0 |       0 | 31-91             
+ ...ngs/UploadPage |       0 |        0 |       0 |       0 |                   
+  UploadPage.tsx   |       0 |        0 |       0 |       0 | 17-87             
+ ...faultContainer |       0 |        0 |       0 |       0 |                   
+  ...ner.styled.ts |       0 |      100 |       0 |       0 | 4-5               
+  ...Container.tsx |       0 |        0 |       0 |       0 | 17-37             
+ ...ertiesProvider |       0 |      100 |       0 |       0 |                   
+  ...sProvider.tsx |       0 |      100 |       0 |       0 | 4-25              
+ ...derInContainer |       0 |        0 |       0 |       0 |                   
+  ...Container.tsx |       0 |        0 |       0 |       0 | 12-27             
+ ...RenderInIFrame |       0 |        0 |       0 |       0 |                   
+  ...ame.styled.ts |       0 |      100 |     100 |       0 | 3                 
+  ...rInIFrame.tsx |       0 |        0 |       0 |       0 | 18-62             
+ ...InSidebarModal |       0 |        0 |       0 |       0 |                   
+  ...ner.styled.ts |       0 |      100 |       0 |       0 | 3-6               
+  ...ebarModal.tsx |       0 |        0 |       0 |       0 | 21-64             
+ ...ents/Resizable |       0 |        0 |       0 |       0 |                   
+  ...ble.styled.ts |       0 |      100 |       0 |       0 | 5-10              
+  Resizable.tsx    |       0 |        0 |       0 |       0 | 18-71             
+  consts.ts        |       0 |      100 |     100 |       0 | 1                 
+ ...ents/Scrollbar |       0 |      100 |       0 |       0 |                   
+  ...bar.styled.ts |       0 |      100 |       0 |       0 | 3-15              
+  Scrollbar.tsx    |       0 |      100 |       0 |       0 | 6                 
+ ...lectNewElement |       0 |        0 |       0 |       0 |                   
+  ...ent.styled.ts |       0 |      100 |       0 |       0 | 3-61              
+  ...ewElement.tsx |       0 |        0 |       0 |       0 | 25-217            
+ .../PickComponent |       0 |        0 |       0 |       0 |                   
+  ...ent.styled.ts |       0 |        0 |       0 |       0 | 3-65              
+  ...Component.tsx |       0 |        0 |       0 |       0 | 25-41             
+ ...ents/Separator |       0 |        0 |       0 |       0 |                   
+  ...tor.styled.ts |       0 |        0 |       0 |       0 | 3-6               
+  Separator.tsx    |       0 |      100 |       0 |       0 | 12                
+ ...onents/Sidebar |       0 |        0 |       0 |       0 |                   
+  ...bar.styled.ts |       0 |      100 |       0 |       0 | 3-10              
+  Sidebar.tsx      |       0 |        0 |       0 |       0 | 21-45             
+ .../Sidebar/Modal |       0 |      100 |       0 |       0 |                   
+  Modal.styled.ts  |       0 |      100 |       0 |       0 | 5-15              
+  Modal.tsx        |       0 |      100 |       0 |       0 | 8-9               
+ ...Sidebar/Resize |       0 |        0 |       0 |       0 |                   
+  Resize.styled.ts |       0 |      100 |       0 |       0 | 3-7               
+  Resize.tsx       |       0 |        0 |       0 |       0 | 16-80             
+ .../SidebarHeader |       0 |        0 |       0 |       0 |                   
+  ...der.styled.ts |       0 |        0 |       0 |       0 | 7-31              
+  ...barHeader.tsx |       0 |        0 |       0 |       0 | 12                
+ ...idebarProvider |   41.02 |      100 |    9.09 |   39.47 |                   
+  ...rProvider.tsx |   41.02 |      100 |    9.09 |   39.47 | ...53,57-58,62-97 
+ ...debarScrollbar |       0 |      100 |       0 |       0 |                   
+  ...bar.styled.ts |       0 |      100 |       0 |       0 | 5-10              
+  ...Scrollbar.tsx |       0 |      100 |       0 |       0 | 9-10              
+ .../StyleProvider |      80 |      100 |       0 |      80 |                   
+  ...eProvider.tsx |       0 |      100 |       0 |       0 | 7                 
+  theme.ts         |     100 |      100 |     100 |     100 |                   
+ ...oaderAnimation |       0 |        0 |       0 |       0 |                   
+  ...ion.styled.ts |       0 |      100 |       0 |       0 | 3-33              
+  ...Animation.tsx |       0 |        0 |       0 |       0 | 15-48             
+ ...ToastContainer |       0 |      100 |       0 |       0 |                   
+  ...ner.styled.ts |       0 |      100 |       0 |       0 | 3-563             
+  ...Container.tsx |       0 |      100 |       0 |       0 | 8-17              
+ ...mponents/Trans |       0 |      100 |       0 |       0 |                   
+  Trans.ts         |       0 |      100 |       0 |       0 | 9-11              
+ ...omponents/View |       0 |        0 |       0 |       0 |                   
+  Element.tsx      |       0 |        0 |       0 |       0 | 29-74             
+  ...age.styled.ts |       0 |      100 |       0 |       0 | 4-9               
+  ...enderPage.tsx |       0 |        0 |       0 |       0 | 23-117            
+  canSplitLine.ts  |       0 |        0 |       0 |       0 | 3-14              
+  cloneTree.ts     |       0 |        0 |       0 |       0 | 3-21              
+  ...omElements.ts |       0 |        0 |       0 |       0 | 19-49             
+  ...eeElements.ts |       0 |        0 |       0 |       0 | 12-202            
+  cutBoard.ts      |       0 |        0 |       0 |       0 | 8-23              
+  ...inElements.ts |       0 |        0 |       0 |       0 | 3-8               
+  ...entsRefMap.ts |       0 |        0 |       0 |       0 | 3-44              
+  ...astElement.ts |       0 |        0 |       0 |       0 | 3-13              
+  ...sFromBoard.ts |       0 |        0 |       0 |       0 | 3-12              
+  ...reeElement.ts |       0 |        0 |       0 |       0 | 3-7               
+  splitBoard.ts    |       0 |        0 |       0 |       0 | 7-53              
+  ...eparators.tsx |       0 |        0 |       0 |       0 | 3-36              
+  ...omElements.ts |       0 |      100 |       0 |       0 | 3-8               
+ ...nents/View/Box |       0 |        0 |       0 |       0 |                   
+  Box.styled.ts    |       0 |      100 |     100 |       0 | 3                 
+  Box.tsx          |       0 |        0 |       0 |       0 | 16-60             
+  ...ent.styled.ts |       0 |      100 |     100 |       0 | 3                 
+  Element.tsx      |       0 |        0 |       0 |       0 | 22-66             
+  Leaf.tsx         |       0 |        0 |       0 |       0 | 8-81              
+  useBoxStyle.ts   |       0 |        0 |       0 |       0 | 6-28              
+ ...w/CustomButton |       0 |        0 |       0 |       0 |                   
+  ...ton.styled.ts |       0 |      100 |       0 |       0 | 3-4               
+  CustomButton.tsx |       0 |        0 |       0 |       0 | 32-67             
+ ...ptionsProvider |       0 |      100 |       0 |       0 |                   
+  ...sProvider.tsx |       0 |      100 |       0 |       0 | 7-27              
+ ...nderBreakpoint |       0 |        0 |       0 |       0 |                   
+  ...reakpoint.tsx |       0 |        0 |       0 |       0 | 20-81             
+ ...iew/RenderTree |       0 |        0 |       0 |       0 |                   
+  RenderTree.tsx   |       0 |        0 |       0 |       0 | 26-106            
+ ...derTree/styles |       0 |        0 |       0 |       0 |                   
+  breakpoint.ts    |       0 |        0 |       0 |       0 | 8-33              
+  common.ts        |       0 |      100 |       0 |       0 | 1                 
+  fixed.ts         |       0 |      100 |       0 |       0 | 6-29              
+ ...WebBuilderSize |       0 |        0 |       0 |       0 |                   
+  ...ize.styled.ts |       0 |      100 |       0 |       0 | 3-8               
+  ...ilderSize.tsx |       0 |        0 |       0 |       0 | 24-96             
+ ...s/WhySeparator |       0 |        0 |       0 |       0 |                   
+  ...tor.styled.ts |       0 |      100 |       0 |       0 | 3-11              
+  WhySeparator.tsx |       0 |        0 |       0 |       0 | 13-159            
+ ...AnimationWidth |       0 |      100 |       0 |       0 |                   
+  ...dth.styled.ts |       0 |      100 |     100 |       0 | 3                 
+  ...tionWidth.tsx |       0 |      100 |       0 |       0 | 17-35             
+ ...eparator/Boxes |       0 |        0 |       0 |       0 |                   
+  Boxes.styled.ts  |       0 |        0 |       0 |       0 | 3-69              
+  Boxes.tsx        |       0 |        0 |       0 |       0 | 17-99             
+ ...arator/Monitor |       0 |      100 |       0 |       0 |                   
+  ...tor.styled.ts |       0 |      100 |       0 |       0 | 3-29              
+  Monitor.tsx      |       0 |      100 |       0 |       0 | 6                 
+ ...ScaleAnimation |       0 |        0 |       0 |       0 |                   
+  ...Animation.tsx |       0 |        0 |       0 |       0 | 8-9               
+ ...paratorTooltip |       0 |        0 |       0 |       0 |                   
+  ...tip.styled.ts |       0 |      100 |       0 |       0 | 3-42              
+  ...orTooltip.tsx |       0 |        0 |       0 |       0 | 15-36             
+ ...mponents/forms |       0 |        0 |       0 |       0 |                   
+  ...ntainerDiv.ts |       0 |      100 |     100 |       0 | 3                 
+  ...rol.styled.ts |       0 |      100 |       0 |       0 | 3-40              
+  FormControl.tsx  |       0 |        0 |       0 |       0 | 21-42             
+ ...ts/forms/About |       0 |        0 |       0 |       0 |                   
+  About.styled.ts  |       0 |      100 |       0 |       0 | 3-16              
+  About.tsx        |       0 |        0 |       0 |       0 | 15-21             
+ ...ts/forms/Array |       0 |        0 |       0 |       0 |                   
+  ...ray.styled.ts |       0 |      100 |       0 |       0 | 3-16              
+  FormArray.tsx    |       0 |        0 |       0 |       0 | 35-116            
+ ...ackgroundImage |       0 |      100 |       0 |       0 |                   
+  ...oundImage.tsx |       0 |      100 |       0 |       0 | 23-25             
+ ...s/forms/Border |       0 |      100 |       0 |       0 |                   
+  Border.tsx       |       0 |      100 |       0 |       0 | 20-21             
+ ...orms/BoxShadow |       0 |        0 |       0 |       0 |                   
+  BoxShadow.tsx    |       0 |        0 |       0 |       0 | 23-45             
+ ...eakpointHeight |       0 |        0 |       0 |       0 |                   
+  ...intHeight.tsx |       0 |        0 |       0 |       0 | 17-40             
+ ...ms/ColorPicker |       0 |        0 |       0 |       0 |                   
+  ...ker.styled.ts |       0 |      100 |       0 |       0 | 5-31              
+  ColorPicker.tsx  |       0 |        0 |       0 |       0 | 49-150            
+ ...orPicker/Color |       0 |        0 |       0 |       0 |                   
+  Color.styled.ts  |       0 |        0 |       0 |       0 | 3-32              
+  Color.tsx        |       0 |        0 |       0 |       0 | 18-24             
+ ...lorPickerModal |       0 |        0 |       0 |       0 |                   
+  ...dal.styled.ts |       0 |      100 |       0 |       0 | 5-18              
+  ...ckerModal.tsx |       0 |        0 |       0 |       0 | 47-98             
+ ...entColorPicker |       0 |        0 |       0 |       0 |                   
+  ...ker.styled.ts |       0 |      100 |     100 |       0 | 6                 
+  ...lorPicker.tsx |       0 |        0 |       0 |       0 | 28-104            
+ ...HexColorPicker |       0 |        0 |       0 |       0 |                   
+  ...lorPicker.tsx |       0 |        0 |       0 |       0 | 13-50             
+ ...r/CustomColors |       0 |        0 |       0 |       0 |                   
+  CustomColors.tsx |       0 |        0 |       0 |       0 | 27-75             
+  ...tomColors.tsx |       0 |        0 |       0 |       0 | 21-51             
+  ...tomColors.tsx |       0 |        0 |       0 |       0 | 17-39             
+ ...reakpointField |       0 |        0 |       0 |       0 |                   
+  ...ointField.tsx |       0 |        0 |       0 |       0 | 24-92             
+ ...rms/FontFamily |       0 |        0 |       0 |       0 |                   
+  FontFamily.tsx   |       0 |        0 |       0 |       0 | 10-14             
+ ...ms/FontOptions |       0 |        0 |       0 |       0 |                   
+  FontOptions.tsx  |       0 |        0 |       0 |       0 | 22-106            
+ ...ms/ImageUpload |       0 |      100 |       0 |       0 |                   
+  ImageUpload.tsx  |       0 |      100 |       0 |       0 | 14-15             
+ ...oad/FileUpload |       0 |        0 |       0 |       0 |                   
+  FileUpload.tsx   |       0 |        0 |       0 |       0 | 13-129            
+ ...ts/forms/Input |       0 |        0 |       0 |       0 |                   
+  Input.styled.ts  |       0 |        0 |       0 |       0 | 3-60              
+  Input.tsx        |       0 |        0 |       0 |       0 | 33-110            
+ ...orms/InputHTML |       0 |        0 |       0 |       0 |                   
+  InputHTML.tsx    |       0 |        0 |       0 |       0 | 17-93             
+ ...s/forms/Length |       0 |      100 |       0 |       0 |                   
+  Length.styled.ts |       0 |      100 |       0 |       0 | 6-39              
+  Length.tsx       |       0 |      100 |       0 |       0 | 22-31             
+ ...orms/ListOrder |       0 |        0 |       0 |       0 |                   
+  ...ent.styled.ts |       0 |      100 |       0 |       0 | 3-8               
+  Component.tsx    |       0 |      100 |       0 |       0 | 5-14              
+  ListOrder.tsx    |       0 |        0 |       0 |       0 | 16-79             
+ ...s/forms/Object |       0 |      100 |       0 |       0 |                   
+  ...ect.styled.ts |       0 |      100 |     100 |       0 | 3                 
+  FormObject.tsx   |       0 |      100 |       0 |       0 | 29-35             
+ .../OpenContainer |       0 |        0 |       0 |       0 |                   
+  ...Container.tsx |       0 |        0 |       0 |       0 | 26-94             
+ .../forms/Padding |       0 |      100 |       0 |       0 |                   
+  ...ing.styled.ts |       0 |      100 |     100 |       0 | 5                 
+  Padding.tsx      |       0 |      100 |       0 |       0 | 18-19             
+ ...ts/forms/Radio |       0 |        0 |       0 |       0 |                   
+  Radio.styled.ts  |       0 |        0 |       0 |       0 | 3-43              
+  Radio.tsx        |       0 |        0 |       0 |       0 | 20-34             
+ ...ms/RangeSlider |       0 |        0 |       0 |       0 |                   
+  RangeSlider.tsx  |       0 |        0 |       0 |       0 | 32-99             
+  ...der.styled.ts |       0 |        0 |       0 |       0 | 3-20              
+ ...forms/RichText |       0 |        0 |       0 |       0 |                   
+  RichText.tsx     |       0 |      100 |       0 |       0 | 24-26             
+  ...ons.styled.ts |       0 |        0 |       0 |       0 | 3-54              
+  buttons.tsx      |       0 |        0 |       0 |       0 | 21-103            
+ ...xt/ColorSelect |       0 |      100 |       0 |       0 |                   
+  ...ect.styled.ts |       0 |      100 |       0 |       0 | 3-11              
+  ColorSelect.tsx  |       0 |      100 |       0 |       0 | 15-39             
+ ...ichText/Editor |       0 |        0 |       0 |       0 |                   
+  Editor.styled.ts |       0 |      100 |       0 |       0 | 5-37              
+  Editor.tsx       |       0 |        0 |       0 |       0 | 53-100            
+ ...itor/AutoFocus |       0 |        0 |       0 |       0 |                   
+  AutoFocus.tsx    |       0 |        0 |       0 |       0 | 17-55             
+ ...ext/FieldPopup |       0 |        0 |       0 |       0 |                   
+  ...pup.styled.ts |       0 |        0 |       0 |       0 | 5-41              
+  FieldPopup.tsx   |       0 |        0 |       0 |       0 | 22-23             
+  usePopup.ts      |       0 |        0 |       0 |       0 | 3-57              
+ ...FontSizeSelect |       0 |      100 |       0 |       0 |                   
+  ...ect.styled.ts |       0 |      100 |     100 |       0 | 3                 
+  ...izeSelect.tsx |       0 |      100 |       0 |       0 | 10-24             
+ ...Text/Hyperlink |       0 |      100 |       0 |       0 |                   
+  ...ink.styled.ts |       0 |      100 |     100 |       0 | 3                 
+  Hyperlink.tsx    |       0 |      100 |       0 |       0 | 15-25             
+ .../LetterSpacing |       0 |        0 |       0 |       0 |                   
+  ...erSpacing.tsx |       0 |        0 |       0 |       0 | 13-42             
+ ...ext/LineHeight |       0 |        0 |       0 |       0 |                   
+  ...ght.styled.ts |       0 |      100 |       0 |       0 | 3-23              
+  LineHeight.tsx   |       0 |        0 |       0 |       0 | 13-31             
+ ...chText/Toolbar |       0 |      100 |       0 |       0 |                   
+  ...bar.styled.ts |       0 |      100 |     100 |       0 | 3-13              
+  Toolbar.tsx      |       0 |      100 |       0 |       0 | 11-27             
+ ...RichText/utils |       0 |        0 |       0 |       0 |                   
+  font.ts          |       0 |        0 |       0 |       0 | 3-21              
+  ...terSpacing.ts |       0 |        0 |       0 |       0 | 6-24              
+  getLineHeight.ts |       0 |        0 |       0 |       0 | 6-24              
+  hyperlink.ts     |       0 |        0 |       0 |       0 | 4-50              
+  index.ts         |       0 |        0 |       0 |       0 | 9-81              
+  isBlockActive.ts |       0 |        0 |       0 |       0 | 5-23              
+  ...terSpacing.ts |       0 |        0 |       0 |       0 | 3-7               
+  ...LineHeight.ts |       0 |        0 |       0 |       0 | 3-7               
+ ...s/forms/Select |       0 |        0 |       0 |       0 |                   
+  Select.styled.ts |       0 |        0 |       0 |       0 | 3-86              
+  Select.tsx       |       0 |        0 |       0 |       0 | 32-50             
+ ...nts/forms/Tabs |       0 |        0 |       0 |       0 |                   
+  Tabs.styled.ts   |       0 |        0 |       0 |       0 | 3-33              
+  Tabs.tsx         |       0 |      100 |       0 |       0 | 13-22             
+ ...s/forms/Toggle |       0 |        0 |       0 |       0 |                   
+  Toggle.style.ts  |       0 |      100 |       0 |       0 | 3-17              
+  Toggle.tsx       |       0 |        0 |       0 |       0 | 23-31             
+ ...forms/URLInput |       0 |        0 |       0 |       0 |                   
+  URLInput.tsx     |       0 |        0 |       0 |       0 | 13-14             
+ ...mponents/icons |       0 |        0 |       0 |       0 |                   
+  ...reakpoint.tsx |       0 |      100 |       0 |       0 | 6                 
+  Anchor.tsx       |       0 |      100 |       0 |       0 | 6                 
+  ArrowLeft.tsx    |       0 |      100 |       0 |       0 | 6                 
+  ColorBasic.tsx   |       0 |      100 |       0 |       0 | 11                
+  ...rGradient.tsx |       0 |      100 |       0 |       0 | 11                
+  ...iguration.tsx |       0 |      100 |       0 |       0 | 6                 
+  Container.tsx    |       0 |      100 |       0 |       0 | 6                 
+  Cross.tsx        |       0 |      100 |       0 |       0 | 6                 
+  CustomButton.tsx |       0 |      100 |       0 |       0 | 6                 
+  Desktop.tsx      |       0 |      100 |       0 |       0 | 6                 
+  HTML.tsx         |       0 |      100 |       0 |       0 | 6                 
+  Hamburger.tsx    |       0 |      100 |       0 |       0 | 6                 
+  IFrame.tsx       |       0 |      100 |       0 |       0 | 6                 
+  Icon.tsx         |       0 |        0 |       0 |       0 | 60-116            
+  Image.tsx        |       0 |      100 |       0 |       0 | 6                 
+  ...erSpacing.tsx |       0 |      100 |       0 |       0 | 6                 
+  Line.tsx         |       0 |      100 |       0 |       0 | 6                 
+  LineHeight.tsx   |       0 |      100 |       0 |       0 | 6                 
+  Link.tsx         |       0 |      100 |       0 |       0 | 6                 
+  Loader.tsx       |       0 |      100 |       0 |       0 | 6                 
+  Mobile.tsx       |       0 |      100 |       0 |       0 | 6                 
+  MoveUp.tsx       |       0 |      100 |       0 |       0 | 6                 
+  Padding.tsx      |       0 |        0 |       0 |       0 | 6-16              
+  PageSettings.tsx |       0 |      100 |       0 |       0 | 6                 
+  Palette.tsx      |       0 |      100 |       0 |       0 | 6                 
+  Plus.tsx         |       0 |      100 |       0 |       0 | 6                 
+  QuestionMark.tsx |       0 |      100 |       0 |       0 | 6                 
+  Redo.tsx         |       0 |      100 |       0 |       0 | 6                 
+  Row.tsx          |       0 |      100 |       0 |       0 | 6                 
+  Square.tsx       |       0 |      100 |       0 |       0 | 6                 
+  Tablet.tsx       |       0 |      100 |       0 |       0 | 6                 
+  Text.tsx         |       0 |      100 |       0 |       0 | 6                 
+  TextBold.tsx     |       0 |      100 |       0 |       0 | 6                 
+  TextCenter.tsx   |       0 |      100 |       0 |       0 | 6                 
+  TextItalic.tsx   |       0 |      100 |       0 |       0 | 6                 
+  TextJustify.tsx  |       0 |      100 |       0 |       0 | 6                 
+  TextLeft.tsx     |       0 |      100 |       0 |       0 | 6                 
+  TextRight.tsx    |       0 |      100 |       0 |       0 | 6                 
+  ...Underline.tsx |       0 |      100 |       0 |       0 | 6                 
+  Theme.tsx        |       0 |      100 |       0 |       0 | 6                 
+  Trash.tsx        |       0 |      100 |       0 |       0 | 6                 
+  Undo.tsx         |       0 |      100 |       0 |       0 | 6                 
+  Video.tsx        |       0 |      100 |       0 |       0 | 6                 
+  View.tsx         |       0 |      100 |       0 |       0 | 6                 
+  Zoom.tsx         |       0 |      100 |       0 |       0 | 6                 
+ ...ponents/styles |       0 |      100 |       0 |       0 |                   
+  common.ts        |       0 |      100 |       0 |       0 | 3-11              
+ src/hooks         |    1.12 |      1.4 |    1.42 |    1.21 |                   
+  useAccordion.ts  |      20 |      100 |       0 |      20 | 11-21             
+  ...Breakpoint.ts |       0 |        0 |       0 |       0 | 11-30             
+  useAddElement.ts |       0 |      100 |       0 |       0 | 8-13              
+  ...dElements.tsx |       0 |      100 |       0 |       0 | 8-13              
+  ...tedElement.ts |       0 |        0 |       0 |       0 | 8-52              
+  useBreakpoint.ts |     100 |      100 |     100 |     100 |                   
+  ...reakpoints.ts |       0 |      100 |       0 |       0 | 3-5               
+  ...SetIsSaved.ts |       0 |      100 |       0 |       0 | 6-13              
+  ...Breakpoint.ts |       0 |        0 |       0 |       0 | 6-14              
+  ...pyElements.ts |       0 |        0 |       0 |       0 | 13-73             
+  ...Breakpoint.ts |       0 |      100 |       0 |       0 | 11-34             
+  ...ementOnKey.ts |       0 |        0 |       0 |       0 | 6-22              
+  ...rtResizing.ts |       0 |      100 |       0 |       0 | 5-12              
+  useElements.tsx  |       0 |      100 |       0 |       0 | 17-23             
+  ...mentsCache.ts |       0 |        0 |       0 |       0 | 16-58             
+  useFontImport.ts |       0 |        0 |       0 |       0 | 7-15              
+  ...portInGrid.ts |       0 |        0 |       0 |       0 | 12-36             
+  ...pointWidth.ts |       0 |        0 |       0 |       0 | 14-52             
+  useGridPaste.ts  |       0 |        0 |       0 |       0 | 37-162            
+  ...ositionTop.ts |       0 |        0 |       0 |       0 | 6-15              
+  ...LTransform.ts |       0 |        0 |       0 |       0 | 6-33              
+  useInitI18n.ts   |       0 |        0 |       0 |       0 | 9-63              
+  useIsMounted.ts  |       0 |      100 |       0 |       0 | 3-13              
+  ...rIconClick.ts |       0 |        0 |       0 |       0 | 5-13              
+  ...geOnChange.ts |       0 |        0 |       0 |       0 | 8-24              
+  ...gePreview.tsx |       0 |        0 |       0 |       0 | 5-15              
+  ...agePublish.ts |       0 |        0 |       0 |       0 | 9-38              
+  ...aveAsDraft.ts |       0 |        0 |       0 |       0 | 9-38              
+  ...geSettings.ts |       0 |      100 |       0 |       0 | 5-7               
+  ...esetColors.ts |       0 |        0 |       0 |       0 | 7-11              
+  ...Breakpoint.ts |       0 |      100 |       0 |       0 | 6-13              
+  ...oveElement.ts |       0 |      100 |       0 |       0 | 11-34             
+  ...Breakpoint.ts |       0 |      100 |       0 |       0 | 10-27             
+  ...edElements.ts |       0 |      100 |       0 |       0 | 13-42             
+  ...Breakpoint.ts |       0 |        0 |       0 |       0 | 7-16              
+  ...dElementId.ts |       0 |      100 |       0 |       0 | 5-16              
+  ...edElements.ts |       0 |      100 |       0 |       0 | 14-36             
+  ...etElements.ts |       0 |      100 |       0 |       0 | 8-21              
+  ...entsHeight.ts |       0 |      100 |       0 |       0 | 9-15              
+  ...ogrammatic.ts |       0 |      100 |       0 |       0 | 8-21              
+  ...idElements.ts |       0 |        0 |       0 |       0 | 9-59              
+  ...idebarView.ts |       0 |      100 |       0 |       0 | 5-12              
+  ...EditGoBack.ts |       0 |        0 |       0 |       0 | 12-46             
+  ...idebarView.ts |       0 |      100 |       0 |       0 | 3-5               
+  useTimeout.ts    |       0 |        0 |       0 |       0 | 9-21              
+  ...Breakpoint.ts |       0 |      100 |       0 |       0 | 7-17              
+ ...ooks/container |       0 |        0 |       0 |       0 |                   
+  ...rContainer.ts |       0 |      100 |       0 |       0 | 15-52             
+  ...Properties.ts |       0 |      100 |       0 |       0 | 4-8               
+  ...iesByValue.ts |       0 |        0 |       0 |       0 | 12-52             
+  ...rGridStyle.ts |       0 |      100 |       0 |       0 | 10-14             
+  ...rHintsList.ts |       0 |      100 |       0 |       0 | 5-22              
+  ...dContainer.ts |       0 |        0 |       0 |       0 | 11-32             
+ src/hooks/page    |       0 |        0 |       0 |       0 |                   
+  ...ntWithTree.ts |       0 |        0 |       0 |       0 | 9-32              
+  useBuildPage.ts  |       0 |      100 |       0 |       0 | 10-31             
+  ...geWithTree.ts |       0 |      100 |       0 |       0 | 11-45             
+  ...wnloadPage.ts |       0 |        0 |       0 |       0 | 10-68             
+  ...lidatePage.ts |       0 |        0 |       0 |       0 | 4-13              
+ src/store         |   19.39 |        0 |   14.58 |   20.89 |                   
+  ...eProvider.tsx |       0 |        0 |       0 |       0 | 10-16             
+  ...ointsSlice.ts |   15.15 |        0 |    6.66 |   15.62 | ...9,46-68,74-102 
+  ...gesActions.ts |     100 |      100 |     100 |     100 |                   
+  ...Middleware.ts |      10 |        0 |      50 |     3.7 | 18-59,74-90       
+  changesSlice.ts  |    7.14 |        0 |       0 |    7.89 | ...91-101,109-220 
+  ...ansactions.ts |     100 |      100 |     100 |     100 |                   
+  ...ointsSlice.ts |      10 |        0 |    5.88 |   11.76 | 60-151            
+  ...tingsSlice.ts |      40 |      100 |       0 |      40 | 15-21             
+  reducer.ts       |     100 |      100 |     100 |     100 |                   
+  ...pointSlice.ts |   26.66 |        0 |    12.5 |   30.76 | 30-32,37-54       
+  ...ementSlice.ts |      25 |        0 |    12.5 |   30.76 | 26-30,37-51       
+  ...mentsSlice.ts |   25.92 |        0 |    7.69 |   30.43 | ...42,50-63,70-79 
+  sidebarSlice.ts  |      24 |        0 |    8.33 |   27.27 | ...47,52-66,80-84 
+  store.ts         |     100 |      100 |     100 |     100 |                   
+  ...ppDispatch.ts |       0 |      100 |       0 |       0 | 5                 
+  ...ppSelector.ts |     100 |      100 |     100 |     100 |                   
+ src/utils         |   11.27 |     3.65 |    9.83 |   12.07 |                   
+  array.ts         |       0 |        0 |       0 |       0 | 1-28              
+  boxShadow.ts     |       0 |        0 |       0 |       0 | 10-55             
+  breakpoint.ts    |      20 |        0 |    12.5 |   20.33 | ...12-113,141-211 
+  clipboard.ts     |       0 |        0 |       0 |       0 | 3-16              
+  clone.ts         |      50 |      100 |       0 |     100 |                   
+  component.ts     |   22.22 |        0 |       0 |   28.57 | 6-9,19-20         
+  container.ts     |       0 |        0 |       0 |       0 | 19-223            
+  ...teUniqueId.ts |     100 |      100 |     100 |     100 |                   
+  delay.ts         |       0 |      100 |       0 |       0 | 1-3               
+  element.tsx      |   34.57 |    17.64 |   27.27 |    38.7 | ...27-232,243-245 
+  field.ts         |   10.86 |        0 |       0 |    12.5 | ...16,20-26,34-70 
+  ...reakpoints.ts |       0 |      100 |       0 |       0 | 5-6               
+  ...rPositionX.ts |       0 |        0 |       0 |       0 | 1-10              
+  ...teFromPage.ts |       0 |        0 |       0 |       0 | 13-40             
+  gridPaste.ts     |       0 |        0 |       0 |       0 | 19-132            
+  input.ts         |       0 |        0 |       0 |       0 | 1-15              
+  isValidTree.ts   |       0 |        0 |       0 |       0 | 8-135             
+  link.ts          |       0 |        0 |       0 |       0 | 1-3               
+  pageSettings.ts  |       0 |      100 |       0 |       0 | 3-12              
+  pageView.ts      |       0 |      100 |       0 |       0 | 1-2               
+  promise.ts       |       0 |      100 |       0 |       0 | 8-17              
+  styles.ts        |       0 |        0 |       0 |       0 | 1-22              
+  templates.ts     |       0 |        0 |       0 |       0 | 5-144             
+  tests.ts         |   14.28 |        0 |       0 |   16.66 | 6-13              
+ src/utils/colors  |       0 |        0 |       0 |       0 |                   
+  common.ts        |       0 |        0 |       0 |       0 | 5-12              
+  gradient.ts      |       0 |        0 |       0 |       0 | 3-112             
+  hex.ts           |       0 |        0 |       0 |       0 | 7-139             
+  types.ts         |       0 |        0 |       0 |       0 | 1-4               
+ ...tils/html2json |       0 |        0 |       0 |       0 |                   
+  consts.ts        |       0 |      100 |     100 |       0 | 1-38              
+  errors.ts        |       0 |        0 |       0 |       0 | 1-94              
+  styles.ts        |       0 |        0 |       0 |       0 | 18-214            
+  transform.ts     |       0 |        0 |       0 |       0 | 49-324            
+  validators.ts    |       0 |        0 |       0 |       0 | 6-208             
+-------------------|---------|----------|---------|---------|-------------------

@@ -11,7 +11,7 @@ import { StyleSheetManager } from "styled-components";
 import { LoadFont } from "@/LoadFont";
 import { assignTestProp } from "@/utils/tests";
 
-import { Resizable, RESIZABLE_PROP_NAME } from "../Resizable";
+import { RESIZABLE_PROP_NAME, Resizable } from "../Resizable";
 import { IFrameGlobalStyles } from "./RenderInIFrame.styled";
 
 function RenderInIFrameBody({ children }: React.PropsWithChildren) {

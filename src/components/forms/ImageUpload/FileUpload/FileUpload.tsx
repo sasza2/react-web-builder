@@ -97,21 +97,22 @@ export function FileUpload({ name, onImageUpload }: FileUploadProps) {
 			},
 		);
 
-		promise.then((upload: ImageURL) => {
-			if (!isMounted.current) return;
+		promise
+			.then((upload: ImageURL) => {
+				if (!isMounted.current) return;
 
-			setValue({
-				...value,
-				...upload,
-				locationUpload: upload.location,
+				setValue({
+					...value,
+					...upload,
+					locationUpload: upload.location,
+				});
+			})
+			.catch(() => {})
+			.finally(() => {
+				if (!isMounted.current) return;
+
+				setLoading(false);
 			});
-		});
-
-		promise.finally(() => {
-			if (!isMounted.current) return;
-
-			setLoading(false);
-		});
 	};
 
 	const onClick = () => {

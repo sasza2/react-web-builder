@@ -11,8 +11,8 @@ import {
 	wrapError,
 } from "./errors";
 import {
-	isValidSelector,
 	type ItemNode,
+	isValidSelector,
 	parseStyle,
 	transformSelector,
 	transformStyles,

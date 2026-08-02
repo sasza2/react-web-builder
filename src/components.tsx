@@ -11,9 +11,8 @@ import type {
 
 import { Box } from "@/components/View/Box";
 import { CustomButton } from "@/components/View/CustomButton";
-
-import { VideoWrapper } from "./components.styled";
 import { HTMLComponent } from "./components/HTMLComponent";
+import { IFrame } from "./components/IFrame";
 import { Anchor as AnchorIcon } from "./components/icons/Anchor";
 import { Container } from "./components/icons/Container";
 import { CustomButton as CustomButtonIcon } from "./components/icons/CustomButton";
@@ -24,12 +23,12 @@ import { Line as LineIcon } from "./components/icons/Line";
 import { Row as RowIcon } from "./components/icons/Row";
 import { Text as TextIcon } from "./components/icons/Text";
 import { Video as VideoIcon } from "./components/icons/Video";
-import { IFrame } from "./components/IFrame";
 import { Line } from "./components/Line";
 import { Separator } from "./components/Separator";
 import theme from "./components/StyleProvider/theme";
 import { Trans } from "./components/Trans";
 import { useBoxStyle } from "./components/View/Box/useBoxStyle";
+import { VideoWrapper } from "./components.styled";
 import {
 	DEFAULT_BOX_CONTENT,
 	DEFAULT_BUTTON_CONTENT,
@@ -48,10 +47,10 @@ import {
 	createSourceProperty,
 } from "./properties";
 
-export { useElementContainer } from "./components/ComponentsProvider";
-export { Line } from "./components/Line";
 export { IFrame } from "@/components/IFrame";
 export { Box } from "@/components/View/Box";
+export { useElementContainer } from "./components/ComponentsProvider";
+export { Line } from "./components/Line";
 
 export function Image({ border, boxShadow, href, url }: ImageComponentProps) {
 	const style = useBoxStyle({
