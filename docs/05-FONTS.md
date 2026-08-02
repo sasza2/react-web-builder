@@ -1,15 +1,21 @@
 # Fonts
-Feature for declaring fonts that can be used in Builder
+
+Declare the fonts that users can pick in the builder. A selected font applies to the whole [page](./02-PAGE.md) and is stored in `page.fontFamily`.
+
+<img src="./assets/fonts01.png" />
 
 ## Structure
+
 | Prop | Type | Description |
 | --- | --- | --- |
-| label | string | name of font (visible in sidebar) |
-| value | string | unique id of font |
-| fontFamily | string | CSS font family name |
-| stylesheet | JSX | jsx applied to document body when <a href="./02-PAGE.md">page.fontFamily</a> is selected |
+| label | string | Name of the font, visible in the sidebar |
+| value | string | Unique id of the font - this is what ends up in [`page.fontFamily`](./02-PAGE.md) |
+| fontFamily | string | CSS `font-family` value applied to the content |
+| stylesheet | JSX | Markup injected into the document when this font is selected - typically `<link>` tags |
 
-# Example
+The builder renders its grid inside an iframe, which is why the `stylesheet` is declared as JSX rather than loaded globally: it is injected wherever the font is actually needed, in the editor and in [`<View />`](./00-INTRODUCTION.md#shared-properties) alike.
+
+## Example
 
 ```jsx
 import WebBuilder, { FontImport } from 'react-web-builder'
@@ -42,7 +48,7 @@ const fonts: FontImport[] = [
 ]
 
 const page = {
-  fontFamily: 'Inter', // default font
+  fontFamily: 'inter', // default font - matches the `value` field above
 }
 
 export function FontsExample() {
@@ -55,10 +61,33 @@ export function FontsExample() {
 }
 
 /*
-  fonts={fonts} should be also passed
-  to <View /> component
+  fonts={fonts} must also be passed to <View />,
+  otherwise the published page falls back to the default font
 */
-
 ```
 
-<img src="./assets/fonts01.png" />
+## Self-hosted fonts
+
+`stylesheet` is ordinary JSX, so a `@font-face` declaration works just as well as a Google Fonts link:
+
+```jsx
+{
+  label: 'Suisse',
+  value: 'suisse',
+  fontFamily: "'Suisse', sans-serif",
+  stylesheet: (
+    <style>{`
+      @font-face {
+        font-family: 'Suisse';
+        src: url('/fonts/suisse.woff2') format('woff2');
+        font-weight: 400 700;
+        font-display: swap;
+      }
+    `}</style>
+  ),
+}
+```
+
+## Per-component fonts
+
+To let a single component override the page font, add a property of type [`fontFamily`](./01-COMPONENTS.md#fontfamily) - it renders a dropdown filled with the fonts declared here.

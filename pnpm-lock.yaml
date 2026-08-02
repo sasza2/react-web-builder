@@ -12,8 +12,8 @@ importers:
         specifier: 2.9.0
         version: 2.9.0(react-redux@9.2.0(@types/react@18.2.47)(react@18.2.0)(redux@5.0.1))(react@18.2.0)
       '@sasza/react-panzoom':
-        specifier: 1.19.0
-        version: 1.19.0(react@18.2.0)
+        specifier: 1.20.0
+        version: 1.20.0(react@18.2.0)
       arrows-svg:
         specifier: 1.8.1
         version: 1.8.1
@@ -45,8 +45,8 @@ importers:
         specifier: 5.2.7
         version: 5.2.7(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-grid-panzoom:
-        specifier: 1.10.4
-        version: 1.10.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 1.14.0
+        version: 1.14.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-i18next:
         specifier: 15.7.3
         version: 15.7.3(i18next@25.5.2(typescript@5.9.2))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.9.2)
@@ -846,14 +846,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@sasza/react-panzoom@1.18.2':
-    resolution: {integrity: sha512-JVpaMGFYCXAxvZXRX7rJSf86Skd1Myab9mnS1un9HICETLigDzgtWchPns0206WEDQMEWE9qRLXbcWgH92ncng==}
-    engines: {pnpm: 8.15.5}
-    peerDependencies:
-      react: '>=16.14.0'
-
-  '@sasza/react-panzoom@1.19.0':
-    resolution: {integrity: sha512-f8fUxBL3DzLSl7OTxTq+J2eDx+gI4Yr0i3MMGNzvLQVBWq9xmX92oTHbUe9dmVawMN2sGrMTDf1ydVJny+24MQ==}
+  '@sasza/react-panzoom@1.20.0':
+    resolution: {integrity: sha512-JA4tYiGJCLb5MAVJfvgk7WQxpPxu/zDUBpTPFOtlSN4gxYYwBITGy4xtoW6NlOla1nOSF7PiSU7cLjXxS6TDhQ==}
     engines: {pnpm: 8.15.5}
     peerDependencies:
       react: '>=16.14.0'
@@ -1849,12 +1843,8 @@ packages:
   package-manager-detector@0.2.11:
     resolution: {integrity: sha512-BEnLolu+yuz22S56CU1SUKq3XC3PkwD5wv4ikR4MfGvnRVcmzXR9DwSlW2fEamyTPyXHomBJRzgapeuBvRNzJQ==}
 
-  panzoom-core@1.8.2:
-    resolution: {integrity: sha512-bSKZi2Q7PmZFwsizjhpW7fjTitpc7SpzLxcj3lqhG0jCaiBwQ3Hfst2S83IokTn17K7KyUMuoFIYkLXJcC1s/g==}
-    engines: {pnpm: 8.15.5}
-
-  panzoom-core@1.9.0:
-    resolution: {integrity: sha512-afbg+q8mWih22EloOdhyTqJjKvdbb8ilaYdN5N90/jBf9Gl1Bd13u/K6Zz9UxchgcCGJgStmTcANPB6/FVdzaQ==}
+  panzoom-core@1.10.0:
+    resolution: {integrity: sha512-VHyhjffjuKWoaq3n3KBjEoTgeC4gaYLHGV2iGTh2zuYQyuqZ378QIi5ceXT5gWNhDaxsDe+G3wYxdHj15D9uBw==}
     engines: {pnpm: 8.15.5}
 
   parent-module@1.0.1:
@@ -2001,8 +1991,8 @@ packages:
       react: '>= 16.3'
       react-dom: '>= 16.3'
 
-  react-grid-panzoom@1.10.4:
-    resolution: {integrity: sha512-lKBd+gwe5ugAdSzrTC4IquaFYb4D8AVO2iiR46vuqJIVjsdvvldMMgOf8Cpg9bbOC1O9GZXn5RH/mHuO/gP/FA==}
+  react-grid-panzoom@1.14.0:
+    resolution: {integrity: sha512-k1XxqChyKyorHSOCZ5Q45adAxj6dnzgESCqfDcELK4gL8FcVbHYzBqEPsJh+TPG4D7yQ1AyLvzQVd4soIdo+HA==}
     engines: {pnpm: 8.15.5}
     peerDependencies:
       react: '>=16.14.0'
@@ -3310,14 +3300,9 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.50.1':
     optional: true
 
-  '@sasza/react-panzoom@1.18.2(react@18.2.0)':
+  '@sasza/react-panzoom@1.20.0(react@18.2.0)':
     dependencies:
-      panzoom-core: 1.8.2
-      react: 18.2.0
-
-  '@sasza/react-panzoom@1.19.0(react@18.2.0)':
-    dependencies:
-      panzoom-core: 1.9.0
+      panzoom-core: 1.10.0
       react: 18.2.0
 
   '@standard-schema/spec@1.0.0': {}
@@ -4350,9 +4335,7 @@ snapshots:
     dependencies:
       quansync: 0.2.11
 
-  panzoom-core@1.8.2: {}
-
-  panzoom-core@1.9.0: {}
+  panzoom-core@1.10.0: {}
 
   parent-module@1.0.1:
     dependencies:
@@ -4500,9 +4483,9 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  react-grid-panzoom@1.10.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  react-grid-panzoom@1.14.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
-      '@sasza/react-panzoom': 1.18.2(react@18.2.0)
+      '@sasza/react-panzoom': 1.20.0(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 

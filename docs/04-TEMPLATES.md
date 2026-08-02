@@ -1,37 +1,53 @@
 # Templates
 
-Templates are a tree structure. They are used to prepare the starter layout of the builder, so that user can start from a certain state.
+A template is a tree that describes a starting layout. It is applied when the builder opens, so users begin from a real page instead of an empty grid.
+
+Templates are declared per [breakpoint](./03-BREAKPOINTS.md), which means the mobile and desktop versions of the same starter layout can differ.
 
 <img src="./assets/templates01.gif" />
+
+## How the tree works
+
+Each node has a `type`:
+
+| Type | Meaning |
+| --- | --- |
+| `row` | Stacks its children vertically |
+| `column` | Places its children next to each other horizontally |
+| `component` | A leaf holding a single `element` |
+| `fixed` | A node whose position is not recalculated by the layout |
+
+Sizes and margins are expressed in **grid units** - `w` and the horizontal margins in columns, the vertical margins in rows - so a template adapts to whatever `cols` the breakpoint declares.
 
 ## Structure
 
 | Prop | Type | Description |
 | --- | --- | --- |
-| id | string | id of tree node |
-| children | Tree | recursive tree node element |
-| marginLeft | number | margin left in <a href="./03-BREAKPOINTS.md">breakpoint</a> columns from left side |
-| marginRight | number | margin right in <a href="./03-BREAKPOINTS.md">breakpoint</a> columns from right side |
-| marginTop | number | margin top in <a href="./03-BREAKPOINTS.md">breakpoint</a> rows from top |
-| marginBottom | number | margin bottom in <a href="./03-BREAKPOINTS.md">breakpoint</a> rows |
-| paddingBottom | internal | - |
-| element | WebBuilderElement | more about <a href="./01-COMPONENTS.md#element">element</a> |
-| w | number | width of element in <a href="./03-BREAKPOINTS.md">breakpoint</a> columns |
-| type | row / column / component / fixed | type of node |
+| id | string | Unique id of the tree node |
+| type | `row` \| `column` \| `component` \| `fixed` | Node type |
+| children | Tree[] | Child nodes (for `row` and `column`) |
+| element | WebBuilderElement | The element to render (for `component`) - [read more](./01-COMPONENTS.md#element) |
+| w | number | Width of the node in [breakpoint](./03-BREAKPOINTS.md) columns |
+| h | number | Height of the node in [breakpoint](./03-BREAKPOINTS.md) rows |
+| marginLeft | number | Margin from the left, in columns |
+| marginRight | number | Margin from the right, in columns |
+| marginTop | number | Margin from the top, in rows |
+| marginBottom | number | Margin from the bottom, in rows |
+| paddingBottom | internal | Managed by the builder |
+
+The `componentName` of an element must match the id of a built-in component (`Box`, `Image`, `Video`, `CustomButton`, `Line`, `Separator`, `Iframe`, `Anchor`, `HTMLComponent`, `Container`) or one of your own [components](./01-COMPONENTS.md).
 
 ## Example
 
-LIVE
+The example below uses [breakpoint](./03-BREAKPOINTS.md) objects. A live version is available in `src/stories/Templates.stories.tsx`.
 
-example below is using breakpoint objects (<a href="./03-BREAKPOINTS.md">read more</a>)
-
-```jsx
+```tsx
 import React from 'react';
 import WebBuilder, { Page, Tree } from 'react-web-builder';
 
-const createUniqueId = () => // ...
+const createUniqueId = () => crypto.randomUUID();
 
-const templateDekstop: Tree = {
+const templateDesktop: Tree = {
   id: createUniqueId(),
   marginBottom: 0,
   marginLeft: 0,
@@ -40,6 +56,7 @@ const templateDekstop: Tree = {
   type: 'row',
   w: 10,
   children: [
+    // a heading, indented by 2 columns
     {
       id: createUniqueId(),
       marginBottom: 0,
@@ -58,6 +75,7 @@ const templateDekstop: Tree = {
         w: 8,
       },
     },
+    // two text blocks side by side
     {
       id: createUniqueId(),
       marginBottom: 0,
@@ -135,6 +153,7 @@ const templateMobile: Tree = {
         w: 4,
       },
     },
+    // an image with a preset source
     {
       id: createUniqueId(),
       marginBottom: 0,
@@ -158,53 +177,7 @@ const templateMobile: Tree = {
         w: 3,
       },
     },
-    {
-      id: createUniqueId(),
-      marginBottom: 0,
-      marginLeft: 0,
-      marginRight: 0,
-      marginTop: 3,
-      type: 'column',
-      w: 5,
-      children: [
-        {
-          id: createUniqueId(),
-          marginBottom: 0,
-          marginLeft: 0,
-          marginRight: 0,
-          marginTop: 0,
-          w: 3,
-          type: 'component',
-          element: {
-            id: createUniqueId(),
-            componentName: 'Box',
-            props: [],
-            h: 'auto',
-            x: 0,
-            y: 0,
-            w: 3,
-          },
-        },
-        {
-          id: createUniqueId(),
-          marginBottom: 0,
-          marginLeft: 0,
-          marginRight: 0,
-          marginTop: 0,
-          w: 2,
-          type: 'component',
-          element: {
-            id: createUniqueId(),
-            componentName: 'Box',
-            props: [],
-            h: 'auto',
-            x: 0,
-            y: 0,
-            w: 2,
-          },
-        },
-      ],
-    },
+    // a button with preset rich text content
     {
       id: createUniqueId(),
       marginBottom: 0,
@@ -268,7 +241,7 @@ const template = {
         right: 15,
         bottom: 0,
       },
-      template: templateDekstop,
+      template: templateDesktop,
     },
   ],
 } as Page;
@@ -280,4 +253,35 @@ export function TemplateExample() {
     />
   );
 }
+```
+
+## Presetting property values
+
+Elements inside a template can carry values for their [properties](./01-COMPONENTS.md#props). Each entry uses `propId` (the property id) and `value` (in the shape that property type expects):
+
+```jsx
+element: {
+  id: createUniqueId(),
+  componentName: 'hero',
+  props: [
+    { propId: 'title', value: 'Ship faster' },
+    { propId: 'backgroundColor', value: '#101828' },
+    { propId: 'cta', value: { location: '/signup', openInNewTab: false } },
+  ],
+  h: 'auto',
+  x: 0,
+  y: 0,
+  w: 10,
+}
+```
+
+## Restarting a template
+
+Pair templates with `onTemplateRestart` to let users start over from the initial layout:
+
+```jsx
+<WebBuilder
+  page={template}
+  onTemplateRestart={() => template}
+/>
 ```
