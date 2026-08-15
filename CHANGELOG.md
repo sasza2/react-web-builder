@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.25.0
+
+### Minor Changes
+
+- ec9e169: update panzoom packages
+
 ## 0.24.0
 
 ### Minor Changes
