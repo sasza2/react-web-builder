@@ -1,6 +1,6 @@
 {
   "name": "react-web-builder",
-  "version": "0.24.0",
+  "version": "0.25.0",
   "description": "React components for building pages",
   "main": "./dist/WebBuilder.cjs",
   "module": "./dist/WebBuilder.js",
