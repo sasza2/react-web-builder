@@ -28,3 +28,14 @@ it("should properly merge styles", () => {
 		color: "green",
 	});
 });
+
+it("should skip properties with undefined value", () => {
+	expect(
+		mergeStyles({
+			color: "green",
+			background: undefined,
+		}),
+	).toStrictEqual({
+		color: "green",
+	});
+});

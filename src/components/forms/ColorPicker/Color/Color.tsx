@@ -5,7 +5,7 @@ import { ColorType, getColorForTooltip } from "@/utils/colors";
 import { getColorType } from "@/utils/colors/common";
 import { assignTestProp } from "@/utils/tests";
 
-import { Color as ColorDiv, ColorContainer } from "./Color.styled";
+import { ColorContainer, Color as ColorDiv } from "./Color.styled";
 
 type ColorProps = {
 	active?: boolean;

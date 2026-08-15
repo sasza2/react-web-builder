@@ -10,9 +10,8 @@ import { RenderTree } from "@/components/View/RenderTree";
 import { useFontImport } from "@/hooks/useFontImport";
 import { mergeStyles } from "@/utils/styles";
 import { HIDE_SCROLLBAR_CLASS_NAME } from "@/View.styled";
-
-import { useContainerStyle } from "../useContainerStyle";
 import { ElementContainerDecorator } from "../ElementContainerDecorator/ElementContainerDecorator";
+import { useContainerStyle } from "../useContainerStyle";
 
 type ViewElementContainerProps = {
 	backgroundImage?: BackgroundImage;

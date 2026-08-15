@@ -1,6 +1,7 @@
 import { expect, it } from "vitest";
 
-import { type NodeElement, transform } from "./transform";
+import { initErrorsInstance } from "./errors";
+import { type NodeElement, prepareAttributes, transform } from "./transform";
 
 it("should return safe html", () => {
 	const [transformChild] = transform(
@@ -1394,6 +1395,203 @@ it("should output empty <style> block if only @media rules are present", () => {
 			type: "element",
 		},
 	]);
+});
+
+it("prepareAttributes should report invalid height/width values", () => {
+	const errors = initErrorsInstance();
+
+	const result = prepareAttributes(
+		"img",
+		{ height: "not-a-size", width: "also-not-a-size" },
+		errors,
+	);
+
+	expect(result).toStrictEqual({});
+	expect(errors.errors).toStrictEqual([
+		{
+			type: "UnsupportedHTMLAttributeValue",
+			tagName: "img",
+			attribute: "height",
+			value: "not-a-size",
+		},
+		{
+			type: "UnsupportedHTMLAttributeValue",
+			tagName: "img",
+			attribute: "width",
+			value: "also-not-a-size",
+		},
+	]);
+});
+
+it("prepareAttributes should keep valid height/width values", () => {
+	const errors = initErrorsInstance();
+
+	const result = prepareAttributes(
+		"img",
+		{ height: "100px", width: "50%" },
+		errors,
+	);
+
+	expect(result).toStrictEqual({ height: "100px", width: "50%" });
+	expect(errors.errors).toStrictEqual([]);
+});
+
+it("prepareAttributes should not touch href/src when absent", () => {
+	const errorsA = initErrorsInstance();
+	expect(prepareAttributes("a", {}, errorsA)).toStrictEqual({});
+	expect(errorsA.errors).toStrictEqual([]);
+
+	const errorsImg = initErrorsInstance();
+	expect(prepareAttributes("img", {}, errorsImg)).toStrictEqual({});
+	expect(errorsImg.errors).toStrictEqual([]);
+});
+
+it("prepareAttributes should report invalid href/src links", () => {
+	const errorsA = initErrorsInstance();
+	expect(
+		prepareAttributes("a", { href: "javascript:alert(1)" }, errorsA),
+	).toStrictEqual({});
+	expect(errorsA.errors).toStrictEqual([
+		{
+			type: "UnsupportedHTMLAttributeValue",
+			tagName: "a",
+			attribute: "href",
+			value: "javascript:alert(1)",
+		},
+	]);
+
+	const errorsImg = initErrorsInstance();
+	expect(
+		prepareAttributes("img", { src: "javascript:alert(1)" }, errorsImg),
+	).toStrictEqual({});
+	expect(errorsImg.errors).toStrictEqual([
+		{
+			type: "UnsupportedHTMLAttributeValue",
+			tagName: "img",
+			attribute: "src",
+			value: "javascript:alert(1)",
+		},
+	]);
+});
+
+it("should apply the prefixed className when a tag maps to a different tag", () => {
+	const [result] = transform("<footer>Text</footer>", {
+		classNamePrefix: "builder",
+		createNodeKey: () => "key",
+	});
+
+	expect(result).toStrictEqual([
+		{
+			attributes: {
+				className: "builder-footer ",
+			},
+			children: [
+				{
+					key: "key",
+					text: "Text",
+					type: "text",
+				},
+			],
+			key: "key",
+			tagName: "footer",
+			type: "element",
+		},
+	]);
+});
+
+it("should drop CSS rules with invalid selectors inside <style>", () => {
+	const [result] = transform(
+		"<style>a[href^=] { color: red; } .ok { color: blue; }</style>" +
+			'<div class="ok">Test</div>',
+		{
+			classNamePrefix: "builder",
+			createNodeKey: () => "key",
+		},
+	);
+
+	expect(result[0]).toStrictEqual({
+		children: [
+			{
+				selector: ".builder .ok",
+				style: { color: "blue" },
+			},
+		],
+		key: "key",
+		type: "style",
+	});
+});
+
+it("should rename html/body tags to fragment and keep them", () => {
+	const [result] = transform("<html><body>Content</body></html>", {
+		classNamePrefix: "builder",
+		createNodeKey: () => "key",
+	});
+
+	expect(result).toStrictEqual([
+		{
+			attributes: {},
+			children: [
+				{
+					attributes: {},
+					children: [
+						{
+							key: "key",
+							text: "Content",
+							type: "text",
+						},
+					],
+					key: "key",
+					tagName: "fragment",
+					type: "element",
+				},
+			],
+			key: "key",
+			tagName: "fragment",
+			type: "element",
+		},
+	]);
+});
+
+it("should use the default createUniqueId when createNodeKey is not provided", () => {
+	const [result] = transform("<div>hello</div>", {
+		classNamePrefix: "builder",
+	});
+
+	expect((result[0] as NodeElement).key).toEqual(expect.any(String));
+});
+
+it("should drop malformed CSS content inside <style> and report an error", () => {
+	const [result, errors] = transform("<style>{{{ invalid</style><div></div>", {
+		classNamePrefix: "builder",
+		createNodeKey: () => "key",
+	});
+
+	expect(result).toStrictEqual([
+		{
+			children: [],
+			key: "key",
+			type: "style",
+		},
+		{
+			attributes: {},
+			children: [],
+			key: "key",
+			tagName: "div",
+			type: "element",
+		},
+	]);
+	expect(errors.errors).toStrictEqual([
+		{ type: "invalidCSS", css: "{{{ invalid" },
+	]);
+});
+
+it("should return an empty tree for a stray closing tag", () => {
+	const [result] = transform("</div>", {
+		classNamePrefix: "builder",
+		createNodeKey: () => "key",
+	});
+
+	expect(result).toStrictEqual([]);
 });
 
 it("should exclude @import and @media but keep valid CSS rules", () => {

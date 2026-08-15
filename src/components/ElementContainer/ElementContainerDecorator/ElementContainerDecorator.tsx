@@ -1,7 +1,6 @@
 import React from "react";
-
-import { useProperties } from "@/components/PropertiesProvider";
 import type { Breakpoint } from "types";
+import { useProperties } from "@/components/PropertiesProvider";
 
 type ElementContainerDecoratorProps = {
 	children: React.ReactNode;
