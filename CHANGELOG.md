@@ -1,5 +1,11 @@
 # react-web-builder
 
+## 0.25.1
+
+### Patch Changes
+
+- 085d62a: fix: video url component"
+
 ## 0.25.0
 
 ### Minor Changes
