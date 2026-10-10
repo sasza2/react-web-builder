@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useMemo } from "react";
 import ReactPlayer from "react-player";
 import type {
 	BuilderCommonProps,
@@ -85,10 +85,23 @@ export function Image({ border, boxShadow, href, url }: ImageComponentProps) {
 }
 
 function VideoIn({ url }: VideoComponentProps) {
+	const location = url?.location ?? "";
+
+	const controls = useMemo(() => {
+		// Vimeo player blocks clicks without controls
+		if (/(^|\.|\/\/)vimeo\.com\//i.test(location)) return true;
+		return undefined;
+	}, [location]);
+
 	if (!url) return null;
 	return (
 		<VideoWrapper>
-			<ReactPlayer src={url.location} width="100%" height="100%" />
+			<ReactPlayer
+				src={url.location}
+				controls={controls}
+				width="100%"
+				height="100%"
+			/>
 		</VideoWrapper>
 	);
 }

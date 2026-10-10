@@ -3,8 +3,12 @@ import React from "react";
 import { describe, expect, it, vi } from "vitest";
 
 vi.mock("react-player", () => ({
-	default: ({ src }: { src: string }) => (
-		<div data-testid="react-player" data-src={src} />
+	default: ({ src, controls }: { src: string; controls?: boolean }) => (
+		<div
+			data-testid="react-player"
+			data-src={src}
+			data-controls={controls === undefined ? undefined : String(controls)}
+		/>
 	),
 }));
 
@@ -96,6 +100,28 @@ describe("Video", () => {
 		const player = getByTestId("react-player");
 		expect(player.getAttribute("data-src")).toBe(
 			"https://example.com/video.mp4",
+		);
+	});
+
+	it("enables controls for Vimeo so the video can be played", () => {
+		const { getByTestId } = render(
+			<StyleProvider>
+				<Video url={{ location: "https://vimeo.com/1047391738" }} />
+			</StyleProvider>,
+		);
+		expect(getByTestId("react-player").getAttribute("data-controls")).toBe(
+			"true",
+		);
+	});
+
+	it("leaves controls undefined for non-Vimeo urls", () => {
+		const { getByTestId } = render(
+			<StyleProvider>
+				<Video url={{ location: "https://www.youtube.com/watch?v=1" }} />
+			</StyleProvider>,
+		);
+		expect(getByTestId("react-player").hasAttribute("data-controls")).toBe(
+			false,
 		);
 	});
 
